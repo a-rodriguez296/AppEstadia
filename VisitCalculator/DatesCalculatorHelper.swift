@@ -33,4 +33,10 @@ class DatesCalculatorHelper{
         
         return count
     }
+    
+    
+    class func remainingDaysWithCount(count: Int) -> Int{
+        return 183 - count
+    }
+    
 }

@@ -101,10 +101,9 @@ class ViewController: UIViewController, WWCalendarTimeSelectorProtocol {
         let riskyCalculation = UIAlertAction(title: "Conservadora", style: .Default){[unowned self] _ in
             
 
-            
-            let remainingDays = 183 - DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
-            
-            let alertController = UIAlertController(title: "", message: "De los 183 días disponibles, te quedan \(remainingDays) para no ser clasificado como residente", preferredStyle: .Alert)
+            let count = DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
+            let remainingDays = DatesCalculatorHelper.remainingDaysWithCount(count)
+            let alertController = UIAlertController(title: "", message: "En los últimos 365 días, Usted ha permanecido \(count). \n Le quedan quedan \(remainingDays) para no volverse residente", preferredStyle: .Alert)
             
             let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
             alertController.addAction(dismissAction)
