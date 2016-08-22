@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IYQ-eO-bLh">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-Gb-I7u">
+                                <rect key="frame" x="0.0" y="64" width="600" height="490"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="mIk-om-hcA"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Hh6-Am-Ab8"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVR-Cy-IR4">
+                                <rect key="frame" x="272" y="562" width="56" height="30"/>
+                                <state key="normal" title="Calcular"/>
+                                <connections>
+                                    <action selector="didTapCalcular:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x98-jU-Xd1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uVR-Cy-IR4" secondAttribute="bottom" constant="8" id="0gU-TD-XbG"/>
+                            <constraint firstItem="uVR-Cy-IR4" firstAttribute="top" secondItem="cZF-Gb-I7u" secondAttribute="bottom" constant="8" id="1Cn-OW-YeK"/>
+                            <constraint firstItem="cZF-Gb-I7u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Hh-Ym-CJo"/>
+                            <constraint firstItem="uVR-Cy-IR4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dem-jg-BLa"/>
+                            <constraint firstItem="cZF-Gb-I7u" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ijt-LE-YbX"/>
+                            <constraint firstAttribute="trailing" secondItem="cZF-Gb-I7u" secondAttribute="trailing" id="sxZ-Ii-zCM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cVc-VS-Uct">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tUJ-5W-Rcy">
+                            <connections>
+                                <action selector="didTapButton:" destination="BYZ-38-t0r" id="3r1-GS-gOb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="cZF-Gb-I7u" id="jwp-c5-Heg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="587"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p1y-OI-JPP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IYQ-eO-bLh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H7a-UJ-of9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kLv-Iy-WJb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZs-RZ-fjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="587"/>
+        </scene>
+    </scenes>
+</document>
