@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* ViewController.swift */; };
 		35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7081D5B75BE0078B8C8 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1E4BDC95A0DA73798AA7CBDB /* Pods-VisitCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculator/Pods-VisitCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCalculatorHelper.swift; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5C7061D5B75BD0078B8C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35B588331D6B97B60097FBF1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				35E5C7261D5B7C8B0078B8C8 /* DateFormatHelper.swift */,
+				35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		35E5C6F81D5B75BD0078B8C8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +113,7 @@
 				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
 				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
 				35E5C7241D5B7AB10078B8C8 /* Stay.swift */,
-				35E5C7261D5B7C8B0078B8C8 /* DateFormatHelper.swift */,
+				35B588331D6B97B60097FBF1 /* Helpers */,
 				35E5C7281D5B88820078B8C8 /* NSDate.swift */,
 			);
 			path = VisitCalculator;
@@ -324,6 +335,7 @@
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* ViewController.swift in Sources */,
+				35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */,
 				35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */,
 				35E5C7291D5B88820078B8C8 /* NSDate.swift in Sources */,
 			);
