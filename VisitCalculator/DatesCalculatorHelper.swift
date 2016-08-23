@@ -14,7 +14,9 @@ class DatesCalculatorHelper{
     
     static let beginingDate = (1.years.ago + 1.days).startOf(.Day)
     
-    static let endDate = (NSDate().endOf(.Year)).endOf(.Day)
+    
+    //Este valor es hasta el final del año actual, o hasta el día de hoy?
+    static let endDate = NSDate().endOf(.Day)//(NSDate().endOf(.Year)).endOf(.Day)
     
     class func countDaysWithinTheLastYearWithArray(datesArray: Array<Stay>) -> Int{
         
@@ -43,9 +45,8 @@ class DatesCalculatorHelper{
     class func dateRangesWithArray(staysArray: Array<Stay>) -> Array<DatesRange>{
         
         //Define begining and end of the year
-        let currentBeginingDate = (1.years.ago + 1.days).startOf(.Day)
-        let currentEndDate = NSDate().endOf(.Day)
-        
+//        let currentBeginingDate = (1.years.ago + 1.days).startOf(.Day)
+//        let currentEndDate = NSDate().endOf(.Day)
         
         var datesRanges = Array<DatesRange>()
         
@@ -55,7 +56,7 @@ class DatesCalculatorHelper{
                 let date = stay.dates.first!
                 
                 //If this single date is between the
-                if date.isBetweenDates(currentBeginingDate, endDate: currentEndDate) {
+                if date.isBetweenDates(beginingDate, endDate: endDate) {
                     let datesRangeToAdd = DatesRange(dates: [date])
                     print(datesRangeToAdd)
                     datesRanges.append(datesRangeToAdd)
@@ -63,7 +64,7 @@ class DatesCalculatorHelper{
             }
             else{
                 
-                if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:currentBeginingDate, endDate: currentEndDate){
+                if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:beginingDate, endDate: endDate){
                     datesRanges.append(dateRangeToAdd)
                 }
             }
