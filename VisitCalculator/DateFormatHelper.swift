@@ -16,4 +16,10 @@ class DateFormatHelper{
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
         return formatter
     }
+    
+    class func rangeDate() -> NSDateFormatter{
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMMM"
+        return formatter
+    }
 }

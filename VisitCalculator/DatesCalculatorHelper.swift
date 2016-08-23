@@ -73,6 +73,17 @@ class DatesCalculatorHelper{
         return datesRanges
     }
     
+    class func createStringWithDatesRangeArray(array: Array<DatesRange>) -> String{
+        
+        var responseString = ""
+        
+        for dateRange in array {
+            responseString.appendContentsOf("\n \(dateRange)")
+        }
+        return responseString
+    }
+    
+    
     
     private class func createRangeWithStay(stay: Stay, beginingDate: NSDate, endDate:NSDate) -> DatesRange?{
         

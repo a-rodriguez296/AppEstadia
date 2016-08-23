@@ -57,69 +57,14 @@ class ViewController: UIViewController, WWCalendarTimeSelectorProtocol {
     
     @IBAction func didTapCalcular(sender: AnyObject) {
         
+        let count = DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
+        let remainingDays = DatesCalculatorHelper.remainingDaysWithCount(count)
+        let dateRanges = DatesCalculatorHelper.dateRangesWithArray(self.staysArray)
+        let alertController = UIAlertController(title: "", message: "En los últimos 365 días, Usted ha permanecido \(count) días. \n Le quedan quedan \(remainingDays) días para no volverse residente.\n En los siguientes rango de fechas, las fechas no suman.\(DatesCalculatorHelper.createStringWithDatesRangeArray(dateRanges))", preferredStyle: .Alert)
         
-        
-        let actionController = UIAlertController(title: "", message: "Selecciona la forma como deseas hacer el cálculo", preferredStyle: .ActionSheet)
-        
-        //Esta es la manera arriesgada
-        
-        
-        let regularCalculation = UIAlertAction(title: "Arriesgada", style: .Default){[unowned self] _ in
-            
-            let beginingDate = NSDate().startOf(.Year)
-            let endDate = NSDate().endOf(.Year)
-            
-            print(DateFormatHelper.mediumDate().stringFromDate(beginingDate))
-            print(DateFormatHelper.mediumDate().stringFromDate(endDate))
-            
-            
-            var count = 0
-            
-            for stay in self.staysArray {
-                for stayDay in stay.dates {
-                    if stayDay.isBetweenDates(beginingDate, endDate: endDate){
-                        count = count + 1
-                    }
-                }
-            }
-            
-            let remainingDays = 183 - count
-            
-            let alertController = UIAlertController(title: "", message: "De los 183 días disponibles, te quedan \(remainingDays) para no ser clasificado como residente", preferredStyle: .Alert)
-            
-            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-            alertController.addAction(dismissAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-
-        }
-
-        actionController.addAction(regularCalculation)
-        
-        
-        //Esta es la manera conservadora
-        
-        let riskyCalculation = UIAlertAction(title: "Conservadora", style: .Default){[unowned self] _ in
-            
-
-            let count = DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
-            let remainingDays = DatesCalculatorHelper.remainingDaysWithCount(count)
-            let alertController = UIAlertController(title: "", message: "En los últimos 365 días, Usted ha permanecido \(count). \n Le quedan quedan \(remainingDays) para no volverse residente", preferredStyle: .Alert)
-            
-            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-            alertController.addAction(dismissAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-            
-        }
-
-        DatesCalculatorHelper.dateRangesWithArray(self.staysArray)
-        
-        actionController.addAction(riskyCalculation)
-        
-        let cancel = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
-        actionController.addAction(cancel)
-        
-        presentViewController(actionController, animated: true, completion: nil)
-        
+        let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     
