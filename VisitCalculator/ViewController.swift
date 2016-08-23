@@ -111,6 +111,8 @@ class ViewController: UIViewController, WWCalendarTimeSelectorProtocol {
             
         }
 
+        DatesCalculatorHelper.dateRangesWithArray(self.staysArray)
+        
         actionController.addAction(riskyCalculation)
         
         let cancel = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)

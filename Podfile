@@ -13,5 +13,11 @@ pod 'SwiftDate'
     inherit! :search_paths
     # Pods for testing
   end
+  
+  target 'VisitCalculatorTests' do
+      inherit! :search_paths
+      # Pods for testing
+  end
+
 
 end
