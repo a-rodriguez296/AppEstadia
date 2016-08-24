@@ -152,6 +152,7 @@ class VisitCalculatorTests: XCTestCase {
     
     func testSemiOutsideDatesRange1(){
         
+        //These dates followthe rule inferior date + 1 year >= current date && inferior date + 1 year < endOfCurrentYear
         let semiOutsideStay = createLeftSemiOutsideDates()
         
         staysArray.append(semiOutsideStay)
@@ -162,6 +163,16 @@ class VisitCalculatorTests: XCTestCase {
         XCTAssertEqual(beginingDate!, firstElement.dates.first!)
         XCTAssertEqual(semiOutsideStay.dates.last!, firstElement.dates.last!)
         
+    }
+    
+    
+    func testA(){
+        
+        let semiOutsideStay = createA()
+        
+        staysArray.append(semiOutsideStay)
+        let dateRangesArray = DatesCalculatorHelper.dateRangesWithArray(staysArray)
+        XCTAssertEqual(0, dateRangesArray.count)
     }
     
     func testSemiOutsideDatesRange2(){
@@ -223,6 +234,8 @@ class VisitCalculatorTests: XCTestCase {
         return Stay(dates: [outside1, outside2, outside3])
     }
     
+    //Ranges Dates
+    
     func createLeftSemiOutsideDates() -> Stay{
         
         let outside1 = beginingDate! - 1.days
@@ -234,6 +247,22 @@ class VisitCalculatorTests: XCTestCase {
         let inside2 = beginingDate! + 2.days
         
         return Stay(dates: [outside3, outside2, outside1,inside, inside1, inside2])
+    }
+    
+    func createA() -> Stay{
+        
+        //Although this dates are inside the range (today - 365 days) they should not come up in the ranges, because they are useless.
+        
+        let begginingOfTheYear = NSDate().startOf(.Year)
+        let count = endDate!.daysFrom(begginingOfTheYear) - 1
+        
+
+        let inside1 = endDate! - count.days
+        let inside2 = endDate! - count.days - 1.days
+        let inside3 = endDate! - count.days - 2.days
+        
+        return Stay(dates: [ inside3, inside2, inside1])
+        
     }
     
     func createRightSemiOutsideDates() -> Stay{

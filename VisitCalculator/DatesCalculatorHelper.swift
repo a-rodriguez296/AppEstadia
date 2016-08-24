@@ -45,8 +45,8 @@ class DatesCalculatorHelper{
     class func dateRangesWithArray(staysArray: Array<Stay>) -> Array<DatesRange>{
         
         //Define begining and end of the year
-//        let currentBeginingDate = (1.years.ago + 1.days).startOf(.Day)
-//        let currentEndDate = NSDate().endOf(.Day)
+        //        let currentBeginingDate = (1.years.ago + 1.days).startOf(.Day)
+        //        let currentEndDate = NSDate().endOf(.Day)
         
         var datesRanges = Array<DatesRange>()
         
@@ -99,8 +99,10 @@ class DatesCalculatorHelper{
             //Case when the stay dates fall in between the range
         else if inferiorDate >= beginingDate && superiorDate <= endDate{
             let a = DatesRange(dates: [inferiorDate, superiorDate])
-            print(a)
-            return a
+            let projectedDate = (inferiorDate + 1.years).endOf(.Day)
+            let flag = projectedDate >= endDate &&  projectedDate < NSDate().endOf(.Year)
+            return flag ? a : nil
+            
         }
             //Case when one of the ends falls outside of the range
         else{
@@ -108,14 +110,16 @@ class DatesCalculatorHelper{
             //Case when superior date falls in between the range but the inferior date falls outside
             if superiorDate >= beginingDate && superiorDate <= endDate {
                 let a = DatesRange(dates: [beginingDate, superiorDate])
-                print(a)
-                return a
+                let projectedDate = (beginingDate + 1.years).endOf(.Day)
+                let flag = projectedDate >= endDate &&  projectedDate < NSDate().endOf(.Year)
+                return flag ? a : nil
             }
                 //Case when the inferior date falls in between the range but the superior date falls outside.
             else{
                 let a  = DatesRange(dates: [inferiorDate, endDate])
-                print(a)
-                return a
+                let projectedDate = (inferiorDate + 1.years).endOf(.Day)
+                let flag = projectedDate >= endDate && projectedDate < NSDate().endOf(.Year)
+                return flag ? a : nil
             }
         }
     }

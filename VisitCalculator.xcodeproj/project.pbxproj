@@ -104,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3511662B1D6CD35F00A2A1F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35E5C7281D5B88820078B8C8 /* NSDate.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		3540D05E1D6C8C58000AF728 /* VisitCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +172,7 @@
 				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
 				35B588341D6BA2880097FBF1 /* Models */,
 				35B588331D6B97B60097FBF1 /* Helpers */,
-				35E5C7281D5B88820078B8C8 /* NSDate.swift */,
+				3511662B1D6CD35F00A2A1F2 /* Extensions */,
 			);
 			path = VisitCalculator;
 			sourceTree = "<group>";
