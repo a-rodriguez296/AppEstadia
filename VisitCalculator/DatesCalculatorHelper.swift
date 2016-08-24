@@ -98,28 +98,39 @@ class DatesCalculatorHelper{
         }
             //Case when the stay dates fall in between the range
         else if inferiorDate >= beginingDate && superiorDate <= endDate{
-            let a = DatesRange(dates: [inferiorDate, superiorDate])
-            let projectedDate = (inferiorDate + 1.years).endOf(.Day)
-            let flag = projectedDate >= endDate &&  projectedDate < NSDate().endOf(.Year)
-            return flag ? a : nil
-            
+            let projectedInferiorDate = (inferiorDate + 1.years).endOf(.Day)
+            if projectedInferiorDate >= endDate &&  projectedInferiorDate < NSDate().endOf(.Year){
+                var projectedSuperiorDate:NSDate?
+                
+                //To understand this if please check test testSemiInsideDatesRange1 in VisitCalculatorTests
+                if superiorDate > (1.years.ago).endOf(.Year) {
+                    projectedSuperiorDate = (1.years.ago).endOf(.Year)
+                }
+                else{
+                    projectedSuperiorDate = superiorDate
+                }
+                return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
+            }
+            else{
+                return nil
+            }
         }
             //Case when one of the ends falls outside of the range
         else{
             
             //Case when superior date falls in between the range but the inferior date falls outside
             if superiorDate >= beginingDate && superiorDate <= endDate {
-                let a = DatesRange(dates: [beginingDate, superiorDate])
+                let dateRange = DatesRange(dates: [beginingDate, superiorDate])
                 let projectedDate = (beginingDate + 1.years).endOf(.Day)
                 let flag = projectedDate >= endDate &&  projectedDate < NSDate().endOf(.Year)
-                return flag ? a : nil
+                return flag ? dateRange : nil
             }
                 //Case when the inferior date falls in between the range but the superior date falls outside.
             else{
-                let a  = DatesRange(dates: [inferiorDate, endDate])
+                let dateRange  = DatesRange(dates: [inferiorDate, endDate])
                 let projectedDate = (inferiorDate + 1.years).endOf(.Day)
                 let flag = projectedDate >= endDate && projectedDate < NSDate().endOf(.Year)
-                return flag ? a : nil
+                return flag ? dateRange : nil
             }
         }
     }
