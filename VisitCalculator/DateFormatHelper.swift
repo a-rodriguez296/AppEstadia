@@ -22,4 +22,9 @@ class DateFormatHelper{
         formatter.dateFormat = "dd MMMM"
         return formatter
     }
+    
+    class func stringFromDate(date: NSDate) ->String{
+        return mediumDate().stringFromDate(date)
+        
+    }
 }

@@ -57,14 +57,14 @@ class ViewController: UIViewController, WWCalendarTimeSelectorProtocol {
     
     @IBAction func didTapCalcular(sender: AnyObject) {
         
-        let count = DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
-        let remainingDays = DatesCalculatorHelper.remainingDaysWithCount(count)
-        let dateRanges = DatesCalculatorHelper.dateRangesWithArray(self.staysArray)
-        let alertController = UIAlertController(title: "", message: "En los últimos 365 días, Usted ha permanecido \(count) días. \n Le quedan quedan \(remainingDays) días para no volverse residente.\n En los siguientes rango de fechas, las fechas no suman.\(DatesCalculatorHelper.createStringWithDatesRangeArray(dateRanges))", preferredStyle: .Alert)
-        
-        let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-        alertController.addAction(dismissAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+//        let count = DatesCalculatorHelper.countDaysWithinTheLastYearWithArray(self.staysArray)
+//        let remainingDays = DatesCalculatorHelper.remainingDaysWithCount(count)
+//        let dateRanges = DatesCalculatorHelper.dateRangesWithArray(self.staysArray)
+//        let alertController = UIAlertController(title: "", message: "En los últimos 365 días, Usted ha permanecido \(count) días. \n Le quedan quedan \(remainingDays) días para no volverse residente.\n En los siguientes rango de fechas, las fechas no suman.\(DatesCalculatorHelper.createStringWithDatesRangeArray(dateRanges))", preferredStyle: .Alert)
+//        
+//        let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+//        alertController.addAction(dismissAction)
+//        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     

@@ -19,12 +19,15 @@ extension NSDate
             return false
         }
         
-        if self.compare(endDate) == .OrderedDescending
+        else if self.compare(endDate) == .OrderedDescending
         {
             return false
         }
+        else{
+           return true 
+        }
         
-        return true
+        
     }
     
     
