@@ -121,8 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */,
-				3540D0611D6C8C58000AF728 /* Info.plist */,
 				35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */,
+				3540D0611D6C8C58000AF728 /* Info.plist */,
 			);
 			path = VisitCalculatorTests;
 			sourceTree = "<group>";

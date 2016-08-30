@@ -8,30 +8,49 @@
 
 import Foundation
 
-struct Stay:CustomStringConvertible {
+struct Stay {
     
     var dates:Array<NSDate>
     
     
-    var description: String{
-        if dates.count == 0{
-            return ""
-        }
-        else if dates.count == 1 {
-            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.first!)
-        }
-        else{
-            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
-        }
-        
-    }
     
     init(dates: Array<NSDate>){
         
         self.dates = dates
     }
-    
-    
-    
 }
 
+
+//MARK: Extensions
+
+extension Stay: CustomStringConvertible{
+    var description: String{
+        if dates.count == 0{
+            return ""
+        }
+        else if dates.count == 1 {
+            return DateFormatHelper.mediumDate().stringFromDate(dates.first!)
+//            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.first!)
+        }
+        else{
+            return DateFormatHelper.mediumDate().stringFromDate(dates.first!)
+//            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
+        }
+    }
+}
+
+//MARK: Equatable
+
+extension Stay: Equatable{}
+
+func ==(lhs: Stay, rhs: Stay) -> Bool {
+    return lhs.dates == rhs.dates
+}
+
+//MARK: Comparable
+extension Stay: Comparable {}
+
+func < (lhs: Stay, rhs: Stay) -> Bool {
+    
+    return lhs.dates.first! < rhs.dates.first!
+}

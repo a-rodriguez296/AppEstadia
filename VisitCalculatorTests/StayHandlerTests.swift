@@ -10,20 +10,20 @@ import XCTest
 import SwiftDate
 
 class StayHandlerTests: XCTestCase {
-
+    
     var stayHandler:StayHandler?
     
     override func setUp() {
         super.setUp()
         stayHandler = StayHandler.sharedInstance
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        stayHandler!.dumpStays()
+        stayHandler = nil
     }
-
+    
     func testAddDates(){
         
         let stay = createStay()
@@ -40,15 +40,20 @@ class StayHandlerTests: XCTestCase {
         XCTAssertEqual(3,stayHandler!.datesCount())
     }
     
+    func testAddDates2(){
+        let stay = createStay()
+        
+        stayHandler!.addStay(stay)
+        XCTAssertEqual(1,stayHandler!.staysCount())
+    }
+    
     func testAddRepeatedDates(){
         
         
         let stay = createStay()
-        
         stayHandler!.addStay(stay)
         
         let repeatedStay = createRepeatedStay()
-        
         let repeatedDate = stayHandler!.addStay(repeatedStay)
         XCTAssertEqual(repeatedDate, NSDate().endOf(.Day).endOf(.Day))
     }
@@ -57,23 +62,148 @@ class StayHandlerTests: XCTestCase {
         
         
         let stay = createStay()
-        
         stayHandler!.addStay(stay)
         
         let repeatedStay = createRepeatedStay()
-        
         stayHandler!.addStay(repeatedStay)
-        
         XCTAssertEqual(3, stayHandler?.datesCount())
     }
     
+    func testAddRepeatedDates2(){
+        
+        
+        let stay = createStay()
+        stayHandler!.addStay(stay)
+        
+        let repeatedStay = createRepeatedStay()
+        stayHandler!.addStay(repeatedStay)
+        XCTAssertEqual(1, stayHandler?.staysCount())
+    }
     
+    
+    func testAddSeveralStays(){
+        
+        let staysArray = createStaysArray()
+        
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        XCTAssertEqual(staysArray.count * 3,stayHandler!.datesCount())
+    }
+    
+    func testAddSeveralStays1(){
+        
+        let staysArray = createStaysArray()
+        
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        XCTAssertEqual(staysArray.count,stayHandler!.staysCount())
+    }
+    
+    func testAddSeveralStays2(){
+        /*
+         This test is for checking the order of staysArray
+         
+         The correct order should be:
+         [1], [2], [3], [0]
+         */
+        let staysArray = createStaysArray()
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        
+        let orderedArray = stayHandler!.staysArray()
+        
+        XCTAssertEqual(staysArray[1],orderedArray[0])
+        XCTAssertEqual(staysArray[2],orderedArray[1])
+        XCTAssertEqual(staysArray[3],orderedArray[2])
+        XCTAssertEqual(staysArray[0],orderedArray[3])
+    }
+    
+    func testAddSeveralStays3(){
+        /*
+         This test is for checking that staysArray does not contain repeated dates
+         */
+        let staysArray = createStaysArray1()
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        
+        let orderedArray = stayHandler!.staysArray()
+        for stay in orderedArray {
+            stayHandler!.addStay(stay)
+        }
+        XCTAssertEqual(3,orderedArray.count)
+    }
+    
+    func testAddSeveralStays4(){
+        /*
+         This test is for checking that staysArray does not contain repeated dates
+         */
+        let staysArray = createStaysArray1()
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        
+        let orderedArray = stayHandler!.staysArray()
+        for stay in orderedArray {
+            stayHandler!.addStay(stay)
+        }
+        XCTAssertEqual(staysArray[1],orderedArray[0])
+        XCTAssertEqual(staysArray[3],orderedArray[1])
+        XCTAssertEqual(staysArray[0],orderedArray[2])
+    }
+    
+    func testDeleteStay(){
+        
+        let stay = createStay()
+        
+        stayHandler!.addStay(stay)
+        stayHandler!.deleteStayWithIndex(0)
+        XCTAssertEqual(0,stayHandler!.datesCount())
+    }
+
+    func testDeleteStay1(){
+        
+        let stay = createStay()
+        
+        stayHandler!.addStay(stay)
+        stayHandler!.deleteStayWithIndex(0)
+        XCTAssertEqual(0,stayHandler!.staysCount())
+    }
+    
+    
+    func testDeleteStay2(){
+        
+        /*
+         This test is for checking the order of staysArray
+         
+        */
+        let staysArray = createStaysArray()
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+        stayHandler!.deleteStayWithIndex(2)
+        
+        let orderedArray = stayHandler!.staysArray()
+        
+        XCTAssertEqual(staysArray[1],orderedArray[0])
+        XCTAssertEqual(staysArray[2],orderedArray[1])
+        XCTAssertEqual(staysArray[0],orderedArray[2])
+    }
+    
+    //MARK: Helper functions
+    
+    //////////////////////////////////////////////
+    // HELPER FUNCTIONS
+    //////////////////////////////////////////////
     
     private func createStay() -> Stay{
         
         let date1 = NSDate().endOf(.Day).endOf(.Day)
         let date2 = NSDate().endOf(.Day).endOf(.Day) - 1.days
-        let date3 = NSDate().endOf(.Day).endOf(.Day) - 3.days
+        let date3 = NSDate().endOf(.Day).endOf(.Day) - 2.days
         
         return Stay(dates: [date1, date2, date3])
     }
@@ -82,8 +212,68 @@ class StayHandlerTests: XCTestCase {
         
         let date1 = NSDate().endOf(.Day).endOf(.Day)
         let date2 = NSDate().endOf(.Day).endOf(.Day) + 1.days
-        let date3 = NSDate().endOf(.Day).endOf(.Day) + 3.days
+        let date3 = NSDate().endOf(.Day).endOf(.Day) + 2.days
         
         return Stay(dates: [date1, date2, date3])
     }
+    
+    
+    private func createStaysArray() -> [Stay]{
+        
+        let date1 = NSDate().endOf(.Day).endOf(.Day) - 2.days
+        let date2 = NSDate().endOf(.Day).endOf(.Day) - 1.days
+        let date3 = NSDate().endOf(.Day).endOf(.Day)
+        
+        let stay1 = Stay(dates: [date1, date2, date3])
+        
+        let date4 = NSDate().endOf(.Day).endOf(.Day) - 72.days
+        let date5 = NSDate().endOf(.Day).endOf(.Day) - 71.days
+        let date6 = NSDate().endOf(.Day).endOf(.Day) - 70.days
+        
+        let stay2 = Stay(dates: [date4,date5,date6])
+        
+        let date7 = NSDate().endOf(.Day).endOf(.Day) - 22.days
+        let date8 = NSDate().endOf(.Day).endOf(.Day) - 21.days
+        let date9 = NSDate().endOf(.Day).endOf(.Day) - 20.days
+        
+        let stay3 = Stay(dates: [date7, date8, date9])
+        
+        let date10 = NSDate().endOf(.Day).endOf(.Day) - 12.days
+        let date11 = NSDate().endOf(.Day).endOf(.Day) - 11.days
+        let date12 = NSDate().endOf(.Day).endOf(.Day) - 10.days
+        
+        let stay4 = Stay(dates: [date10, date11, date12])
+        
+        return [stay1, stay2, stay3, stay4]
+    }
+    
+    private func createStaysArray1() -> [Stay]{
+        
+        let date1 = NSDate().endOf(.Day).endOf(.Day) - 2.days
+        let date2 = NSDate().endOf(.Day).endOf(.Day) - 1.days
+        let date3 = NSDate().endOf(.Day).endOf(.Day)
+        
+        let stay1 = Stay(dates: [date1, date2, date3])
+        
+        let date4 = NSDate().endOf(.Day).endOf(.Day) - 72.days
+        let date5 = NSDate().endOf(.Day).endOf(.Day) - 71.days
+        let date6 = NSDate().endOf(.Day).endOf(.Day) - 70.days
+        
+        let stay2 = Stay(dates: [date4,date5,date6])
+        
+        let date7 = NSDate().endOf(.Day).endOf(.Day) - 4.days
+        let date8 = NSDate().endOf(.Day).endOf(.Day) - 3.days
+        let date9 = NSDate().endOf(.Day).endOf(.Day) - 2.days
+        
+        let stay3 = Stay(dates: [date7, date8, date9])
+        
+        let date10 = NSDate().endOf(.Day).endOf(.Day) - 12.days
+        let date11 = NSDate().endOf(.Day).endOf(.Day) - 11.days
+        let date12 = NSDate().endOf(.Day).endOf(.Day) - 10.days
+        
+        let stay4 = Stay(dates: [date10, date11, date12])
+        
+        return [stay1, stay2, stay3, stay4]
+    }
+    
 }

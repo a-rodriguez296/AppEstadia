@@ -21,13 +21,12 @@ class StayHandler {
         stays = Array<Stay>()
     }
     
-    
-    
     func addStay(stay:Stay) -> NSDate? {
         
         let isSuperSet = dates.isDisjointWith(stay.dates)
         if isSuperSet {
             dates.unionInPlace(stay.dates)
+            addStayToDates(stay)
             return nil
         }
         else{
@@ -43,5 +42,44 @@ class StayHandler {
     
     func datesCount() -> Int {
         return dates.count
+    }
+    
+    func staysCount() -> Int{
+        return stays.count
+    }
+    
+    func staysArray() -> Array<Stay>{
+        return stays
+    }
+    
+    
+    func dumpStays(){
+        dates.removeAll()
+        stays.removeAll()
+    }
+    
+    func deleteStayWithIndex(index: Int){
+        
+        let stay = stays[index]
+        
+        for date in stay.dates {
+            dates.remove(date)
+        }
+        
+        stays.removeAtIndex(index)
+    }
+    
+    
+    //MARK: Helper functions
+    
+    //////////////////////////////////////////////
+    // HELPER FUNCTIONS
+    //////////////////////////////////////////////
+    
+    private func addStayToDates(stay:Stay){
+        stays.append(stay)
+        
+        //Order the array
+        stays = stays.sort()
     }
 }
