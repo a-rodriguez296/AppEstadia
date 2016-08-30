@@ -16,10 +16,16 @@
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */; };
 		35A33E7F1D75FA08003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
+		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
+		35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C3801D78C3A900488A2E /* YearResponse.swift */; };
+		35A4C3821D78C3A900488A2E /* YearResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C3801D78C3A900488A2E /* YearResponse.swift */; };
 		35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */; };
 		35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
+		35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */; };
+		35B67ED01D77280E0073CC58 /* WWCalendarTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67ECF1D77280E0073CC58 /* WWCalendarTimeSelector.swift */; };
+		35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67ED11D773A060073CC58 /* ResultsViewController.swift */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
-		35E5C7071D5B75BD0078B8C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* ViewController.swift */; };
+		35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */; };
 		35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7081D5B75BE0078B8C8 /* Main.storyboard */; };
 		35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */; };
 		35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */; };
@@ -57,11 +63,16 @@
 		3540D0611D6C8C58000AF728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
 		35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandlerTests.swift; sourceTree = "<group>"; };
+		35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResultsViewController.swift; sourceTree = "<group>"; };
+		35A4C3801D78C3A900488A2E /* YearResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResponse.swift; sourceTree = "<group>"; };
 		35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCalculatorHelper.swift; sourceTree = "<group>"; };
 		35B588351D6BA2990097FBF1 /* DatesRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesRange.swift; sourceTree = "<group>"; };
+		35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrentDateController.swift; sourceTree = "<group>"; };
+		35B67ECF1D77280E0073CC58 /* WWCalendarTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWCalendarTimeSelector.swift; sourceTree = "<group>"; };
+		35B67ED11D773A060073CC58 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35E5C7061D5B75BD0078B8C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDatesController.swift; sourceTree = "<group>"; };
 		35E5C7091D5B75BE0078B8C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E5C70E1D5B75BE0078B8C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				35E5C7281D5B88820078B8C8 /* NSDate.swift */,
+				35B67ECF1D77280E0073CC58 /* WWCalendarTimeSelector.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -125,6 +137,31 @@
 				3540D0611D6C8C58000AF728 /* Info.plist */,
 			);
 			path = VisitCalculatorTests;
+			sourceTree = "<group>";
+		};
+		356992021D7A0D52007CD216 /* Year Results */ = {
+			isa = PBXGroup;
+			children = (
+				35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */,
+			);
+			name = "Year Results";
+			sourceTree = "<group>";
+		};
+		356992031D7A0D5C007CD216 /* Dynamic Date */ = {
+			isa = PBXGroup;
+			children = (
+				35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */,
+				35B67ED11D773A060073CC58 /* ResultsViewController.swift */,
+			);
+			name = "Dynamic Date";
+			sourceTree = "<group>";
+		};
+		356992041D7A0D62007CD216 /* Insert Dates */ = {
+			isa = PBXGroup;
+			children = (
+				35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */,
+			);
+			name = "Insert Dates";
 			sourceTree = "<group>";
 		};
 		35B588331D6B97B60097FBF1 /* Helpers */ = {
@@ -141,8 +178,45 @@
 			children = (
 				35E5C7241D5B7AB10078B8C8 /* Stay.swift */,
 				35B588351D6BA2990097FBF1 /* DatesRange.swift */,
+				35A4C3801D78C3A900488A2E /* YearResponse.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		35B67EC91D7726A80073CC58 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				356992041D7A0D62007CD216 /* Insert Dates */,
+				356992031D7A0D5C007CD216 /* Dynamic Date */,
+				356992021D7A0D52007CD216 /* Year Results */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		35B67ECA1D7726C10073CC58 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */,
+			);
+			name = Handlers;
+			sourceTree = "<group>";
+		};
+		35B67ECB1D7726D20073CC58 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				35E5C7081D5B75BE0078B8C8 /* Main.storyboard */,
+				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		35B67ECC1D7726EA0073CC58 /* Resource Files */ = {
+			isa = PBXGroup;
+			children = (
+				35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */,
+				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
+			);
+			name = "Resource Files";
 			sourceTree = "<group>";
 		};
 		35E5C6F81D5B75BD0078B8C8 = {
@@ -170,16 +244,14 @@
 		35E5C7031D5B75BD0078B8C8 /* VisitCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */,
-				35E5C7061D5B75BD0078B8C8 /* ViewController.swift */,
-				35E5C7081D5B75BE0078B8C8 /* Main.storyboard */,
-				35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */,
-				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
-				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
+				35B67EC91D7726A80073CC58 /* Controllers */,
 				35B588341D6BA2880097FBF1 /* Models */,
+				35B67ECB1D7726D20073CC58 /* Storyboards */,
 				35B588331D6B97B60097FBF1 /* Helpers */,
 				3511662B1D6CD35F00A2A1F2 /* Extensions */,
-				35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */,
+				35B67ECA1D7726C10073CC58 /* Handlers */,
+				35B67ECC1D7726EA0073CC58 /* Resource Files */,
+				35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */,
 			);
 			path = VisitCalculator;
 			sourceTree = "<group>";
@@ -485,6 +557,7 @@
 				3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */,
 				3540D06B1D6C8FF2000AF728 /* NSDate.swift in Sources */,
 				35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */,
+				35A4C3821D78C3A900488A2E /* YearResponse.swift in Sources */,
 				3540D0681D6C8C6A000AF728 /* DatesRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,12 +566,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
+				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
+				35B67ED01D77280E0073CC58 /* WWCalendarTimeSelector.swift in Sources */,
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
-				35E5C7071D5B75BD0078B8C8 /* ViewController.swift in Sources */,
+				35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */,
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,
 				35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */,
 				35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */,
+				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
+				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
 				35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */,
 				35E5C7291D5B88820078B8C8 /* NSDate.swift in Sources */,
 			);

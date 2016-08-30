@@ -17,10 +17,10 @@ struct DatesRange:CustomStringConvertible {
             return ""
         }
         else if dates.count == 1 {
-            return DateFormatHelper.rangeDate().stringFromDate(dates.first!)
+            return "\n" + DateFormatHelper.rangeDate().stringFromDate(dates.first!)
         }
         else{
-            return DateFormatHelper.rangeDate().stringFromDate(dates.first!) + " - " + DateFormatHelper.rangeDate().stringFromDate(dates.last!)
+            return "\n" + DateFormatHelper.rangeDate().stringFromDate(dates.first!) + " - " + DateFormatHelper.rangeDate().stringFromDate(dates.last!)
         }
         
     }

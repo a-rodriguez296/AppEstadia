@@ -23,7 +23,7 @@ class VisitCalculatorTests: XCTestCase {
         print("============== Initial Dates =================")
         let now = NSDate().endOf(.Day).endOf(.Day)//NSDate(year: 2012, month: 12, day: 31).endOf(.Day)
         let oneFiscalYearAgo = (now - 364.days)
-        datesCalculator = DatesCalculatorHelper(startDate: oneFiscalYearAgo, endDate:now)
+        datesCalculator = DatesCalculatorHelper(endDate:now)
         //        datesCalculator = DatesCalculatorHelper(startDate: NSDate(year: 2014, month: 12, day:31).startOf(.Day), endDate:NSDate(year: 2015, month: 12, day: 30).startOf(.Day))
         print(DateFormatHelper.stringFromDate(now))
         print(DateFormatHelper.stringFromDate(oneFiscalYearAgo))
@@ -40,7 +40,7 @@ class VisitCalculatorTests: XCTestCase {
     }
     
     func initializeDates(count: Int){
-        datesCalculator!.substractDaysWithCount(count)
+        datesCalculator!.changeDatesWithOperation(.Substract)
     }
     
     
@@ -588,7 +588,32 @@ class VisitCalculatorTests: XCTestCase {
             }
         }
     
-    //MARK: All year tests
+    //MARK: Test consolidatedDates
+    
+    func testConsolidatedCalculations(){
+        
+        //TODO: pensar una manera de cómo testear esto para todos los años como los demás tests.
+        
+        let staysArray = createStayInDifferentYears()
+        
+        let oldestDate = (datesCalculator!.endDate - 300.days).endOf(.Day)
+        let upperBoundDate = NSDate().endOf(.Year).endOf(.Day)
+        
+        //Initialize datesCalculator with the oldest date entered by the user
+        print(DateFormatHelper.stringFromDate(oldestDate))
+        datesCalculator = DatesCalculatorHelper(endDate: oldestDate)
+        
+        let response = datesCalculator!.consolidatedCalculations(upperBoundDate, staysArray: staysArray)
+        print(response)
+        let yearResponse1 = response.first!
+        let yearResponse2 = response.last!
+        XCTAssertEqual(yearResponse1.flag, false)
+        XCTAssertEqual(upperBoundDate.year - 1, yearResponse1.year)
+        
+        XCTAssertEqual(yearResponse2.flag, true)
+        XCTAssertEqual(upperBoundDate.year , yearResponse2.year)
+    }
+    
     
     //MARK: Helper functions
     
@@ -730,5 +755,22 @@ class VisitCalculatorTests: XCTestCase {
         
         
         return Stay(dates: [date1,date2, date3])
+    }
+    
+    func createStayInDifferentYears() -> [Stay]{
+        
+        var datesArray1 = Array<NSDate>()
+        //This would add elements from 0-99
+        for i in 0..<100{
+            let date = (datesCalculator!.endDate - 300.days + i.days).endOf(.Day)
+            datesArray1.append(date)
+        }
+        
+        var datesArray2 = Array<NSDate>()
+        for i in 0..<100{
+            let date = (datesCalculator!.endDate - 150.days + i.days).endOf(.Day)
+            datesArray2.append(date)
+        }
+        return [Stay(dates: datesArray1), Stay(dates: datesArray2)]
     }
 }

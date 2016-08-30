@@ -12,28 +12,43 @@ import SwiftDate
 
 class DatesCalculatorHelper{
     
+    enum Operation {
+        case Sum
+        case Substract
+    }
+    
+    
+    
     var startDate:NSDate
     var endDate:NSDate
     
-
     
-    init(startDate: NSDate, endDate: NSDate){
-        self.startDate = startDate
+    init(endDate: NSDate){
         self.endDate = endDate
+        self.startDate = endDate - 364.days
     }
     
-    func substractDaysWithCount(count: Int){
-        self.endDate = (self.endDate - count.days)
-        self.startDate = (self.startDate - count.days)
+    
+    func changeDatesWithOperation(operation: Operation){
         
+        switch operation {
+        case .Sum:
+            self.endDate = (self.endDate + 1.days)
+            self.startDate = (self.startDate + 1.days)
+        case .Substract:
+            self.endDate = (self.endDate - 1.days)
+            self.startDate = (self.startDate - 1.days)
+        }
         print("======================= Substracted Date =============================")
         print(DateFormatHelper.stringFromDate(endDate))
         print(DateFormatHelper.stringFromDate(startDate))
-//        print(endDate)
-//        print(startDate)
+        //        print(endDate)
+        //        print(startDate)
         print("============================ End Substracted Date ========================")
     }
     
+    
+    //MARK: Count days within range
     
     func countDaysWithinTheLastYearWithArray(datesArray: Array<Stay>) -> Int{
         
@@ -48,51 +63,20 @@ class DatesCalculatorHelper{
         }
         return count
     }
-    
-    
-    func remainingDaysWithCount(count: Int) -> Int{
-        return 183 - count
-    }
+    //MARK: Create date ranges
     
     func dateRangesWithArray(staysArray: Array<Stay>) -> Array<DatesRange>{
-        
-        //Define begining and end of the year
-        //        let currentBeginingDate = (1.years.ago + 1.days).startOf(.Day)
-        //        let currentEndDate = NSDate().endOf(.Day)
         
         var datesRanges = Array<DatesRange>()
         
         for stay in staysArray{
             
-            if stay.dates.count == 1 {
-                let date = stay.dates.first!
-                
-                //If this single date is between the
-                if date.isBetweenDates(startDate, endDate: endDate) {
-                    let datesRangeToAdd = DatesRange(dates: [date])
-                    print(datesRangeToAdd)
-                    datesRanges.append(datesRangeToAdd)
-                }
-            }
-            else{
-                
-                if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:startDate, endDate: endDate){
-                    datesRanges.append(dateRangeToAdd)
-                }
+            if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:startDate, endDate: endDate){
+                datesRanges.append(dateRangeToAdd)
             }
         }
         
         return datesRanges
-    }
-    
-    func createStringWithDatesRangeArray(array: Array<DatesRange>) -> String{
-        
-        var responseString = ""
-        
-        for dateRange in array {
-            responseString.appendContentsOf("\n \(dateRange)")
-        }
-        return responseString
     }
     
     
@@ -121,7 +105,13 @@ class DatesCalculatorHelper{
                 else{
                     projectedSuperiorDate = superiorDate
                 }
-                return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
+                if inferiorDate != projectedSuperiorDate {
+                    return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
+                }
+                else{
+                    return DatesRange(dates: [inferiorDate])
+                }
+                
             }
             else{
                 return nil
@@ -136,14 +126,20 @@ class DatesCalculatorHelper{
                 if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
                     var projectedSuperiorDate:NSDate?
                     
-                   
+                    
                     if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day){
                         projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
                     }
                     else{
                         projectedSuperiorDate = superiorDate
                     }
-                    return DatesRange(dates: [beginingDate, projectedSuperiorDate!])
+                    if beginingDate != projectedSuperiorDate {
+                        return DatesRange(dates: [beginingDate, projectedSuperiorDate!])
+                    }
+                    else{
+                        return DatesRange(dates: [beginingDate])
+                    }
+                    
                 }
                 else{
                     return nil
@@ -158,4 +154,51 @@ class DatesCalculatorHelper{
             }
         }
     }
+    
+    /*
+     This function starts with the oldest date that the user entered, and loops through all the dates between such date and the 31st of December of the current year.
+     The result of this function is an array of the years and a flag indicating if the user in such date is resident of not. If the user is resident,
+     the result also includes the date in which he became resident.
+     */
+    func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<Stay>) -> [YearResponse]{
+        
+        //For this function to work, this class has to be initialized with the oldest date added by the user. That is, oldest stay, first date (which is the oldest date)
+        
+        //upperBoundDate is the end of the current year
+        
+        print(DateFormatHelper.stringFromDate(startDate))
+        var responseArray = Array<YearResponse>()
+        
+        while endDate <= upperBoundDate{
+            
+            let count = countDaysWithinTheLastYearWithArray(staysArray)
+            let currentYear = endDate.year
+            if count >= 183{
+                //Resident
+                responseArray.append(YearResponse(year: currentYear, flag: true, date: endDate))
+                
+                if (endDate.endOf(.Year)).endOf(.Day) < upperBoundDate{
+                    //Fast forward untill the beggining of the next year
+                    endDate = (endDate.endOf(.Year)).endOf(.Day)
+                    startDate = endDate - 364.days
+                }
+                else{
+                    return responseArray
+                }
+            }
+            else if endDate.month == 12 && endDate.day == 31{
+                responseArray.append(YearResponse(year: currentYear, flag: false, date: nil))
+            }
+            
+            //Increase endDate by one day
+            changeDatesWithOperation(.Sum)
+            
+        }
+        return responseArray
+    }
+    
+    
+    
+    
+    
 }

@@ -30,11 +30,9 @@ extension Stay: CustomStringConvertible{
         }
         else if dates.count == 1 {
             return DateFormatHelper.mediumDate().stringFromDate(dates.first!)
-//            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.first!)
         }
         else{
-            return DateFormatHelper.mediumDate().stringFromDate(dates.first!)
-//            return "De " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " a " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
+            return "From " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " to " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
         }
     }
 }

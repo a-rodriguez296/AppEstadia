@@ -52,6 +52,10 @@ class StayHandler {
         return stays
     }
     
+    func stayAtIndex(index:Int) -> Stay{
+        return stays[index]
+    }
+    
     
     func dumpStays(){
         dates.removeAll()
@@ -67,6 +71,11 @@ class StayHandler {
         }
         
         stays.removeAtIndex(index)
+    }
+    
+    func oldestDate() -> NSDate{
+        //Identify the oldest date and return the begining of the next year of such date.
+        return stays.first!.dates.first!
     }
     
     

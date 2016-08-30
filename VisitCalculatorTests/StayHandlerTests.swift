@@ -193,6 +193,21 @@ class StayHandlerTests: XCTestCase {
         XCTAssertEqual(staysArray[0],orderedArray[2])
     }
     
+    func testOldestDate(){
+        
+        let staysArray = createStaysArray2()
+        for stay in staysArray {
+            stayHandler!.addStay(stay)
+        }
+
+        let oldestDate = stayHandler!.oldestDate()
+        
+        //This is the date I know is the oldest date
+        let knownOldestDate = NSDate().endOf(.Day) - 72.days
+        
+        XCTAssertEqual(knownOldestDate, oldestDate)
+    }
+    
     //MARK: Helper functions
     
     //////////////////////////////////////////////
@@ -274,6 +289,36 @@ class StayHandlerTests: XCTestCase {
         let stay4 = Stay(dates: [date10, date11, date12])
         
         return [stay1, stay2, stay3, stay4]
+    }
+    
+    private func createStaysArray2() ->[Stay]{
+        
+        let date1 = NSDate().endOf(.Day).endOf(.Day) - 2.days
+        let date2 = NSDate().endOf(.Day).endOf(.Day) - 1.days
+        let date3 = NSDate().endOf(.Day).endOf(.Day)
+        
+        let stay1 = Stay(dates: [date1, date2, date3])
+        
+        let date4 = NSDate().endOf(.Day).endOf(.Day) - 72.days
+        let date5 = NSDate().endOf(.Day).endOf(.Day) - 71.days
+        let date6 = NSDate().endOf(.Day).endOf(.Day) - 70.days
+        
+        let stay2 = Stay(dates: [date4,date5,date6])
+        
+        let date7 = NSDate().endOf(.Day).endOf(.Day) - 4.days
+        let date8 = NSDate().endOf(.Day).endOf(.Day) - 3.days
+        let date9 = NSDate().endOf(.Day).endOf(.Day) - 2.days
+        
+        let stay3 = Stay(dates: [date7, date8, date9])
+        
+        let date10 = NSDate().endOf(.Day).endOf(.Day) - 12.days
+        let date11 = NSDate().endOf(.Day).endOf(.Day) - 11.days
+        let date12 = NSDate().endOf(.Day).endOf(.Day) - 10.days
+        
+        let stay4 = Stay(dates: [date10, date11, date12])
+        
+        return [stay2, stay3, stay1, stay4]
+        
     }
     
 }
