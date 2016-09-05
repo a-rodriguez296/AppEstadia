@@ -37,7 +37,7 @@ class ResultsViewController: UIViewController {
             lblSubtitle.text = "You have stayed more than one 183 days in the range you specified. Therefore you are considered a resident."
         }
         else{
-            lblSubtitle.text = "You have stayed \(count) days in the range you specified. Therefore you have \(183 - count) days remaining this year."
+            lblSubtitle.text = "You have stayed \(count) days in the range you specified. Therefore you have \(182 - count) days remaining this year."
             
             let dateRangesArray = dateCalculator!.dateRangesWithArray(stayHandler.staysArray())
             

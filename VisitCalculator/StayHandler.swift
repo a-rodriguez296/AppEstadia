@@ -27,6 +27,7 @@ class StayHandler {
         if isSuperSet {
             dates.unionInPlace(stay.dates)
             addStayToDates(stay)
+            postNotification()
             return nil
         }
         else{
@@ -71,6 +72,7 @@ class StayHandler {
         }
         
         stays.removeAtIndex(index)
+        postNotification()
     }
     
     func oldestDate() -> NSDate{
@@ -90,5 +92,11 @@ class StayHandler {
         
         //Order the array
         stays = stays.sort()
+    }
+    
+    //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs
+    private func postNotification(){
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NSNotifications.staysChanged, object: nil)
+
     }
 }
