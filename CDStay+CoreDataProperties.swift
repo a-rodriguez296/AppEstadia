@@ -15,6 +15,8 @@ import CoreData
 extension CDStay {
 
     @NSManaged var name: String?
+    @NSManaged var initialDate: NSDate?
+    @NSManaged var endDate: NSDate?
     @NSManaged var dates: NSSet?
 
 }

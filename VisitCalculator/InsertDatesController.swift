@@ -27,14 +27,10 @@ class InsertDatesController: UIViewController {
         navigationController?.navigationBar.translucent = false
         
         title = "Insert Dates"
+        
+        self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        stays = CDStay.MR_findAll() as? [CDStay]
-    }
-
     
     @IBAction func didTapButton(sender: AnyObject) {
         
@@ -49,8 +45,12 @@ class InsertDatesController: UIViewController {
     func deleteStayWithCell(cell: MGSwipeTableCell){
         
         let indexPath = tableView.indexPathForCell(cell)!
+        let stay = stays![indexPath.row]
+        let _  = stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+        self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
         
-        stayHandler.deleteStayWithIndex(indexPath.row)
+        //stayHandler.deleteStayWithIndex(indexPath.row)
         
         
         tableView.beginUpdates()
@@ -86,14 +86,14 @@ extension InsertDatesController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = stayHandler.stayAtIndex(indexPath.row).description
+        cell.textLabel?.text = stays[indexPath.row].descriptionString()
         cell.detailTextLabel?.text = "Total days: " + String(stays[indexPath.row].dates!.count)
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
             self.deleteStayWithCell(sender)
             return true
-        })
+            })
         
         
         cell.rightButtons = [deleteButton]
@@ -125,20 +125,26 @@ extension InsertDatesController:WWCalendarTimeSelectorProtocol{
         
         
         
-//        let stay = Stay(dates: setDatesToEndOfTheDay(dates))
-//        if let date = stayHandler.addStay(stay){
-//            let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
-//            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-//            alertController.addAction(dismissAction)
-//            self.presentViewController(alertController, animated: true, completion: nil)
-//        }
-//        else{
-//            tableView.reloadData()
-//        }
+        //        let stay = Stay(dates: setDatesToEndOfTheDay(dates))
+        //        if let date = stayHandler.addStay(stay){
+        //            let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
+        //            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        //            alertController.addAction(dismissAction)
+        //            self.presentViewController(alertController, animated: true, completion: nil)
+        //        }
+        //        else{
+        //            tableView.reloadData()
+        //        }
     }
     
     func WWCalendarTimeSelectorWillDismiss(selector: WWCalendarTimeSelector) {
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion { (success, error) in
+            if success{
+                self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
+                //CDStay.MR_findAll() as? [CDStay]
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 

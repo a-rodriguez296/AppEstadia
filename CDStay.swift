@@ -11,10 +11,7 @@ import CoreData
 import MagicalRecord
 
 class CDStay: NSManagedObject {
-
     
-    
-    // Insert code here to add functionality to your managed object subclass
     
     convenience init(name: String,dates: [NSDate], context: NSManagedObjectContext){
         
@@ -34,22 +31,24 @@ class CDStay: NSManagedObject {
         
         self.name = name
         self.dates = datesSet
+        initialDate = dates.first!.endOf(.Day)
+        endDate = dates.last!.endOf(.Day)
+        
         
         //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs
         NSNotificationCenter.defaultCenter().postNotificationName(Constants.NSNotifications.staysChanged, object: nil)
     }
     
     func descriptionString() -> String{
-//        if dates.count == 0{
-//            return ""
-//        }
-//        else if dates.count == 1 {
-//            return DateFormatHelper.mediumDate().stringFromDate(dates.)
-//        }
-//        else{
-//            return "From " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " to " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
-//        }
-return "hola"
+        if dates!.count == 0 {
+            return ""
+        }
+        else if dates!.count == 1 {
+            return DateFormatHelper.mediumDate().stringFromDate(initialDate!)
+        }
+        else{
+            return "From " + DateFormatHelper.mediumDate().stringFromDate(initialDate!) + " to " + DateFormatHelper.mediumDate().stringFromDate(endDate!)
+        }
     }
 }
 
