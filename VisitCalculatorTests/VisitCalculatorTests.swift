@@ -9,6 +9,8 @@
 import XCTest
 import SwiftDate
 
+
+@testable import VisitCalculator
 class VisitCalculatorTests: XCTestCase {
     
     let fiveYears = 365*5

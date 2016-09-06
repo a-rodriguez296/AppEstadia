@@ -36,7 +36,7 @@ class CoreDataViewController: UIViewController {
     @IBAction func didTapAddStay(sender: AnyObject) {
         
         let name = DateFormatHelper.stringFromDate(NSDate())
-        let _ = CDStay(name: name, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(name: name,dates: [NSDate().endOf(.Day)], context: NSManagedObjectContext.MR_defaultContext())
         saveContext()
     }
     

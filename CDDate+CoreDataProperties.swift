@@ -1,5 +1,5 @@
 //
-//  CDStay+CoreDataProperties.swift
+//  CDDate+CoreDataProperties.swift
 //  VisitCalculator
 //
 //  Created by Alejandro Rodriguez on 9/6/16.
@@ -12,9 +12,9 @@
 import Foundation
 import CoreData
 
-extension CDStay {
+extension CDDate {
 
-    @NSManaged var name: String?
-    @NSManaged var dates: NSSet?
+    @NSManaged var date: NSDate?
+    @NSManaged var stay: CDStay?
 
 }

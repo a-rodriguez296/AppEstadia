@@ -12,20 +12,16 @@
 		35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE71D7F35F3009AD55C /* CDStay.swift */; };
 		35214DEB1D7F37A3009AD55C /* CoreDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35214DEA1D7F37A3009AD55C /* CoreDataStoryboard.storyboard */; };
 		35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */; };
+		35214DF21D7F5480009AD55C /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */; };
+		35214DF31D7F5480009AD55C /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF01D7F5480009AD55C /* CDDate.swift */; };
+		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
-		3540D0671D6C8C65000AF728 /* Stay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7241D5B7AB10078B8C8 /* Stay.swift */; };
-		3540D0681D6C8C6A000AF728 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
-		3540D0691D6C8D76000AF728 /* DatesCalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */; };
-		3540D06A1D6C8FAC000AF728 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7261D5B7C8B0078B8C8 /* DateFormatHelper.swift */; };
-		3540D06B1D6C8FF2000AF728 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7281D5B88820078B8C8 /* NSDate.swift */; };
 		356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992051D7A18CD007CD216 /* TabBarVC.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */; };
-		35A33E7F1D75FA08003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
 		35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C3801D78C3A900488A2E /* YearResponse.swift */; };
-		35A4C3821D78C3A900488A2E /* YearResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C3801D78C3A900488A2E /* YearResponse.swift */; };
 		35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */; };
 		35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
 		35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */; };
@@ -70,6 +66,9 @@
 		35214DE71D7F35F3009AD55C /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDStay.swift; path = ../CDStay.swift; sourceTree = "<group>"; };
 		35214DEA1D7F37A3009AD55C /* CoreDataStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoreDataStoryboard.storyboard; sourceTree = "<group>"; };
 		35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDDate+CoreDataProperties.swift"; path = "../CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		35214DF01D7F5480009AD55C /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDDate.swift; path = ../CDDate.swift; sourceTree = "<group>"; };
+		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitCalculatorTests.swift; sourceTree = "<group>"; };
 		3540D0611D6C8C58000AF728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 			children = (
 				3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */,
 				35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */,
+				35214DF41D7F5C39009AD55C /* CoreDataTests.swift */,
 				3540D0611D6C8C58000AF728 /* Info.plist */,
 			);
 			path = VisitCalculatorTests;
@@ -197,6 +197,8 @@
 		356DD6DE1D7F324D001DD360 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */,
+				35214DF01D7F5480009AD55C /* CDDate.swift */,
 				35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */,
 				35214DE71D7F35F3009AD55C /* CDStay.swift */,
 				35214DE31D7F357F009AD55C /* Model.xcdatamodeld */,
@@ -596,15 +598,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3540D0671D6C8C65000AF728 /* Stay.swift in Sources */,
-				3540D0691D6C8D76000AF728 /* DatesCalculatorHelper.swift in Sources */,
-				3540D06A1D6C8FAC000AF728 /* DateFormatHelper.swift in Sources */,
-				35A33E7F1D75FA08003D2BC6 /* StayHandler.swift in Sources */,
+				35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */,
 				3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */,
-				3540D06B1D6C8FF2000AF728 /* NSDate.swift in Sources */,
 				35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */,
-				35A4C3821D78C3A900488A2E /* YearResponse.swift in Sources */,
-				3540D0681D6C8C6A000AF728 /* DatesRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35214DF31D7F5480009AD55C /* CDDate.swift in Sources */,
 				35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */,
 				356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
@@ -624,6 +621,7 @@
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,
 				35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */,
 				35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */,
+				35214DF21D7F5480009AD55C /* CDDate+CoreDataProperties.swift in Sources */,
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
 				35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */,

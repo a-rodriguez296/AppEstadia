@@ -9,6 +9,8 @@
 import XCTest
 import SwiftDate
 
+
+@testable import VisitCalculator
 class StayHandlerTests: XCTestCase {
     
     var stayHandler:StayHandler?
