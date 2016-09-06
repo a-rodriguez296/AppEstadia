@@ -30,7 +30,7 @@ class CDDate: NSManagedObject {
         //Verify if one of the dates already exist
         
         for date in dates{
-            let predicate = NSPredicate(format: "%K == %@", "date", date)
+            let predicate = NSPredicate(format: "%K == %@", "date", date.endOf(.Day))
             let element = CDDate.MR_findFirstWithPredicate(predicate)
             if element != nil{
                 return element!.date

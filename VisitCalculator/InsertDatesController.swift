@@ -10,12 +10,15 @@ import UIKit
 import WWCalendarTimeSelector
 import SwiftDate
 import MGSwipeTableCell
+import MagicalRecord
 
 class InsertDatesController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     let stayHandler = StayHandler.sharedInstance
+    
+    var stays:[CDStay]!
     
     
     override func viewDidLoad() {
@@ -25,6 +28,13 @@ class InsertDatesController: UIViewController {
         
         title = "Insert Dates"
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        stays = CDStay.MR_findAll() as? [CDStay]
+    }
+
     
     @IBAction func didTapButton(sender: AnyObject) {
         
@@ -70,13 +80,14 @@ class InsertDatesController: UIViewController {
 extension InsertDatesController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stayHandler.staysCount()
+        return stays.count
+        //return stayHandler.staysCount()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text = stayHandler.stayAtIndex(indexPath.row).description
-        cell.detailTextLabel?.text = "Total days: " + String(stayHandler.stayAtIndex(indexPath.row).dates.count)
+        cell.detailTextLabel?.text = "Total days: " + String(stays[indexPath.row].dates!.count)
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
@@ -96,16 +107,38 @@ extension InsertDatesController:WWCalendarTimeSelectorProtocol{
     
     func WWCalendarTimeSelectorDone(selector: WWCalendarTimeSelector, dates: [NSDate]) {
         selector.dismissViewControllerAnimated(true, completion: nil)
-        let stay = Stay(dates: setDatesToEndOfTheDay(dates))
-        if let date = stayHandler.addStay(stay){
+        
+        //Parte Core Data
+        
+        //Verify if dates exist
+        if let date = CDDate.verifyDates(dates){
             let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
             let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
             alertController.addAction(dismissAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         else{
+            let _ = CDStay(name: "", dates: dates, context: NSManagedObjectContext.MR_defaultContext())
             tableView.reloadData()
         }
+        
+        
+        
+        
+//        let stay = Stay(dates: setDatesToEndOfTheDay(dates))
+//        if let date = stayHandler.addStay(stay){
+//            let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
+//            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+//            alertController.addAction(dismissAction)
+//            self.presentViewController(alertController, animated: true, completion: nil)
+//        }
+//        else{
+//            tableView.reloadData()
+//        }
+    }
+    
+    func WWCalendarTimeSelectorWillDismiss(selector: WWCalendarTimeSelector) {
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
 }
 

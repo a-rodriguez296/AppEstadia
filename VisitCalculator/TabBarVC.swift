@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 class TabBarVC: UITabBarController {
     
@@ -32,8 +33,14 @@ class TabBarVC: UITabBarController {
     }
     
     func updateTabBarItemsState(){
-        dynamicDateTabItem?.enabled =  StayHandler.sharedInstance.datesCount() != 0
-        yearResultsTabItem?.enabled =  StayHandler.sharedInstance.datesCount() != 0
+        
+        //Parte CoreData
+        dynamicDateTabItem?.enabled =  CDStay.MR_countOfEntities() != 0
+        yearResultsTabItem?.enabled = CDStay.MR_countOfEntities() != 0
+        
+        //        dynamicDateTabItem?.enabled =  StayHandler.sharedInstance.datesCount() != 0
+        //        yearResultsTabItem?.enabled =  StayHandler.sharedInstance.datesCount() != 0
+        
     }
     
     
