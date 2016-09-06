@@ -10,6 +10,8 @@
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DE81D7F35F3009AD55C /* CDStay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */; };
 		35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE71D7F35F3009AD55C /* CDStay.swift */; };
+		35214DEB1D7F37A3009AD55C /* CoreDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35214DEA1D7F37A3009AD55C /* CoreDataStoryboard.storyboard */; };
+		35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
 		3540D0671D6C8C65000AF728 /* Stay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7241D5B7AB10078B8C8 /* Stay.swift */; };
 		3540D0681D6C8C6A000AF728 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
@@ -66,6 +68,8 @@
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDStay+CoreDataProperties.swift"; path = "../CDStay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35214DE71D7F35F3009AD55C /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDStay.swift; path = ../CDStay.swift; sourceTree = "<group>"; };
+		35214DEA1D7F37A3009AD55C /* CoreDataStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoreDataStoryboard.storyboard; sourceTree = "<group>"; };
+		35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitCalculatorTests.swift; sourceTree = "<group>"; };
 		3540D0611D6C8C58000AF728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		35B67EC91D7726A80073CC58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */,
 				356992041D7A0D62007CD216 /* Insert Dates */,
 				356992031D7A0D5C007CD216 /* Dynamic Date */,
 				356992021D7A0D52007CD216 /* Year Results */,
@@ -243,6 +248,7 @@
 			children = (
 				35E5C7081D5B75BE0078B8C8 /* Main.storyboard */,
 				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
+				35214DEA1D7F37A3009AD55C /* CoreDataStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35214DEB1D7F37A3009AD55C /* CoreDataStoryboard.storyboard in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
 				35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */,
@@ -605,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */,
 				356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
