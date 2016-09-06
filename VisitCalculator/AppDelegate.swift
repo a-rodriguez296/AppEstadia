@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Setup Core Data
+        MagicalRecord.setupCoreDataStackWithStoreNamed("Model")
+        
+        
+//        let _ = CDStay(name: "Juliana", context: NSManagedObjectContext.MR_defaultContext())
+//        
+//         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+//        
+//        let staysArray = CDStay.MR_findAllInContext(NSManagedObjectContext.MR_defaultContext()) as? [CDStay]?
+//        
+//        for stay in staysArray!!{
+//            print(stay.name)
+//        }
+        
+        
         return true
     }
 

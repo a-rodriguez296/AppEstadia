@@ -9,6 +9,7 @@ target 'VisitCalculator' do
 pod 'WWCalendarTimeSelector'
 pod 'SwiftDate'
 pod 'MGSwipeTableCell'
+pod 'MagicalRecord'
 
   target 'VisitCalculatorUITests' do
     inherit! :search_paths
