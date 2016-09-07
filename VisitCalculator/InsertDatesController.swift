@@ -16,10 +16,22 @@ class InsertDatesController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let stayHandler = StayHandler.sharedInstance
-    
-    var stays:[CDStay]!
-    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
+        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: true)
+        cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
+        
+        let frc = NSFetchedResultsController(
+            fetchRequest: cdStaysFetchRequest,
+            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        frc.delegate = self
+        
+        return frc
+    }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +40,13 @@ class InsertDatesController: UIViewController {
         
         title = "Insert Dates"
         
-        self.stays = CDStay.staysOrderedByInitialDate()
+        //Initialize FetchedResultsController
+        do {
+            try fetchedResultsController.performFetch()
+        }
+        catch {
+            print("An error occurred")
+        }
     }
     
     
@@ -45,49 +63,32 @@ class InsertDatesController: UIViewController {
     func deleteStayWithCell(cell: MGSwipeTableCell){
         
         let indexPath = tableView.indexPathForCell(cell)!
-        let stay = stays![indexPath.row]
-        let _  = stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
+        let stay = fetchedResultsController.objectAtIndexPath(indexPath)
+        stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
-        self.stays = CDStay.staysOrderedByInitialDate()
-        
-        //stayHandler.deleteStayWithIndex(indexPath.row)
-        
-        
-        tableView.beginUpdates()
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        tableView.endUpdates()
     }
-    
-    
-    //MARK: Helper functions
-    
-    
-    func setDatesToEndOfTheDay(dates: [NSDate]) -> [NSDate]{
-        //TODO: This should be done inside the library
-        
-        var datesArray = Array<NSDate>()
-        for date in dates{
-            let newDate = date.endOf(.Day)
-            datesArray.append(newDate)
-        }
-        return datesArray
-    }
-    
-    
 }
 
 //MARK: UITableViewDataSource
 extension InsertDatesController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stays.count
-        //return stayHandler.staysCount()
+        
+        guard let sections = fetchedResultsController.sections else{
+            return 0
+        }
+        let currentSection = sections[section]
+        return currentSection.numberOfObjects
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = stays[indexPath.row].descriptionString()
-        cell.detailTextLabel?.text = "Total days: " + String(stays[indexPath.row].dates!.count)
+        
+        let stay = fetchedResultsController.objectAtIndexPath(indexPath) as! CDStay
+        
+        cell.textLabel?.text = stay.descriptionString()
+        cell.detailTextLabel?.text = "Total days: " + String(stay.dates!.count)
+        cell.selectionStyle = .None
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
@@ -118,33 +119,43 @@ extension InsertDatesController:WWCalendarTimeSelectorProtocol{
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         else{
-            let _ = CDStay(name: "", dates: dates, context: NSManagedObjectContext.MR_defaultContext())
-            tableView.reloadData()
+            let _ = CDStay(dates: dates, context: NSManagedObjectContext.MR_defaultContext())
         }
-        
-        
-        
-        
-        //        let stay = Stay(dates: setDatesToEndOfTheDay(dates))
-        //        if let date = stayHandler.addStay(stay){
-        //            let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
-        //            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-        //            alertController.addAction(dismissAction)
-        //            self.presentViewController(alertController, animated: true, completion: nil)
-        //        }
-        //        else{
-        //            tableView.reloadData()
-        //        }
     }
     
     func WWCalendarTimeSelectorWillDismiss(selector: WWCalendarTimeSelector) {
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion { (success, error) in
-            if success{
-                self.stays = CDStay.staysOrderedByInitialDate()
-                //CDStay.MR_findAll() as? [CDStay]
-                self.tableView.reloadData()
-            }
-        }
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
 }
 
+//MARK: NSFetchedResultsControllerDelegate
+extension InsertDatesController: NSFetchedResultsControllerDelegate{
+    
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+            break;
+        case .Update:
+            break;
+        case .Move:
+            break;
+        }
+    }
+}

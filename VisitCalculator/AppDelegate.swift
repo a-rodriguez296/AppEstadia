@@ -22,17 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupCoreDataStackWithStoreNamed("Model")
         
         
-//        let _ = CDStay(name: "Juliana", context: NSManagedObjectContext.MR_defaultContext())
-//        
-//         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
-//        
-//        let staysArray = CDStay.MR_findAllInContext(NSManagedObjectContext.MR_defaultContext()) as? [CDStay]?
-//        
-//        for stay in staysArray!!{
-//            print(stay.name)
-//        }
-        
-        
         return true
     }
 

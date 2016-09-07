@@ -13,7 +13,7 @@ import MagicalRecord
 class CDStay: NSManagedObject {
     
     
-    convenience init(name: String,dates: [NSDate], context: NSManagedObjectContext){
+    convenience init(dates: [NSDate], context: NSManagedObjectContext){
         
         
         //Construct Dates set
@@ -29,7 +29,6 @@ class CDStay: NSManagedObject {
         let entity = NSEntityDescription.entityForName(CDStay.MR_entityName(), inManagedObjectContext: context)
         self.init(entity: entity!, insertIntoManagedObjectContext: context)
         
-        self.name = name
         self.dates = datesSet
         initialDate = dates.first!.endOf(.Day)
         endDate = dates.last!.endOf(.Day)
