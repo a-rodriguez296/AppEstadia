@@ -50,6 +50,11 @@ class CDStay: NSManagedObject {
             return "From " + DateFormatHelper.mediumDate().stringFromDate(initialDate!) + " to " + DateFormatHelper.mediumDate().stringFromDate(endDate!)
         }
     }
+    
+    class func staysOrderedByInitialDate() -> [CDStay]{
+        
+        return CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as! [CDStay]
+    }
 }
 
 

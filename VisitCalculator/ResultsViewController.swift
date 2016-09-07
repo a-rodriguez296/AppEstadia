@@ -8,6 +8,9 @@
 
 import UIKit
 import SwiftDate
+import MagicalRecord
+
+
 class ResultsViewController: UIViewController {
 
     var selectedDate:NSDate?
@@ -30,8 +33,7 @@ class ResultsViewController: UIViewController {
         dateCalculator = DatesCalculatorHelper(endDate: selectedDate!)
         
         
-        let stayHandler = StayHandler.sharedInstance
-        let count = dateCalculator!.countDaysWithinTheLastYearWithArray(stayHandler.staysArray())
+        let count = dateCalculator!.countDaysWithinTheLastYearWithArray(CDStay.staysOrderedByInitialDate())
         
         if count >= 183{
             lblSubtitle.text = "You have stayed more than one 183 days in the range you specified. Therefore you are considered a resident."
@@ -39,7 +41,7 @@ class ResultsViewController: UIViewController {
         else{
             lblSubtitle.text = "You have stayed \(count) days in the range you specified. Therefore you have \(182 - count) days remaining this year."
             
-            let dateRangesArray = dateCalculator!.dateRangesWithArray(stayHandler.staysArray())
+            let dateRangesArray = dateCalculator!.dateRangesWithArray(CDStay.staysOrderedByInitialDate())
             
             if dateRangesArray.count > 0{
                 lblRangesTitle.text = "The following date ranges won't be counted."

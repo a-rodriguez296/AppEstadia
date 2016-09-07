@@ -39,4 +39,9 @@ class CDDate: NSManagedObject {
         return nil
     }
     
+    class func oldestDate() -> NSDate{
+        let oldestCDDate = CDDate.MR_findFirstOrderedByAttribute("date", ascending: true)!
+        return oldestCDDate.date!
+    }
+    
 }

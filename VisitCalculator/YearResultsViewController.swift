@@ -20,9 +20,10 @@ class YearResultsViewController: UIViewController {
         
         
         //Ensure that the user has entered at least one date
-        if StayHandler.sharedInstance.datesCount() > 0 {
+        if CDDate.MR_countOfEntities() > 0 {
             // Get the oldestDate added by the user
-            let oldestDate = StayHandler.sharedInstance.oldestDate()
+            
+            let oldestDate =  CDDate.oldestDate()
             
             //Get this year's last day
             let upperBound = NSDate().endOf(.Year).endOf(.Day)
@@ -32,7 +33,7 @@ class YearResultsViewController: UIViewController {
             
             
             
-            let response = dateCalculator.consolidatedCalculations(upperBound, staysArray: StayHandler.sharedInstance.staysArray())
+            let response = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDate())
             
             var responseText = ""
             for r in response{

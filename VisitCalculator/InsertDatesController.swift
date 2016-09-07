@@ -28,7 +28,7 @@ class InsertDatesController: UIViewController {
         
         title = "Insert Dates"
         
-        self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
+        self.stays = CDStay.staysOrderedByInitialDate()
     }
     
     
@@ -48,7 +48,7 @@ class InsertDatesController: UIViewController {
         let stay = stays![indexPath.row]
         let _  = stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
-        self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
+        self.stays = CDStay.staysOrderedByInitialDate()
         
         //stayHandler.deleteStayWithIndex(indexPath.row)
         
@@ -140,7 +140,7 @@ extension InsertDatesController:WWCalendarTimeSelectorProtocol{
     func WWCalendarTimeSelectorWillDismiss(selector: WWCalendarTimeSelector) {
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion { (success, error) in
             if success{
-                self.stays = CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as? [CDStay]
+                self.stays = CDStay.staysOrderedByInitialDate()
                 //CDStay.MR_findAll() as? [CDStay]
                 self.tableView.reloadData()
             }

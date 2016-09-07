@@ -10,7 +10,6 @@
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DE81D7F35F3009AD55C /* CDStay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */; };
 		35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE71D7F35F3009AD55C /* CDStay.swift */; };
-		35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */; };
 		35214DF21D7F5480009AD55C /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */; };
 		35214DF31D7F5480009AD55C /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF01D7F5480009AD55C /* CDDate.swift */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
@@ -63,7 +62,6 @@
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDStay+CoreDataProperties.swift"; path = "../CDStay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35214DE71D7F35F3009AD55C /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDStay.swift; path = ../CDStay.swift; sourceTree = "<group>"; };
-		35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDDate+CoreDataProperties.swift"; path = "../CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35214DF01D7F5480009AD55C /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDDate.swift; path = ../CDDate.swift; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 		35B67EC91D7726A80073CC58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				35214DEC1D7F3804009AD55C /* CoreDataViewController.swift */,
 				356992041D7A0D62007CD216 /* Insert Dates */,
 				356992031D7A0D5C007CD216 /* Dynamic Date */,
 				356992021D7A0D52007CD216 /* Year Results */,
@@ -605,7 +602,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35214DF31D7F5480009AD55C /* CDDate.swift in Sources */,
-				35214DED1D7F3804009AD55C /* CoreDataViewController.swift in Sources */,
 				356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
