@@ -47,18 +47,24 @@ class InsertDatesController: UIViewController {
         catch {
             print("An error occurred")
         }
+        
+        //Show initial alert
+        showInitialAlert()
     }
     
     
-    @IBAction func didTapButton(sender: AnyObject) {
-        
-        let selector = WWCalendarTimeSelector.instantiate()
-        selector.optionSelectionType = WWCalendarTimeSelectorSelection.Range
-        selector.addStyleToCalendar()
-        selector.delegate = self
-        
-        tabBarController?.presentViewController(selector, animated: true, completion: nil)
-    }
+//    @IBAction func didTapButton(sender: AnyObject) {
+//        
+//        let selector = WWCalendarTimeSelector.instantiate()
+//        selector.optionSelectionType = WWCalendarTimeSelectorSelection.Range
+//        selector.addStyleToCalendar()
+//        selector.delegate = self
+//        
+//        tabBarController?.presentViewController(selector, animated: true, completion: nil)
+//    }
+    
+    
+    //MARK: Helper functions
     
     func deleteStayWithCell(cell: MGSwipeTableCell){
         
@@ -67,6 +73,22 @@ class InsertDatesController: UIViewController {
         stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
+    
+    func showInitialAlert(){
+        
+        if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch){
+            
+            //Show initial alert
+            
+            let alertController = UIAlertController(title: "Attention", message: "In order for this app to work properly you must add the dates you stayed in the country for last year and the current year.", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(OKAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    
 }
 
 //MARK: UITableViewDataSource
@@ -116,7 +138,7 @@ extension InsertDatesController:WWCalendarTimeSelectorProtocol{
             let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
             let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
             alertController.addAction(dismissAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            presentViewController(alertController, animated: true, completion: nil)
         }
         else{
             let _ = CDStay(dates: dates, context: NSManagedObjectContext.MR_defaultContext())

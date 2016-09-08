@@ -15,4 +15,12 @@ struct Constants {
         
         static let staysChanged = "staysChanged"
     }
+    
+    struct NSUserDefaults {
+        //Case when the dates VC is shown for the fisrt time
+        static let insertDatesVCInitialLaunch = "insertDates"
+        
+        //Case when the add single date is shown for the first time
+        static let addDatesInitialLaunch = "addDates"
+    }
 }

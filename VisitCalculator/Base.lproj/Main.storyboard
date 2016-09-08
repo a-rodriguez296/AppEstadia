@@ -40,6 +40,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tUJ-5W-Rcy">
                             <connections>
                                 <action selector="didTapButton:" destination="BYZ-38-t0r" id="3r1-GS-gOb"/>
+                                <segue destination="Dvd-4f-4nQ" kind="presentation" id="1YV-XI-abC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -50,6 +51,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3296" y="-407"/>
+        </scene>
+        <!--Add Date View Controller-->
+        <scene sceneID="Sls-DJ-jOs">
+            <objects>
+                <viewController id="Dvd-4f-4nQ" customClass="AddDateViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V25-vg-eng"/>
+                        <viewControllerLayoutGuide type="bottom" id="8rC-yZ-eqA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Nd-Pa-8kR" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-Oh-Chj">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="495057239.40720999">
+                                    <!--2016-09-08 19:53:59 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="didSelectDate:" destination="Dvd-4f-4nQ" eventType="valueChanged" id="juV-Jj-g44"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-uC-czi">
+                                <rect key="frame" x="20" y="251" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
+                                <rect key="frame" x="24" y="280" width="80" height="30"/>
+                                <state key="normal" title="Select Date"/>
+                                <connections>
+                                    <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="wYf-AM-WEw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-IR-YP9">
+                                <rect key="frame" x="464" y="251" width="116" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
+                                <rect key="frame" x="482" y="280" width="80" height="30"/>
+                                <state key="normal" title="Select Date"/>
+                                <connections>
+                                    <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Gva-qx-LcH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-sf-CGd">
+                                <rect key="frame" x="270" y="334" width="60" height="30"/>
+                                <state key="normal" title="Add stay"/>
+                                <connections>
+                                    <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
+                                <rect key="frame" x="109" y="36" width="383" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8rC-yZ-eqA" firstAttribute="top" secondItem="lJO-Oh-Chj" secondAttribute="bottom" id="2tU-3H-FuY"/>
+                            <constraint firstItem="CVd-PD-IKy" firstAttribute="centerX" secondItem="RkS-uC-czi" secondAttribute="centerX" id="DvI-LE-9Jn"/>
+                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="top" secondItem="kgI-sf-CGd" secondAttribute="bottom" constant="20" id="Egc-gr-8oE"/>
+                            <constraint firstItem="obl-Wl-smb" firstAttribute="top" secondItem="hsz-IR-YP9" secondAttribute="bottom" constant="8" id="JJJ-9y-rfj"/>
+                            <constraint firstItem="zBf-3T-bZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="8" id="Lcy-cP-m25"/>
+                            <constraint firstItem="CVd-PD-IKy" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="4" id="NRg-n9-iom"/>
+                            <constraint firstItem="obl-Wl-smb" firstAttribute="centerY" secondItem="CVd-PD-IKy" secondAttribute="centerY" id="Nrr-AZ-9Er"/>
+                            <constraint firstItem="kgI-sf-CGd" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="OMd-uR-j9k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="obl-Wl-smb" secondAttribute="trailing" constant="18" id="PDw-OV-SQP"/>
+                            <constraint firstItem="kgI-sf-CGd" firstAttribute="top" secondItem="CVd-PD-IKy" secondAttribute="bottom" constant="24" id="PxV-Ys-BIO"/>
+                            <constraint firstAttribute="trailing" secondItem="lJO-Oh-Chj" secondAttribute="trailing" id="XFW-X1-UVw"/>
+                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="XNn-Vn-ob1"/>
+                            <constraint firstItem="obl-Wl-smb" firstAttribute="centerX" secondItem="hsz-IR-YP9" secondAttribute="centerX" id="eKT-oi-soB"/>
+                            <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
+                            <constraint firstItem="zBf-3T-bZR" firstAttribute="top" secondItem="V25-vg-eng" secondAttribute="bottom" constant="16" id="nuC-h8-9Vp"/>
+                            <constraint firstItem="CVd-PD-IKy" firstAttribute="top" secondItem="RkS-uC-czi" secondAttribute="bottom" constant="8" id="uQu-Zf-iad"/>
+                        </constraints>
+                        <connections>
+                            <action selector="didTapOnTheScreen:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="D4S-VA-Wrb"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="btnAddStay" destination="kgI-sf-CGd" id="Ztq-n5-Iqu"/>
+                        <outlet property="btnArrivalDate" destination="CVd-PD-IKy" id="3CX-Y4-ux1"/>
+                        <outlet property="btnDepartureDate" destination="obl-Wl-smb" id="2tx-bE-V0H"/>
+                        <outlet property="datePicker" destination="lJO-Oh-Chj" id="crt-n9-Mzq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mop-La-STU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3986" y="-407"/>
         </scene>
         <!--Choose Current Date Controller-->
         <scene sceneID="sIz-qz-qxn">
@@ -129,7 +227,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ2-eq-GVH">
                                 <rect key="frame" x="279" y="109" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
