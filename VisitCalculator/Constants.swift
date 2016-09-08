@@ -23,4 +23,8 @@ struct Constants {
         //Case when the add single date is shown for the first time
         static let addDatesInitialLaunch = "addDates"
     }
+    
+    struct Segues {
+        static let addDateSegue = "addDateSegue"
+    }
 }

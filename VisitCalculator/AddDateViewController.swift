@@ -9,6 +9,10 @@
 import UIKit
 import SwiftDate
 
+protocol AddDateProtocol {
+    func didAddDates(dates: [NSDate])
+}
+
 class AddDateViewController: UIViewController {
     
     let cstArrivalDate = 0
@@ -26,13 +30,17 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var btnAddStay: UIButton!
     
     
+    var delegate:AddDateProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        showInitialAlert()
     }
+    
+    //MARK: Buttons actions
     
     @IBAction func didSelectDate(sender: UIDatePicker) {
         
@@ -43,7 +51,7 @@ class AddDateViewController: UIViewController {
         }
         else{
             if sender.date >= arrivalDate!{
-              btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(sender.date), forState: .Normal)
+                btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(sender.date), forState: .Normal)
                 departureDate = sender.date
             }
             else{
@@ -73,21 +81,45 @@ class AddDateViewController: UIViewController {
     
     @IBAction func didTapAddStay(sender: AnyObject) {
         
-    
         var responseArray = Array<NSDate>()
         
-        while arrivalDate <= departureDate {
-            
-            responseArray.append(arrivalDate!.endOf(.Day))
-            print(DateFormatHelper.stringFromDate(arrivalDate!))
-            arrivalDate = arrivalDate! + 1.days
-        }
+        datePicker.hidden = true
         
-        print(responseArray)
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            
+            //Create the dates array in background
+            while self.arrivalDate <= self.departureDate {
+                
+                responseArray.append(self.arrivalDate!.endOf(.Day))
+                self.arrivalDate = self.arrivalDate! + 1.days
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                //Call the delegate method
+                self.delegate?.didAddDates(responseArray)
+                
+                //Dismiss the view controller
+               self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
     }
     
+    //Helper Function
     
+    //MARK: Helper Functions
     
+    func showInitialAlert(){
+        
+        if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch){
+            
+            //Show initial alert
+            
+            let alertController = UIAlertController(title: "Attention", message: "Remember to add the date you arrieved and the date you left the country.", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(OKAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
 }
-
-

@@ -29,7 +29,7 @@ class ChooseCurrentDateController: UIViewController {
         
         let selector = WWCalendarTimeSelector.instantiate()
         selector.addStyleToCalendar()
-        selector.optionSelectionType = WWCalendarTimeSelectorSelection.Single
+        //selector.option
         selector.delegate = self
         selector.optionShowTopContainer = false
         
