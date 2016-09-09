@@ -6,7 +6,6 @@ target 'VisitCalculator' do
   use_frameworks!
 
   # Pods for VisitCalculator
-pod 'WWCalendarTimeSelector'
 pod 'SwiftDate'
 pod 'MGSwipeTableCell'
 pod 'MagicalRecord'

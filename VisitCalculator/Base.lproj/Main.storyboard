@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Insert Dates Controller-->
@@ -64,8 +65,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker hidden="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-Oh-Chj">
-                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-Oh-Chj">
+                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
                                 <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="495057239.40720999">
                                     <!--2016-09-08 19:53:59 +0000-->
@@ -74,41 +75,41 @@
                                     <action selector="didSelectDate:" destination="Dvd-4f-4nQ" eventType="valueChanged" id="juV-Jj-g44"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Arrival date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-uC-czi">
-                                <rect key="frame" x="20" y="251" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-uC-czi">
+                                <rect key="frame" x="20" y="238" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
-                                <rect key="frame" x="24" y="280" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
+                                <rect key="frame" x="24" y="267" width="80" height="30"/>
                                 <state key="normal" title="Select Date"/>
                                 <connections>
                                     <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="wYf-AM-WEw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-IR-YP9">
-                                <rect key="frame" x="464" y="251" width="116" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-IR-YP9">
+                                <rect key="frame" x="464" y="238" width="116" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
-                                <rect key="frame" x="482" y="280" width="80" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
+                                <rect key="frame" x="482" y="267" width="80" height="30"/>
                                 <state key="normal" title="Select Date"/>
                                 <connections>
                                     <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Gva-qx-LcH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-sf-CGd">
-                                <rect key="frame" x="270" y="334" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-sf-CGd">
+                                <rect key="frame" x="270" y="321" width="60" height="30"/>
                                 <state key="normal" title="Add stay"/>
                                 <connections>
                                     <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Insert the dates you have stayed in the country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
-                                <rect key="frame" x="109" y="36" width="383" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
+                                <rect key="frame" x="109" y="80" width="383" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -128,6 +129,7 @@
                             <constraint firstItem="kgI-sf-CGd" firstAttribute="top" secondItem="CVd-PD-IKy" secondAttribute="bottom" constant="24" id="PxV-Ys-BIO"/>
                             <constraint firstAttribute="trailing" secondItem="lJO-Oh-Chj" secondAttribute="trailing" id="XFW-X1-UVw"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="XNn-Vn-ob1"/>
+                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.3" id="aT5-Jn-WHi"/>
                             <constraint firstItem="obl-Wl-smb" firstAttribute="centerX" secondItem="hsz-IR-YP9" secondAttribute="centerX" id="eKT-oi-soB"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
@@ -157,55 +159,73 @@
                         <viewControllerLayoutGuide type="top" id="cT5-zm-G8m"/>
                         <viewControllerLayoutGuide type="bottom" id="aE0-RR-YaP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ukp-s7-VWX">
+                    <view key="view" contentMode="scaleToFill" id="Ukp-s7-VWX" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona la fecha sobre la cual quieres hacer los cálculos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYZ-br-P1N">
-                                <rect key="frame" x="75" y="291" width="451" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona la fecha sobre la cual quieres hacer los cálculos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYZ-br-P1N">
+                                <rect key="frame" x="60" y="80" width="480" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzA-ZQ-5b7">
-                                <rect key="frame" x="260" y="351" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
-                                <connections>
-                                    <action selector="didTapSelectDate:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="Wj7-Zk-2IS"/>
-                                </connections>
-                            </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfg-t1-trG">
-                                <rect key="frame" x="279" y="401" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfg-t1-trG">
+                                <rect key="frame" x="279" y="288" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEX-2U-XrL">
-                                <rect key="frame" x="269" y="447" width="62" height="30"/>
+                                <rect key="frame" x="269" y="325" width="62" height="30"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="gpZ-bY-f6M" kind="show" id="Upj-og-P8Q"/>
+                                    <action selector="didTapContinue:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="nqd-wb-0bR"/>
+                                </connections>
+                            </button>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WoN-rD-KLH">
+                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
+                                <date key="date" timeIntervalSinceReferenceDate="495129065.04368502">
+                                    <!--2016-09-09 15:51:05 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="didChangeDate:" destination="GJX-9b-E7Q" eventType="valueChanged" id="ptZ-bc-Kw7"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzA-ZQ-5b7">
+                                <rect key="frame" x="260" y="117" width="80" height="30"/>
+                                <state key="normal" title="Select Date"/>
+                                <connections>
+                                    <action selector="didTapSelectDate:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="Wj7-Zk-2IS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="centerY" secondItem="Ukp-s7-VWX" secondAttribute="centerY" constant="1.5" id="DFa-Ye-oKD"/>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="centerX" secondItem="Ukp-s7-VWX" secondAttribute="centerX" id="Hx7-En-drM"/>
-                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="centerX" secondItem="YYZ-br-P1N" secondAttribute="centerX" id="TFs-mK-c8E"/>
-                            <constraint firstItem="gfg-t1-trG" firstAttribute="centerX" secondItem="EzA-ZQ-5b7" secondAttribute="centerX" id="W0G-KN-zlP"/>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="centerX" secondItem="Ukp-s7-VWX" secondAttribute="centerX" id="ipn-ey-uC0"/>
-                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="top" secondItem="YYZ-br-P1N" secondAttribute="bottom" constant="39" id="jMw-pS-B5z"/>
-                            <constraint firstItem="gfg-t1-trG" firstAttribute="top" secondItem="EzA-ZQ-5b7" secondAttribute="bottom" constant="20" id="o9f-Xa-r8u"/>
-                            <constraint firstItem="KEX-2U-XrL" firstAttribute="top" secondItem="gfg-t1-trG" secondAttribute="bottom" constant="25" id="q6M-zK-4Kp"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="YYZ-br-P1N" secondAttribute="trailing" constant="8" id="r3v-qq-GCp"/>
-                            <constraint firstItem="KEX-2U-XrL" firstAttribute="centerX" secondItem="gfg-t1-trG" secondAttribute="centerX" id="tge-Ba-N8j"/>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ukp-s7-VWX" secondAttribute="leadingMargin" constant="8" id="xeM-eh-GQs"/>
+                            <constraint firstItem="YYZ-br-P1N" firstAttribute="top" secondItem="cT5-zm-G8m" secondAttribute="bottom" constant="16" id="5Um-Hv-y6p"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="YYZ-br-P1N" secondAttribute="trailing" constant="8" id="6Ed-gb-a2w"/>
+                            <constraint firstItem="WoN-rD-KLH" firstAttribute="leading" secondItem="Ukp-s7-VWX" secondAttribute="leading" id="CWF-PW-EBT"/>
+                            <constraint firstItem="YYZ-br-P1N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ukp-s7-VWX" secondAttribute="leadingMargin" constant="8" id="RVN-7r-kCl"/>
+                            <constraint firstItem="gfg-t1-trG" firstAttribute="centerX" secondItem="KEX-2U-XrL" secondAttribute="centerX" id="TB9-YW-pRj"/>
+                            <constraint firstAttribute="trailing" secondItem="WoN-rD-KLH" secondAttribute="trailing" id="ZYc-km-PfZ"/>
+                            <constraint firstItem="YYZ-br-P1N" firstAttribute="centerX" secondItem="Ukp-s7-VWX" secondAttribute="centerX" id="aX7-3u-QOy"/>
+                            <constraint firstItem="WoN-rD-KLH" firstAttribute="top" secondItem="KEX-2U-XrL" secondAttribute="bottom" constant="16" id="ckS-LH-xJ0"/>
+                            <constraint firstItem="aE0-RR-YaP" firstAttribute="top" secondItem="WoN-rD-KLH" secondAttribute="bottom" id="d4N-EQ-L2Q"/>
+                            <constraint firstItem="KEX-2U-XrL" firstAttribute="centerX" secondItem="YYZ-br-P1N" secondAttribute="centerX" id="hsd-Wk-cmc"/>
+                            <constraint firstItem="KEX-2U-XrL" firstAttribute="top" secondItem="gfg-t1-trG" secondAttribute="bottom" constant="16" id="kjj-wY-Xlm"/>
+                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="top" secondItem="YYZ-br-P1N" secondAttribute="bottom" constant="16" id="kyJ-D6-unN"/>
+                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="centerX" secondItem="YYZ-br-P1N" secondAttribute="centerX" id="qQP-fi-ypl"/>
+                            <constraint firstItem="WoN-rD-KLH" firstAttribute="height" secondItem="Ukp-s7-VWX" secondAttribute="height" multiplier="0.3" id="w1Y-hj-K0g"/>
                         </constraints>
+                        <connections>
+                            <action selector="didTapScreen:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="k5y-dS-0BL"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="OKf-7s-UQC"/>
                     <connections>
+                        <outlet property="btnContinue" destination="KEX-2U-XrL" id="h6c-AO-CMy"/>
+                        <outlet property="datePicker" destination="WoN-rD-KLH" id="ScQ-6s-zLw"/>
                         <outlet property="lblSelectedDate" destination="gfg-t1-trG" id="b5O-Mk-nRx"/>
+                        <segue destination="gpZ-bY-f6M" kind="show" identifier="showResultsSegue" id="wok-5s-UCk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kd8-tX-v5B" userLabel="First Responder" sceneMemberID="firstResponder"/>

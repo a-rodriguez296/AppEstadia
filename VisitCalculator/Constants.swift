@@ -26,5 +26,6 @@ struct Constants {
     
     struct Segues {
         static let addDateSegue = "addDateSegue"
+        static let showResultsSegue = "showResultsSegue"
     }
 }

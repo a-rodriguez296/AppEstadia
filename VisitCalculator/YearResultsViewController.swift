@@ -13,6 +13,13 @@ class YearResultsViewController: UIViewController {
     
     @IBOutlet weak var lblYearResults: UILabel!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.navigationBar.translucent = false
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

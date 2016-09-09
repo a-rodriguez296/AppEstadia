@@ -306,8 +306,6 @@ class DatesCalculatorHelper{
     
     func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<CDStay>) -> [YearResponse]{
         
-        //For this function to work, this class has to be initialized with the oldest date added by the user. That is, oldest stay, first date (which is the oldest date)
-        
         //upperBoundDate is the end of the current year
         
         print(DateFormatHelper.stringFromDate(startDate))
