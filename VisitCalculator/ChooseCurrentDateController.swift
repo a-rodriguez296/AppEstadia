@@ -79,7 +79,7 @@ class ChooseCurrentDateController: UIViewController {
                     self.performSegueWithIdentifier(Constants.Segues.showResultsSegue, sender: nil)
                 }
                 else{
-                    let alertController = UIAlertController(title: "Attention", message: "For \(selectedDateEndOfYear.year), you are a tax resident, therefore it's useless to perform calculations", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "Attention", message: "For \(selectedDateEndOfYear.year), you are a tax resident.", preferredStyle: .Alert)
                     
                     let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alertController.addAction(OKAction)

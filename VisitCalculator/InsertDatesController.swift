@@ -75,31 +75,6 @@ class InsertDatesController: UIViewController {
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Constants.Segues.addDateSegue {
-            let addDateVC =  segue.destinationViewController as? AddDateViewController
-            addDateVC!.delegate = self
-        }
-    }
-}
-
-//MARK: AddDateProtocol
-extension InsertDatesController: AddDateProtocol{
-    
-    func didAddDates(dates: [NSDate]) {
-        //Verify if dates exist
-        if let date = CDDate.verifyDates(dates){
-            let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
-            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-            alertController.addAction(dismissAction)
-            presentViewController(alertController, animated: true, completion: nil)
-        }
-        else{
-            let _ = CDStay(dates: dates, context: NSManagedObjectContext.MR_defaultContext())
-        }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
-    }
 }
 
 //MARK: UITableViewDataSource

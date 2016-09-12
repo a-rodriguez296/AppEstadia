@@ -8,10 +8,7 @@
 
 import UIKit
 import SwiftDate
-
-protocol AddDateProtocol {
-    func didAddDates(dates: [NSDate])
-}
+import MagicalRecord
 
 class AddDateViewController: UIViewController {
     
@@ -28,9 +25,6 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var btnDepartureDate: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAddStay: UIButton!
-    
-    
-    var delegate:AddDateProtocol?
     
     
     override func viewDidLoad() {
@@ -50,28 +44,77 @@ class AddDateViewController: UIViewController {
             arrivalDate = sender.date
         }
         else{
-            if sender.date >= arrivalDate!{
-                btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(sender.date), forState: .Normal)
-                departureDate = sender.date
+            btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(sender.date), forState: .Normal)
+            departureDate = sender.date
+        }
+        
+        
+        if arrivalDate != nil && departureDate != nil && (departureDate < arrivalDate){
+            //The user cannot enter a departure date smaller than the arrival date
+            let alertController = UIAlertController(title: "Attention", message: "You cannot enter a departure date that is earlier than the arrival day", preferredStyle: .Alert)
+            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+            alertController.addAction(dismissAction)
+            presentViewController(alertController, animated: true, completion: nil)
+            
+            btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(arrivalDate!), forState: .Normal)
+            departureDate = arrivalDate!
+            datePicker.date = arrivalDate!
+            
+        }
+        else{
+            if arrivalDate <= departureDate{
+                btnAddStay.enabled = true
+                
+                datePicker.minimumDate = nil
+                datePicker.maximumDate = nil
+            }
+            
+        }
+    }
+    
+    @IBAction func didPressSelectDate(sender: UIButton) {
+        
+        currentButton = sender.tag
+        datePicker.hidden = false
+        
+        
+        //This is in case the user does not move the date picker
+        if arrivalDate == nil || departureDate == nil{
+            if currentButton == cstArrivalDate{
+                btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(datePicker.date), forState: .Normal)
+                arrivalDate = datePicker.date
             }
             else{
-                //The user cannot enter a departure date smaller than the arrival date
-                let alertController = UIAlertController(title: "Attention", message: "You cannot enter a departure date that is earlier than the arrival day", preferredStyle: .Alert)
-                let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-                alertController.addAction(dismissAction)
-                presentViewController(alertController, animated: true, completion: nil)
-                
+                departureDate = datePicker.date
+                btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(datePicker.date), forState: .Normal)
             }
         }
         
-        btnAddStay.enabled = arrivalDate <= departureDate
-    }
-    
-    @IBAction func didPressSelectDate(sender: AnyObject) {
         
-        currentButton = sender.tag!
+        //If the user has entered an arrival date, set the date picker minimum date to such date
+        if sender == btnDepartureDate {
+            if let arrival = arrivalDate {
+                datePicker.minimumDate = arrival
+            }
+        }
         
-        datePicker.hidden = false
+        //If the user has entered a departure date, set the date picker maximum date to such date
+        if sender == btnArrivalDate{
+            if let departure = departureDate{
+                datePicker.maximumDate = departure
+            }
+        }
+        
+        
+        //This if is for the case where the user wants to chose the current date as arrival and departure date
+        if arrivalDate != nil && departureDate != nil {
+            if arrivalDate <= departureDate{
+               btnAddStay.enabled = true
+                
+                datePicker.minimumDate = nil
+                datePicker.maximumDate = nil
+            }
+        }
     }
     
     @IBAction func didTapOnTheScreen(sender: AnyObject) {
@@ -96,11 +139,31 @@ class AddDateViewController: UIViewController {
             }
             
             dispatch_async(dispatch_get_main_queue()) {
-                //Call the delegate method
-                self.delegate?.didAddDates(responseArray)
                 
-                //Dismiss the view controller
-               self.navigationController?.popViewControllerAnimated(true)
+                
+                //Verify if dates exist
+                if let date = CDDate.verifyDates(responseArray){
+                    
+                    //If the date exists , show an alert controller
+                    let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
+                    let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+                    alertController.addAction(dismissAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                else{
+                    
+                    //Create the stay and save it
+                    let _ = CDStay(dates: responseArray, context: NSManagedObjectContext.MR_defaultContext())
+                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+                    
+                    
+                    //Dismiss the view controller
+                    self.navigationController?.popViewControllerAnimated(true)
+                    
+                    //Call the delegate method
+                    //self.delegate?.didAddDates()
+
+                }
             }
         }
     }
