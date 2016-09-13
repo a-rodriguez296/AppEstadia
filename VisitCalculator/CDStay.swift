@@ -13,14 +13,14 @@ import MagicalRecord
 class CDStay: NSManagedObject {
     
     
-    convenience init(dates: [NSDate], context: NSManagedObjectContext){
+    convenience init(dates: [NSDate],taxPayer: CDTaxPayer, context: NSManagedObjectContext){
         
         
         //Construct Dates set
         var datesSet = Set<CDDate>()
         for date in dates{
             
-            let cdDate = CDDate(date: date.endOf(.Day ), context: context)
+            let cdDate = CDDate(date: date.endOf(.Day ),taxPayer: taxPayer, context: context)
             datesSet.insert(cdDate)
         }
         
@@ -32,6 +32,7 @@ class CDStay: NSManagedObject {
         self.dates = datesSet
         initialDate = dates.first!.endOf(.Day)
         endDate = dates.last!.endOf(.Day)
+        self.taxPayer = taxPayer
         
         
         //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs

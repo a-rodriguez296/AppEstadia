@@ -1,8 +1,8 @@
 //
-//  CDStay+CoreDataProperties.swift
+//  CDDate+CoreDataProperties.swift
 //  VisitCalculator
 //
-//  Created by Alejandro Rodriguez on 9/7/16.
+//  Created by Alejandro Rodriguez on 9/14/16.
 //  Copyright © 2016 ARF. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,10 +12,10 @@
 import Foundation
 import CoreData
 
-extension CDStay {
+extension CDDate {
 
-    @NSManaged var endDate: NSDate?
-    @NSManaged var initialDate: NSDate?
-    @NSManaged var dates: NSSet?
+    @NSManaged var date: NSDate?
+    @NSManaged var stay: CDStay?
+    @NSManaged var taxPayer: CDTaxPayer?
 
 }

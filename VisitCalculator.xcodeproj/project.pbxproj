@@ -10,14 +10,17 @@
 		3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */; };
 		3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddDateViewController.swift */; };
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
-		35214DE81D7F35F3009AD55C /* CDStay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */; };
-		35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE71D7F35F3009AD55C /* CDStay.swift */; };
-		35214DF21D7F5480009AD55C /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */; };
-		35214DF31D7F5480009AD55C /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF01D7F5480009AD55C /* CDDate.swift */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
+		354AFB351D889D85009CF6D6 /* CDStay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB2F1D889D85009CF6D6 /* CDStay+CoreDataProperties.swift */; };
+		354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB321D889D85009CF6D6 /* CDTaxPayer.swift */; };
+		354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB391D889DEF009CF6D6 /* CDDate.swift */; };
+		354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3A1D889DEF009CF6D6 /* CDStay.swift */; };
+		354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */; };
 		356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992051D7A18CD007CD216 /* TabBarVC.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
+		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
+		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */; };
 		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
@@ -63,16 +66,19 @@
 		3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
 		3517A9451D81F5BB00681E40 /* AddDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDStay+CoreDataProperties.swift"; path = "../CDStay+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		35214DE71D7F35F3009AD55C /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDStay.swift; path = ../CDStay.swift; sourceTree = "<group>"; };
-		35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDDate+CoreDataProperties.swift"; path = "../CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		35214DF01D7F5480009AD55C /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDDate.swift; path = ../CDDate.swift; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitCalculatorTests.swift; sourceTree = "<group>"; };
 		3540D0611D6C8C58000AF728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		354AFB2F1D889D85009CF6D6 /* CDStay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDStay+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		354AFB321D889D85009CF6D6 /* CDTaxPayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTaxPayer.swift; sourceTree = "<group>"; };
+		354AFB391D889DEF009CF6D6 /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDate.swift; sourceTree = "<group>"; };
+		354AFB3A1D889DEF009CF6D6 /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStay.swift; sourceTree = "<group>"; };
+		354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewController.swift; sourceTree = "<group>"; };
 		356992051D7A18CD007CD216 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
 		35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandlerTests.swift; sourceTree = "<group>"; };
 		35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResultsViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +157,34 @@
 			path = VisitCalculatorTests;
 			sourceTree = "<group>";
 		};
+		354AFB3D1D889E11009CF6D6 /* Human Files */ = {
+			isa = PBXGroup;
+			children = (
+				354AFB391D889DEF009CF6D6 /* CDDate.swift */,
+				354AFB3A1D889DEF009CF6D6 /* CDStay.swift */,
+				354AFB321D889D85009CF6D6 /* CDTaxPayer.swift */,
+			);
+			name = "Human Files";
+			sourceTree = "<group>";
+		};
+		354AFB3E1D889E23009CF6D6 /* Machine Files */ = {
+			isa = PBXGroup;
+			children = (
+				3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */,
+				3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */,
+				354AFB2F1D889D85009CF6D6 /* CDStay+CoreDataProperties.swift */,
+			);
+			name = "Machine Files";
+			sourceTree = "<group>";
+		};
+		354AFB411D88A1E1009CF6D6 /* TaxPayers */ = {
+			isa = PBXGroup;
+			children = (
+				354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */,
+			);
+			name = TaxPayers;
+			sourceTree = "<group>";
+		};
 		356992021D7A0D52007CD216 /* Year Results */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,10 +230,8 @@
 		356DD6DE1D7F324D001DD360 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				35214DEF1D7F5480009AD55C /* CDDate+CoreDataProperties.swift */,
-				35214DF01D7F5480009AD55C /* CDDate.swift */,
-				35214DE61D7F35F3009AD55C /* CDStay+CoreDataProperties.swift */,
-				35214DE71D7F35F3009AD55C /* CDStay.swift */,
+				354AFB3D1D889E11009CF6D6 /* Human Files */,
+				354AFB3E1D889E23009CF6D6 /* Machine Files */,
 				35214DE31D7F357F009AD55C /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -227,6 +259,7 @@
 		35B67EC91D7726A80073CC58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				354AFB411D88A1E1009CF6D6 /* TaxPayers */,
 				356992041D7A0D62007CD216 /* Insert Dates */,
 				356992031D7A0D5C007CD216 /* Dynamic Date */,
 				356992021D7A0D52007CD216 /* Year Results */,
@@ -612,27 +645,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35214DF31D7F5480009AD55C /* CDDate.swift in Sources */,
+				354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */,
 				356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
+				3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */,
+				354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */,
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */,
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,
 				35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */,
+				3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */,
+				354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */,
 				35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */,
-				35214DF21D7F5480009AD55C /* CDDate+CoreDataProperties.swift in Sources */,
+				354AFB351D889D85009CF6D6 /* CDStay+CoreDataProperties.swift in Sources */,
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
 				3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */,
-				35214DE91D7F35F3009AD55C /* CDStay.swift in Sources */,
+				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
 				35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */,
 				35E5C7291D5B88820078B8C8 /* NSDate.swift in Sources */,
-				35214DE81D7F35F3009AD55C /* CDStay+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,49 +15,70 @@ class InsertDatesController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
-        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: true)
-        cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
-        
-        let frc = NSFetchedResultsController(
-            fetchRequest: cdStaysFetchRequest,
-            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-        
-        frc.delegate = self
-        
-        return frc
-    }()
-
+    var taxPayer:CDTaxPayer?
     
+    
+    
+    var fetchedResultsController: NSFetchedResultsController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.translucent = false
-        
         title = "Insert Dates"
+        
+        initializeFetchedResultsController()
+        
         
         //Initialize FetchedResultsController
         do {
-            try fetchedResultsController.performFetch()
+            try fetchedResultsController?.performFetch()
         }
         catch {
             print("An error occurred")
         }
+        
+         automaticallyAdjustsScrollViewInsets = false
+        
         
         //Show initial alert
         showInitialAlert()
     }
     
     
+    //MARK: Segue
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Constants.Segues.addDateSegue{
+            let addDateVC = segue.destinationViewController as! AddDateViewController
+            addDateVC.taxPayer = taxPayer
+        }
+    }
+    
+    
     //MARK: Helper functions
+    
+    func initializeFetchedResultsController(){
+        
+        let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
+        cdStaysFetchRequest.predicate = NSPredicate(format: "%K.%K == %@", "taxPayer", "name",taxPayer!.name!)
+        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: true)
+        cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
+        
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: cdStaysFetchRequest,
+            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        fetchedResultsController!.delegate = self
+    }
+    
     
     func deleteStayWithCell(cell: MGSwipeTableCell){
         
         let indexPath = tableView.indexPathForCell(cell)!
-        let stay = fetchedResultsController.objectAtIndexPath(indexPath)
+        let stay = fetchedResultsController!.objectAtIndexPath(indexPath)
         stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
@@ -75,6 +96,14 @@ class InsertDatesController: UIViewController {
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    
+    @IBAction func didPressDismiss(sender: AnyObject) {
+        tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
 }
 
 //MARK: UITableViewDataSource
@@ -82,7 +111,7 @@ extension InsertDatesController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let sections = fetchedResultsController.sections else{
+        guard let sections = fetchedResultsController!.sections else{
             return 0
         }
         let currentSection = sections[section]
@@ -92,7 +121,7 @@ extension InsertDatesController:UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
         
-        let stay = fetchedResultsController.objectAtIndexPath(indexPath) as! CDStay
+        let stay = fetchedResultsController!.objectAtIndexPath(indexPath) as! CDStay
         
         cell.textLabel?.text = stay.descriptionString()
         cell.detailTextLabel?.text = "Total days: " + String(stay.dates!.count)

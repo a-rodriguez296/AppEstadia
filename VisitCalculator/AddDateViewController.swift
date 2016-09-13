@@ -27,6 +27,8 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var btnAddStay: UIButton!
     
     
+    var taxPayer:CDTaxPayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,7 +111,7 @@ class AddDateViewController: UIViewController {
         //This if is for the case where the user wants to chose the current date as arrival and departure date
         if arrivalDate != nil && departureDate != nil {
             if arrivalDate <= departureDate{
-               btnAddStay.enabled = true
+                btnAddStay.enabled = true
                 
                 datePicker.minimumDate = nil
                 datePicker.maximumDate = nil
@@ -142,7 +144,7 @@ class AddDateViewController: UIViewController {
                 
                 
                 //Verify if dates exist
-                if let date = CDDate.verifyDates(responseArray){
+                if let date = CDDate.verifyDates(responseArray,taxPayer: self.taxPayer!){
                     
                     //If the date exists , show an alert controller
                     let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
@@ -153,8 +155,8 @@ class AddDateViewController: UIViewController {
                 else{
                     
                     //Create the stay and save it
-                    let _ = CDStay(dates: responseArray, context: NSManagedObjectContext.MR_defaultContext())
-                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
                     
                     
                     //Dismiss the view controller
@@ -162,7 +164,7 @@ class AddDateViewController: UIViewController {
                     
                     //Call the delegate method
                     //self.delegate?.didAddDates()
-
+                    
                 }
             }
         }

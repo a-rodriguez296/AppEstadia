@@ -17,8 +17,6 @@ class YearResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.translucent = false
     }
     
     override func viewWillAppear(animated: Bool) {

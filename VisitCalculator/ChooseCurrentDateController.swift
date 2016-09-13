@@ -18,12 +18,6 @@ class ChooseCurrentDateController: UIViewController {
     
     var selectedDate = NSDate().endOf(.Day)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationController?.navigationBar.translucent = false
-        
-    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

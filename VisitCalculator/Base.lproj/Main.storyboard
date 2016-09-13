@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T6k-ja-2LU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JwQ-aT-mfs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -38,6 +38,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cVc-VS-Uct">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yjq-DD-hYG">
+                            <connections>
+                                <action selector="didPressDismiss:" destination="BYZ-38-t0r" id="pUO-Gc-7Oe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tUJ-5W-Rcy">
                             <connections>
                                 <action selector="didTapButton:" destination="BYZ-38-t0r" id="3r1-GS-gOb"/>
@@ -51,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3296" y="-407"/>
+            <point key="canvasLocation" x="4108" y="-407"/>
         </scene>
         <!--Add Date View Controller-->
         <scene sceneID="Sls-DJ-jOs">
@@ -149,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mop-La-STU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="-407"/>
+            <point key="canvasLocation" x="4798" y="-407"/>
         </scene>
         <!--Choose Current Date Controller-->
         <scene sceneID="sIz-qz-qxn">
@@ -336,6 +341,51 @@
             </objects>
             <point key="canvasLocation" x="4189" y="587"/>
         </scene>
+        <!--Tax Payers View Controller-->
+        <scene sceneID="2dV-6a-8NB">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="D5u-ge-IUF" customClass="TaxPayersViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3bE-od-R6j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ug6-JL-WJR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RSj-Cf-iMp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tMX-ec-c6s">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="D5u-ge-IUF" id="LDt-lA-tIU"/>
+                                    <outlet property="delegate" destination="D5u-ge-IUF" id="vnu-ye-J41"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tMX-ec-c6s" firstAttribute="top" secondItem="3bE-od-R6j" secondAttribute="bottom" id="U8f-ht-eQm"/>
+                            <constraint firstItem="tMX-ec-c6s" firstAttribute="leading" secondItem="RSj-Cf-iMp" secondAttribute="leading" id="s4d-6v-neT"/>
+                            <constraint firstItem="Ug6-JL-WJR" firstAttribute="top" secondItem="tMX-ec-c6s" secondAttribute="bottom" id="v47-AN-r9A"/>
+                            <constraint firstAttribute="trailing" secondItem="tMX-ec-c6s" secondAttribute="trailing" id="yCD-5e-hmc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="o61-YE-PR0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="orB-kR-6gr">
+                            <connections>
+                                <action selector="didTapAddTaxPayer:" destination="D5u-ge-IUF" id="AXP-ze-L8O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="tMX-ec-c6s" id="Ldq-VM-qa4"/>
+                        <segue destination="T6k-ja-2LU" kind="presentation" identifier="tabBarSegue" id="aZk-1s-QAe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4N-0h-qcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869" y="587"/>
+        </scene>
         <!--Tab BarVC-->
         <scene sceneID="JRn-G6-e4K">
             <objects>
@@ -372,7 +422,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvA-Ly-oe2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="-407"/>
+            <point key="canvasLocation" x="3296" y="-407"/>
         </scene>
         <!--Dynamic Date-->
         <scene sceneID="FmH-hU-oxI">
@@ -411,6 +461,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfV-Hy-lq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2500" y="1397"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qxg-lu-8VC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JwQ-aT-mfs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oUl-U7-P1T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D5u-ge-IUF" kind="relationship" relationship="rootViewController" id="hUb-YI-9YR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJd-FE-Xtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="587"/>
         </scene>
     </scenes>
 </document>

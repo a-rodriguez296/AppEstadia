@@ -14,23 +14,25 @@ class CDDate: NSManagedObject {
     
     // Insert code here to add functionality to your managed object subclass
     
-    convenience init(date: NSDate, context: NSManagedObjectContext){
+    convenience init(date: NSDate, taxPayer: CDTaxPayer, context: NSManagedObjectContext){
         
         let entity = NSEntityDescription.entityForName(CDDate.MR_entityName(), inManagedObjectContext: context)
         self.init(entity: entity!, insertIntoManagedObjectContext: context)
         
         self.date = date
+        self.taxPayer = taxPayer
+        
     }
     
     
     
-    class func verifyDates(dates:Array<NSDate>) -> NSDate?{
+    class func verifyDates(dates:Array<NSDate>, taxPayer: CDTaxPayer) -> NSDate?{
         
         
         //Verify if one of the dates already exist
         
         for date in dates{
-            let predicate = NSPredicate(format: "%K == %@", "date", date.endOf(.Day))
+            let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "date", date.endOf(.Day), "taxPayer", taxPayer)
             let element = CDDate.MR_findFirstWithPredicate(predicate)
             if element != nil{
                 return element!.date
