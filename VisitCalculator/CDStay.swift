@@ -51,9 +51,14 @@ class CDStay: NSManagedObject {
         }
     }
     
-    class func staysOrderedByInitialDate() -> [CDStay]{
-        
-        return CDStay.MR_findAllSortedBy("initialDate", ascending: true, inContext: NSManagedObjectContext.MR_defaultContext()) as! [CDStay]
+    class func staysOrderedByInitialDateWithTaxPayer(taxPayer: CDTaxPayer) -> [CDStay]{
+        let predicate = NSPredicate(format: "%K = %@", "taxPayer", taxPayer)
+        return CDStay.MR_findAllSortedBy("initialDate", ascending: true, withPredicate: predicate) as! [CDStay]
+    }
+    
+    class func staysForTaxPayer(taxPayer: CDTaxPayer) -> Int{
+        let predicate = NSPredicate(format: "%K = %@", "taxPayer", taxPayer)
+        return Int(CDStay.MR_countOfEntitiesWithPredicate(predicate))
     }
 }
 

@@ -92,12 +92,10 @@ class TaxPayersViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == Constants.Segues.showTabSegue{
+        if segue.identifier == Constants.Segues.insertDatesSegue{
             
             //Send to insertDatesVC a reference of the TaxPayer object
-            let tab = segue.destinationViewController as! TabBarVC
-            let navVC = tab.viewControllers![0] as! UINavigationController
-            let insertDatesVC = navVC.childViewControllers[0] as! InsertDatesController
+            let insertDatesVC = segue.destinationViewController as! InsertDatesController
             insertDatesVC.taxPayer = sender as? CDTaxPayer
             
         }
@@ -159,7 +157,7 @@ extension TaxPayersViewController: UITableViewDelegate{
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
         
         dispatch_async(dispatch_get_main_queue(),{
-            self.performSegueWithIdentifier(Constants.Segues.showTabSegue, sender: taxPayer)
+            self.performSegueWithIdentifier(Constants.Segues.insertDatesSegue, sender: taxPayer)
         })
         
     }
@@ -204,7 +202,7 @@ extension TaxPayersViewController: UISearchResultsUpdating {
         
         NSFetchedResultsController.deleteCacheWithName("Root")
         if !searchText.isEmpty {
-            let searchPredicate = NSPredicate(format: "(%K CONTAINS[c] %@) OR (%K CONTAINS %@)","name", searchText, "rut", searchText)
+            let searchPredicate = NSPredicate(format: "(%K CONTAINS[cd] %@) OR (%K CONTAINS %@)","name", searchText, "rut", searchText)
             fetchedResultsController.fetchRequest.predicate = searchPredicate
             
         }

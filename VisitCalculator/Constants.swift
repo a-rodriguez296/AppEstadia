@@ -27,6 +27,8 @@ struct Constants {
     struct Segues {
         static let addDateSegue = "addDateSegue"
         static let showResultsSegue = "showResultsSegue"
-        static let showTabSegue = "tabBarSegue"
+        static let insertDatesSegue = "insertDatesSegue"
+        static let forecastingSegue = "forecastingSegue"
+        static let yearResultsSegue = "yearResultsSegue"
     }
 }

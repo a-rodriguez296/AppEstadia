@@ -14,6 +14,8 @@ class YearResultsViewController: UIViewController {
     
     @IBOutlet weak var lblYearResults: UILabel!
     
+    var taxPayer:CDTaxPayer?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,7 @@ class YearResultsViewController: UIViewController {
                 
                 
                 
-                let response = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDate())
+                let response = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!))
                 
                 var responseText = ""
                 for r in response{
@@ -65,10 +67,4 @@ class YearResultsViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

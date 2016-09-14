@@ -14,13 +14,15 @@ import MagicalRecord
 class InsertDatesController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnForecasting: UIBarButtonItem!
+    @IBOutlet weak var btnSummary: UIBarButtonItem!
     
     var taxPayer:CDTaxPayer?
     
     
     
     var fetchedResultsController: NSFetchedResultsController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +39,15 @@ class InsertDatesController: UIViewController {
             print("An error occurred")
         }
         
-         automaticallyAdjustsScrollViewInsets = false
+        automaticallyAdjustsScrollViewInsets = false
         
         
         //Show initial alert
         showInitialAlert()
+        
+        //Sign up notifications
+        signUpToNotifications()
+        updateToolBarItemsState()
     }
     
     
@@ -53,6 +59,16 @@ class InsertDatesController: UIViewController {
             let addDateVC = segue.destinationViewController as! AddDateViewController
             addDateVC.taxPayer = taxPayer
         }
+        else if segue.identifier == Constants.Segues.forecastingSegue{
+            let chooseCurrentDateVC = segue.destinationViewController as! ChooseCurrentDateController
+            chooseCurrentDateVC.taxPayer = taxPayer
+        }
+        else if segue.identifier == Constants.Segues.yearResultsSegue{
+            let yearResultsVC = segue.destinationViewController as! YearResultsViewController
+            yearResultsVC.taxPayer = taxPayer
+        }
+        
+        
     }
     
     
@@ -97,13 +113,36 @@ class InsertDatesController: UIViewController {
         }
     }
     
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+}
+
+
+//MARK: NSNotifications
+extension InsertDatesController{
     
-    @IBAction func didPressDismiss(sender: AnyObject) {
-        tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+    func signUpToNotifications(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateToolBarItemsState), name: Constants.NSNotifications.staysChanged, object: nil)
     }
     
-    
-    
+    func updateToolBarItemsState(){
+        
+        //Parte CoreData
+        btnForecasting.enabled =  CDStay.staysForTaxPayer(taxPayer!) != 0
+        btnSummary.enabled = CDStay.staysForTaxPayer(taxPayer!) != 0
+        
+        /*
+         Pop Dynamic dates tab to root. The reason to do this is because if dates changes,
+         this calculation has to be done again, and has to go over the verification that's done in ChooseCurrentDateController
+         (Verify if the user in the selected date is a tax resident)
+         */
+        
+        
+        //        let dynamicDateNavVC = viewControllers![1] as! UINavigationController
+        //        dynamicDateNavVC.popToRootViewControllerAnimated(true)
+        
+    }
 }
 
 //MARK: UITableViewDataSource

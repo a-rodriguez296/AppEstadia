@@ -13,6 +13,9 @@ import MagicalRecord
 
 class ResultsViewController: UIViewController {
 
+    var taxPayer:CDTaxPayer?
+    
+    
     var selectedDate:NSDate?
     var dateCalculator:DatesCalculatorHelper?
     
@@ -35,7 +38,7 @@ class ResultsViewController: UIViewController {
         dateCalculator = DatesCalculatorHelper(endDate: selectedDate!)
         
         
-        let count = dateCalculator!.countDaysWithinTheLastYearWithArray(CDStay.staysOrderedByInitialDate())
+        let count = dateCalculator!.countDaysWithinTheLastYearWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer!))
         
         if count >= 183{
             lblSubtitle.text = "You have stayed more than one 183 days in the range you specified. Therefore you are considered a resident."
@@ -43,7 +46,7 @@ class ResultsViewController: UIViewController {
         else{
             lblSubtitle.text = "You have stayed \(count) days in the range you specified. Therefore you have \(182 - count) days remaining this year."
             
-            let dateRangesArray = dateCalculator!.dateRangesWithArray(CDStay.staysOrderedByInitialDate())
+            let dateRangesArray = dateCalculator!.dateRangesWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer!))
             
             if dateRangesArray.count > 0{
                 lblRangesTitle.text = "The following date ranges won't be counted."

@@ -18,6 +18,7 @@ class ChooseCurrentDateController: UIViewController {
     
     var selectedDate = NSDate().endOf(.Day)
     
+    var taxPayer:CDTaxPayer?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,7 +63,7 @@ class ChooseCurrentDateController: UIViewController {
             
             //Verify if for that year the user is resident
             let dateCalculator = DatesCalculatorHelper(endDate: selectedDateBeginingOfTheYear)
-            let yearResponse = dateCalculator.consolidatedCalculations(selectedDateEndOfYear, staysArray: CDStay.staysOrderedByInitialDate()).first!
+            let yearResponse = dateCalculator.consolidatedCalculations(selectedDateEndOfYear, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!)).first!
             
             dispatch_async(dispatch_get_main_queue()) {
                 MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
@@ -87,5 +88,6 @@ class ChooseCurrentDateController: UIViewController {
         
         let resultsVC = segue.destinationViewController as! ResultsViewController
         resultsVC.selectedDate = selectedDate
+        resultsVC.taxPayer = taxPayer
     }
 }
