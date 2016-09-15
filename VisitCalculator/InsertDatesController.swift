@@ -96,7 +96,6 @@ class InsertDatesController: UIViewController {
         let indexPath = tableView.indexPathForCell(cell)!
         let stay = fetchedResultsController!.objectAtIndexPath(indexPath)
         stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
     
     func showInitialAlert(){

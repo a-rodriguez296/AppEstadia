@@ -78,7 +78,6 @@ class TaxPayersViewController: UIViewController {
             let rut = (alertController.textFields![1] as UITextField).text!
             
             let _ = CDTaxPayer(name: name, rut: rut, context: NSManagedObjectContext.MR_defaultContext())
-            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
         }
         alertController.addAction(saveAction)
         
@@ -107,7 +106,6 @@ class TaxPayersViewController: UIViewController {
     func deleteTaxPayerWithIndexPath(indexPath: NSIndexPath){
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath)
         taxPayer.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
     }
     
 }

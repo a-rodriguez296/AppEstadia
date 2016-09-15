@@ -156,14 +156,11 @@ class AddDateViewController: UIViewController {
                 }
                 else{
                     
-                    //Create the stay and save it
+                    //Create the stay
                     let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryTuple!.1, context: NSManagedObjectContext.MR_defaultContext())
-                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
-                    
-                    
+    
                     //Dismiss the view controller
                     self.navigationController?.popViewControllerAnimated(true)
-                    
                 }
             }
         }
