@@ -30,5 +30,6 @@ struct Constants {
         static let insertDatesSegue = "insertDatesSegue"
         static let forecastingSegue = "forecastingSegue"
         static let yearResultsSegue = "yearResultsSegue"
+        static let selectCountrySegue = "selectCountrySegue"
     }
 }

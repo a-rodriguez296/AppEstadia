@@ -6,6 +6,7 @@
         <relationship name="taxPayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTaxPayer" inverseName="dates" inverseEntity="CDTaxPayer" syncable="YES"/>
     </entity>
     <entity name="CDStay" representedClassName=".CDStay" syncable="YES">
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" attributeType="Date" syncable="YES"/>
         <attribute name="initialDate" attributeType="Date" syncable="YES"/>
         <relationship name="dates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDDate" inverseName="stay" inverseEntity="CDDate" syncable="YES"/>
@@ -19,7 +20,7 @@
     </entity>
     <elements>
         <element name="CDDate" positionX="-1026" positionY="-223" width="128" height="88"/>
-        <element name="CDStay" positionX="-810" positionY="-0" width="128" height="103"/>
+        <element name="CDStay" positionX="-810" positionY="-0" width="128" height="120"/>
         <element name="CDTaxPayer" positionX="-1217" positionY="-4" width="128" height="103"/>
     </elements>
 </model>

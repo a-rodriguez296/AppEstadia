@@ -152,8 +152,10 @@ extension InsertDatesController:UITableViewDataSource{
         
         let stay = fetchedResultsController!.objectAtIndexPath(indexPath) as! CDStay
         
+         let locale = NSLocale.currentLocale()
+        
         cell.textLabel?.text = stay.descriptionString()
-        cell.detailTextLabel?.text = "Total days: " + String(stay.dates!.count)
+        cell.detailTextLabel?.text = "Total days: " + String(stay.dates!.count) + " in " + locale.displayNameForKey(NSLocaleCountryCode, value: stay.countryCode!)!
         cell.selectionStyle = .None
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]

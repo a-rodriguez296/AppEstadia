@@ -13,7 +13,7 @@ import MagicalRecord
 class CDStay: NSManagedObject {
     
     
-    convenience init(dates: [NSDate],taxPayer: CDTaxPayer, context: NSManagedObjectContext){
+    convenience init(dates: [NSDate],taxPayer: CDTaxPayer,countryCode: String, context: NSManagedObjectContext){
         
         
         //Construct Dates set
@@ -32,6 +32,7 @@ class CDStay: NSManagedObject {
         self.dates = datesSet
         initialDate = dates.first!.endOf(.Day)
         endDate = dates.last!.endOf(.Day)
+        self.countryCode = countryCode
         self.taxPayer = taxPayer
         
         
@@ -51,11 +52,19 @@ class CDStay: NSManagedObject {
         }
     }
     
+    
+    //This function is used to fetch the stays associated with a tax payer
     class func staysOrderedByInitialDateWithTaxPayer(taxPayer: CDTaxPayer) -> [CDStay]{
-        let predicate = NSPredicate(format: "%K = %@", "taxPayer", taxPayer)
+        //fetch only the stays in Colombia, CO is the code for Colombia
+        //In the future this value has to be dynamic
+        let predicate = NSPredicate(format: "%K = %@ AND %K = %@", "taxPayer", taxPayer, "countryCode", "CO")
         return CDStay.MR_findAllSortedBy("initialDate", ascending: true, withPredicate: predicate) as! [CDStay]
     }
     
+    /*
+     This function is used to determine if the user has entered stays to either 
+     enable or disable the buttons forecasting and summary in insertDatesVC
+     */
     class func staysForTaxPayer(taxPayer: CDTaxPayer) -> Int{
         let predicate = NSPredicate(format: "%K = %@", "taxPayer", taxPayer)
         return Int(CDStay.MR_countOfEntitiesWithPredicate(predicate))

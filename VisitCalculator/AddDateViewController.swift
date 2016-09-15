@@ -25,14 +25,16 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var btnDepartureDate: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAddStay: UIButton!
+    @IBOutlet weak var btnSelectCountry: UIButton!
     
     
     var taxPayer:CDTaxPayer?
+    var selectedCountryTuple:(String, String)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        btnSelectCountry.titleLabel?.textAlignment = .Center
         showInitialAlert()
     }
     
@@ -64,7 +66,7 @@ class AddDateViewController: UIViewController {
             
         }
         else{
-            if arrivalDate <= departureDate{
+            if arrivalDate <= departureDate && selectedCountryTuple != nil{
                 btnAddStay.enabled = true
                 
                 datePicker.minimumDate = nil
@@ -110,7 +112,7 @@ class AddDateViewController: UIViewController {
         
         //This if is for the case where the user wants to chose the current date as arrival and departure date
         if arrivalDate != nil && departureDate != nil {
-            if arrivalDate <= departureDate{
+            if arrivalDate <= departureDate && selectedCountryTuple != nil{
                 btnAddStay.enabled = true
                 
                 datePicker.minimumDate = nil
@@ -155,15 +157,12 @@ class AddDateViewController: UIViewController {
                 else{
                     
                     //Create the stay and save it
-                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
+                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryTuple!.1, context: NSManagedObjectContext.MR_defaultContext())
                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
                     
                     
                     //Dismiss the view controller
                     self.navigationController?.popViewControllerAnimated(true)
-                    
-                    //Call the delegate method
-                    //self.delegate?.didAddDates()
                     
                 }
             }
@@ -186,5 +185,21 @@ class AddDateViewController: UIViewController {
             alertController.addAction(OKAction)
             presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == Constants.Segues.selectCountrySegue{
+            let countriesListVC = segue.destinationViewController as! CountriesListViewController
+            countriesListVC.delegate = self
+        }
+    }
+}
+
+extension AddDateViewController: CountriesListProtocol{
+    
+    func didSelectCountry(countryName: String, countryCode: String) {
+        selectedCountryTuple = (countryName, countryCode)
+        btnSelectCountry.titleLabel?.text = countryName
     }
 }

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //Setup Core Data
-        MagicalRecord.setupCoreDataStackWithStoreNamed("Model")
+        MagicalRecord.setupCoreDataStackWithAutoMigratingSqliteStoreNamed("Model")
         
         
         return true

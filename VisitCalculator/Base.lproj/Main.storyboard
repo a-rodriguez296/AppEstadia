@@ -97,27 +97,31 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-uC-czi">
-                                <rect key="frame" x="20" y="287" width="88" height="21"/>
+                                <rect key="frame" x="27" y="283" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
-                                <rect key="frame" x="24" y="316" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
+                                <rect key="frame" x="24" y="312" width="94" height="34"/>
+                                <state key="normal" title="Select Date">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="wYf-AM-WEw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-IR-YP9">
-                                <rect key="frame" x="464" y="287" width="116" height="21"/>
+                                <rect key="frame" x="457" y="283" width="116" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
-                                <rect key="frame" x="482" y="316" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
+                                <rect key="frame" x="468" y="312" width="94" height="34"/>
+                                <state key="normal" title="Select Date">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didPressSelectDate:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Gva-qx-LcH"/>
                                 </connections>
@@ -129,19 +133,21 @@
                                     <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
-                                <rect key="frame" x="109" y="80" width="383" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
+                                <rect key="frame" x="234" y="131" width="132" height="34"/>
+                                <state key="normal" title="Select a country">
+                                    <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Lfl-At-lI7" kind="show" identifier="selectCountrySegue" id="pn8-zK-4mL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
+                                <rect key="frame" x="69" y="80" width="462" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
-                                <rect key="frame" x="278" y="131" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Lfl-At-lI7" kind="show" id="pn8-zK-4mL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -159,8 +165,8 @@
                             <constraint firstAttribute="trailing" secondItem="lJO-Oh-Chj" secondAttribute="trailing" id="XFW-X1-UVw"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="XNn-Vn-ob1"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.3" id="aT5-Jn-WHi"/>
+                            <constraint firstItem="59v-G5-vpk" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="e5L-fW-8Dw"/>
                             <constraint firstItem="obl-Wl-smb" firstAttribute="centerX" secondItem="hsz-IR-YP9" secondAttribute="centerX" id="eKT-oi-soB"/>
-                            <constraint firstItem="59v-G5-vpk" firstAttribute="centerX" secondItem="zBf-3T-bZR" secondAttribute="centerX" id="eKd-fy-9dv"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="top" secondItem="V25-vg-eng" secondAttribute="bottom" constant="16" id="nuC-h8-9Vp"/>
@@ -174,6 +180,7 @@
                         <outlet property="btnAddStay" destination="kgI-sf-CGd" id="Ztq-n5-Iqu"/>
                         <outlet property="btnArrivalDate" destination="CVd-PD-IKy" id="3CX-Y4-ux1"/>
                         <outlet property="btnDepartureDate" destination="obl-Wl-smb" id="2tx-bE-V0H"/>
+                        <outlet property="btnSelectCountry" destination="59v-G5-vpk" id="a24-ws-KrB"/>
                         <outlet property="datePicker" destination="lJO-Oh-Chj" id="crt-n9-Mzq"/>
                     </connections>
                 </viewController>
@@ -181,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="2605" y="-344"/>
         </scene>
-        <!--Countries List View Controller-->
+        <!--Countries-->
         <scene sceneID="0D7-i9-YYy">
             <objects>
-                <viewController id="Lfl-At-lI7" customClass="CountriesListViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Countries" id="Lfl-At-lI7" customClass="CountriesListViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wTR-Mo-Ra3"/>
                         <viewControllerLayoutGuide type="bottom" id="sKR-w2-l5z"/>
@@ -210,6 +217,9 @@
                             <constraint firstItem="1uC-tB-uGk" firstAttribute="top" secondItem="wTR-Mo-Ra3" secondAttribute="bottom" id="pC2-cQ-ZHv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="1uC-tB-uGk" id="acS-RS-hQa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yn-cb-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
