@@ -29,6 +29,7 @@
 		35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
 		35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */; };
 		35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67ED11D773A060073CC58 /* ResultsViewController.swift */; };
+		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */; };
 		35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7081D5B75BE0078B8C8 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		35B588351D6BA2990097FBF1 /* DatesRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesRange.swift; sourceTree = "<group>"; };
 		35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrentDateController.swift; sourceTree = "<group>"; };
 		35B67ED11D773A060073CC58 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDatesController.swift; sourceTree = "<group>"; };
@@ -206,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */,
-				35FED9851D83104500C83F98 /* Add Date */,
+				35FED9851D83104500C83F98 /* Add Stay */,
 			);
 			name = "Insert Dates";
 			sourceTree = "<group>";
@@ -342,12 +344,13 @@
 			path = VisitCalculatorUITests;
 			sourceTree = "<group>";
 		};
-		35FED9851D83104500C83F98 /* Add Date */ = {
+		35FED9851D83104500C83F98 /* Add Stay */ = {
 			isa = PBXGroup;
 			children = (
 				3517A9451D81F5BB00681E40 /* AddDateViewController.swift */,
+				35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */,
 			);
-			name = "Add Date";
+			name = "Add Stay";
 			sourceTree = "<group>";
 		};
 		A4F8D6B84BDFA409C99AE53A /* Frameworks */ = {
@@ -664,6 +667,7 @@
 				354AFB351D889D85009CF6D6 /* CDStay+CoreDataProperties.swift in Sources */,
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
+				35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */,
 				3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */,
 				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,

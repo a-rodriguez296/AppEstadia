@@ -132,16 +132,6 @@ extension InsertDatesController{
         btnForecasting.enabled =  CDStay.staysForTaxPayer(taxPayer!) != 0
         btnSummary.enabled = CDStay.staysForTaxPayer(taxPayer!) != 0
         
-        /*
-         Pop Dynamic dates tab to root. The reason to do this is because if dates changes,
-         this calculation has to be done again, and has to go over the verification that's done in ChooseCurrentDateController
-         (Verify if the user in the selected date is a tax resident)
-         */
-        
-        
-        //        let dynamicDateNavVC = viewControllers![1] as! UINavigationController
-        //        dynamicDateNavVC.popToRootViewControllerAnimated(true)
-        
     }
 }
 
