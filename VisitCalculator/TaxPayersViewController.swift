@@ -64,20 +64,20 @@ class TaxPayersViewController: UIViewController {
         
         //Name
         alertController.addTextFieldWithConfigurationHandler { (textfield) in
-            textfield.placeholder = "name"
+            textfield.placeholder = "Name"
         }
         
-        //RUT
+        //ID
         alertController.addTextFieldWithConfigurationHandler { (textfield) in
-            textfield.placeholder = "rut"
+            textfield.placeholder = "Enter any type of id"
         }
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) in
             
             let name = (alertController.textFields![0] as UITextField).text!
-            let rut = (alertController.textFields![1] as UITextField).text!
+            let id = (alertController.textFields![1] as UITextField).text!
             
-            let _ = CDTaxPayer(name: name, rut: rut, context: NSManagedObjectContext.MR_defaultContext())
+            let _ = CDTaxPayer(name: name, id: id, context: NSManagedObjectContext.MR_defaultContext())
         }
         alertController.addAction(saveAction)
         
@@ -128,7 +128,7 @@ extension TaxPayersViewController:UITableViewDataSource{
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
         
         cell.textLabel?.text = taxPayer.name
-        cell.detailTextLabel?.text = "RUT: " + String(taxPayer.rut!)
+        cell.detailTextLabel?.text = "ID: " + String(taxPayer.id!)
         cell.selectionStyle = .None
         
         
@@ -200,7 +200,7 @@ extension TaxPayersViewController: UISearchResultsUpdating {
         
         NSFetchedResultsController.deleteCacheWithName("Root")
         if !searchText.isEmpty {
-            let searchPredicate = NSPredicate(format: "(%K CONTAINS[cd] %@) OR (%K CONTAINS %@)","name", searchText, "rut", searchText)
+            let searchPredicate = NSPredicate(format: "(%K CONTAINS[cd] %@) OR (%K CONTAINS %@)","name", searchText, "id", searchText)
             fetchedResultsController.fetchRequest.predicate = searchPredicate
             
         }

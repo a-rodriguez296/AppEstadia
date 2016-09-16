@@ -13,14 +13,14 @@
         <relationship name="taxPayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTaxPayer" inverseName="stays" inverseEntity="CDTaxPayer" syncable="YES"/>
     </entity>
     <entity name="CDTaxPayer" representedClassName=".CDTaxPayer" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="rut" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="dates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDDate" inverseName="taxPayer" inverseEntity="CDDate" syncable="YES"/>
         <relationship name="stays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDStay" inverseName="taxPayer" inverseEntity="CDStay" syncable="YES"/>
     </entity>
     <elements>
         <element name="CDDate" positionX="-1026" positionY="-223" width="128" height="88"/>
         <element name="CDStay" positionX="-810" positionY="-0" width="128" height="120"/>
-        <element name="CDTaxPayer" positionX="-1217" positionY="-4" width="128" height="103"/>
+        <element name="CDTaxPayer" positionX="-1217" positionY="-4" width="128" height="105"/>
     </elements>
 </model>
