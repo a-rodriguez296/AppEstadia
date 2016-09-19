@@ -24,26 +24,4 @@ class CDDate: NSManagedObject {
         
     }
     
-    
-    
-    class func verifyDates(dates:Array<NSDate>, taxPayer: CDTaxPayer) -> NSDate?{
-        
-        
-        //Verify if one of the dates already exist
-        
-        for date in dates{
-            let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "date", date.endOf(.Day), "taxPayer", taxPayer)
-            let element = CDDate.MR_findFirstWithPredicate(predicate)
-            if element != nil{
-                return element!.date
-            }
-        }
-        return nil
-    }
-    
-    class func oldestDate() -> NSDate{
-        let oldestCDDate = CDDate.MR_findFirstOrderedByAttribute("date", ascending: true)!
-        return oldestCDDate.date!
-    }
-    
 }

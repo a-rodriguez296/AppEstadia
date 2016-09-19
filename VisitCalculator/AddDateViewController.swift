@@ -9,6 +9,7 @@
 import UIKit
 import SwiftDate
 import MagicalRecord
+import Bond
 
 class AddDateViewController: UIViewController {
     
@@ -31,11 +32,124 @@ class AddDateViewController: UIViewController {
     var taxPayer:CDTaxPayer?
     var selectedCountryTuple:(String, String)?
     
+    
+    
+    //Observables
+    var arrivalDateObservable = Observable<NSDate?>(nil)
+    var departureDateObservable = Observable<NSDate?>(nil)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         btnSelectCountry.titleLabel?.textAlignment = .Center
         showInitialAlert()
+        
+        
+        btnArrivalDate.bnd_tap.observe {
+            self.currentButton = 0
+            self.datePicker.hidden = false
+            self.btnArrivalDate.selected = true
+            self.btnDepartureDate.enabled = false
+        }
+        
+        btnDepartureDate.bnd_tap.observe {
+            self.currentButton = 1
+            self.datePicker.hidden = false
+            self.btnDepartureDate.selected = true
+            self.btnArrivalDate.enabled = false
+        }
+        
+        let name = Observable(selectedCountryTuple)
+        let name1 = Observable(selectedCountryTuple)
+        
+        name1.value = ("camilo", "perez")
+        
+        
+        name.observe { (tuple) in
+            //print(tuple)
+            }.disposeIn(bnd_bag)
+        
+        name.value = ("hola", "como estas")
+        name.value = ("pdero", "asdflasdf")
+        
+
+        name1.value = ("oscar", "florez")
+        name.value = ("bruno", "asdf")
+        
+        name.combineLatestWith(name1).map { (a, b) -> Bool in
+            print(a)
+            print(b)
+            return true
+        }
+        
+        
+        combineLatest(name, name1).map { (name, name1) -> Bool in
+            
+            print(name)
+            return true
+        }
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            name.value = ("Alejandro", "Rodriguez")
+            name1.value = ("dasdf", "prerez")
+        }
+        
+        
+        
+        arrivalDateObservable.value = NSDate()
+        departureDateObservable.value = NSDate() + 1.days
+        
+        
+        
+        arrivalDateObservable.value = NSDate() + 20.days
+        departureDateObservable.value = NSDate() + 21.days
+        
+        
+        
+        //        datePicker.bnd_date.observe {[unowned self] (date) in
+        //
+        //            if let currentBtn = self.currentButton{
+        //                if currentBtn == 0{
+        //                    self.arrivalDate = date
+        //                    self.arrivalDateObservable.value = date
+        //                    self.btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
+        //
+        //
+        //                    if self.departureDate == nil{
+        //                        self.datePicker.minimumDate = date
+        //                    }
+        //                }
+        //                else{
+        //                    self.departureDate = date
+        //                    self.departureDateObservable.value = date
+        //                    self.btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
+        //                    self.datePicker.maximumDate = date
+        //                    if self.arrivalDate == nil{
+        //                        self.datePicker.maximumDate = date
+        //                    }
+        //                }
+        //            }
+        //
+        //            if self.arrivalDate != nil && self.departureDate != nil{
+        //                self.datePicker.minimumDate = nil
+        //                self.datePicker.maximumDate = nil
+        //            }
+        //        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let countryCode = defaults.objectForKey("countryCode") as! String?, country = defaults.objectForKey("country") as! String?{
+            selectedCountryTuple = (country, countryCode)
+            btnSelectCountry.titleLabel?.text = country
+        }
+        
+        
+        
     }
     
     //MARK: Buttons actions
@@ -124,6 +238,11 @@ class AddDateViewController: UIViewController {
     @IBAction func didTapOnTheScreen(sender: AnyObject) {
         
         datePicker.hidden = true
+        btnDepartureDate.enabled = true
+        btnDepartureDate.selected = false
+        
+        btnArrivalDate.enabled = true
+        btnArrivalDate.selected = false
     }
     
     @IBAction func didTapAddStay(sender: AnyObject) {
@@ -146,10 +265,12 @@ class AddDateViewController: UIViewController {
                 
                 
                 //Verify if dates exist
-                if let date = CDDate.verifyDates(responseArray,taxPayer: self.taxPayer!){
+                let (_, date) = CDDateQueries.validateDates(responseArray, taxPayer: self.taxPayer!, countryCode: self.selectedCountryTuple!.1)
+                
+                if let nonAcceptedDate = date{
                     
                     //If the date exists , show an alert controller
-                    let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(nonAcceptedDate)). You cannot add the same date twice", preferredStyle: .Alert)
                     let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
                     alertController.addAction(dismissAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
@@ -158,7 +279,7 @@ class AddDateViewController: UIViewController {
                     
                     //Create the stay
                     let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryTuple!.1, context: NSManagedObjectContext.MR_defaultContext())
-    
+                    
                     //Dismiss the view controller
                     self.navigationController?.popViewControllerAnimated(true)
                 }
@@ -198,5 +319,13 @@ extension AddDateViewController: CountriesListProtocol{
     func didSelectCountry(countryName: String, countryCode: String) {
         selectedCountryTuple = (countryName, countryCode)
         btnSelectCountry.titleLabel?.text = countryName
+        
+        
+        
+        //Save country name and country code
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(countryName, forKey: "country")
+        defaults.setObject(countryCode, forKey: "countryCode")
+        defaults.synchronize()
     }
 }

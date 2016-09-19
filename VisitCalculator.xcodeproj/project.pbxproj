@@ -21,6 +21,7 @@
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
+		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */; };
 		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
@@ -82,6 +83,7 @@
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
 		35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandlerTests.swift; sourceTree = "<group>"; };
 		35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResultsViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */,
 				35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */,
 				35214DF41D7F5C39009AD55C /* CoreDataTests.swift */,
+				358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */,
 				3540D0611D6C8C58000AF728 /* Info.plist */,
 			);
 			path = VisitCalculatorTests;
@@ -652,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */,
 				35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */,
 				3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */,
 				35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */,

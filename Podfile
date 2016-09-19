@@ -10,6 +10,7 @@ pod 'SwiftDate'
 pod 'MGSwipeTableCell'
 pod 'MagicalRecord'
 pod 'MBProgressHUD', '~> 1.0.0'
+pod 'Bond', '~> 4.3.1'
 
   target 'VisitCalculatorUITests' do
     inherit! :search_paths
