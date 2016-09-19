@@ -41,7 +41,7 @@ class YearResultsViewController: UIViewController {
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 
                 // Get the oldestDate added by the user
-                let oldestDate =  CDDate.oldestDate()
+                let oldestDate =  CDDateQueries.oldestDateWithTaxPayer(self.taxPayer!)
                 
                 //Get this year's last day
                 let upperBound = NSDate().endOf(.Year).endOf(.Day)

@@ -48,7 +48,149 @@ class DatesCalculatorHelper{
     }
     
     
-    //MARK: Count days within range
+    //MARK: Core Data
+    
+    func countDaysWithinTheLastYearWithArray(datesArray: Array<CDStay>) -> Int{
+        
+        var count = 0
+        
+        for stay in datesArray {
+            for stayDay in stay.dates! {
+                if stayDay.date!.isBetweenDates(startDate, endDate: endDate){
+                    count = count + 1
+                }
+            }
+        }
+        return count
+    }
+    
+    func dateRangesWithArray(staysArray: Array<CDStay>) -> Array<DatesRange>{
+        
+        var datesRanges = Array<DatesRange>()
+        
+        for stay in staysArray{
+            
+            if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:startDate, endDate: endDate){
+                datesRanges.append(dateRangeToAdd)
+            }
+        }
+        
+        return datesRanges
+    }
+    
+    private func createRangeWithStay(stay: CDStay, beginingDate: NSDate, endDate:NSDate) -> DatesRange?{
+        
+        
+        let inferiorDate = stay.initialDate!
+        let superiorDate = stay.endDate!
+        
+        
+        //Case when the stay dates fall outside of the range
+        if superiorDate < beginingDate || inferiorDate > endDate {
+            return nil
+        }
+            //Case when the stay dates fall in between the range
+        else if inferiorDate >= beginingDate && superiorDate <= endDate{
+            let projectedInferiorDate = (inferiorDate + 1.years).endOf(.Day)
+            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
+                var projectedSuperiorDate:NSDate?
+                
+                //To understand this if please check test testSemiInsideDatesRange1 in VisitCalculatorTests
+                if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day) {
+                    projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                }
+                else{
+                    projectedSuperiorDate = superiorDate
+                }
+                if inferiorDate != projectedSuperiorDate {
+                    return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
+                }
+                else{
+                    return DatesRange(dates: [inferiorDate])
+                }
+                
+            }
+            else{
+                return nil
+            }
+        }
+            //Case when one of the ends falls outside of the range
+        else{
+            
+            //Case when superior date falls in between the range but the inferior date falls outside
+            if superiorDate >= beginingDate && superiorDate <= endDate {
+                let projectedInferiorDate = (beginingDate + 1.years).endOf(.Day)
+                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
+                    var projectedSuperiorDate:NSDate?
+                    
+                    
+                    if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day){
+                        projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                    }
+                    else{
+                        projectedSuperiorDate = superiorDate
+                    }
+                    if beginingDate != projectedSuperiorDate {
+                        return DatesRange(dates: [beginingDate, projectedSuperiorDate!])
+                    }
+                    else{
+                        return DatesRange(dates: [beginingDate])
+                    }
+                    
+                }
+                else{
+                    return nil
+                }
+            }
+                //Case when the inferior date falls in between the range but the superior date falls outside.
+            else{
+                let dateRange  = DatesRange(dates: [inferiorDate, endDate])
+                let projectedDate = (inferiorDate + 1.years).endOf(.Day)
+                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(.Year)
+                return flag ? dateRange : nil
+            }
+        }
+    }
+    
+    func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<CDStay>) -> [YearResponse]{
+        
+        //upperBoundDate is the end of the current year
+        
+        print(DateFormatHelper.stringFromDate(startDate))
+        var responseArray = Array<YearResponse>()
+        
+        while endDate <= upperBoundDate{
+            
+            let count = countDaysWithinTheLastYearWithArray(staysArray)
+            let currentYear = endDate.year
+            if count >= 183{
+                //Resident
+                responseArray.append(YearResponse(year: currentYear, flag: true, date: endDate))
+                
+                if (endDate.endOf(.Year)).endOf(.Day) < upperBoundDate{
+                    //Fast forward untill the beggining of the next year
+                    endDate = (endDate.endOf(.Year)).endOf(.Day)
+                    startDate = endDate - 364.days
+                }
+                else{
+                    return responseArray
+                }
+            }
+            else if endDate.month == 12 && endDate.day == 31{
+                responseArray.append(YearResponse(year: currentYear, flag: false, date: nil))
+            }
+            
+            //Increase endDate by one day
+            changeDatesWithOperation(.Sum)
+            
+        }
+        return responseArray
+    }
+    
+    
+    
+    
+    //MARK: Testing purposes code. This is only used in the testing project
 
     
     func countDaysWithinTheLastYearWithArray(datesArray: Array<Stay>) -> Int{
@@ -197,146 +339,4 @@ class DatesCalculatorHelper{
         }
         return responseArray
     }
-    
-    
-    
-    //MARK: Core Data
-    
-    func countDaysWithinTheLastYearWithArray(datesArray: Array<CDStay>) -> Int{
-        
-        var count = 0
-        
-        for stay in datesArray {
-            for stayDay in stay.dates! {
-                if stayDay.date!.isBetweenDates(startDate, endDate: endDate){
-                    count = count + 1
-                }
-            }
-        }
-        return count
-    }
-    
-    func dateRangesWithArray(staysArray: Array<CDStay>) -> Array<DatesRange>{
-        
-        var datesRanges = Array<DatesRange>()
-        
-        for stay in staysArray{
-            
-            if let dateRangeToAdd = createRangeWithStay(stay, beginingDate:startDate, endDate: endDate){
-                datesRanges.append(dateRangeToAdd)
-            }
-        }
-        
-        return datesRanges
-    }
-    
-    private func createRangeWithStay(stay: CDStay, beginingDate: NSDate, endDate:NSDate) -> DatesRange?{
-        
-        
-        let inferiorDate = stay.initialDate!
-        let superiorDate = stay.endDate!
-        
-        
-        //Case when the stay dates fall outside of the range
-        if superiorDate < beginingDate || inferiorDate > endDate {
-            return nil
-        }
-            //Case when the stay dates fall in between the range
-        else if inferiorDate >= beginingDate && superiorDate <= endDate{
-            let projectedInferiorDate = (inferiorDate + 1.years).endOf(.Day)
-            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                var projectedSuperiorDate:NSDate?
-                
-                //To understand this if please check test testSemiInsideDatesRange1 in VisitCalculatorTests
-                if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day) {
-                    projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
-                }
-                else{
-                    projectedSuperiorDate = superiorDate
-                }
-                if inferiorDate != projectedSuperiorDate {
-                    return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
-                }
-                else{
-                    return DatesRange(dates: [inferiorDate])
-                }
-                
-            }
-            else{
-                return nil
-            }
-        }
-            //Case when one of the ends falls outside of the range
-        else{
-            
-            //Case when superior date falls in between the range but the inferior date falls outside
-            if superiorDate >= beginingDate && superiorDate <= endDate {
-                let projectedInferiorDate = (beginingDate + 1.years).endOf(.Day)
-                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                    var projectedSuperiorDate:NSDate?
-                    
-                    
-                    if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day){
-                        projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
-                    }
-                    else{
-                        projectedSuperiorDate = superiorDate
-                    }
-                    if beginingDate != projectedSuperiorDate {
-                        return DatesRange(dates: [beginingDate, projectedSuperiorDate!])
-                    }
-                    else{
-                        return DatesRange(dates: [beginingDate])
-                    }
-                    
-                }
-                else{
-                    return nil
-                }
-            }
-                //Case when the inferior date falls in between the range but the superior date falls outside.
-            else{
-                let dateRange  = DatesRange(dates: [inferiorDate, endDate])
-                let projectedDate = (inferiorDate + 1.years).endOf(.Day)
-                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(.Year)
-                return flag ? dateRange : nil
-            }
-        }
-    }
-    
-    func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<CDStay>) -> [YearResponse]{
-        
-        //upperBoundDate is the end of the current year
-        
-        print(DateFormatHelper.stringFromDate(startDate))
-        var responseArray = Array<YearResponse>()
-        
-        while endDate <= upperBoundDate{
-            
-            let count = countDaysWithinTheLastYearWithArray(staysArray)
-            let currentYear = endDate.year
-            if count >= 183{
-                //Resident
-                responseArray.append(YearResponse(year: currentYear, flag: true, date: endDate))
-                
-                if (endDate.endOf(.Year)).endOf(.Day) < upperBoundDate{
-                    //Fast forward untill the beggining of the next year
-                    endDate = (endDate.endOf(.Year)).endOf(.Day)
-                    startDate = endDate - 364.days
-                }
-                else{
-                    return responseArray
-                }
-            }
-            else if endDate.month == 12 && endDate.day == 31{
-                responseArray.append(YearResponse(year: currentYear, flag: false, date: nil))
-            }
-            
-            //Increase endDate by one day
-            changeDatesWithOperation(.Sum)
-            
-        }
-        return responseArray
-    }
-    
 }

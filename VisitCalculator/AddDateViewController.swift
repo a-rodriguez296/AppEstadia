@@ -146,10 +146,12 @@ class AddDateViewController: UIViewController {
                 
                 
                 //Verify if dates exist
-                if let date = CDDate.verifyDates(responseArray,taxPayer: self.taxPayer!){
+                let (_, date) = CDDateQueries.validateDates(responseArray, taxPayer: self.taxPayer!, countryCode: self.selectedCountryTuple!.1)
+
+                if let nonAcceptedDate = date{
                     
                     //If the date exists , show an alert controller
-                    let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(nonAcceptedDate)). You cannot add the same date twice", preferredStyle: .Alert)
                     let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
                     alertController.addAction(dismissAction)
                     self.presentViewController(alertController, animated: true, completion: nil)

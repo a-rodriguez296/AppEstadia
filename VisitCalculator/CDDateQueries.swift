@@ -92,6 +92,15 @@ class CDDateQueries{
             }
         }
     }
+    
+    
+    class func oldestDateWithTaxPayer(taxPayer: CDTaxPayer) -> NSDate{
+        let predicate = NSPredicate(format: "%K = %@","taxPayer", taxPayer)
+        let oldestCDDate = CDDate.MR_findFirstWithPredicate(predicate, sortedBy: "date", ascending: true)!
+        return oldestCDDate.date!
+    }
+    
+    
 }
 
 
