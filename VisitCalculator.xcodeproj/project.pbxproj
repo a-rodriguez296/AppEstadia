@@ -29,6 +29,8 @@
 		35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
 		35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */; };
 		35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67ED11D773A060073CC58 /* ResultsViewController.swift */; };
+		35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */; };
+		35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */; };
 		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */; };
@@ -88,6 +90,8 @@
 		35B588351D6BA2990097FBF1 /* DatesRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesRange.swift; sourceTree = "<group>"; };
 		35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrentDateController.swift; sourceTree = "<group>"; };
 		35B67ED11D773A060073CC58 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDateQueries.swift; sourceTree = "<group>"; };
+		35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStayQueries.swift; sourceTree = "<group>"; };
 		35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		356DD6DE1D7F324D001DD360 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				35C0F1F71D8C885200442AFE /* Queries */,
 				354AFB3D1D889E11009CF6D6 /* Human Files */,
 				354AFB3E1D889E23009CF6D6 /* Machine Files */,
 				35214DE31D7F357F009AD55C /* Model.xcdatamodeld */,
@@ -294,6 +299,15 @@
 				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
 			);
 			name = "Resource Files";
+			sourceTree = "<group>";
+		};
+		35C0F1F71D8C885200442AFE /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */,
+				35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */,
+			);
+			name = Queries;
 			sourceTree = "<group>";
 		};
 		35E5C6F81D5B75BD0078B8C8 = {
@@ -664,11 +678,13 @@
 				3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */,
 				354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */,
 				35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */,
+				35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */,
 				354AFB351D889D85009CF6D6 /* CDStay+CoreDataProperties.swift in Sources */,
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
 				35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */,
 				3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */,
+				35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */,
 				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
 				35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */,
