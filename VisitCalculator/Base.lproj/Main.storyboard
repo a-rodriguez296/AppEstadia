@@ -7,6 +7,77 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Add Taxpayer-->
+        <scene sceneID="Un1-dK-qx2">
+            <objects>
+                <viewController id="HcF-Ph-Tb5" customClass="AddTaxPayerViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m0P-Oo-9MI"/>
+                        <viewControllerLayoutGuide type="bottom" id="N6F-Gm-JPf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CfK-5P-4CA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sm-BM-5Sj" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taxpayer data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-yp-PhR">
+                                        <rect key="frame" x="246" y="47" width="108" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First and last name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeI-JL-rIE">
+                                        <rect key="frame" x="237" y="139" width="127" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-k2-U6y">
+                                        <rect key="frame" x="281" y="289" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="didTapAddTaxPayer:" destination="HcF-Ph-Tb5" eventType="touchUpInside" id="HTt-S6-WdR"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID(Passport, Social Security, etc)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-vZ-Vmd">
+                                        <rect key="frame" x="192" y="220" width="216" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="iYF-yp-PhR" firstAttribute="top" secondItem="6Sm-BM-5Sj" secondAttribute="topMargin" constant="39" id="7Hs-Qx-GeK"/>
+                                    <constraint firstItem="AqO-k2-U6y" firstAttribute="centerX" secondItem="ceN-vZ-Vmd" secondAttribute="centerX" id="9yU-0y-Rfw"/>
+                                    <constraint firstItem="ceN-vZ-Vmd" firstAttribute="centerY" secondItem="6Sm-BM-5Sj" secondAttribute="centerY" multiplier="0.85" id="UNe-gE-PdQ"/>
+                                    <constraint firstItem="ceN-vZ-Vmd" firstAttribute="centerX" secondItem="zeI-JL-rIE" secondAttribute="centerX" id="YYL-yV-NCb"/>
+                                    <constraint firstItem="zeI-JL-rIE" firstAttribute="centerY" secondItem="6Sm-BM-5Sj" secondAttribute="centerY" multiplier="0.55" id="daC-PR-Ezc"/>
+                                    <constraint firstItem="zeI-JL-rIE" firstAttribute="centerX" secondItem="6Sm-BM-5Sj" secondAttribute="centerX" id="j2u-Aj-bhc"/>
+                                    <constraint firstItem="iYF-yp-PhR" firstAttribute="centerX" secondItem="6Sm-BM-5Sj" secondAttribute="centerX" id="kSy-Lp-G9v"/>
+                                    <constraint firstItem="AqO-k2-U6y" firstAttribute="top" secondItem="ceN-vZ-Vmd" secondAttribute="bottom" constant="52" id="zHE-dJ-xrK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N6F-Gm-JPf" firstAttribute="top" secondItem="6Sm-BM-5Sj" secondAttribute="bottom" id="TAK-Vu-1kZ"/>
+                            <constraint firstAttribute="trailing" secondItem="6Sm-BM-5Sj" secondAttribute="trailing" id="WfM-nt-NfA"/>
+                            <constraint firstItem="6Sm-BM-5Sj" firstAttribute="top" secondItem="m0P-Oo-9MI" secondAttribute="bottom" id="ZLw-N8-XKN"/>
+                            <constraint firstItem="6Sm-BM-5Sj" firstAttribute="leading" secondItem="CfK-5P-4CA" secondAttribute="leading" id="jPY-k4-SHK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Taxpayer" id="kEn-Eb-zYP"/>
+                    <connections>
+                        <outlet property="btnDone" destination="AqO-k2-U6y" id="Yin-MV-FE1"/>
+                        <outlet property="txtId" destination="ceN-vZ-Vmd" id="SsL-XD-7vH"/>
+                        <outlet property="txtName" destination="zeI-JL-rIE" id="Nxj-V3-hFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Uf-1I-GS0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="-156"/>
+        </scene>
         <!--Insert Dates Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -428,7 +499,7 @@
             </objects>
             <point key="canvasLocation" x="3492" y="590"/>
         </scene>
-        <!--Tax Payers View Controller-->
+        <!--Taxpayers-->
         <scene sceneID="2dV-6a-8NB">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="D5u-ge-IUF" customClass="TaxPayersViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -448,19 +519,28 @@
                                     <outlet property="delegate" destination="D5u-ge-IUF" id="vnu-ye-J41"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrU-uy-QQN">
+                                <rect key="frame" x="550" y="562" width="30" height="30"/>
+                                <state key="normal" title="?"/>
+                                <connections>
+                                    <action selector="didTapOnHelp:" destination="D5u-ge-IUF" eventType="touchUpInside" id="sEC-Jf-Eiz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ug6-JL-WJR" firstAttribute="top" secondItem="YrU-uy-QQN" secondAttribute="bottom" constant="8" id="JEP-3l-O55"/>
                             <constraint firstItem="tMX-ec-c6s" firstAttribute="top" secondItem="3bE-od-R6j" secondAttribute="bottom" id="U8f-ht-eQm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YrU-uy-QQN" secondAttribute="trailing" id="eRM-j6-dkn"/>
                             <constraint firstItem="tMX-ec-c6s" firstAttribute="leading" secondItem="RSj-Cf-iMp" secondAttribute="leading" id="s4d-6v-neT"/>
                             <constraint firstItem="Ug6-JL-WJR" firstAttribute="top" secondItem="tMX-ec-c6s" secondAttribute="bottom" id="v47-AN-r9A"/>
                             <constraint firstAttribute="trailing" secondItem="tMX-ec-c6s" secondAttribute="trailing" id="yCD-5e-hmc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="o61-YE-PR0">
+                    <navigationItem key="navigationItem" title="Taxpayers" id="o61-YE-PR0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="orB-kR-6gr">
                             <connections>
-                                <action selector="didTapAddTaxPayer:" destination="D5u-ge-IUF" id="AXP-ze-L8O"/>
+                                <segue destination="HcF-Ph-Tb5" kind="show" id="Pft-HX-mQW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

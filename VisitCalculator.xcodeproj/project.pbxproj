@@ -19,10 +19,12 @@
 		354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */; };
 		356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992051D7A18CD007CD216 /* TabBarVC.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
+		358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */; };
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
 		35A15C3D1D942408007CCDD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C3C1D942408007CCDD0 /* Country.swift */; };
+		35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
 		35A33E7E1D75F9B4003D2BC6 /* StayHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */; };
 		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
@@ -82,10 +84,12 @@
 		354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewController.swift; sourceTree = "<group>"; };
 		356992051D7A18CD007CD216 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersExtensions.swift; sourceTree = "<group>"; };
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
 		35A15C3C1D942408007CCDD0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewController.swift; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
 		35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandlerTests.swift; sourceTree = "<group>"; };
 		35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResultsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */,
+				358218EE1D9575EA00D512C3 /* Extensions */,
+				358218ED1D95751C00D512C3 /* Add Tax Payer */,
 			);
 			name = TaxPayers;
 			sourceTree = "<group>";
@@ -247,6 +253,22 @@
 				35214DE31D7F357F009AD55C /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		358218ED1D95751C00D512C3 /* Add Tax Payer */ = {
+			isa = PBXGroup;
+			children = (
+				35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */,
+			);
+			name = "Add Tax Payer";
+			sourceTree = "<group>";
+		};
+		358218EE1D9575EA00D512C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		35B588331D6B97B60097FBF1 /* Helpers */ = {
@@ -675,6 +697,7 @@
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
+				35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */,
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
 				3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */,
 				354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */,
@@ -687,6 +710,7 @@
 				354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */,
 				35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */,
 				35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */,
+				358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */,
 				354AFB351D889D85009CF6D6 /* CDStay+CoreDataProperties.swift in Sources */,
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseCurrentDateController.swift in Sources */,
