@@ -92,32 +92,26 @@ class AddDateViewController: UIViewController {
         }
         
         
-        let datesCombinedSignal = combineLatest(arrivalDateObservable, departureDateObservable)
-            .filter({[unowned self] (arrivalDate, departureDate) -> Bool in
-                
-                //Make sure arrival date is earlier than departure date
-                if arrivalDate! > departureDate!{
+        
+        
+        let combinedDatesSignal = combineLatest(arrivalDateObservable, departureDateObservable)
+            .map({[unowned self] (arrivalDate, departureDate) -> Bool in
+                if arrivalDate > departureDate{
                     self.presentAlertNonValidDate()
                 }
-                
-                //Disable add stay if arrival is greater than departure
-                self.btnAddStay.enabled =  arrivalDate! <= departureDate!
-                return arrivalDate! <= departureDate!
-                })
-            .map { ($0!, $1!) }
+                return arrivalDate <= departureDate
+            })
         
+        let countrySignal = selectedCountryObservable
+            .map { (country) -> Bool in
+                return !country!.countryCode.isEmpty
+            }
+
         
-        let _ = combineLatest(datesCombinedSignal, selectedCountryObservable, stayTypeObservable)
-            .map { return ($0.0, $0.1, $1!, $2!)}
-            .filter({[unowned self](arrivalDate, departureDate, country, stayType) -> Bool in
-                
-                //Disable add stay if the user has not entered a country
-                self.btnAddStay.enabled = !country.countryName.isEmpty
-                return !country.countryName.isEmpty
-                })
-            .observe { (_, _, _, _) in}
-        
-        
+        combineLatest(combinedDatesSignal, countrySignal).observe {[unowned self] (datesSignal, countrySignal) in
+            self.btnAddStay.enabled = datesSignal && countrySignal
+        }
+
         datePicker.bnd_date.observe {[unowned self] (date) in
             
             if let currentBtn = self.currentButton{
@@ -183,7 +177,7 @@ class AddDateViewController: UIViewController {
                 }
                 else{
                     //Create the stay
-                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryObservable.value!.countryCode, stayType: true, context: NSManagedObjectContext.MR_defaultContext())
+                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryObservable.value!.countryCode, stayType: self.stayTypeObservable.value!, context: NSManagedObjectContext.MR_defaultContext())
                     
                     //Dismiss the view controller
                     self.navigationController?.popViewControllerAnimated(true)
@@ -212,7 +206,7 @@ class AddDateViewController: UIViewController {
     
     func presentAlertNonValidDate(){
         //The user cannot enter a departure date smaller than the arrival date
-        let alertController = UIAlertController(title: "Attention", message: "You cannot enter a departure date that is earlier than the arrival day", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Attention", message: "You cannot enter a departure date that is earlier than the arrival date", preferredStyle: .Alert)
         let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
         alertController.addAction(dismissAction)
         presentViewController(alertController, animated: true, completion: nil)
