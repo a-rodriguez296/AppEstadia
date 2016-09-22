@@ -46,8 +46,8 @@ class CoreDataTests: XCTestCase {
     
     func testAddStay(){
         
-        let _ = CDStay(dates: [NSDate().endOf(.Day)],taxPayer: taxPayer!,countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
-        let _ = CDStay(dates: [(NSDate() - 1.days).endOf(.Day)],taxPayer: taxPayer! ,countryCode: colombiaCountryCode , context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: [NSDate().endOf(.Day)],taxPayer: taxPayer!,countryCode: colombiaCountryCode, stayType: true, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: [(NSDate() - 1.days).endOf(.Day)],taxPayer: taxPayer! ,countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         NSManagedObjectContext.MR_defaultContext().MR_saveOnlySelfAndWait()
         
         XCTAssertTrue(2 == CDStay.MR_findAll()!.count)

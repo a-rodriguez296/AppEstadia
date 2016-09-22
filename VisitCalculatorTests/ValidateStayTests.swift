@@ -62,7 +62,8 @@ class ValidateStayTests: XCTestCase {
         
         //Crear un Stay con fechas y código de país(a)
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let array = CDDateQueries.overlapedDatesArrayWithDatesArray(dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode)
         XCTAssertEqual(dates.count, array.count)
@@ -72,7 +73,8 @@ class ValidateStayTests: XCTestCase {
         
         //Crear un Stay con fechas y código de país(a)
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let array = CDDateQueries.overlapedDatesArrayWithDatesArray(dates, taxPayer: taxPayer!, countryCode: usaCountryCode)
         XCTAssertEqual(0, array.count)
@@ -81,7 +83,8 @@ class ValidateStayTests: XCTestCase {
     
     func testVerifyDateIsInitialDateInStay(){
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let initialDate = (NSDate() - 10.days).endOf(.Day)
         
@@ -90,7 +93,8 @@ class ValidateStayTests: XCTestCase {
     
     func testVerifyDateIsNotInitialDateInStay(){
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let initialDate = (NSDate() - 9.days).endOf(.Day)
         
@@ -99,7 +103,8 @@ class ValidateStayTests: XCTestCase {
     
     func testVerifyDateIsFinalDateInStay(){
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let finalDate = NSDate().endOf(.Day)
         
@@ -108,7 +113,8 @@ class ValidateStayTests: XCTestCase {
     
     func testVerifyDateIsNotFinalDateInStay(){
         let dates = generateDates0()
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let finalDate = (NSDate() + 1.days).endOf(.Day)
         
@@ -119,7 +125,7 @@ class ValidateStayTests: XCTestCase {
         
         //Different dates with different countries should be added
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateDates1(), taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -129,7 +135,7 @@ class ValidateStayTests: XCTestCase {
     func testValidateDates1(){
         //Different dates with the same countries should be added
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateDates1(), taxPayer: taxPayer!, countryCode: colombiaCountryCode)
         
@@ -140,7 +146,7 @@ class ValidateStayTests: XCTestCase {
     func testValidateDates2(){
         //Exact dates with the same countries should not be added
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode)
         
@@ -150,7 +156,7 @@ class ValidateStayTests: XCTestCase {
     func testValidateDates3(){
         //Adjacent dates with different countries should be added. In this case the adjacency is: (dates to be added).finalDate == stay.InitialDate
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateAdjacentDates(), taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -160,7 +166,7 @@ class ValidateStayTests: XCTestCase {
     func testValidateDates4(){
         //Adjacent dates with different countries should be added. In this case the adjacency is: (dates to be added).initialDate == stay.FinalDate
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateAdjacentDates1(), taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -171,7 +177,7 @@ class ValidateStayTests: XCTestCase {
         //Adjacent dates with different countries should be added. In this case the adjacency is: (dates to be added).initialDate == stay.FinalDate && (dates to be added).finalDate == anotherStay.FinalDate
         
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(generateAdjacentDates1(), taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -188,7 +194,7 @@ class ValidateStayTests: XCTestCase {
          */
         
         
-        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: generateDates0(), taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates([(NSDate() - 3.days).endOf(.Day), (NSDate() - 2.days).endOf(.Day)], taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -204,8 +210,8 @@ class ValidateStayTests: XCTestCase {
          */
         
         let dates = [(NSDate() - 3.days).endOf(.Day), (NSDate() - 2.days).endOf(.Day)]
-        
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(dates, taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -221,8 +227,8 @@ class ValidateStayTests: XCTestCase {
          */
         
         let dates = [(NSDate() - 3.days).endOf(.Day)]
-        
-        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode, context: NSManagedObjectContext.MR_defaultContext())
+        createStayWithDates(dates)
+        //let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
         
         let (flag, _) = CDDateQueries.validateDates(dates, taxPayer: taxPayer!, countryCode: usaCountryCode)
         
@@ -236,6 +242,11 @@ class ValidateStayTests: XCTestCase {
     //////////////////////////////////////////////
     // HELPER FUNCTIONS
     //////////////////////////////////////////////
+    
+    
+    private func createStayWithDates(dates:[NSDate]){
+        let _ = CDStay(dates: dates, taxPayer: taxPayer!, countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
+    }
     
     private func generateDates0() -> Array<NSDate>{
         
