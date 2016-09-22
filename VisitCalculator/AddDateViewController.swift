@@ -158,7 +158,7 @@ class AddDateViewController: UIViewController {
                 }
                 else{
                     //Create the stay
-                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryObservable.value!.countryCode, context: NSManagedObjectContext.MR_defaultContext())
+                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryObservable.value!.countryCode, stayType: true, context: NSManagedObjectContext.MR_defaultContext())
                     
                     //Dismiss the view controller
                     self.navigationController?.popViewControllerAnimated(true)

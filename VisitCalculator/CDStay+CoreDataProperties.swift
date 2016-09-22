@@ -14,9 +14,10 @@ import CoreData
 
 extension CDStay {
 
+    @NSManaged var countryCode: String?
     @NSManaged var endDate: NSDate?
     @NSManaged var initialDate: NSDate?
-    @NSManaged var countryCode: String?
+    @NSManaged var stayType: NSNumber?
     @NSManaged var dates: NSSet?
     @NSManaged var taxPayer: CDTaxPayer?
 

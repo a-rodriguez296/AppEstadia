@@ -13,7 +13,7 @@ import MagicalRecord
 class CDStay: NSManagedObject {
     
     
-    convenience init(dates: [NSDate],taxPayer: CDTaxPayer,countryCode: String, context: NSManagedObjectContext){
+    convenience init(dates: [NSDate],taxPayer: CDTaxPayer,countryCode: String,stayType: Bool,context: NSManagedObjectContext){
         
         
         //Construct Dates set
@@ -34,7 +34,7 @@ class CDStay: NSManagedObject {
         endDate = dates.last!.endOf(.Day)
         self.countryCode = countryCode
         self.taxPayer = taxPayer
-        
+        self.stayType = NSNumber(bool: stayType)
         
         //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs
         NSNotificationCenter.defaultCenter().postNotificationName(Constants.NSNotifications.staysChanged, object: nil)
