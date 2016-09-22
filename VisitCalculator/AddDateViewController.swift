@@ -26,6 +26,10 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var btnAddStay: UIButton!
     @IBOutlet weak var btnSelectCountry: UIButton!
     
+    //Business = true, vacations = false
+    @IBOutlet weak var btnBusiness: UIButton!
+    @IBOutlet weak var btnVacations: UIButton!
+    
     
     var taxPayer:CDTaxPayer?
     
@@ -34,12 +38,33 @@ class AddDateViewController: UIViewController {
     var arrivalDateObservable = Observable<NSDate?>(NSDate())
     var departureDateObservable = Observable<NSDate?>(NSDate())
     var selectedCountryObservable = Observable<Country?>(Country())
+    var stayTypeObservable = Observable<Bool?>(true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         btnSelectCountry.titleLabel?.textAlignment = .Center
         showInitialAlert()
+        
+        
+        btnBusiness.bnd_tap
+            .observe {
+                self.btnBusiness.selected =  !self.btnBusiness.selected
+                self.btnVacations.selected =  !self.btnVacations.selected
+                if self.btnBusiness.selected == true{
+                    self.stayTypeObservable.value = true
+                }
+        }
+        
+        btnVacations.bnd_tap
+            .observe {
+                self.btnVacations.selected =  !self.btnVacations.selected
+                self.btnBusiness.selected =  !self.btnBusiness.selected
+                if self.btnVacations.selected == true{
+                    self.stayTypeObservable.value = false
+                }
+        }
+        
         
         
         btnArrivalDate.bnd_tap.observe {
@@ -58,7 +83,7 @@ class AddDateViewController: UIViewController {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if let countryCode = defaults.objectForKey("countryCode") as! String?, countryName = defaults.objectForKey("country") as! String?{
-        
+            
             var country = selectedCountryObservable.value
             country?.countryCode = countryCode
             country?.countryName = countryName
@@ -69,6 +94,8 @@ class AddDateViewController: UIViewController {
         
         let datesCombinedSignal = combineLatest(arrivalDateObservable, departureDateObservable)
             .filter({[unowned self] (arrivalDate, departureDate) -> Bool in
+                
+                //Make sure arrival date is earlier than departure date
                 if arrivalDate! > departureDate!{
                     self.presentAlertNonValidDate()
                 }
@@ -79,18 +106,16 @@ class AddDateViewController: UIViewController {
                 })
             .map { ($0!, $1!) }
         
-        let _ = combineLatest(datesCombinedSignal, selectedCountryObservable)
-            .map { return ($0.0, $0.1, $1!)}
-            .filter({[unowned self](arrivalDate, departureDate, country) -> Bool in
+        
+        let _ = combineLatest(datesCombinedSignal, selectedCountryObservable, stayTypeObservable)
+            .map { return ($0.0, $0.1, $1!, $2!)}
+            .filter({[unowned self](arrivalDate, departureDate, country, stayType) -> Bool in
                 
                 //Disable add stay if the user has not entered a country
                 self.btnAddStay.enabled = !country.countryName.isEmpty
                 return !country.countryName.isEmpty
                 })
-            .observe { (arrivalDate, departureDate, country) in
-                
-                print(country)
-        }
+            .observe { (_, _, _, _) in}
         
         
         datePicker.bnd_date.observe {[unowned self] (date) in

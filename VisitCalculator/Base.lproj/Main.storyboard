@@ -120,6 +120,12 @@
                                     <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
+                                <rect key="frame" x="69" y="80" width="462" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
                                 <rect key="frame" x="234" y="131" width="132" height="34"/>
                                 <state key="normal" title="Select a country">
@@ -129,12 +135,33 @@
                                     <segue destination="Lfl-At-lI7" kind="show" identifier="selectCountrySegue" id="pn8-zK-4mL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
-                                <rect key="frame" x="69" y="80" width="462" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="5JQ-Bh-WpN">
+                                <rect key="frame" x="177" y="205" width="247" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sER-60-z1P">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
+                                        <state key="normal" image="unchecked"/>
+                                        <state key="selected" image="checked"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-6e-deO">
+                                        <rect key="frame" x="41" y="0.0" width="69" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sq-zy-Bu9">
+                                        <rect key="frame" x="131" y="0.0" width="20" height="22"/>
+                                        <state key="normal" image="unchecked"/>
+                                        <state key="selected" image="checked"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3re-Rh-u7y">
+                                        <rect key="frame" x="172" y="0.0" width="75" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -142,6 +169,7 @@
                             <constraint firstItem="59v-G5-vpk" firstAttribute="top" secondItem="zBf-3T-bZR" secondAttribute="bottom" constant="30" id="CTP-mD-pbJ"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="centerX" secondItem="RkS-uC-czi" secondAttribute="centerX" id="DvI-LE-9Jn"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="top" secondItem="kgI-sf-CGd" secondAttribute="bottom" constant="20" id="Egc-gr-8oE"/>
+                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="top" secondItem="59v-G5-vpk" secondAttribute="bottom" constant="40" id="J5J-Xv-Ol9"/>
                             <constraint firstItem="obl-Wl-smb" firstAttribute="top" secondItem="hsz-IR-YP9" secondAttribute="bottom" constant="8" id="JJJ-9y-rfj"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="8" id="Lcy-cP-m25"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="4" id="NRg-n9-iom"/>
@@ -157,6 +185,7 @@
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="top" secondItem="V25-vg-eng" secondAttribute="bottom" constant="16" id="nuC-h8-9Vp"/>
+                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="centerX" secondItem="59v-G5-vpk" secondAttribute="centerX" id="oPs-4p-lba"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="top" secondItem="RkS-uC-czi" secondAttribute="bottom" constant="8" id="uQu-Zf-iad"/>
                         </constraints>
                         <connections>
@@ -166,8 +195,10 @@
                     <connections>
                         <outlet property="btnAddStay" destination="kgI-sf-CGd" id="Ztq-n5-Iqu"/>
                         <outlet property="btnArrivalDate" destination="CVd-PD-IKy" id="3CX-Y4-ux1"/>
+                        <outlet property="btnBusiness" destination="sER-60-z1P" id="ffw-N9-hLO"/>
                         <outlet property="btnDepartureDate" destination="obl-Wl-smb" id="2tx-bE-V0H"/>
                         <outlet property="btnSelectCountry" destination="59v-G5-vpk" id="a24-ws-KrB"/>
+                        <outlet property="btnVacations" destination="9Sq-zy-Bu9" id="aqx-yS-c4G"/>
                         <outlet property="datePicker" destination="lJO-Oh-Chj" id="crt-n9-Mzq"/>
                     </connections>
                 </viewController>
@@ -466,4 +497,8 @@
             <point key="canvasLocation" x="57" y="587"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checked" width="20" height="20"/>
+        <image name="unchecked" width="20" height="20"/>
+    </resources>
 </document>
