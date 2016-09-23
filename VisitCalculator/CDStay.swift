@@ -69,6 +69,13 @@ class CDStay: NSManagedObject {
         let predicate = NSPredicate(format: "%K = %@", "taxPayer", taxPayer)
         return Int(CDStay.MR_countOfEntitiesWithPredicate(predicate))
     }
+    
+    override func prepareForDeletion() {
+        super.prepareForDeletion()
+       
+        //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NSNotifications.staysChanged, object: nil)
+    }
 }
 
 

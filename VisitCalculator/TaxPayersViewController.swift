@@ -38,6 +38,7 @@ class TaxPayersViewController: UIViewController {
         super.viewDidLoad()
         
         automaticallyAdjustsScrollViewInsets = false
+        tableView.tableFooterView = UIView()
         
         //Initialize FetchedResultsController
         initializeFetchedResultsController()
@@ -58,11 +59,11 @@ class TaxPayersViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == Constants.Segues.insertDatesSegue{
+        if segue.identifier == Constants.Segues.datesParentViewSegue{
             
             //Send to insertDatesVC a reference of the TaxPayer object
-            let insertDatesVC = segue.destinationViewController as! InsertDatesController
-            insertDatesVC.taxPayer = sender as? CDTaxPayer
+            let insertDatesParentVC = segue.destinationViewController as! InsertDatesParentViewController
+            insertDatesParentVC.taxPayer = sender as? CDTaxPayer
             
         }
     }

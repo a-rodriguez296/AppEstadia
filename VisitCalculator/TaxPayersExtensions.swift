@@ -56,7 +56,7 @@ extension TaxPayersViewController: UITableViewDelegate{
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
         
         dispatch_async(dispatch_get_main_queue(),{
-            self.performSegueWithIdentifier(Constants.Segues.insertDatesSegue, sender: taxPayer)
+            self.performSegueWithIdentifier(Constants.Segues.datesParentViewSegue, sender: taxPayer)
         })
         
     }

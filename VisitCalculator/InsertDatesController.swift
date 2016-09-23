@@ -14,8 +14,6 @@ import MagicalRecord
 class InsertDatesController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnForecasting: UIBarButtonItem!
-    @IBOutlet weak var btnSummary: UIBarButtonItem!
     
     var taxPayer:CDTaxPayer?
     
@@ -44,10 +42,6 @@ class InsertDatesController: UIViewController {
         
         //Show initial alert
         showInitialAlert()
-        
-        //Sign up notifications
-        signUpToNotifications()
-        updateToolBarItemsState()
     }
     
     
@@ -112,26 +106,10 @@ class InsertDatesController: UIViewController {
         }
     }
     
-    deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-}
-
-
-//MARK: NSNotifications
-extension InsertDatesController{
     
-    func signUpToNotifications(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateToolBarItemsState), name: Constants.NSNotifications.staysChanged, object: nil)
-    }
+    @IBAction func didTapOnHelp(sender: AnyObject) {}
     
-    func updateToolBarItemsState(){
-        
-        //Parte CoreData
-        btnForecasting.enabled =  CDStay.staysForTaxPayer(taxPayer!) != 0
-        btnSummary.enabled = CDStay.staysForTaxPayer(taxPayer!) != 0
-        
-    }
+    
 }
 
 //MARK: UITableViewDataSource

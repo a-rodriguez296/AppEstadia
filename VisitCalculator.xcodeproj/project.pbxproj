@@ -17,9 +17,9 @@
 		354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB391D889DEF009CF6D6 /* CDDate.swift */; };
 		354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3A1D889DEF009CF6D6 /* CDStay.swift */; };
 		354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */; };
-		356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992051D7A18CD007CD216 /* TabBarVC.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
 		358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */; };
+		358218F01D9577F900D512C3 /* InsertDatesParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EF1D9577F900D512C3 /* InsertDatesParentViewController.swift */; };
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
@@ -82,9 +82,9 @@
 		354AFB391D889DEF009CF6D6 /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDate.swift; sourceTree = "<group>"; };
 		354AFB3A1D889DEF009CF6D6 /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStay.swift; sourceTree = "<group>"; };
 		354AFB3F1D88A026009CF6D6 /* TaxPayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewController.swift; sourceTree = "<group>"; };
-		356992051D7A18CD007CD216 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersExtensions.swift; sourceTree = "<group>"; };
+		358218EF1D9577F900D512C3 /* InsertDatesParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertDatesParentViewController.swift; sourceTree = "<group>"; };
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
@@ -228,14 +228,6 @@
 			name = "Insert Dates";
 			sourceTree = "<group>";
 		};
-		356992071D7A1A1D007CD216 /* Tab Bar */ = {
-			isa = PBXGroup;
-			children = (
-				356992051D7A18CD007CD216 /* TabBarVC.swift */,
-			);
-			name = "Tab Bar";
-			sourceTree = "<group>";
-		};
 		3569920A1D7A1EEF007CD216 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +290,7 @@
 				356992041D7A0D62007CD216 /* Insert Dates */,
 				356992031D7A0D5C007CD216 /* Dynamic Date */,
 				356992021D7A0D52007CD216 /* Year Results */,
-				356992071D7A1A1D007CD216 /* Tab Bar */,
+				358218EF1D9577F900D512C3 /* InsertDatesParentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -693,7 +685,6 @@
 			files = (
 				35A15C3D1D942408007CCDD0 /* Country.swift in Sources */,
 				354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */,
-				356992061D7A18CD007CD216 /* TabBarVC.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
@@ -702,6 +693,7 @@
 				3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */,
 				354AFB401D88A026009CF6D6 /* TaxPayersViewController.swift in Sources */,
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
+				358218F01D9577F900D512C3 /* InsertDatesParentViewController.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */,
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,
