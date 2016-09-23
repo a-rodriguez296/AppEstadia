@@ -15,8 +15,8 @@ class AddDateViewController: UIViewController {
     
     var currentButton:Int?
     
-    var arrivalDate:NSDate?
-    var departureDate:NSDate?
+//    var arrivalDate:NSDate?
+//    var departureDate:NSDate?
     var datesArray:[NSDate]?
     
     
@@ -35,8 +35,8 @@ class AddDateViewController: UIViewController {
     
     
     //Observables
-    var arrivalDateObservable = Observable<NSDate?>(NSDate())
-    var departureDateObservable = Observable<NSDate?>(NSDate())
+    var arrivalDateObservable = Observable<NSDate?>(NSDate().endOf(.Day))
+    var departureDateObservable = Observable<NSDate?>(NSDate().endOf(.Day))
     var selectedCountryObservable = Observable<Country?>(Country())
     var stayTypeObservable = Observable<Bool?>(true)
     
@@ -97,47 +97,46 @@ class AddDateViewController: UIViewController {
         let combinedDatesSignal = combineLatest(arrivalDateObservable, departureDateObservable)
             .map({[unowned self] (arrivalDate, departureDate) -> Bool in
                 if arrivalDate > departureDate{
-                    self.presentAlertNonValidDate()
+                    dispatch_async(dispatch_get_main_queue(), { 
+                       self.presentAlertNonValidDate()
+                    })
                 }
                 return arrivalDate <= departureDate
-            })
+                })
         
         let countrySignal = selectedCountryObservable
             .map { (country) -> Bool in
                 return !country!.countryCode.isEmpty
-            }
-
+        }
+        
         
         combineLatest(combinedDatesSignal, countrySignal).observe {[unowned self] (datesSignal, countrySignal) in
             self.btnAddStay.enabled = datesSignal && countrySignal
         }
-
+        
         datePicker.bnd_date.observe {[unowned self] (date) in
             
             if let currentBtn = self.currentButton{
                 if currentBtn == 0{
-                    self.arrivalDate = date
+                    
                     self.arrivalDateObservable.value = date
                     self.btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
                 }
                 else{
-                    self.departureDate = date
+                   
                     self.departureDateObservable.value = date
                     self.btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
                 }
             }
         }
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
         let countryName = selectedCountryObservable.value!.countryName
         if !countryName.isEmpty{
-            btnSelectCountry.titleLabel?.text = countryName
+            btnSelectCountry.setTitle(countryName, forState: .Normal)
         }
+        
+        btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)
+        btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)
+        
     }
     
     @IBAction func didTapOnTheScreen(sender: AnyObject) {
@@ -160,10 +159,13 @@ class AddDateViewController: UIViewController {
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             
             //Create the dates array in background
-            while self.arrivalDate <= self.departureDate {
+            var arrivalDate = self.arrivalDateObservable.value!
+            let departureDate = self.departureDateObservable.value!
+            
+            while arrivalDate <= departureDate {
                 
-                responseArray.append(self.arrivalDate!.endOf(.Day))
-                self.arrivalDate = self.arrivalDate! + 1.days
+                responseArray.append(arrivalDate.endOf(.Day))
+                arrivalDate = arrivalDate + 1.days
             }
             
             dispatch_async(dispatch_get_main_queue()) {
