@@ -21,9 +21,8 @@ class InsertDatesParentViewController: UIViewController {
     var taxPayer:CDTaxPayer?
     
     
-    var insertDatesVC:InsertDatesController?
-    
-    
+    var currentChildVC:UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,34 +32,29 @@ class InsertDatesParentViewController: UIViewController {
         
         
         
-        segmentedControl.bnd_selectedSegmentIndex.observe { (index) in
-            print(index)
+        segmentedControl.bnd_selectedSegmentIndex.observe {[unowned self] (index) in
+            
+            //Remove current view controller
+            if let child = self.currentChildVC{
+                self.removeViewController(child)
+            }
+            
+            let vcToAdd = self.initializeViewControllerWithIndex(index)
+
+            self.addChildViewController(vcToAdd)
+            self.containerView.addSubview(vcToAdd.view)
+            vcToAdd.didMoveToParentViewController(self)
+            
+            self.anchorViewControllerToContainerView(vcToAdd)
+            self.currentChildVC = vcToAdd
+
         }
         
-        //Agregar lista estadias
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        insertDatesVC = storyboard.instantiateViewControllerWithIdentifier("InsertDatesController") as? InsertDatesController
-        insertDatesVC?.taxPayer = taxPayer
-        addChildViewController(insertDatesVC!)
-        containerView.addSubview(insertDatesVC!.view)
-        insertDatesVC?.didMoveToParentViewController(self)
-        
-        anchorViewControllerToContainerView(insertDatesVC!)
         
         
         //NSNotifications
         signUpToNotifications()
         updateToolBarItemsState()
-    }
-    
-    
-    func anchorViewControllerToContainerView(viewController:UIViewController){
-        
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        viewController.view.trailingAnchor.constraintEqualToAnchor(containerView.trailingAnchor).active = true
-        viewController.view.leadingAnchor.constraintEqualToAnchor(containerView.leadingAnchor).active = true
-        viewController.view.topAnchor.constraintEqualToAnchor(containerView.topAnchor).active = true
-        viewController.view.bottomAnchor.constraintEqualToAnchor(containerView.bottomAnchor).active = true
     }
     
     
@@ -73,8 +67,47 @@ class InsertDatesParentViewController: UIViewController {
     
     
     deinit{
-         NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    
+    
+    //MARK: Helper Functions
+    func removeViewController(viewController: UIViewController){
+        viewController.willMoveToParentViewController(nil)
+        viewController.view.removeFromSuperview()
+        viewController.removeFromParentViewController()
+    }
+    
+    func initializeViewControllerWithIndex(index: Int) -> UIViewController{
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        if index == 0{
+            let vc = storyboard.instantiateViewControllerWithIdentifier("InsertDatesController") as! InsertDatesController
+            vc.taxPayer = taxPayer!
+            return vc
+            
+        }
+        else if index == 1 {
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ChooseCurrentDateController") as! ChooseCurrentDateController
+            vc.taxPayer = taxPayer!
+            return vc
+        }
+        else{
+            let vc = storyboard.instantiateViewControllerWithIdentifier("YearResultsViewController") as! YearResultsViewController
+            vc.taxPayer = taxPayer!
+            return vc
+        }
+    }
+    
+    func anchorViewControllerToContainerView(viewController:UIViewController){
+        
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        viewController.view.trailingAnchor.constraintEqualToAnchor(containerView.trailingAnchor).active = true
+        viewController.view.leadingAnchor.constraintEqualToAnchor(containerView.leadingAnchor).active = true
+        viewController.view.topAnchor.constraintEqualToAnchor(containerView.topAnchor).active = true
+        viewController.view.bottomAnchor.constraintEqualToAnchor(containerView.bottomAnchor).active = true
+    }
+    
 }
 
 

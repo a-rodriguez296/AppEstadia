@@ -15,7 +15,6 @@ class CountriesListViewController: UIViewController {
     var delegate:CountriesListProtocol?
     
     lazy var countriesArray:Array<(String,String)> = {
-        //print(NSBundle.mainBundle().preferredLocalizations.first! as NSString)
         let locale = NSLocale.currentLocale()
         let countryArray = NSLocale.ISOCountryCodes()
         var unsortedCountryArray = Array<(String, String)>()

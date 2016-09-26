@@ -304,7 +304,7 @@
         <!--Choose Current Date Controller-->
         <scene sceneID="sIz-qz-qxn">
             <objects>
-                <viewController id="GJX-9b-E7Q" customClass="ChooseCurrentDateController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseCurrentDateController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GJX-9b-E7Q" customClass="ChooseCurrentDateController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cT5-zm-G8m"/>
                         <viewControllerLayoutGuide type="bottom" id="aE0-RR-YaP"/>
@@ -385,7 +385,7 @@
         <!--Year Results View Controller-->
         <scene sceneID="yB4-v5-5XA">
             <objects>
-                <viewController id="8V4-dS-bde" customClass="YearResultsViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YearResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8V4-dS-bde" customClass="YearResultsViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6em-WS-YeI"/>
                         <viewControllerLayoutGuide type="bottom" id="p4Q-4x-jXy"/>
