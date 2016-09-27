@@ -133,6 +133,9 @@ class AddDateViewController: UIViewController {
         if !countryName.isEmpty{
             btnSelectCountry.setTitle(countryName, forState: .Normal)
         }
+        else{
+            btnSelectCountry.setTitle("Select a country", forState: .Normal)
+        }
         
         btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)
         btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)

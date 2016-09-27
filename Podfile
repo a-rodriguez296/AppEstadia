@@ -12,6 +12,7 @@ pod 'MagicalRecord'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'Bond', '~> 4.3.1'
 pod 'TPKeyboardAvoiding'
+pod 'SCLAlertView'
 
   target 'VisitCalculatorUITests' do
     inherit! :search_paths

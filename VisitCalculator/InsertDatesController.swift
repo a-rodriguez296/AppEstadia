@@ -10,6 +10,7 @@ import UIKit
 import SwiftDate
 import MGSwipeTableCell
 import MagicalRecord
+import SCLAlertView
 
 class InsertDatesController: UIViewController {
     
@@ -104,6 +105,14 @@ class InsertDatesController: UIViewController {
             alertController.addAction(OKAction)
             presentViewController(alertController, animated: true, completion: nil)
         }
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+           SCLAlertView().showInfo("Hola", subTitle: "asdf", closeButtonTitle: "Cerrar", duration: 5.5, colorStyle:  0xF0E68C, colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        })
+        
+        
+        
+        
     }
     
     
