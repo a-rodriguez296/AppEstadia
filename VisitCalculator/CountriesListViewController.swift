@@ -36,7 +36,6 @@ class CountriesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        automaticallyAdjustsScrollViewInsets = false
         
         //Initialize searchController
         searchController.searchResultsUpdater = self

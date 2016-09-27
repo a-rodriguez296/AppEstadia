@@ -15,8 +15,7 @@ class AddDateViewController: UIViewController {
     
     var currentButton:Int?
     
-//    var arrivalDate:NSDate?
-//    var departureDate:NSDate?
+
     var datesArray:[NSDate]?
     
     
@@ -25,6 +24,8 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAddStay: UIButton!
     @IBOutlet weak var btnSelectCountry: UIButton!
+    @IBOutlet weak var datePickerHeightCst: NSLayoutConstraint!
+    @IBOutlet weak var datePickerHeightIphone4SCst: NSLayoutConstraint!
     
     //Business = true, vacations = false
     @IBOutlet weak var btnBusiness: UIButton!
@@ -142,6 +143,24 @@ class AddDateViewController: UIViewController {
         
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        if height == 480.0{
+            NSLayoutConstraint.deactivateConstraints([datePickerHeightCst])
+            NSLayoutConstraint.activateConstraints([datePickerHeightIphone4SCst])
+        }
+        
+        
+        
+    }
+    
+    
+    //MARK: IBActions
     @IBAction func didTapOnTheScreen(sender: AnyObject) {
         
         datePicker.hidden = true
@@ -189,6 +208,14 @@ class AddDateViewController: UIViewController {
                 }
             }
         }
+        
+        
+    }
+    @IBAction func didTapSelectCountry(sender: AnyObject) {
+        
+        let countriesVC = CountriesListViewController()
+        countriesVC.delegate = self
+        navigationController?.pushViewController(countriesVC, animated: true)
     }
     
     //Helper Function

@@ -73,6 +73,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
+                                <rect key="frame" x="69" y="80" width="462" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqf-5L-i2f" userLabel="Top Separator View">
+                                <rect key="frame" x="0.0" y="117" width="600" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="x1q-x3-DTy"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KU3-bT-LZY" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="118" width="600" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
+                                        <rect key="frame" x="16" y="8" width="102" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Select Country">
+                                            <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="pav-Nc-ADZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iz-fj-TkG">
+                                        <rect key="frame" x="562" y="8" width="30" height="30"/>
+                                        <state key="normal" title="&gt;"/>
+                                        <connections>
+                                            <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="aQh-Cl-RAU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="5Iz-fj-TkG" firstAttribute="trailing" secondItem="KU3-bT-LZY" secondAttribute="trailingMargin" id="50f-P8-fc7"/>
+                                    <constraint firstItem="5Iz-fj-TkG" firstAttribute="centerY" secondItem="59v-G5-vpk" secondAttribute="centerY" id="AOq-ZR-T6M"/>
+                                    <constraint firstItem="59v-G5-vpk" firstAttribute="leading" secondItem="KU3-bT-LZY" secondAttribute="leading" constant="16" id="XWI-zL-jI4"/>
+                                    <constraint firstItem="59v-G5-vpk" firstAttribute="top" secondItem="KU3-bT-LZY" secondAttribute="top" constant="8" id="eWP-EW-iPr"/>
+                                    <constraint firstAttribute="bottom" secondItem="59v-G5-vpk" secondAttribute="bottom" constant="8" id="koU-DP-up4"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Ye8-m3-owB"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-9o-NHw" userLabel="Bottom Separator View">
+                                <rect key="frame" x="0.0" y="164" width="600" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ieO-8M-2lT"/>
+                                </constraints>
+                            </view>
                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-Oh-Chj">
                                 <rect key="frame" x="0.0" y="420" width="600" height="180"/>
                                 <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,23 +160,8 @@
                                     <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
-                                <rect key="frame" x="69" y="80" width="462" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
-                                <rect key="frame" x="285" y="131" width="30" height="34"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Lfl-At-lI7" kind="show" identifier="selectCountrySegue" id="pn8-zK-4mL"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="5JQ-Bh-WpN">
-                                <rect key="frame" x="177" y="205" width="247" height="22"/>
+                                <rect key="frame" x="177" y="233" width="247" height="22"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sER-60-z1P">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
@@ -152,11 +190,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RkS-uC-czi" firstAttribute="top" secondItem="5JQ-Bh-WpN" secondAttribute="bottom" constant="32" id="2Ez-3T-EsJ"/>
                             <constraint firstItem="8rC-yZ-eqA" firstAttribute="top" secondItem="lJO-Oh-Chj" secondAttribute="bottom" id="2tU-3H-FuY"/>
-                            <constraint firstItem="59v-G5-vpk" firstAttribute="top" secondItem="zBf-3T-bZR" secondAttribute="bottom" constant="30" id="CTP-mD-pbJ"/>
+                            <constraint firstItem="xqf-5L-i2f" firstAttribute="top" secondItem="zBf-3T-bZR" secondAttribute="bottom" constant="16" id="9FP-Y1-RNf"/>
+                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="9bX-we-EoY"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="centerX" secondItem="RkS-uC-czi" secondAttribute="centerX" id="DvI-LE-9Jn"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="top" secondItem="kgI-sf-CGd" secondAttribute="bottom" constant="20" id="Egc-gr-8oE"/>
-                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="top" secondItem="59v-G5-vpk" secondAttribute="bottom" constant="40" id="J5J-Xv-Ol9"/>
                             <constraint firstItem="obl-Wl-smb" firstAttribute="top" secondItem="hsz-IR-YP9" secondAttribute="bottom" constant="8" id="JJJ-9y-rfj"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="8" id="Lcy-cP-m25"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="4" id="NRg-n9-iom"/>
@@ -164,17 +203,29 @@
                             <constraint firstItem="kgI-sf-CGd" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="OMd-uR-j9k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="obl-Wl-smb" secondAttribute="trailing" constant="18" id="PDw-OV-SQP"/>
                             <constraint firstItem="kgI-sf-CGd" firstAttribute="top" secondItem="CVd-PD-IKy" secondAttribute="bottom" constant="24" id="PxV-Ys-BIO"/>
+                            <constraint firstItem="FVc-9o-NHw" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="T5m-aM-KiS"/>
                             <constraint firstAttribute="trailing" secondItem="lJO-Oh-Chj" secondAttribute="trailing" id="XFW-X1-UVw"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="XNn-Vn-ob1"/>
+                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.23" id="YI8-BA-xOJ"/>
+                            <constraint firstItem="KU3-bT-LZY" firstAttribute="top" secondItem="xqf-5L-i2f" secondAttribute="bottom" id="ZK5-RI-Mdt"/>
                             <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.3" id="aT5-Jn-WHi"/>
-                            <constraint firstItem="59v-G5-vpk" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="e5L-fW-8Dw"/>
+                            <constraint firstAttribute="trailing" secondItem="xqf-5L-i2f" secondAttribute="trailing" id="dbd-Ju-xrA"/>
                             <constraint firstItem="obl-Wl-smb" firstAttribute="centerX" secondItem="hsz-IR-YP9" secondAttribute="centerX" id="eKT-oi-soB"/>
+                            <constraint firstAttribute="trailing" secondItem="KU3-bT-LZY" secondAttribute="trailing" id="eTv-HT-KKq"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
+                            <constraint firstItem="KU3-bT-LZY" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="lN4-h7-Iue"/>
                             <constraint firstItem="zBf-3T-bZR" firstAttribute="top" secondItem="V25-vg-eng" secondAttribute="bottom" constant="16" id="nuC-h8-9Vp"/>
-                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="centerX" secondItem="59v-G5-vpk" secondAttribute="centerX" id="oPs-4p-lba"/>
                             <constraint firstItem="CVd-PD-IKy" firstAttribute="top" secondItem="RkS-uC-czi" secondAttribute="bottom" constant="8" id="uQu-Zf-iad"/>
+                            <constraint firstItem="FVc-9o-NHw" firstAttribute="top" secondItem="KU3-bT-LZY" secondAttribute="bottom" id="ukg-5o-jUh"/>
+                            <constraint firstAttribute="trailing" secondItem="FVc-9o-NHw" secondAttribute="trailing" id="uy2-N0-KaW"/>
+                            <constraint firstItem="xqf-5L-i2f" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="zpK-wE-l0i"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YI8-BA-xOJ"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="didTapOnTheScreen:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="D4S-VA-Wrb"/>
                         </connections>
@@ -187,48 +238,13 @@
                         <outlet property="btnSelectCountry" destination="59v-G5-vpk" id="a24-ws-KrB"/>
                         <outlet property="btnVacations" destination="9Sq-zy-Bu9" id="aqx-yS-c4G"/>
                         <outlet property="datePicker" destination="lJO-Oh-Chj" id="crt-n9-Mzq"/>
+                        <outlet property="datePickerHeightCst" destination="aT5-Jn-WHi" id="esx-jj-fUC"/>
+                        <outlet property="datePickerHeightIphone4SCst" destination="YI8-BA-xOJ" id="e9E-tB-07F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mop-La-STU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2605" y="-344"/>
-        </scene>
-        <!--Countries-->
-        <scene sceneID="0D7-i9-YYy">
-            <objects>
-                <viewController title="Countries" id="Lfl-At-lI7" customClass="CountriesListViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wTR-Mo-Ra3"/>
-                        <viewControllerLayoutGuide type="bottom" id="sKR-w2-l5z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dCT-ab-LbS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1uC-tB-uGk">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Lfl-At-lI7" id="ROq-vZ-Y9P"/>
-                                    <outlet property="delegate" destination="Lfl-At-lI7" id="Zbj-sN-ueY"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1uC-tB-uGk" firstAttribute="leading" secondItem="dCT-ab-LbS" secondAttribute="leading" id="1Se-QO-xJo"/>
-                            <constraint firstAttribute="trailing" secondItem="1uC-tB-uGk" secondAttribute="trailing" id="f80-TY-VfN"/>
-                            <constraint firstItem="sKR-w2-l5z" firstAttribute="top" secondItem="1uC-tB-uGk" secondAttribute="bottom" id="p4N-cI-KQB"/>
-                            <constraint firstItem="1uC-tB-uGk" firstAttribute="top" secondItem="wTR-Mo-Ra3" secondAttribute="bottom" id="pC2-cQ-ZHv"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="1uC-tB-uGk" id="acS-RS-hQa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2yn-cb-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3305" y="-344"/>
         </scene>
         <!--Choose Current Date Controller-->
         <scene sceneID="sIz-qz-qxn">
