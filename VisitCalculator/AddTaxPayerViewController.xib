@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTaxPayerViewController" customModule="VisitCalculator" customModuleProvider="target">
+            <connections>
+                <outlet property="btnDone" destination="ICi-or-4VT" id="Cjk-XG-Poz"/>
+                <outlet property="txtId" destination="gZb-ZR-Pk1" id="Lej-K2-BMb"/>
+                <outlet property="txtName" destination="76t-GR-s4F" id="NyQ-ue-EfZ"/>
+                <outlet property="view" destination="JPU-Qn-SCe" id="YmA-qi-3hS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="JPU-Qn-SCe">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoI-1M-CgE" customClass="TPKeyboardAvoidingScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taxpayer data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqi-6O-2Ic">
+                            <rect key="frame" x="246" y="47" width="108" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First and last name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="76t-GR-s4F">
+                            <rect key="frame" x="237" y="157" width="127" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID(Passport, Social Security, etc)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZb-ZR-Pk1">
+                            <rect key="frame" x="192" y="247" width="216" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICi-or-4VT">
+                            <rect key="frame" x="281" y="316" width="37" height="30"/>
+                            <state key="normal" title="Done"/>
+                            <connections>
+                                <action selector="didTapAddTaxPayer:" destination="-1" eventType="touchUpInside" id="fqR-d3-VlU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="76t-GR-s4F" firstAttribute="centerY" secondItem="CoI-1M-CgE" secondAttribute="centerY" multiplier="0.55" id="CuG-Lg-3jS"/>
+                        <constraint firstItem="76t-GR-s4F" firstAttribute="centerX" secondItem="CoI-1M-CgE" secondAttribute="centerX" id="IFP-nA-ATw"/>
+                        <constraint firstItem="ICi-or-4VT" firstAttribute="centerX" secondItem="gZb-ZR-Pk1" secondAttribute="centerX" id="KbE-h0-Mld"/>
+                        <constraint firstItem="ICi-or-4VT" firstAttribute="top" secondItem="gZb-ZR-Pk1" secondAttribute="bottom" constant="52" id="aK1-qL-Ynl"/>
+                        <constraint firstItem="Rqi-6O-2Ic" firstAttribute="centerX" secondItem="CoI-1M-CgE" secondAttribute="centerX" id="fXB-ag-k08"/>
+                        <constraint firstItem="gZb-ZR-Pk1" firstAttribute="centerX" secondItem="76t-GR-s4F" secondAttribute="centerX" id="mTD-zZ-8d9"/>
+                        <constraint firstItem="gZb-ZR-Pk1" firstAttribute="centerY" secondItem="CoI-1M-CgE" secondAttribute="centerY" multiplier="0.85" id="tEu-z6-GUg"/>
+                        <constraint firstItem="Rqi-6O-2Ic" firstAttribute="top" secondItem="CoI-1M-CgE" secondAttribute="topMargin" constant="39" id="tRu-1i-Vfa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CoI-1M-CgE" secondAttribute="trailing" id="L5m-gp-r4W"/>
+                <constraint firstItem="CoI-1M-CgE" firstAttribute="centerX" secondItem="JPU-Qn-SCe" secondAttribute="centerX" id="NDz-KD-tsR"/>
+                <constraint firstItem="CoI-1M-CgE" firstAttribute="top" secondItem="JPU-Qn-SCe" secondAttribute="top" id="eXN-SU-kb0"/>
+                <constraint firstItem="CoI-1M-CgE" firstAttribute="centerY" secondItem="JPU-Qn-SCe" secondAttribute="centerY" id="fKn-cz-h8M"/>
+                <constraint firstItem="CoI-1M-CgE" firstAttribute="leading" secondItem="JPU-Qn-SCe" secondAttribute="leading" id="upD-aG-dY1"/>
+                <constraint firstAttribute="bottom" secondItem="CoI-1M-CgE" secondAttribute="bottom" id="vlg-wZ-ZSG"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

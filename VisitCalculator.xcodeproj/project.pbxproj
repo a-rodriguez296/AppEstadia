@@ -36,6 +36,7 @@
 		35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */; };
 		35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */; };
 		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
+		35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */; };
 		35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7081D5B75BE0078B8C8 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDateQueries.swift; sourceTree = "<group>"; };
 		35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStayQueries.swift; sourceTree = "<group>"; };
 		35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
+		35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaxPayerViewController.xib; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDatesController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */,
+				35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */,
 			);
 			name = "Add Tax Payer";
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
 				35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */,

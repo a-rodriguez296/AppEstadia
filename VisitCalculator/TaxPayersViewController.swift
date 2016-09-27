@@ -55,6 +55,12 @@ class TaxPayersViewController: UIViewController {
     //MARK: IBActions
     @IBAction func didTapOnHelp(sender: AnyObject) {}
 
+    @IBAction func didTapAddTaxpayer(sender: AnyObject) {
+        
+        let addTaxPayerVC = AddTaxPayerViewController()
+        navigationController?.pushViewController(addTaxPayerVC, animated: true)
+        
+    }
     //MARK: Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
