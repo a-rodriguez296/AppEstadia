@@ -24,6 +24,7 @@
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
+		358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358DD1771D9C0C7C0049979E /* ResultsViewController.xib */; };
 		35A15C3D1D942408007CCDD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C3C1D942408007CCDD0 /* Country.swift */; };
 		35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
@@ -91,6 +92,7 @@
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
+		358DD1771D9C0C7C0049979E /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		35A15C3C1D942408007CCDD0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewController.swift; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				35B67EC71D77240E0073CC58 /* ChooseCurrentDateController.swift */,
 				35B67ED11D773A060073CC58 /* ResultsViewController.swift */,
+				358DD1771D9C0C7C0049979E /* ResultsViewController.xib */,
 			);
 			name = "Dynamic Date";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
+				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
 				35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
 			);

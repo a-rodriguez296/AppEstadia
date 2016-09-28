@@ -21,8 +21,9 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubtitle: UILabel!
-    @IBOutlet weak var lblDateRanges: UILabel!
     @IBOutlet weak var lblRangesTitle: UILabel!
+    @IBOutlet weak var lblDateRanges: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

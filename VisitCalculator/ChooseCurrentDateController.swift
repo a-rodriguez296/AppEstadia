@@ -71,7 +71,12 @@ class ChooseCurrentDateController: UIViewController {
                 if !yearResponse.flag{
                     //The user is not a resident yet, therefore its usefull to perform calculations
                     
-                    self.performSegueWithIdentifier(Constants.Segues.showResultsSegue, sender: nil)
+                    let resultsVC = ResultsViewController()
+                    resultsVC.selectedDate = self.selectedDate
+                    resultsVC.taxPayer = self.taxPayer
+                    self.navigationController?.pushViewController(resultsVC, animated: true)
+                    
+                    
                 }
                 else{
                     let alertController = UIAlertController(title: "Attention", message: "For \(selectedDateEndOfYear.year), you are a tax resident.", preferredStyle: .Alert)
@@ -83,11 +88,5 @@ class ChooseCurrentDateController: UIViewController {
             }
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let resultsVC = segue.destinationViewController as! ResultsViewController
-        resultsVC.selectedDate = selectedDate
-        resultsVC.taxPayer = taxPayer
-    }
+
 }

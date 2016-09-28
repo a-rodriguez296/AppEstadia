@@ -89,11 +89,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KU3-bT-LZY" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="118" width="600" height="46"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
                                         <rect key="frame" x="16" y="8" width="102" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="backgroundColor" red="1" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Select Country">
-                                            <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="pav-Nc-ADZ"/>
@@ -320,7 +321,6 @@
                         <outlet property="btnContinue" destination="KEX-2U-XrL" id="h6c-AO-CMy"/>
                         <outlet property="datePicker" destination="WoN-rD-KLH" id="ScQ-6s-zLw"/>
                         <outlet property="lblSelectedDate" destination="gfg-t1-trG" id="b5O-Mk-nRx"/>
-                        <segue destination="gpZ-bY-f6M" kind="show" identifier="showResultsSegue" id="wok-5s-UCk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kd8-tX-v5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -362,74 +362,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEc-3O-Gnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2605" y="1702"/>
-        </scene>
-        <!--Results View Controller-->
-        <scene sceneID="Bkh-9Z-wkN">
-            <objects>
-                <viewController id="gpZ-bY-f6M" customClass="ResultsViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="58f-tb-JaX"/>
-                        <viewControllerLayoutGuide type="bottom" id="oW9-cg-sRf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lRl-l8-qjJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22a-z9-dWV">
-                                <rect key="frame" x="300" y="109" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dny-Q2-Jz0">
-                                <rect key="frame" x="300" y="134" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbC-JR-TgN">
-                                <rect key="frame" x="300" y="159" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn9-7b-Hb9">
-                                <rect key="frame" x="300" y="184" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Dny-Q2-Jz0" firstAttribute="centerX" secondItem="22a-z9-dWV" secondAttribute="centerX" id="45j-Rt-OSW"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zbC-JR-TgN" secondAttribute="trailing" constant="8" id="55g-jm-agx"/>
-                            <constraint firstItem="Wn9-7b-Hb9" firstAttribute="centerX" secondItem="zbC-JR-TgN" secondAttribute="centerX" id="5mJ-XY-QSX"/>
-                            <constraint firstItem="zbC-JR-TgN" firstAttribute="top" secondItem="Dny-Q2-Jz0" secondAttribute="bottom" constant="25" id="Cje-WJ-wWC"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Dny-Q2-Jz0" secondAttribute="trailing" constant="8" id="Eur-oG-PDv"/>
-                            <constraint firstItem="Dny-Q2-Jz0" firstAttribute="top" secondItem="22a-z9-dWV" secondAttribute="bottom" constant="25" id="FZa-kj-OUN"/>
-                            <constraint firstItem="22a-z9-dWV" firstAttribute="centerX" secondItem="lRl-l8-qjJ" secondAttribute="centerX" id="QKh-4C-dH3"/>
-                            <constraint firstItem="22a-z9-dWV" firstAttribute="top" secondItem="58f-tb-JaX" secondAttribute="bottom" constant="45" id="QcP-qk-M5S"/>
-                            <constraint firstItem="Wn9-7b-Hb9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lRl-l8-qjJ" secondAttribute="leadingMargin" constant="8" id="TSd-8m-dJV"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Wn9-7b-Hb9" secondAttribute="trailing" constant="8" id="Ua7-9u-l5l"/>
-                            <constraint firstItem="zbC-JR-TgN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lRl-l8-qjJ" secondAttribute="leadingMargin" constant="8" id="Xyi-uU-xij"/>
-                            <constraint firstItem="Wn9-7b-Hb9" firstAttribute="top" secondItem="zbC-JR-TgN" secondAttribute="bottom" constant="25" id="cUI-5h-ECk"/>
-                            <constraint firstItem="zbC-JR-TgN" firstAttribute="centerX" secondItem="Dny-Q2-Jz0" secondAttribute="centerX" id="eBb-uX-TP6"/>
-                            <constraint firstItem="22a-z9-dWV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lRl-l8-qjJ" secondAttribute="leadingMargin" constant="8" id="hxo-Xb-vz6"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="22a-z9-dWV" secondAttribute="trailing" constant="8" id="nwH-wc-VC5"/>
-                            <constraint firstItem="Dny-Q2-Jz0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lRl-l8-qjJ" secondAttribute="leadingMargin" constant="8" id="zxI-Ui-6t8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="lblDateRanges" destination="Wn9-7b-Hb9" id="pOa-Z9-upT"/>
-                        <outlet property="lblRangesTitle" destination="zbC-JR-TgN" id="nQu-ND-Yeu"/>
-                        <outlet property="lblSubtitle" destination="Dny-Q2-Jz0" id="gV6-F9-kWf"/>
-                        <outlet property="lblTitle" destination="22a-z9-dWV" id="KOY-Ei-sLK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w9p-DZ-gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3492" y="590"/>
         </scene>
         <!--Taxpayers-->
         <scene sceneID="2dV-6a-8NB">
