@@ -24,7 +24,15 @@ struct Constants {
         static let addDatesInitialLaunch = "addDates"
     }
     
-    struct Segues {
-        static let datesParentViewSegue = "datesParentViewSegue"
+    struct FontNames {
+        static let SourceSansSemiBold = "SourceSansPro-Semibold"
+        static let SourceSans = "SourceSansPro-Regular"
+        static let SourceSansBold = "SourceSansPro-Bold"
+    }
+    
+    struct Cells {
+        struct TaxPayer {
+            static let taxPayerCell = "TaxPayerCell"
+        }
     }
 }

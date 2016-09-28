@@ -38,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         
-        
+        //Configure Appearance 
+        Appearance.configureAppearance()
         
         return true
     }

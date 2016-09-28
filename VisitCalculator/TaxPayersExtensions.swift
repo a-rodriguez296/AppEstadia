@@ -24,13 +24,11 @@ extension TaxPayersViewController:UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.TaxPayer.taxPayerCell) as! TaxPayerCell
         
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
         
-        cell.textLabel?.text = taxPayer.name
-        cell.detailTextLabel?.text = "ID: " + String(taxPayer.id!)
-        cell.selectionStyle = .None
+        cell.initializeWithCDTaxPayer(taxPayer)
         
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]

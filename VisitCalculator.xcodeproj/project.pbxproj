@@ -43,6 +43,13 @@
 		35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */; };
 		35D57EAA1D9C334E00433517 /* TaxPayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EA81D9C334E00433517 /* TaxPayersViewController.swift */; };
 		35D57EAB1D9C334E00433517 /* TaxPayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EA91D9C334E00433517 /* TaxPayersViewController.xib */; };
+		35D57EAE1D9C551F00433517 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EAD1D9C551F00433517 /* Appearance.swift */; };
+		35D57EB01D9C561D00433517 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EAF1D9C561D00433517 /* UIColor.swift */; };
+		35D57EB41D9C58E600433517 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */; };
+		35D57EB51D9C58EA00433517 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */; };
+		35D57EB61D9C58ED00433517 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */; };
+		35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EB71D9C618800433517 /* TaxPayerCell.swift */; };
+		35D57EBA1D9C618800433517 /* TaxPayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EB81D9C618800433517 /* TaxPayerCell.xib */; };
 		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
 		35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
@@ -116,6 +123,13 @@
 		35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStayQueries.swift; sourceTree = "<group>"; };
 		35D57EA81D9C334E00433517 /* TaxPayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewController.swift; sourceTree = "<group>"; };
 		35D57EA91D9C334E00433517 /* TaxPayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaxPayersViewController.xib; sourceTree = "<group>"; };
+		35D57EAD1D9C551F00433517 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		35D57EAF1D9C561D00433517 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
+		35D57EB71D9C618800433517 /* TaxPayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayerCell.swift; sourceTree = "<group>"; };
+		35D57EB81D9C618800433517 /* TaxPayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaxPayerCell.xib; sourceTree = "<group>"; };
 		35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
 		35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaxPayerViewController.xib; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +186,7 @@
 			children = (
 				35E5C7281D5B88820078B8C8 /* NSDate.swift */,
 				3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */,
+				35D57EAF1D9C561D00433517 /* UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +284,7 @@
 		3569920A1D7A1EEF007CD216 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				35D57EAD1D9C551F00433517 /* Appearance.swift */,
 				356992081D7A1E42007CD216 /* Constants.swift */,
 			);
 			name = Utils;
@@ -353,6 +369,9 @@
 		35B67ECC1D7726EA0073CC58 /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
+				35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */,
+				35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */,
+				35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */,
 				35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */,
 				35E5C7101D5B75BE0078B8C8 /* Info.plist */,
 			);
@@ -375,6 +394,23 @@
 				351CCF601D9C298E00F4E23F /* ContainerViewController.xib */,
 			);
 			name = "Container VC";
+			sourceTree = "<group>";
+		};
+		35D57EBB1D9C631E00433517 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35D57EBC1D9C632500433517 /* Tax Payer Cell */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		35D57EBC1D9C632500433517 /* Tax Payer Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35D57EB71D9C618800433517 /* TaxPayerCell.swift */,
+				35D57EB81D9C618800433517 /* TaxPayerCell.xib */,
+			);
+			name = "Tax Payer Cell";
 			sourceTree = "<group>";
 		};
 		35E5C6F81D5B75BD0078B8C8 = {
@@ -412,6 +448,7 @@
 				35B67ECC1D7726EA0073CC58 /* Resource Files */,
 				3569920A1D7A1EEF007CD216 /* Utils */,
 				35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */,
+				35D57EBB1D9C631E00433517 /* Views */,
 			);
 			path = VisitCalculator;
 			sourceTree = "<group>";
@@ -581,13 +618,17 @@
 				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
+				35D57EBA1D9C618800433517 /* TaxPayerCell.xib in Resources */,
 				351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */,
 				351CCF611D9C298E00F4E23F /* ContainerViewController.xib in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
 				351CCF5D1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib in Resources */,
+				35D57EB51D9C58EA00433517 /* SourceSansPro-Regular.ttf in Resources */,
+				35D57EB61D9C58ED00433517 /* SourceSansPro-Semibold.ttf in Resources */,
 				351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */,
 				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
+				35D57EB41D9C58E600433517 /* SourceSansPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,12 +785,15 @@
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
+				35D57EB01D9C561D00433517 /* UIColor.swift in Sources */,
 				35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */,
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
 				3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */,
+				35D57EAE1D9C551F00433517 /* Appearance.swift in Sources */,
 				35D57EAA1D9C334E00433517 /* TaxPayersViewController.swift in Sources */,
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */,
+				35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */,
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,

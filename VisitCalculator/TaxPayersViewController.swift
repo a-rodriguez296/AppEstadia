@@ -37,7 +37,8 @@ class TaxPayersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         extendedLayoutIncludesOpaqueBars = false
-        tableView.tableFooterView = UIView()
+        
+        navigationController?.navigationBar.translucent = true
         
         title = NSLocalizedString("Tax payers", comment: "")
         
@@ -45,12 +46,10 @@ class TaxPayersViewController: UIViewController {
         initializeFetchedResultsController()
         
         //Initialize searchController
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.scopeButtonTitles = nil
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+        initializeSearchController()
         
+        //Setup TableView
+        setupTableView()
         
         //Bar button
         navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
@@ -74,6 +73,22 @@ class TaxPayersViewController: UIViewController {
     func deleteTaxPayerWithIndexPath(indexPath: NSIndexPath){
         let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath)
         taxPayer.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
+    }
+    
+    func initializeSearchController(){
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.scopeButtonTitles = nil
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.barTintColor = .whiteColor()
+    }
+    
+    func setupTableView(){
+        tableView.tableFooterView = UIView()
+        tableView.registerNib(UINib(nibName: "TaxPayerCell",  bundle: nil), forCellReuseIdentifier: Constants.Cells.TaxPayer.taxPayerCell)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 73
     }
     
 }
