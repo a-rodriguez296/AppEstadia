@@ -35,8 +35,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KU3-bT-LZY" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="118" width="600" height="46"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
-                                        <rect key="frame" x="16" y="8" width="102" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
+                                        <rect key="frame" x="16" y="8" width="110" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Select Country">
@@ -192,86 +192,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mop-La-STU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2605" y="-344"/>
-        </scene>
-        <!--Choose Current Date Controller-->
-        <scene sceneID="sIz-qz-qxn">
-            <objects>
-                <viewController storyboardIdentifier="ChooseCurrentDateController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GJX-9b-E7Q" customClass="ChooseCurrentDateController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cT5-zm-G8m"/>
-                        <viewControllerLayoutGuide type="bottom" id="aE0-RR-YaP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ukp-s7-VWX" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose the date on which you want to do the calculations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYZ-br-P1N">
-                                <rect key="frame" x="66" y="80" width="469" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfg-t1-trG">
-                                <rect key="frame" x="279" y="337" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEX-2U-XrL">
-                                <rect key="frame" x="269" y="374" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <action selector="didTapContinue:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="nqd-wb-0bR"/>
-                                </connections>
-                            </button>
-                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WoN-rD-KLH">
-                                <rect key="frame" x="0.0" y="420" width="600" height="180"/>
-                                <date key="date" timeIntervalSinceReferenceDate="495129065.04368502">
-                                    <!--2016-09-09 15:51:05 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="didChangeDate:" destination="GJX-9b-E7Q" eventType="valueChanged" id="ptZ-bc-Kw7"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzA-ZQ-5b7">
-                                <rect key="frame" x="260" y="117" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
-                                <connections>
-                                    <action selector="didTapSelectDate:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="Wj7-Zk-2IS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="top" secondItem="cT5-zm-G8m" secondAttribute="bottom" constant="16" id="5Um-Hv-y6p"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="YYZ-br-P1N" secondAttribute="trailing" constant="8" id="6Ed-gb-a2w"/>
-                            <constraint firstItem="WoN-rD-KLH" firstAttribute="leading" secondItem="Ukp-s7-VWX" secondAttribute="leading" id="CWF-PW-EBT"/>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ukp-s7-VWX" secondAttribute="leadingMargin" constant="8" id="RVN-7r-kCl"/>
-                            <constraint firstItem="gfg-t1-trG" firstAttribute="centerX" secondItem="KEX-2U-XrL" secondAttribute="centerX" id="TB9-YW-pRj"/>
-                            <constraint firstAttribute="trailing" secondItem="WoN-rD-KLH" secondAttribute="trailing" id="ZYc-km-PfZ"/>
-                            <constraint firstItem="YYZ-br-P1N" firstAttribute="centerX" secondItem="Ukp-s7-VWX" secondAttribute="centerX" id="aX7-3u-QOy"/>
-                            <constraint firstItem="WoN-rD-KLH" firstAttribute="top" secondItem="KEX-2U-XrL" secondAttribute="bottom" constant="16" id="ckS-LH-xJ0"/>
-                            <constraint firstItem="aE0-RR-YaP" firstAttribute="top" secondItem="WoN-rD-KLH" secondAttribute="bottom" id="d4N-EQ-L2Q"/>
-                            <constraint firstItem="KEX-2U-XrL" firstAttribute="centerX" secondItem="YYZ-br-P1N" secondAttribute="centerX" id="hsd-Wk-cmc"/>
-                            <constraint firstItem="KEX-2U-XrL" firstAttribute="top" secondItem="gfg-t1-trG" secondAttribute="bottom" constant="16" id="kjj-wY-Xlm"/>
-                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="top" secondItem="YYZ-br-P1N" secondAttribute="bottom" constant="16" id="kyJ-D6-unN"/>
-                            <constraint firstItem="EzA-ZQ-5b7" firstAttribute="centerX" secondItem="YYZ-br-P1N" secondAttribute="centerX" id="qQP-fi-ypl"/>
-                            <constraint firstItem="WoN-rD-KLH" firstAttribute="height" secondItem="Ukp-s7-VWX" secondAttribute="height" multiplier="0.3" id="w1Y-hj-K0g"/>
-                        </constraints>
-                        <connections>
-                            <action selector="didTapScreen:" destination="GJX-9b-E7Q" eventType="touchUpInside" id="k5y-dS-0BL"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" id="OKf-7s-UQC"/>
-                    <connections>
-                        <outlet property="btnContinue" destination="KEX-2U-XrL" id="h6c-AO-CMy"/>
-                        <outlet property="datePicker" destination="WoN-rD-KLH" id="ScQ-6s-zLw"/>
-                        <outlet property="lblSelectedDate" destination="gfg-t1-trG" id="b5O-Mk-nRx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kd8-tX-v5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2605" y="590"/>
         </scene>
         <!--Taxpayers-->
         <scene sceneID="2dV-6a-8NB">

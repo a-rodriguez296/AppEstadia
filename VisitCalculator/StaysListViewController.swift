@@ -46,27 +46,6 @@ class StaysListViewController: UIViewController {
     }
     
     
-    //MARK: Segue
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Constants.Segues.addDateSegue{
-            let addDateVC = segue.destinationViewController as! AddDateViewController
-            addDateVC.taxPayer = taxPayer
-        }
-        else if segue.identifier == Constants.Segues.forecastingSegue{
-            let chooseCurrentDateVC = segue.destinationViewController as! ChooseCurrentDateController
-            chooseCurrentDateVC.taxPayer = taxPayer
-        }
-        else if segue.identifier == Constants.Segues.yearResultsSegue{
-            let yearResultsVC = segue.destinationViewController as! YearResultsViewController
-            yearResultsVC.taxPayer = taxPayer
-        }
-        
-        
-    }
-    
-    
     //MARK: Helper functions
     
     func initializeFetchedResultsController(){

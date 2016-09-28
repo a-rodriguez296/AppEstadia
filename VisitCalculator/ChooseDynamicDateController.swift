@@ -1,5 +1,5 @@
 //
-//  ChooseCurrentDateController.swift
+//  ChooseDynamicDateController.swift
 //  VisitCalculator
 //
 //  Created by Alejandro Rodriguez on 8/31/16.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftDate
 import MBProgressHUD
 
-class ChooseCurrentDateController: UIViewController {
+class ChooseDynamicDateController: UIViewController {
     
     @IBOutlet weak var lblSelectedDate: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!

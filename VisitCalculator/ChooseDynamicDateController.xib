@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseDynamicDateController" customModule="VisitCalculator" customModuleProvider="target">
+            <connections>
+                <outlet property="btnContinue" destination="sne-EF-8gs" id="nHW-Pq-vfD"/>
+                <outlet property="datePicker" destination="ZjY-Rw-h3a" id="WdC-RL-tXi"/>
+                <outlet property="lblSelectedDate" destination="RBV-Zu-PH2" id="WOY-Lj-gxO"/>
+                <outlet property="view" destination="dTZ-MS-yH5" id="RRu-hA-n8T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="dTZ-MS-yH5" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the date on which you want to do the calculations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-zH-TuY">
+                    <rect key="frame" x="66" y="80" width="469" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-Zu-PH2">
+                    <rect key="frame" x="279" y="337" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sne-EF-8gs">
+                    <rect key="frame" x="269" y="374" width="62" height="30"/>
+                    <state key="normal" title="Continue"/>
+                    <connections>
+                        <action selector="didTapContinue:" destination="-1" eventType="touchUpInside" id="9in-z8-IpD"/>
+                    </connections>
+                </button>
+                <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Rw-h3a">
+                    <rect key="frame" x="0.0" y="420" width="600" height="180"/>
+                    <date key="date" timeIntervalSinceReferenceDate="495129065.04368502">
+                        <!--2016-09-09 15:51:05 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="didChangeDate:" destination="-1" eventType="valueChanged" id="trS-qv-O3H"/>
+                    </connections>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-Zj-Pvf">
+                    <rect key="frame" x="260" y="117" width="80" height="30"/>
+                    <state key="normal" title="Select Date"/>
+                    <connections>
+                        <action selector="didTapSelectDate:" destination="-1" eventType="touchUpInside" id="7Dg-v2-ynE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="leading" secondItem="dTZ-MS-yH5" secondAttribute="leading" id="2lp-tQ-2xv"/>
+                <constraint firstItem="GdC-zH-TuY" firstAttribute="centerX" secondItem="dTZ-MS-yH5" secondAttribute="centerX" id="AyN-kE-o2a"/>
+                <constraint firstItem="GdC-zH-TuY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dTZ-MS-yH5" secondAttribute="leadingMargin" constant="8" id="WdP-qA-It0"/>
+                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="centerX" secondItem="GdC-zH-TuY" secondAttribute="centerX" id="XOP-CV-exm"/>
+                <constraint firstAttribute="bottom" secondItem="ZjY-Rw-h3a" secondAttribute="bottom" id="XpL-Vs-W3B"/>
+                <constraint firstItem="sne-EF-8gs" firstAttribute="top" secondItem="RBV-Zu-PH2" secondAttribute="bottom" constant="16" id="fUs-BR-dfU"/>
+                <constraint firstItem="sne-EF-8gs" firstAttribute="centerX" secondItem="GdC-zH-TuY" secondAttribute="centerX" id="iUP-du-nrD"/>
+                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GdC-zH-TuY" secondAttribute="trailing" constant="8" id="oaG-eO-RIk"/>
+                <constraint firstAttribute="trailing" secondItem="ZjY-Rw-h3a" secondAttribute="trailing" id="ohr-J4-reg"/>
+                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="top" secondItem="GdC-zH-TuY" secondAttribute="bottom" constant="16" id="p1W-m9-UE1"/>
+                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="height" secondItem="dTZ-MS-yH5" secondAttribute="height" multiplier="0.3" id="pfu-UA-74j"/>
+                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="top" secondItem="sne-EF-8gs" secondAttribute="bottom" constant="16" id="qwU-Go-9bD"/>
+                <constraint firstItem="GdC-zH-TuY" firstAttribute="top" secondItem="dTZ-MS-yH5" secondAttribute="topMargin" constant="72" id="tuU-se-xcz"/>
+                <constraint firstItem="RBV-Zu-PH2" firstAttribute="centerX" secondItem="sne-EF-8gs" secondAttribute="centerX" id="xjE-nS-kjv"/>
+            </constraints>
+            <connections>
+                <action selector="didTapScreen:" destination="-1" eventType="valueChanged" id="1YA-yw-izT"/>
+            </connections>
+        </view>
+    </objects>
+</document>

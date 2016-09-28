@@ -80,7 +80,6 @@ class InsertDatesParentViewController: UIViewController {
     }
     
     func initializeViewControllerWithIndex(index: Int) -> UIViewController{
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         if index == 0{
             let vc = StaysListViewController()
             vc.taxPayer = taxPayer!
@@ -88,7 +87,7 @@ class InsertDatesParentViewController: UIViewController {
             
         }
         else if index == 1 {
-            let vc = storyboard.instantiateViewControllerWithIdentifier("ChooseCurrentDateController") as! ChooseCurrentDateController
+            let vc = ChooseDynamicDateController()//storyboard.instantiateViewControllerWithIdentifier("ChooseCurrentDateController") as! ChooseCurrentDateController
             vc.taxPayer = taxPayer!
             return vc
         }
