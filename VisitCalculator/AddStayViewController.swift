@@ -1,5 +1,5 @@
 //
-//  AddDateViewController.swift
+//  AddStayViewController.swift
 //  VisitCalculator
 //
 //  Created by Alejandro Rodriguez on 9/8/16.
@@ -11,7 +11,7 @@ import SwiftDate
 import MagicalRecord
 import Bond
 
-class AddDateViewController: UIViewController {
+class AddStayViewController: UIViewController {
     
     var currentButton:Int?
     
@@ -252,17 +252,9 @@ class AddDateViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
         
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == Constants.Segues.selectCountrySegue{
-            let countriesListVC = segue.destinationViewController as! CountriesListViewController
-            countriesListVC.delegate = self
-        }
-    }
 }
 
-extension AddDateViewController: CountriesListProtocol{
+extension AddStayViewController: CountriesListProtocol{
     
     func didSelectCountry(countryName: String, countryCode: String) {
         

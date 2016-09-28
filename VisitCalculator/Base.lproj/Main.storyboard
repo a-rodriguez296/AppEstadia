@@ -4,195 +4,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Add Date View Controller-->
-        <scene sceneID="Sls-DJ-jOs">
-            <objects>
-                <viewController id="Dvd-4f-4nQ" customClass="AddDateViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V25-vg-eng"/>
-                        <viewControllerLayoutGuide type="bottom" id="8rC-yZ-eqA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Nd-Pa-8kR" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-3T-bZR">
-                                <rect key="frame" x="69" y="80" width="462" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqf-5L-i2f" userLabel="Top Separator View">
-                                <rect key="frame" x="0.0" y="117" width="600" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="x1q-x3-DTy"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KU3-bT-LZY" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="118" width="600" height="46"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59v-G5-vpk">
-                                        <rect key="frame" x="16" y="8" width="110" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Select Country">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="pav-Nc-ADZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iz-fj-TkG">
-                                        <rect key="frame" x="562" y="8" width="30" height="30"/>
-                                        <state key="normal" title="&gt;"/>
-                                        <connections>
-                                            <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="aQh-Cl-RAU"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="5Iz-fj-TkG" firstAttribute="trailing" secondItem="KU3-bT-LZY" secondAttribute="trailingMargin" id="50f-P8-fc7"/>
-                                    <constraint firstItem="5Iz-fj-TkG" firstAttribute="centerY" secondItem="59v-G5-vpk" secondAttribute="centerY" id="AOq-ZR-T6M"/>
-                                    <constraint firstItem="59v-G5-vpk" firstAttribute="leading" secondItem="KU3-bT-LZY" secondAttribute="leading" constant="16" id="XWI-zL-jI4"/>
-                                    <constraint firstItem="59v-G5-vpk" firstAttribute="top" secondItem="KU3-bT-LZY" secondAttribute="top" constant="8" id="eWP-EW-iPr"/>
-                                    <constraint firstAttribute="bottom" secondItem="59v-G5-vpk" secondAttribute="bottom" constant="8" id="koU-DP-up4"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="didTapSelectCountry:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Ye8-m3-owB"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-9o-NHw" userLabel="Bottom Separator View">
-                                <rect key="frame" x="0.0" y="164" width="600" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="ieO-8M-2lT"/>
-                                </constraints>
-                            </view>
-                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-Oh-Chj">
-                                <rect key="frame" x="0.0" y="420" width="600" height="180"/>
-                                <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <date key="date" timeIntervalSinceReferenceDate="495057239.40720999">
-                                    <!--2016-09-08 19:53:59 +0000-->
-                                </date>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-uC-czi">
-                                <rect key="frame" x="20" y="287" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-PD-IKy">
-                                <rect key="frame" x="24" y="316" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-IR-YP9">
-                                <rect key="frame" x="464" y="287" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Wl-smb">
-                                <rect key="frame" x="482" y="316" width="80" height="30"/>
-                                <state key="normal" title="Select Date"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-sf-CGd">
-                                <rect key="frame" x="270" y="370" width="60" height="30"/>
-                                <state key="normal" title="Add stay"/>
-                                <connections>
-                                    <action selector="didTapAddStay:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="Yko-Js-QZE"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="5JQ-Bh-WpN">
-                                <rect key="frame" x="177" y="233" width="247" height="22"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sER-60-z1P">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
-                                        <state key="normal" image="unchecked"/>
-                                        <state key="selected" image="checked"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-6e-deO">
-                                        <rect key="frame" x="41" y="0.0" width="69" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sq-zy-Bu9">
-                                        <rect key="frame" x="131" y="0.0" width="20" height="22"/>
-                                        <state key="normal" image="unchecked"/>
-                                        <state key="selected" image="checked"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3re-Rh-u7y">
-                                        <rect key="frame" x="172" y="0.0" width="75" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RkS-uC-czi" firstAttribute="top" secondItem="5JQ-Bh-WpN" secondAttribute="bottom" constant="32" id="2Ez-3T-EsJ"/>
-                            <constraint firstItem="8rC-yZ-eqA" firstAttribute="top" secondItem="lJO-Oh-Chj" secondAttribute="bottom" id="2tU-3H-FuY"/>
-                            <constraint firstItem="xqf-5L-i2f" firstAttribute="top" secondItem="zBf-3T-bZR" secondAttribute="bottom" constant="16" id="9FP-Y1-RNf"/>
-                            <constraint firstItem="5JQ-Bh-WpN" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="9bX-we-EoY"/>
-                            <constraint firstItem="CVd-PD-IKy" firstAttribute="centerX" secondItem="RkS-uC-czi" secondAttribute="centerX" id="DvI-LE-9Jn"/>
-                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="top" secondItem="kgI-sf-CGd" secondAttribute="bottom" constant="20" id="Egc-gr-8oE"/>
-                            <constraint firstItem="obl-Wl-smb" firstAttribute="top" secondItem="hsz-IR-YP9" secondAttribute="bottom" constant="8" id="JJJ-9y-rfj"/>
-                            <constraint firstItem="zBf-3T-bZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="8" id="Lcy-cP-m25"/>
-                            <constraint firstItem="CVd-PD-IKy" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leadingMargin" constant="4" id="NRg-n9-iom"/>
-                            <constraint firstItem="obl-Wl-smb" firstAttribute="centerY" secondItem="CVd-PD-IKy" secondAttribute="centerY" id="Nrr-AZ-9Er"/>
-                            <constraint firstItem="kgI-sf-CGd" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="OMd-uR-j9k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="obl-Wl-smb" secondAttribute="trailing" constant="18" id="PDw-OV-SQP"/>
-                            <constraint firstItem="kgI-sf-CGd" firstAttribute="top" secondItem="CVd-PD-IKy" secondAttribute="bottom" constant="24" id="PxV-Ys-BIO"/>
-                            <constraint firstItem="FVc-9o-NHw" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="T5m-aM-KiS"/>
-                            <constraint firstAttribute="trailing" secondItem="lJO-Oh-Chj" secondAttribute="trailing" id="XFW-X1-UVw"/>
-                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="XNn-Vn-ob1"/>
-                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.23" id="YI8-BA-xOJ"/>
-                            <constraint firstItem="KU3-bT-LZY" firstAttribute="top" secondItem="xqf-5L-i2f" secondAttribute="bottom" id="ZK5-RI-Mdt"/>
-                            <constraint firstItem="lJO-Oh-Chj" firstAttribute="height" secondItem="9Nd-Pa-8kR" secondAttribute="height" multiplier="0.3" id="aT5-Jn-WHi"/>
-                            <constraint firstAttribute="trailing" secondItem="xqf-5L-i2f" secondAttribute="trailing" id="dbd-Ju-xrA"/>
-                            <constraint firstItem="obl-Wl-smb" firstAttribute="centerX" secondItem="hsz-IR-YP9" secondAttribute="centerX" id="eKT-oi-soB"/>
-                            <constraint firstAttribute="trailing" secondItem="KU3-bT-LZY" secondAttribute="trailing" id="eTv-HT-KKq"/>
-                            <constraint firstItem="zBf-3T-bZR" firstAttribute="centerX" secondItem="9Nd-Pa-8kR" secondAttribute="centerX" id="evp-lj-sQD"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zBf-3T-bZR" secondAttribute="trailing" constant="8" id="l1N-Rf-6gd"/>
-                            <constraint firstItem="KU3-bT-LZY" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="lN4-h7-Iue"/>
-                            <constraint firstItem="zBf-3T-bZR" firstAttribute="top" secondItem="V25-vg-eng" secondAttribute="bottom" constant="16" id="nuC-h8-9Vp"/>
-                            <constraint firstItem="CVd-PD-IKy" firstAttribute="top" secondItem="RkS-uC-czi" secondAttribute="bottom" constant="8" id="uQu-Zf-iad"/>
-                            <constraint firstItem="FVc-9o-NHw" firstAttribute="top" secondItem="KU3-bT-LZY" secondAttribute="bottom" id="ukg-5o-jUh"/>
-                            <constraint firstAttribute="trailing" secondItem="FVc-9o-NHw" secondAttribute="trailing" id="uy2-N0-KaW"/>
-                            <constraint firstItem="xqf-5L-i2f" firstAttribute="leading" secondItem="9Nd-Pa-8kR" secondAttribute="leading" id="zpK-wE-l0i"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="YI8-BA-xOJ"/>
-                            </mask>
-                        </variation>
-                        <connections>
-                            <action selector="didTapOnTheScreen:" destination="Dvd-4f-4nQ" eventType="touchUpInside" id="D4S-VA-Wrb"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="btnAddStay" destination="kgI-sf-CGd" id="Ztq-n5-Iqu"/>
-                        <outlet property="btnArrivalDate" destination="CVd-PD-IKy" id="3CX-Y4-ux1"/>
-                        <outlet property="btnBusiness" destination="sER-60-z1P" id="ffw-N9-hLO"/>
-                        <outlet property="btnDepartureDate" destination="obl-Wl-smb" id="2tx-bE-V0H"/>
-                        <outlet property="btnSelectCountry" destination="59v-G5-vpk" id="a24-ws-KrB"/>
-                        <outlet property="btnVacations" destination="9Sq-zy-Bu9" id="aqx-yS-c4G"/>
-                        <outlet property="datePicker" destination="lJO-Oh-Chj" id="crt-n9-Mzq"/>
-                        <outlet property="datePickerHeightCst" destination="aT5-Jn-WHi" id="esx-jj-fUC"/>
-                        <outlet property="datePickerHeightIphone4SCst" destination="YI8-BA-xOJ" id="e9E-tB-07F"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mop-La-STU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2605" y="-344"/>
-        </scene>
         <!--Taxpayers-->
         <scene sceneID="2dV-6a-8NB">
             <objects>
@@ -323,7 +136,7 @@
                     <navigationItem key="navigationItem" title="Dates" id="4XC-oG-z4l">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qBF-aL-lvx">
                             <connections>
-                                <segue destination="Dvd-4f-4nQ" kind="show" identifier="insertDatesSegue" id="ufe-KI-2tK"/>
+                                <action selector="didTapAddStay:" destination="she-Mn-Fg9" id="rPZ-D9-EKH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -336,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbq-Uh-0n3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="1334"/>
+            <point key="canvasLocation" x="1556" y="587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qxg-lu-8VC">
@@ -362,8 +175,4 @@
             <point key="canvasLocation" x="57" y="587"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checked" width="20" height="20"/>
-        <image name="unchecked" width="20" height="20"/>
-    </resources>
 </document>

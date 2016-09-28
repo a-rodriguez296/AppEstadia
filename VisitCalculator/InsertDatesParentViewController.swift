@@ -57,14 +57,13 @@ class InsertDatesParentViewController: UIViewController {
         updateToolBarItemsState()
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Constants.Segues.insertDatesSegue{
-            let addDateVC = segue.destinationViewController as? AddDateViewController
-            addDateVC?.taxPayer = taxPayer
-        }
+    @IBAction func didTapAddStay(sender: AnyObject) {
+        
+        let addStayVC = AddStayViewController()
+        addStayVC.taxPayer = taxPayer
+        navigationController?.pushViewController(addStayVC, animated: true)
+        
     }
-    
     
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)

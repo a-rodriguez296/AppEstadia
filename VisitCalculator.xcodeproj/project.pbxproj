@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */; };
-		3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddDateViewController.swift */; };
+		3517A9461D81F5BB00681E40 /* AddStayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddStayViewController.swift */; };
 		351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */; };
 		351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */; };
 		351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF591D9C143E00F4E23F /* StaysListViewController.xib */; };
 		351CCF5D1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF5C1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib */; };
+		351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */; };
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
@@ -77,11 +78,12 @@
 		0F98182FFB2A5482062B8C37 /* Pods-VisitCalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculatorTests/Pods-VisitCalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4BDC95A0DA73798AA7CBDB /* Pods-VisitCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculator/Pods-VisitCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
-		3517A9451D81F5BB00681E40 /* AddDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
+		3517A9451D81F5BB00681E40 /* AddStayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStayViewController.swift; sourceTree = "<group>"; };
 		351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesListViewController.xib; sourceTree = "<group>"; };
 		351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearResultsViewController.xib; sourceTree = "<group>"; };
 		351CCF591D9C143E00F4E23F /* StaysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaysListViewController.xib; sourceTree = "<group>"; };
 		351CCF5C1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseDynamicDateController.xib; sourceTree = "<group>"; };
+		351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStayViewController.xib; sourceTree = "<group>"; };
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,14 +253,14 @@
 			name = "Dynamic Date";
 			sourceTree = "<group>";
 		};
-		356992041D7A0D62007CD216 /* Insert Dates */ = {
+		356992041D7A0D62007CD216 /* Stays */ = {
 			isa = PBXGroup;
 			children = (
 				35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */,
 				351CCF591D9C143E00F4E23F /* StaysListViewController.xib */,
 				35FED9851D83104500C83F98 /* Add Stay */,
 			);
-			name = "Insert Dates";
+			name = Stays;
 			sourceTree = "<group>";
 		};
 		3569920A1D7A1EEF007CD216 /* Utils */ = {
@@ -321,7 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				354AFB411D88A1E1009CF6D6 /* TaxPayers */,
-				356992041D7A0D62007CD216 /* Insert Dates */,
+				356992041D7A0D62007CD216 /* Stays */,
 				356992031D7A0D5C007CD216 /* Dynamic Date */,
 				356992021D7A0D52007CD216 /* Year Results */,
 				358218EF1D9577F900D512C3 /* InsertDatesParentViewController.swift */,
@@ -415,7 +417,8 @@
 		35FED9851D83104500C83F98 /* Add Stay */ = {
 			isa = PBXGroup;
 			children = (
-				3517A9451D81F5BB00681E40 /* AddDateViewController.swift */,
+				3517A9451D81F5BB00681E40 /* AddStayViewController.swift */,
+				351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */,
 				351C22F71D9ACFF000C2F983 /* CountriesList VC */,
 			);
 			name = "Add Stay";
@@ -566,6 +569,7 @@
 				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
+				351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
 				351CCF5D1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib in Resources */,
 				351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */,
@@ -747,7 +751,7 @@
 				35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */,
 				35B67EC81D77240E0073CC58 /* ChooseDynamicDateController.swift in Sources */,
 				35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */,
-				3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */,
+				3517A9461D81F5BB00681E40 /* AddStayViewController.swift in Sources */,
 				35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */,
 				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
