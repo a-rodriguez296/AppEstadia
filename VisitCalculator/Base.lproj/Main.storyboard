@@ -327,42 +327,6 @@
             </objects>
             <point key="canvasLocation" x="2605" y="590"/>
         </scene>
-        <!--Year Results View Controller-->
-        <scene sceneID="yB4-v5-5XA">
-            <objects>
-                <viewController storyboardIdentifier="YearResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8V4-dS-bde" customClass="YearResultsViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6em-WS-YeI"/>
-                        <viewControllerLayoutGuide type="bottom" id="p4Q-4x-jXy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3jr-69-iYK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ2-eq-GVH">
-                                <rect key="frame" x="279" y="109" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="OQ2-eq-GVH" firstAttribute="top" secondItem="6em-WS-YeI" secondAttribute="bottom" constant="45" id="1IB-ky-duq"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="OQ2-eq-GVH" secondAttribute="trailing" constant="8" id="P96-nW-FnJ"/>
-                            <constraint firstItem="OQ2-eq-GVH" firstAttribute="centerX" secondItem="3jr-69-iYK" secondAttribute="centerX" id="PFD-b4-GOW"/>
-                            <constraint firstItem="OQ2-eq-GVH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3jr-69-iYK" secondAttribute="leadingMargin" constant="8" id="ylw-uX-egw"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="akG-OR-tGO"/>
-                    <connections>
-                        <outlet property="lblYearResults" destination="OQ2-eq-GVH" id="o5i-HW-ziH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CEc-3O-Gnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2605" y="1702"/>
-        </scene>
         <!--Taxpayers-->
         <scene sceneID="2dV-6a-8NB">
             <objects>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YearResultsViewController" customModule="VisitCalculator" customModuleProvider="target">
+            <connections>
+                <outlet property="lblYearResults" destination="Kda-G1-54H" id="xlJ-CT-rdk"/>
+                <outlet property="view" destination="IW1-4e-AAm" id="SCf-NN-Ibg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IW1-4e-AAm">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-G1-54H">
+                    <rect key="frame" x="279" y="65" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Kda-G1-54H" secondAttribute="trailing" constant="8" id="0w0-5J-Gvk"/>
+                <constraint firstItem="Kda-G1-54H" firstAttribute="centerX" secondItem="IW1-4e-AAm" secondAttribute="centerX" id="NRD-jb-FwP"/>
+                <constraint firstItem="Kda-G1-54H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IW1-4e-AAm" secondAttribute="leadingMargin" constant="8" id="PQK-Jx-hmT"/>
+                <constraint firstItem="Kda-G1-54H" firstAttribute="top" secondItem="IW1-4e-AAm" secondAttribute="topMargin" constant="57" id="Pbi-yt-ybE"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

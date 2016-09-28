@@ -93,7 +93,7 @@ class InsertDatesParentViewController: UIViewController {
             return vc
         }
         else{
-            let vc = storyboard.instantiateViewControllerWithIdentifier("YearResultsViewController") as! YearResultsViewController
+            let vc = YearResultsViewController()
             vc.taxPayer = taxPayer!
             return vc
         }

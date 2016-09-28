@@ -10,6 +10,7 @@
 		3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */; };
 		3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddDateViewController.swift */; };
 		351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */; };
+		351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */; };
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
@@ -76,6 +77,7 @@
 		3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
 		3517A9451D81F5BB00681E40 /* AddDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesListViewController.xib; sourceTree = "<group>"; };
+		351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearResultsViewController.xib; sourceTree = "<group>"; };
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */,
+				351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */,
 			);
 			name = "Year Results";
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 			files = (
 				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
+				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
 				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
 				35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */,
