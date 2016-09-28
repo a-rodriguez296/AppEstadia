@@ -36,9 +36,10 @@ class TaxPayersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        automaticallyAdjustsScrollViewInsets = false
+        extendedLayoutIncludesOpaqueBars = false
         tableView.tableFooterView = UIView()
+        
+        title = NSLocalizedString("Tax payers", comment: "")
         
         //Initialize FetchedResultsController
         initializeFetchedResultsController()
@@ -49,13 +50,19 @@ class TaxPayersViewController: UIViewController {
         searchController.searchBar.scopeButtonTitles = nil
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        
+        //Bar button
+        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
     }
+    
+    
     
     
     //MARK: IBActions
     @IBAction func didTapOnHelp(sender: AnyObject) {}
-
-    @IBAction func didTapAddTaxpayer(sender: AnyObject) {
+    
+    func didTapAddTaxpayer(sender: AnyObject) {
         
         let addTaxPayerVC = AddTaxPayerViewController()
         navigationController?.pushViewController(addTaxPayerVC, animated: true)

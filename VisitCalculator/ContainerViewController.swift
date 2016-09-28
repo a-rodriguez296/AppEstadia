@@ -55,9 +55,12 @@ class ContainerViewController: UIViewController {
         //NSNotifications
         signUpToNotifications()
         updateToolBarItemsState()
+        
+        //Bar button
+        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(didTapAddStay(_:))), animated: true)
     }
     
-    @IBAction func didTapAddStay(sender: AnyObject) {
+    func didTapAddStay(sender: AnyObject) {
         
         let addStayVC = AddStayViewController()
         addStayVC.taxPayer = taxPayer

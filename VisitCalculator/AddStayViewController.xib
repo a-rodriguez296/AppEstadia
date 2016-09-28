@@ -70,7 +70,7 @@
                         <constraint firstItem="04B-0R-cz0" firstAttribute="top" secondItem="RjR-1d-Ios" secondAttribute="top" constant="8" id="usd-wB-ytO"/>
                     </constraints>
                     <connections>
-                        <action selector="didTapSelectCountry:" destination="-1" eventType="valueChanged" id="Gs6-M1-jMF"/>
+                        <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="E6S-4h-jRy"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-Nr-IwZ" userLabel="Bottom Separator View">

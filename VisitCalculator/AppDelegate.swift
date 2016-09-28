@@ -24,6 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Start autoSave
         autoSave()
         
+        
+        //Crear Window
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let taxPayersVC = TaxPayersViewController()
+        
+        //Asignarlo al root
+        window?.rootViewController = UINavigationController(rootViewController: taxPayersVC)
+        
+        window?.backgroundColor = .whiteColor()
+        
+        //Mostrarlo
+        window?.makeKeyAndVisible()
+
+        
+        
+        
         return true
     }
     
