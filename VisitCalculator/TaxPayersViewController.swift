@@ -59,19 +59,6 @@ class TaxPayersViewController: UIViewController {
         
         let addTaxPayerVC = AddTaxPayerViewController()
         navigationController?.pushViewController(addTaxPayerVC, animated: true)
-        
-    }
-    //MARK: Segue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == Constants.Segues.datesParentViewSegue{
-            
-            //Send to insertDatesVC a reference of the TaxPayer object
-            let insertDatesParentVC = segue.destinationViewController as! InsertDatesParentViewController
-            insertDatesParentVC.taxPayer = sender as? CDTaxPayer
-            
-        }
     }
     
     

@@ -1,5 +1,5 @@
 //
-//  InsertDatesParentViewController.swift
+//  ContainerViewController.swift
 //  VisitCalculator
 //
 //  Created by Alejandro Rodriguez on 9/23/16.
@@ -10,7 +10,7 @@ import UIKit
 import Bond
 
 
-class InsertDatesParentViewController: UIViewController {
+class ContainerViewController: UIViewController {
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblId: UILabel!
@@ -110,7 +110,7 @@ class InsertDatesParentViewController: UIViewController {
 
 
 //MARK: NSNotifications
-extension InsertDatesParentViewController{
+extension ContainerViewController{
     
     func signUpToNotifications(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateToolBarItemsState), name: Constants.NSNotifications.staysChanged, object: nil)

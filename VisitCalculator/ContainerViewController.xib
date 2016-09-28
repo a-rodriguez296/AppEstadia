@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="VisitCalculator" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="vTg-vA-XLl" id="AMA-uH-W4e"/>
+                <outlet property="lblId" destination="7DD-j5-zl7" id="0OK-7B-9bP"/>
+                <outlet property="lblName" destination="yWf-HD-Hx8" id="zxu-nM-xoH"/>
+                <outlet property="segmentedControl" destination="SiU-vg-Kle" id="log-cb-Q1A"/>
+                <outlet property="view" destination="9WG-3w-cYg" id="Ii7-ep-BMl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9WG-3w-cYg">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-HD-Hx8" userLabel="Name">
+                    <rect key="frame" x="8" y="88" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-j5-zl7" userLabel="Id">
+                    <rect key="frame" x="550" y="88" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-0e-XD2" userLabel="Separator View">
+                    <rect key="frame" x="0.0" y="125" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Y1l-Ej-0xU"/>
+                    </constraints>
+                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SiU-vg-Kle">
+                    <rect key="frame" x="8" y="142" width="584" height="29"/>
+                    <segments>
+                        <segment title="Dates"/>
+                        <segment title="Forecasting" enabled="NO"/>
+                        <segment title="Year Conclusion" enabled="NO"/>
+                    </segments>
+                </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4g-ZC-30K" userLabel="Separator View">
+                    <rect key="frame" x="0.0" y="186" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="0Vf-tY-kAV"/>
+                        <constraint firstAttribute="height" constant="1" id="9VF-Qs-CbN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-vA-XLl" userLabel="ContainerView">
+                    <rect key="frame" x="0.0" y="188" width="600" height="412"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7DD-j5-zl7" firstAttribute="centerY" secondItem="yWf-HD-Hx8" secondAttribute="centerY" id="AVQ-GW-3t6"/>
+                <constraint firstItem="yWf-HD-Hx8" firstAttribute="leading" secondItem="9WG-3w-cYg" secondAttribute="leadingMargin" id="Aob-D9-oRo"/>
+                <constraint firstItem="SiU-vg-Kle" firstAttribute="trailing" secondItem="9WG-3w-cYg" secondAttribute="trailingMargin" id="Bkd-c6-EDF"/>
+                <constraint firstItem="s4g-ZC-30K" firstAttribute="leading" secondItem="9WG-3w-cYg" secondAttribute="leading" id="Ctw-kJ-ecQ"/>
+                <constraint firstItem="SiU-vg-Kle" firstAttribute="leading" secondItem="9WG-3w-cYg" secondAttribute="leadingMargin" id="DsW-EV-kVF"/>
+                <constraint firstAttribute="bottom" secondItem="vTg-vA-XLl" secondAttribute="bottom" id="LN0-TS-DQu"/>
+                <constraint firstAttribute="trailing" secondItem="vTg-vA-XLl" secondAttribute="trailing" id="Mi8-Wl-yzq"/>
+                <constraint firstItem="vTg-vA-XLl" firstAttribute="top" secondItem="s4g-ZC-30K" secondAttribute="bottom" constant="1" id="Qr8-8q-Qst"/>
+                <constraint firstItem="tsW-0e-XD2" firstAttribute="leading" secondItem="9WG-3w-cYg" secondAttribute="leading" id="U29-5q-Kly"/>
+                <constraint firstAttribute="trailing" secondItem="s4g-ZC-30K" secondAttribute="trailing" id="Wbv-d7-L9z"/>
+                <constraint firstItem="yWf-HD-Hx8" firstAttribute="top" secondItem="9WG-3w-cYg" secondAttribute="topMargin" constant="80" id="ceQ-B8-CrO"/>
+                <constraint firstItem="vTg-vA-XLl" firstAttribute="leading" secondItem="9WG-3w-cYg" secondAttribute="leading" id="ciB-IM-Qtr"/>
+                <constraint firstItem="SiU-vg-Kle" firstAttribute="top" secondItem="tsW-0e-XD2" secondAttribute="bottom" constant="16" id="fZA-uu-oVD"/>
+                <constraint firstItem="7DD-j5-zl7" firstAttribute="trailing" secondItem="9WG-3w-cYg" secondAttribute="trailingMargin" id="hpO-4R-LEw"/>
+                <constraint firstItem="tsW-0e-XD2" firstAttribute="top" secondItem="yWf-HD-Hx8" secondAttribute="bottom" constant="16" id="kQR-yh-Chi"/>
+                <constraint firstItem="SiU-vg-Kle" firstAttribute="bottom" secondItem="s4g-ZC-30K" secondAttribute="top" constant="-16" id="mMc-JO-LBa"/>
+                <constraint firstAttribute="trailing" secondItem="tsW-0e-XD2" secondAttribute="trailing" id="sAK-ed-huU"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

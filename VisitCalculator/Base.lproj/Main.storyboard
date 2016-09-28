@@ -53,103 +53,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="tMX-ec-c6s" id="Ldq-VM-qa4"/>
-                        <segue destination="she-Mn-Fg9" kind="show" identifier="datesParentViewSegue" id="tYy-2M-5A0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4N-0h-qcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869" y="587"/>
-        </scene>
-        <!--Dates-->
-        <scene sceneID="0h1-Aw-PDb">
-            <objects>
-                <viewController id="she-Mn-Fg9" customClass="InsertDatesParentViewController" customModule="VisitCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tXD-vA-WeB"/>
-                        <viewControllerLayoutGuide type="bottom" id="Irb-NW-7XM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Ma-lW-Bvu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-uv-zYZ" userLabel="Name">
-                                <rect key="frame" x="20" y="80" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMV-rc-TCH" userLabel="Id">
-                                <rect key="frame" x="538" y="80" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-TS-5WP" userLabel="Separator View">
-                                <rect key="frame" x="0.0" y="117" width="600" height="1"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="P6G-U2-6Fk"/>
-                                </constraints>
-                            </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-js-zS7">
-                                <rect key="frame" x="20" y="134" width="560" height="29"/>
-                                <segments>
-                                    <segment title="Dates"/>
-                                    <segment title="Forecasting" enabled="NO"/>
-                                    <segment title="Year Conclusion" enabled="NO"/>
-                                </segments>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-6M-pXq" userLabel="Separator View">
-                                <rect key="frame" x="0.0" y="178" width="600" height="1"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="BpH-PE-tNB"/>
-                                    <constraint firstAttribute="height" constant="1" id="reb-Ne-f6B"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxe-wh-moJ" userLabel="ContainerView">
-                                <rect key="frame" x="0.0" y="180" width="600" height="420"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="DMV-rc-TCH" firstAttribute="trailing" secondItem="9Ma-lW-Bvu" secondAttribute="trailingMargin" id="2Nz-oJ-TXU"/>
-                            <constraint firstItem="kgI-6M-pXq" firstAttribute="leading" secondItem="9Ma-lW-Bvu" secondAttribute="leading" id="3gA-li-VjB"/>
-                            <constraint firstAttribute="trailing" secondItem="BF0-TS-5WP" secondAttribute="trailing" id="7ha-4O-3ua"/>
-                            <constraint firstItem="Bxe-wh-moJ" firstAttribute="leading" secondItem="9Ma-lW-Bvu" secondAttribute="leading" id="B1E-ic-6Ga"/>
-                            <constraint firstItem="BF0-TS-5WP" firstAttribute="top" secondItem="vdz-uv-zYZ" secondAttribute="bottom" constant="16" id="BQE-u1-omF"/>
-                            <constraint firstItem="BF0-TS-5WP" firstAttribute="leading" secondItem="9Ma-lW-Bvu" secondAttribute="leading" id="Jts-Pe-Vc6"/>
-                            <constraint firstItem="dfs-js-zS7" firstAttribute="top" secondItem="BF0-TS-5WP" secondAttribute="bottom" constant="16" id="KVv-Ud-59M"/>
-                            <constraint firstItem="dfs-js-zS7" firstAttribute="trailing" secondItem="9Ma-lW-Bvu" secondAttribute="trailingMargin" id="Po1-VO-YnT"/>
-                            <constraint firstItem="dfs-js-zS7" firstAttribute="bottom" secondItem="kgI-6M-pXq" secondAttribute="top" constant="-16" id="SwD-vO-lXB"/>
-                            <constraint firstItem="Bxe-wh-moJ" firstAttribute="top" secondItem="kgI-6M-pXq" secondAttribute="bottom" constant="1" id="c9b-Z1-vJ9"/>
-                            <constraint firstItem="DMV-rc-TCH" firstAttribute="centerY" secondItem="vdz-uv-zYZ" secondAttribute="centerY" id="dqP-2r-ZcR"/>
-                            <constraint firstItem="vdz-uv-zYZ" firstAttribute="leading" secondItem="9Ma-lW-Bvu" secondAttribute="leadingMargin" id="ozy-o7-n3U"/>
-                            <constraint firstItem="Irb-NW-7XM" firstAttribute="top" secondItem="Bxe-wh-moJ" secondAttribute="bottom" id="tSB-f2-Hq0"/>
-                            <constraint firstItem="dfs-js-zS7" firstAttribute="leading" secondItem="9Ma-lW-Bvu" secondAttribute="leadingMargin" id="tZu-ec-mGJ"/>
-                            <constraint firstItem="vdz-uv-zYZ" firstAttribute="top" secondItem="tXD-vA-WeB" secondAttribute="bottom" constant="16" id="upC-37-QEN"/>
-                            <constraint firstAttribute="trailing" secondItem="Bxe-wh-moJ" secondAttribute="trailing" id="y3f-CP-sIi"/>
-                            <constraint firstAttribute="trailing" secondItem="kgI-6M-pXq" secondAttribute="trailing" id="zlf-Rb-ADY"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Dates" id="4XC-oG-z4l">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qBF-aL-lvx">
-                            <connections>
-                                <action selector="didTapAddStay:" destination="she-Mn-Fg9" id="rPZ-D9-EKH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="containerView" destination="Bxe-wh-moJ" id="R56-G9-Uol"/>
-                        <outlet property="lblId" destination="DMV-rc-TCH" id="0fe-FD-Sg8"/>
-                        <outlet property="lblName" destination="vdz-uv-zYZ" id="AQs-yq-osO"/>
-                        <outlet property="segmentedControl" destination="dfs-js-zS7" id="WkV-Lt-nC4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sbq-Uh-0n3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1556" y="587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qxg-lu-8VC">

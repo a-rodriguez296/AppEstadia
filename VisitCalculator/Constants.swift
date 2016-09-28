@@ -25,8 +25,6 @@ struct Constants {
     }
     
     struct Segues {
-        static let addDateSegue = "addDateSegue"
-        static let insertDatesSegue = "insertDatesSegue"
         static let datesParentViewSegue = "datesParentViewSegue"
     }
 }
