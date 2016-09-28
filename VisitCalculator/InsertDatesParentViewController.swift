@@ -82,7 +82,7 @@ class InsertDatesParentViewController: UIViewController {
     func initializeViewControllerWithIndex(index: Int) -> UIViewController{
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         if index == 0{
-            let vc = storyboard.instantiateViewControllerWithIdentifier("InsertDatesController") as! InsertDatesController
+            let vc = StaysListViewController()
             vc.taxPayer = taxPayer!
             return vc
             

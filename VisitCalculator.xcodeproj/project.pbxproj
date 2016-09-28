@@ -11,6 +11,7 @@
 		3517A9461D81F5BB00681E40 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddDateViewController.swift */; };
 		351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */; };
 		351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */; };
+		351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF591D9C143E00F4E23F /* StaysListViewController.xib */; };
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
@@ -41,7 +42,7 @@
 		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
 		35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
-		35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */; };
+		35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */; };
 		35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7081D5B75BE0078B8C8 /* Main.storyboard */; };
 		35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */; };
 		35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		3517A9451D81F5BB00681E40 /* AddDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesListViewController.xib; sourceTree = "<group>"; };
 		351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearResultsViewController.xib; sourceTree = "<group>"; };
+		351CCF591D9C143E00F4E23F /* StaysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaysListViewController.xib; sourceTree = "<group>"; };
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +113,7 @@
 		35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaxPayerViewController.xib; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDatesController.swift; sourceTree = "<group>"; };
+		35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaysListViewController.swift; sourceTree = "<group>"; };
 		35E5C7091D5B75BE0078B8C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E5C70E1D5B75BE0078B8C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -241,7 +243,8 @@
 		356992041D7A0D62007CD216 /* Insert Dates */ = {
 			isa = PBXGroup;
 			children = (
-				35E5C7061D5B75BD0078B8C8 /* InsertDatesController.swift */,
+				35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */,
+				351CCF591D9C143E00F4E23F /* StaysListViewController.xib */,
 				35FED9851D83104500C83F98 /* Add Stay */,
 			);
 			name = "Insert Dates";
@@ -553,6 +556,7 @@
 				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
+				351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */,
 				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
 				35E5C70A1D5B75BE0078B8C8 /* Main.storyboard in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
@@ -719,7 +723,7 @@
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				358218F01D9577F900D512C3 /* InsertDatesParentViewController.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
-				35E5C7071D5B75BD0078B8C8 /* InsertDatesController.swift in Sources */,
+				35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */,
 				35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */,
 				35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */,
 				3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */,

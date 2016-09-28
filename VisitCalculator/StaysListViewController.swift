@@ -12,7 +12,7 @@ import MGSwipeTableCell
 import MagicalRecord
 import SCLAlertView
 
-class InsertDatesController: UIViewController {
+class StaysListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -122,7 +122,7 @@ class InsertDatesController: UIViewController {
 }
 
 //MARK: UITableViewDataSource
-extension InsertDatesController:UITableViewDataSource{
+extension StaysListViewController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -158,7 +158,7 @@ extension InsertDatesController:UITableViewDataSource{
 }
 
 //MARK: NSFetchedResultsControllerDelegate
-extension InsertDatesController: NSFetchedResultsControllerDelegate{
+extension StaysListViewController: NSFetchedResultsControllerDelegate{
     
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
