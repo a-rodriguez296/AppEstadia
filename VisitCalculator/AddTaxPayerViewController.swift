@@ -9,23 +9,36 @@
 import UIKit
 import Bond
 import MagicalRecord
+import TPKeyboardAvoiding
 
 class AddTaxPayerViewController: UIViewController {
     
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtId: UITextField!
     @IBOutlet weak var btnDone: UIButton!
+    @IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupButton()
+        
+        
         combineLatest(txtName.bnd_text, txtId.bnd_text)
             .map { return !$0!.isEmpty && !$1!.isEmpty }
             .observe { self.btnDone.enabled = $0 }
         
         
+        title = NSLocalizedString("Add Taxpayer", comment: "")
+        
+    }
+    
+    func setupButton(){
+        
+        btnDone.clipsToBounds = true
+        btnDone.layoutIfNeeded()
     }
     
     

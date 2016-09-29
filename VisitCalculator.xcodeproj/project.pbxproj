@@ -358,17 +358,10 @@
 			name = Handlers;
 			sourceTree = "<group>";
 		};
-		35B67ECB1D7726D20073CC58 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
-			);
-			name = Storyboards;
-			sourceTree = "<group>";
-		};
 		35B67ECC1D7726EA0073CC58 /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
+				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
 				35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */,
 				35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */,
 				35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */,
@@ -441,7 +434,6 @@
 				356DD6DE1D7F324D001DD360 /* CoreData */,
 				35B67EC91D7726A80073CC58 /* Controllers */,
 				35B588341D6BA2880097FBF1 /* Models */,
-				35B67ECB1D7726D20073CC58 /* Storyboards */,
 				35B588331D6B97B60097FBF1 /* Helpers */,
 				3511662B1D6CD35F00A2A1F2 /* Extensions */,
 				35B67ECA1D7726C10073CC58 /* Handlers */,

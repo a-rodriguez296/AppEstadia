@@ -40,7 +40,7 @@ class TaxPayersViewController: UIViewController {
         
         navigationController?.navigationBar.translucent = true
         
-        title = NSLocalizedString("Tax payers", comment: "")
+        title = NSLocalizedString("Taxpayers", comment: "")
         
         //Initialize FetchedResultsController
         initializeFetchedResultsController()
