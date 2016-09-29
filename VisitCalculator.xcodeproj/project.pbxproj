@@ -22,6 +22,7 @@
 		354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB321D889D85009CF6D6 /* CDTaxPayer.swift */; };
 		354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB391D889DEF009CF6D6 /* CDDate.swift */; };
 		354AFB3C1D889DEF009CF6D6 /* CDStay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AFB3A1D889DEF009CF6D6 /* CDStay.swift */; };
+		354ECEA41D9EFD170017C11E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ECEA31D9EFD170017C11E /* RoundedButton.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
 		358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */; };
 		358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EF1D9577F900D512C3 /* ContainerViewController.swift */; };
@@ -104,6 +105,7 @@
 		354AFB321D889D85009CF6D6 /* CDTaxPayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTaxPayer.swift; sourceTree = "<group>"; };
 		354AFB391D889DEF009CF6D6 /* CDDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDate.swift; sourceTree = "<group>"; };
 		354AFB3A1D889DEF009CF6D6 /* CDStay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStay.swift; sourceTree = "<group>"; };
+		354ECEA31D9EFD170017C11E /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersExtensions.swift; sourceTree = "<group>"; };
 		358218EF1D9577F900D512C3 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			children = (
 				35D57EAD1D9C551F00433517 /* Appearance.swift */,
 				356992081D7A1E42007CD216 /* Constants.swift */,
+				354ECEA31D9EFD170017C11E /* RoundedButton.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
 				3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */,
 				35D57EAE1D9C551F00433517 /* Appearance.swift in Sources */,
+				354ECEA41D9EFD170017C11E /* RoundedButton.swift in Sources */,
 				35D57EAA1D9C334E00433517 /* TaxPayersViewController.swift in Sources */,
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */,

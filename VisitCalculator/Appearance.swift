@@ -37,12 +37,13 @@ class Appearance {
         
         //Search Bar
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor.lightTextColor()
-        (UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self])).tintColor = UIColor.detailTextColor()
+        UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.detailTextColor()
         
         
         //UISegmentedControl
         UISegmentedControl.appearanceWhenContainedInInstancesOfClasses([ContainerViewController.self]).tintColor = UIColor.backgroundYellowColor()
         let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.backgroundYellowColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, forState: .Normal)
+        
     }
 }

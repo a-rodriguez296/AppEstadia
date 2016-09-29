@@ -41,8 +41,13 @@ class CountriesListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = nil
+        searchController.searchBar.barTintColor = .whiteColor()
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        extendedLayoutIncludesOpaqueBars = false
+        
+        navigationController?.navigationBar.translucent = true
     }
     
     

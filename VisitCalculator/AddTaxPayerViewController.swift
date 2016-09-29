@@ -23,7 +23,7 @@ class AddTaxPayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupButton()
+        
         
         
         combineLatest(txtName.bnd_text, txtId.bnd_text)
@@ -33,12 +33,6 @@ class AddTaxPayerViewController: UIViewController {
         
         title = NSLocalizedString("Add Taxpayer", comment: "")
         
-    }
-    
-    func setupButton(){
-        
-        btnDone.clipsToBounds = true
-        btnDone.layoutIfNeeded()
     }
     
     

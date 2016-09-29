@@ -31,4 +31,8 @@ extension UIColor{
         return UIColor.generateColorWithRGB(74.0, green: 74.0, blue: 74.0, alpha: 1.0)
     }
     
+    class func disabledGrayColor() -> UIColor{
+        return UIColor.generateColorWithRGB(130.0, green: 130.0, blue: 130.0, alpha: 1.0)
+    }
+    
 }

@@ -19,13 +19,16 @@ class AddStayViewController: UIViewController {
     var datesArray:[NSDate]?
     
     
+    @IBOutlet weak var lblArrivalDate: UILabel!
+    @IBOutlet weak var lblDepartureDate: UILabel!
+    
     @IBOutlet weak var btnArrivalDate: UIButton!
     @IBOutlet weak var btnDepartureDate: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAddStay: UIButton!
     @IBOutlet weak var btnSelectCountry: UIButton!
-    @IBOutlet weak var datePickerHeightCst: NSLayoutConstraint!
-    @IBOutlet weak var datePickerHeightIphone4SCst: NSLayoutConstraint!
+    //    @IBOutlet weak var datePickerHeightCst: NSLayoutConstraint!
+    //    @IBOutlet weak var datePickerHeightIphone4SCst: NSLayoutConstraint!
     
     //Business = true, vacations = false
     @IBOutlet weak var btnBusiness: UIButton!
@@ -46,6 +49,8 @@ class AddStayViewController: UIViewController {
         
         btnSelectCountry.titleLabel?.textAlignment = .Center
         showInitialAlert()
+        
+        title = NSLocalizedString("Add Dates", comment: "")
         
         
         btnBusiness.bnd_tap
@@ -73,6 +78,7 @@ class AddStayViewController: UIViewController {
             self.datePicker.hidden = false
             self.btnArrivalDate.selected = true
             self.btnDepartureDate.enabled = false
+            self.btnAddStay.hidden = true
         }
         
         btnDepartureDate.bnd_tap.observe {
@@ -80,6 +86,7 @@ class AddStayViewController: UIViewController {
             self.datePicker.hidden = false
             self.btnDepartureDate.selected = true
             self.btnArrivalDate.enabled = false
+            self.btnAddStay.hidden = true
         }
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -98,8 +105,8 @@ class AddStayViewController: UIViewController {
         let combinedDatesSignal = combineLatest(arrivalDateObservable, departureDateObservable)
             .map({[unowned self] (arrivalDate, departureDate) -> Bool in
                 if arrivalDate > departureDate{
-                    dispatch_async(dispatch_get_main_queue(), { 
-                       self.presentAlertNonValidDate()
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.presentAlertNonValidDate()
                     })
                 }
                 return arrivalDate <= departureDate
@@ -113,6 +120,7 @@ class AddStayViewController: UIViewController {
         
         combineLatest(combinedDatesSignal, countrySignal).observe {[unowned self] (datesSignal, countrySignal) in
             self.btnAddStay.enabled = datesSignal && countrySignal
+            self.btnAddStay.backgroundColor = datesSignal && countrySignal ? UIColor.backgroundYellowColor() : UIColor.disabledGrayColor()
         }
         
         datePicker.bnd_date.observe {[unowned self] (date) in
@@ -121,12 +129,12 @@ class AddStayViewController: UIViewController {
                 if currentBtn == 0{
                     
                     self.arrivalDateObservable.value = date
-                    self.btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
+                    self.lblArrivalDate.text = DateFormatHelper.stringFromDate(date)
                 }
                 else{
                    
                     self.departureDateObservable.value = date
-                    self.btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(date), forState: .Normal)
+                    self.lblDepartureDate.text = DateFormatHelper.stringFromDate(date)
                 }
             }
         }
@@ -138,26 +146,22 @@ class AddStayViewController: UIViewController {
             btnSelectCountry.setTitle("Select a country", forState: .Normal)
         }
         
-        btnArrivalDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)
-        btnDepartureDate.setTitle(DateFormatHelper.stringFromDate(NSDate()), forState: .Normal)
-        
+        lblArrivalDate.text = DateFormatHelper.stringFromDate(NSDate())
+        lblDepartureDate.text = DateFormatHelper.stringFromDate(NSDate())
     }
     
     
-    override func viewDidLayoutSubviews() {
-        
-        super.viewDidLayoutSubviews()
-        
-        let height = UIScreen.mainScreen().bounds.size.height
-        
-        if height == 480.0{
-            NSLayoutConstraint.deactivateConstraints([datePickerHeightCst])
-            NSLayoutConstraint.activateConstraints([datePickerHeightIphone4SCst])
-        }
-        
-        
-        
-    }
+    //    override func viewDidLayoutSubviews() {
+    //
+    //        super.viewDidLayoutSubviews()
+    //
+    //        let height = UIScreen.mainScreen().bounds.size.height
+    //
+    //        if height == 480.0{
+    //            NSLayoutConstraint.deactivateConstraints([datePickerHeightCst])
+    //            NSLayoutConstraint.activateConstraints([datePickerHeightIphone4SCst])
+    //        }
+    //    }
     
     
     //MARK: IBActions
@@ -169,6 +173,8 @@ class AddStayViewController: UIViewController {
         
         btnArrivalDate.enabled = true
         btnArrivalDate.selected = false
+        
+        btnAddStay.hidden = false
     }
     
     @IBAction func didTapAddStay(sender: AnyObject) {
@@ -260,6 +266,7 @@ extension AddStayViewController: CountriesListProtocol{
         
         selectedCountryObservable.value = Country(countryName: countryName, countryCode: countryCode)
         btnSelectCountry.titleLabel?.text = countryName
+        btnSelectCountry.layoutIfNeeded()
         
         //Save country name and country code
         let defaults = NSUserDefaults.standardUserDefaults()
