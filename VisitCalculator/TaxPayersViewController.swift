@@ -107,7 +107,7 @@ class TaxPayersViewController: UIViewController {
     }
     
     func showAlert(){
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Tap on the button +, on the top right, to add taxpayers", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  0xFFE000, colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Tap on the button +, on the top right, to add taxpayers", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
     
 }

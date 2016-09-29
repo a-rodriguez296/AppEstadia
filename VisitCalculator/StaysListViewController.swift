@@ -86,25 +86,22 @@ class StaysListViewController: UIViewController {
         if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch){
             
             //Show initial alert
-            
-            let alertController = UIAlertController(title: "Attention", message: "In order for this app to work properly you must add the dates you stayed in the country for last year and the current year.", preferredStyle: .Alert)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(OKAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+                self.showAlert()
+            })
         }
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-            //SCLAlertView().showInfo("Hola", subTitle: "asdf", closeButtonTitle: "Cerrar", duration: 5.5, colorStyle:  0xF0E68C, colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
-        })
-        
-        
-        
-        
     }
     
     
-    @IBAction func didTapOnHelp(sender: AnyObject) {}
+    func showAlert(){
+        
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("In order for this app to work, you must add the dates you stayed in the country for the last and current year.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+    }
+    
+    
+    @IBAction func didTapOnHelp(sender: AnyObject) {
+        showAlert()
+    }
     
     
 }

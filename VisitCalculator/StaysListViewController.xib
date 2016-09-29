@@ -26,9 +26,9 @@
                         <outlet property="delegate" destination="-1" id="CbI-Gk-0Gd"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yC-ou-WIf">
-                    <rect key="frame" x="554" y="562" width="30" height="30"/>
-                    <state key="normal" title="?"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yC-ou-WIf">
+                    <rect key="frame" x="571" y="579" width="13" height="13"/>
+                    <state key="normal" backgroundImage="help"/>
                     <connections>
                         <action selector="didTapOnHelp:" destination="-1" eventType="touchUpInside" id="8NO-yS-rol"/>
                     </connections>
@@ -45,4 +45,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="help" width="13" height="13"/>
+    </resources>
 </document>

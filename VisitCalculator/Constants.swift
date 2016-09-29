@@ -43,4 +43,8 @@ struct Constants {
             static let datesCell = "DatesCell"
         }
     }
+    
+    struct ColorsHex {
+        static let yellow = 0xFFE000
+    }
 }
