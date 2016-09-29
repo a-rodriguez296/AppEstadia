@@ -17,6 +17,11 @@ struct Constants {
     }
     
     struct NSUserDefaults {
+        
+        //Case when the taxpayers list is shown for the first time
+        static let addTaxPayersInitialLaunch = "addTaxPayers"
+        
+        
         //Case when the dates VC is shown for the fisrt time
         static let insertDatesVCInitialLaunch = "insertDates"
         
