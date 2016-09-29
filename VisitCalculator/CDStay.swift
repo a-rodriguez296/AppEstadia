@@ -52,6 +52,11 @@ class CDStay: NSManagedObject {
         }
     }
     
+    func type() -> String{
+        
+        return stayType == 0 ? NSLocalizedString("Vacations", comment: "") : NSLocalizedString("Business", comment: "")
+    }
+    
     
     //This function is used to fetch the stays associated with a tax payer
     class func staysOrderedByInitialDateWithTaxPayer(taxPayer: CDTaxPayer) -> [CDStay]{

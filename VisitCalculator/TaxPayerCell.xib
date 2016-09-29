@@ -20,14 +20,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqf-vv-SwC">
-                        <rect key="frame" x="8" y="10" width="43" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqf-vv-SwC">
+                        <rect key="frame" x="16" y="10" width="43" height="23"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-wl-AkU">
-                        <rect key="frame" x="8" y="41" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-wl-AkU">
+                        <rect key="frame" x="16" y="41" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="CF7-wl-AkU" secondAttribute="bottom" constant="2" id="0FF-Li-xpf"/>
                     <constraint firstItem="CF7-wl-AkU" firstAttribute="top" secondItem="Eqf-vv-SwC" secondAttribute="bottom" constant="8" id="RhA-l3-ec4"/>
                     <constraint firstItem="CF7-wl-AkU" firstAttribute="leading" secondItem="Eqf-vv-SwC" secondAttribute="leading" id="Rrc-Zr-OFx"/>
-                    <constraint firstItem="Eqf-vv-SwC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kGm-ek-D12"/>
+                    <constraint firstItem="Eqf-vv-SwC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="kGm-ek-D12"/>
                     <constraint firstItem="Eqf-vv-SwC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="pHF-4Z-ogf"/>
                 </constraints>
             </tableViewCellContentView>

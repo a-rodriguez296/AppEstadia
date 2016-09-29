@@ -5,6 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+        <mutableArray key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="VisitCalculator" customModuleProvider="target">
             <connections>
@@ -21,42 +29,42 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-HD-Hx8" userLabel="Name">
-                    <rect key="frame" x="8" y="88" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="8" y="88" width="43" height="23"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-j5-zl7" userLabel="Id">
-                    <rect key="frame" x="550" y="88" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="550" y="88" width="42" height="23"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-0e-XD2" userLabel="Separator View">
-                    <rect key="frame" x="0.0" y="125" width="600" height="1"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="127" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Y1l-Ej-0xU"/>
                     </constraints>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SiU-vg-Kle">
-                    <rect key="frame" x="8" y="142" width="584" height="29"/>
+                    <rect key="frame" x="8" y="144" width="584" height="29"/>
                     <segments>
                         <segment title="Dates"/>
-                        <segment title="Forecasting" enabled="NO"/>
-                        <segment title="Year Conclusion" enabled="NO"/>
+                        <segment title="Panning" enabled="NO"/>
+                        <segment title="Years" enabled="NO"/>
                     </segments>
                 </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4g-ZC-30K" userLabel="Separator View">
-                    <rect key="frame" x="0.0" y="186" width="600" height="1"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="188" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.69498924797978889" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="0Vf-tY-kAV"/>
                         <constraint firstAttribute="height" constant="1" id="9VF-Qs-CbN"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-vA-XLl" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="188" width="600" height="412"/>
+                    <rect key="frame" x="0.0" y="190" width="600" height="410"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>

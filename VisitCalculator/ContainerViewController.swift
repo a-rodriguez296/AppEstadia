@@ -58,6 +58,8 @@ class ContainerViewController: UIViewController {
         
         //Bar button
         navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(didTapAddStay(_:))), animated: true)
+        
+        title = NSLocalizedString("Dates", comment: "")
     }
     
     func didTapAddStay(sender: AnyObject) {

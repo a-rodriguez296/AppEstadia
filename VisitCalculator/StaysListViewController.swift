@@ -43,16 +43,25 @@ class StaysListViewController: UIViewController {
         
         //Show initial alert
         showInitialAlert()
+        
+        setupTableView()
+        
     }
     
     
     //MARK: Helper functions
+    func setupTableView(){
+        tableView.registerNib(UINib(nibName: Constants.Cells.Dates.datesCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.Dates.datesCell)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 102
+    }
+    
     
     func initializeFetchedResultsController(){
         
         let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
         cdStaysFetchRequest.predicate = NSPredicate(format: "%K.%K == %@", "taxPayer", "name",taxPayer!.name!)
-        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: true)
+        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: false)
         cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
         
         
@@ -86,7 +95,7 @@ class StaysListViewController: UIViewController {
         }
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-           //SCLAlertView().showInfo("Hola", subTitle: "asdf", closeButtonTitle: "Cerrar", duration: 5.5, colorStyle:  0xF0E68C, colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+            //SCLAlertView().showInfo("Hola", subTitle: "asdf", closeButtonTitle: "Cerrar", duration: 5.5, colorStyle:  0xF0E68C, colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
         })
         
         
@@ -113,14 +122,10 @@ extension StaysListViewController:UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = MGSwipeTableCell.init(style: .Subtitle, reuseIdentifier: "cell")
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.Dates.datesCell) as! DatesCell
         let stay = fetchedResultsController!.objectAtIndexPath(indexPath) as! CDStay
         
-         let locale = NSLocale.currentLocale()
-        
-        cell.textLabel?.text = stay.descriptionString()
-        cell.detailTextLabel?.text = "Total days: " + String(stay.dates!.count) + " in " + locale.displayNameForKey(NSLocaleCountryCode, value: stay.countryCode!)! + " \(stay.stayType!)"
+        cell.initializeCellWithStay(stay)
         cell.selectionStyle = .None
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]

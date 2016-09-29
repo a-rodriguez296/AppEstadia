@@ -34,5 +34,8 @@ struct Constants {
         struct TaxPayer {
             static let taxPayerCell = "TaxPayerCell"
         }
+        struct Dates{
+            static let datesCell = "DatesCell"
+        }
     }
 }

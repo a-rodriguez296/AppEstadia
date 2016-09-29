@@ -29,6 +29,8 @@
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
 		358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358DD1771D9C0C7C0049979E /* ResultsViewController.xib */; };
+		359164381D9D86C5008499BB /* DatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359164361D9D86C5008499BB /* DatesCell.swift */; };
+		359164391D9D86C5008499BB /* DatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359164371D9D86C5008499BB /* DatesCell.xib */; };
 		35A15C3D1D942408007CCDD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C3C1D942408007CCDD0 /* Country.swift */; };
 		35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
@@ -109,6 +111,8 @@
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
 		358DD1771D9C0C7C0049979E /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		359164361D9D86C5008499BB /* DatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCell.swift; sourceTree = "<group>"; };
+		359164371D9D86C5008499BB /* DatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatesCell.xib; sourceTree = "<group>"; };
 		35A15C3C1D942408007CCDD0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewController.swift; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
@@ -318,6 +322,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		3591643A1D9D88CB008499BB /* Dates Cell */ = {
+			isa = PBXGroup;
+			children = (
+				359164361D9D86C5008499BB /* DatesCell.swift */,
+				359164371D9D86C5008499BB /* DatesCell.xib */,
+			);
+			name = "Dates Cell";
+			sourceTree = "<group>";
+		};
 		35B588331D6B97B60097FBF1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				35D57EBC1D9C632500433517 /* Tax Payer Cell */,
+				3591643A1D9D88CB008499BB /* Dates Cell */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -439,8 +453,8 @@
 				35B67ECA1D7726C10073CC58 /* Handlers */,
 				35B67ECC1D7726EA0073CC58 /* Resource Files */,
 				3569920A1D7A1EEF007CD216 /* Utils */,
-				35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */,
 				35D57EBB1D9C631E00433517 /* Views */,
+				35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */,
 			);
 			path = VisitCalculator;
 			sourceTree = "<group>";
@@ -621,6 +635,7 @@
 				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
 				35D57EB41D9C58E600433517 /* SourceSansPro-Bold.ttf in Resources */,
+				359164391D9D86C5008499BB /* DatesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +792,7 @@
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
+				359164381D9D86C5008499BB /* DatesCell.swift in Sources */,
 				35D57EB01D9C561D00433517 /* UIColor.swift in Sources */,
 				35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */,
 				35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */,
