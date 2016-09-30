@@ -36,6 +36,8 @@ class CountriesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = NSLocalizedString("Countries", comment: "")
+        
         
         //Initialize searchController
         searchController.searchResultsUpdater = self
@@ -48,82 +50,20 @@ class CountriesListViewController: UIViewController {
         extendedLayoutIncludesOpaqueBars = false
         
         navigationController?.navigationBar.translucent = true
+        
+        setupTable()
+        
+    }
+    
+    func setupTable(){
+        tableView.registerNib(UINib(nibName: Constants.Cells.Countries.countriesCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.Countries.countriesCell)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 43
     }
     
     
     deinit{
         searchController.view.removeFromSuperview()
-    }
-}
-
-//MARK:UITableViewDataSource
-extension CountriesListViewController: UITableViewDataSource{
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if searchController.active && !searchController.searchBar.text!.isEmpty{
-            return filteredCountries!.count
-        }
-        else{
-            return countriesArray.count
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        var countryText:String
-        
-        if searchController.active && !searchController.searchBar.text!.isEmpty{
-            let tuple = filteredCountries![indexPath.row]
-            countryText = tuple.0
-        }
-        else{
-            let tuple = countriesArray[indexPath.row]
-            countryText = tuple.0
-        }
-        
-        let cell = UITableViewCell.init(style: .Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = countryText
-        cell.selectionStyle = .None
-        
-        return cell
-    }
-}
-
-//MARK: UITableViewDelegate
-extension CountriesListViewController: UITableViewDelegate{
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var countryTuple:(String,String)
-        
-        if searchController.active && !searchController.searchBar.text!.isEmpty{
-            let tuple = filteredCountries![indexPath.row]
-            countryTuple = tuple
-        }
-        else{
-            let tuple = countriesArray[indexPath.row]
-            countryTuple = tuple
-        }
-        delegate?.didSelectCountry(countryTuple.0, countryCode: countryTuple.1)
-        
-        navigationController?.popViewControllerAnimated(true)
-        
-    }
-    
-}
-
-//MARK: UISearchResultsUpdating
-extension CountriesListViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchText = searchController.searchBar.text!
-        
-        
-        if !searchText.isEmpty{
-            
-            filteredCountries =  countriesArray.filter({ (countryName, _) -> Bool in
-                return countryName.containsString(searchText) || countryName.lowercaseString.containsString(searchText)
-            })
-        }
-        tableView.reloadData()
     }
 }
 

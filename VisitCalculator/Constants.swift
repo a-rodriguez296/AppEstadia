@@ -42,6 +42,9 @@ struct Constants {
         struct Dates{
             static let datesCell = "DatesCell"
         }
+        struct Countries{
+            static let countriesCell = "CountriesCell"
+        }
     }
     
     struct ColorsHex {
