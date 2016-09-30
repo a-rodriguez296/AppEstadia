@@ -32,6 +32,8 @@
 		358D60D31D9F01C200EB9ADC /* CountriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D60D11D9F01C200EB9ADC /* CountriesCell.swift */; };
 		358D60D41D9F01C200EB9ADC /* CountriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358D60D21D9F01C200EB9ADC /* CountriesCell.xib */; };
 		358D60D61D9F047600EB9ADC /* CountriesListExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D60D51D9F047600EB9ADC /* CountriesListExtensions.swift */; };
+		358D60DB1D9F091000EB9ADC /* YearsConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D60D91D9F091000EB9ADC /* YearsConclusionCell.swift */; };
+		358D60DC1D9F091000EB9ADC /* YearsConclusionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358D60DA1D9F091000EB9ADC /* YearsConclusionCell.xib */; };
 		358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358DD1771D9C0C7C0049979E /* ResultsViewController.xib */; };
 		359164381D9D86C5008499BB /* DatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359164361D9D86C5008499BB /* DatesCell.swift */; };
 		359164391D9D86C5008499BB /* DatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359164371D9D86C5008499BB /* DatesCell.xib */; };
@@ -118,6 +120,8 @@
 		358D60D11D9F01C200EB9ADC /* CountriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesCell.swift; sourceTree = "<group>"; };
 		358D60D21D9F01C200EB9ADC /* CountriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesCell.xib; sourceTree = "<group>"; };
 		358D60D51D9F047600EB9ADC /* CountriesListExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListExtensions.swift; sourceTree = "<group>"; };
+		358D60D91D9F091000EB9ADC /* YearsConclusionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearsConclusionCell.swift; sourceTree = "<group>"; };
+		358D60DA1D9F091000EB9ADC /* YearsConclusionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearsConclusionCell.xib; sourceTree = "<group>"; };
 		358DD1771D9C0C7C0049979E /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		359164361D9D86C5008499BB /* DatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCell.swift; sourceTree = "<group>"; };
 		359164371D9D86C5008499BB /* DatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatesCell.xib; sourceTree = "<group>"; };
@@ -349,6 +353,15 @@
 			name = "Countries Cell";
 			sourceTree = "<group>";
 		};
+		358D60DD1D9F091700EB9ADC /* Years Conclusion */ = {
+			isa = PBXGroup;
+			children = (
+				358D60D91D9F091000EB9ADC /* YearsConclusionCell.swift */,
+				358D60DA1D9F091000EB9ADC /* YearsConclusionCell.xib */,
+			);
+			name = "Years Conclusion";
+			sourceTree = "<group>";
+		};
 		3591643A1D9D88CB008499BB /* Dates Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +448,7 @@
 				35D57EBC1D9C632500433517 /* Tax Payer Cell */,
 				3591643A1D9D88CB008499BB /* Dates Cell */,
 				358D60D81D9F066600EB9ADC /* Countries Cell */,
+				358D60DD1D9F091700EB9ADC /* Years Conclusion */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -661,6 +675,7 @@
 				35D57EB61D9C58ED00433517 /* SourceSansPro-Semibold.ttf in Resources */,
 				351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */,
 				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
+				358D60DC1D9F091000EB9ADC /* YearsConclusionCell.xib in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
 				35D57EB41D9C58E600433517 /* SourceSansPro-Bold.ttf in Resources */,
 				359164391D9D86C5008499BB /* DatesCell.xib in Resources */,
@@ -851,6 +866,7 @@
 				35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */,
 				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
+				358D60DB1D9F091000EB9ADC /* YearsConclusionCell.swift in Sources */,
 				35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */,
 				35E5C7291D5B88820078B8C8 /* NSDate.swift in Sources */,
 			);
