@@ -24,33 +24,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G05-Cc-RsX">
-                        <rect key="frame" x="16" y="47" width="39" height="22"/>
-                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-TE-2hv">
                         <rect key="frame" x="16" y="16" width="43" height="23"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G05-Cc-RsX">
+                        <rect key="frame" x="16" y="47" width="35" height="19"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GX-XI-RKc">
-                        <rect key="frame" x="72" y="31" width="43" height="23"/>
+                        <rect key="frame" x="139" y="31" width="43" height="23"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                         <color key="textColor" red="1" green="0.72417490698275866" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="6GX-XI-RKc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="0NT-wq-anO"/>
                     <constraint firstItem="G05-Cc-RsX" firstAttribute="top" secondItem="c9B-TE-2hv" secondAttribute="bottom" constant="8" id="Bm8-nO-R3S"/>
                     <constraint firstItem="6GX-XI-RKc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CUH-kt-okk"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="G05-Cc-RsX" secondAttribute="bottom" constant="8" id="ELX-Zz-YBQ"/>
                     <constraint firstItem="G05-Cc-RsX" firstAttribute="leading" secondItem="c9B-TE-2hv" secondAttribute="leading" id="F6y-iP-MdV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6GX-XI-RKc" secondAttribute="bottom" constant="23" id="GEM-a7-wON"/>
                     <constraint firstItem="c9B-TE-2hv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gq3-J3-gM6"/>
-                    <constraint firstItem="6GX-XI-RKc" firstAttribute="leading" secondItem="c9B-TE-2hv" secondAttribute="trailing" constant="13" id="Hi9-Ep-jWN"/>
                     <constraint firstItem="c9B-TE-2hv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="Ji3-pj-DLh"/>
+                    <constraint firstItem="6GX-XI-RKc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="JqT-4N-Qsx"/>
                     <constraint firstItem="c9B-TE-2hv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="hZs-d5-iax"/>
                 </constraints>
                 <variation key="default">
@@ -63,6 +64,8 @@
                 <outlet property="lblConclusion" destination="6GX-XI-RKc" id="C9I-b0-Yp8"/>
                 <outlet property="lblDate" destination="G05-Cc-RsX" id="aXA-No-PuZ"/>
                 <outlet property="lblYear" destination="c9B-TE-2hv" id="zoU-gd-22n"/>
+                <outlet property="lblYearCenterCst" destination="Gq3-J3-gM6" id="0X8-9X-YYc"/>
+                <outlet property="lblYearTopCst" destination="hZs-d5-iax" id="tGB-VQ-u8n"/>
             </connections>
             <point key="canvasLocation" x="607" y="461"/>
         </tableViewCell>

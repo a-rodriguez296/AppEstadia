@@ -30,10 +30,10 @@ extension YearResponse: CustomStringConvertible{
     var description: String{
         
         if flag {
-            return "\n" + "In the year \(year), you are a tax resident. This happened on \(DateFormatHelper.stringFromDate(date!))."
+            return "You are a tax resident."
         }
         else{
-            return "\n" + "In the year \(year), you are not a tax resident."
+            return "You are not a tax resident."
         }
     }
 }

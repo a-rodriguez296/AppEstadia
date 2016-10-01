@@ -3,12 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YearResultsViewController" customModule="VisitCalculator" customModuleProvider="target">
             <connections>
-                <outlet property="lblYearResults" destination="Kda-G1-54H" id="xlJ-CT-rdk"/>
+                <outlet property="tableView" destination="frA-Ey-j0v" id="NUz-xa-aU6"/>
                 <outlet property="view" destination="IW1-4e-AAm" id="SCf-NN-Ibg"/>
             </connections>
         </placeholder>
@@ -17,19 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-G1-54H">
-                    <rect key="frame" x="279" y="65" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="frA-Ey-j0v">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="52g-Pj-IrM"/>
+                        <outlet property="delegate" destination="-1" id="ybP-EQ-ptI"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Kda-G1-54H" secondAttribute="trailing" constant="8" id="0w0-5J-Gvk"/>
-                <constraint firstItem="Kda-G1-54H" firstAttribute="centerX" secondItem="IW1-4e-AAm" secondAttribute="centerX" id="NRD-jb-FwP"/>
-                <constraint firstItem="Kda-G1-54H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IW1-4e-AAm" secondAttribute="leadingMargin" constant="8" id="PQK-Jx-hmT"/>
-                <constraint firstItem="Kda-G1-54H" firstAttribute="top" secondItem="IW1-4e-AAm" secondAttribute="topMargin" constant="57" id="Pbi-yt-ybE"/>
+                <constraint firstItem="frA-Ey-j0v" firstAttribute="leading" secondItem="IW1-4e-AAm" secondAttribute="leading" id="4Mq-hq-QOR"/>
+                <constraint firstAttribute="bottom" secondItem="frA-Ey-j0v" secondAttribute="bottom" id="ZaR-zT-qoh"/>
+                <constraint firstAttribute="trailing" secondItem="frA-Ey-j0v" secondAttribute="trailing" id="eLd-HH-ilV"/>
+                <constraint firstItem="frA-Ey-j0v" firstAttribute="top" secondItem="IW1-4e-AAm" secondAttribute="top" id="wHi-Qb-lAK"/>
             </constraints>
         </view>
     </objects>

@@ -12,22 +12,36 @@ import MBProgressHUD
 
 class YearResultsViewController: UIViewController {
     
-    @IBOutlet weak var lblYearResults: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var taxPayer:CDTaxPayer?
     
     
+    var responseArray:[YearResponse]?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTable()
     }
+    
+    func setupTable(){
+        
+        tableView.registerNib(UINib(nibName: Constants.Cells.YearConclusion.yearConclusionCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.YearConclusion.yearConclusionCell)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 86
+        tableView.tableFooterView = UIView()
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         title = "Year Results"
         
-        //If I dont do this, I get a text on the label I don't want
-        lblYearResults.text = ""
+        
         
         //Ensure that the user has entered at least one date
         if CDDate.MR_countOfEntities() > 0 {
@@ -51,20 +65,37 @@ class YearResultsViewController: UIViewController {
                 
                 
                 
-                let response = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!))
+                self.responseArray = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!)).reverse()
                 
-                var responseText = ""
-                for r in response{
-                    responseText += r.description
-                }
-
+               
+                
                 dispatch_async(dispatch_get_main_queue()) {
-                    
+                     self.tableView.reloadData()
                     MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
                     
-                    self.lblYearResults.text = responseText
+                    //self.lblYearResults.text = responseText
                 }
             }
         }
+    }
+}
+
+
+extension YearResultsViewController: UITableViewDataSource{
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let count = responseArray?.count else{
+            return 0
+        }
+        return count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.YearConclusion.yearConclusionCell) as! YearsConclusionCell
+        
+        cell.initializeWithYearResponse(responseArray![indexPath.row])
+        return cell
     }
 }

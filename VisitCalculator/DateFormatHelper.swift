@@ -23,6 +23,13 @@ class DateFormatHelper{
         return formatter
     }
     
+    class func yearResponseFormat() -> NSDateFormatter{
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMM"
+        return formatter
+    }
+
+    
     class func stringFromDate(date: NSDate) ->String{
         return mediumDate().stringFromDate(date)
         
