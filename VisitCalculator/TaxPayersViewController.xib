@@ -24,8 +24,8 @@
                         <outlet property="delegate" destination="-1" id="DNO-LM-mmh"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY3-74-gxK">
-                    <rect key="frame" x="554" y="562" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY3-74-gxK">
+                    <rect key="frame" x="548" y="548" width="44" height="44"/>
                     <state key="normal" backgroundImage="help"/>
                     <connections>
                         <action selector="didTapOnHelp:" destination="-1" eventType="touchUpInside" id="EFO-BA-Xc4"/>
@@ -35,7 +35,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="bY7-1E-iIr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6bF-tN-M3J"/>
-                <constraint firstAttribute="trailing" secondItem="fY3-74-gxK" secondAttribute="trailing" constant="16" id="MuP-ow-w1s"/>
+                <constraint firstAttribute="trailing" secondItem="fY3-74-gxK" secondAttribute="trailing" constant="8" id="MuP-ow-w1s"/>
                 <constraint firstAttribute="bottom" secondItem="fY3-74-gxK" secondAttribute="bottom" constant="8" id="Npq-8E-zUK"/>
                 <constraint firstAttribute="trailing" secondItem="bY7-1E-iIr" secondAttribute="trailing" id="TjY-6Q-3vl"/>
                 <constraint firstAttribute="bottom" secondItem="bY7-1E-iIr" secondAttribute="bottom" id="yDD-p6-zng"/>
@@ -45,6 +45,6 @@
         </view>
     </objects>
     <resources>
-        <image name="help" width="13" height="13"/>
+        <image name="help" width="44" height="44"/>
     </resources>
 </document>
