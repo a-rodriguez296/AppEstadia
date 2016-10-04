@@ -10,12 +10,13 @@ import UIKit
 import SwiftDate
 import MagicalRecord
 import Bond
+import SCLAlertView
 
 class AddStayViewController: UIViewController {
     
     var currentButton:Int?
     
-
+    
     var datesArray:[NSDate]?
     
     
@@ -132,7 +133,7 @@ class AddStayViewController: UIViewController {
                     self.lblArrivalDate.text = DateFormatHelper.stringFromDate(date)
                 }
                 else{
-                   
+                    
                     self.departureDateObservable.value = date
                     self.lblDepartureDate.text = DateFormatHelper.stringFromDate(date)
                 }
@@ -224,6 +225,11 @@ class AddStayViewController: UIViewController {
         navigationController?.pushViewController(countriesVC, animated: true)
     }
     
+    @IBAction func didTapOnHelp(sender: AnyObject) {
+        presentInitialAlert()
+    }
+    
+    
     //Helper Function
     
     //MARK: Helper Functions
@@ -232,31 +238,25 @@ class AddStayViewController: UIViewController {
         
         if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch){
             
-            //Show initial alert
-            
-            let alertController = UIAlertController(title: "Attention", message: "Remember to add the date you arrieved and the date you left the country.", preferredStyle: .Alert)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(OKAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+                self.presentInitialAlert()
+            })
         }
+    }
+    
+    func presentInitialAlert(){
+        
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Remember to include the date you arrieved and the date you left the country.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
     
     func presentAlertNonValidDate(){
         //The user cannot enter a departure date smaller than the arrival date
-        let alertController = UIAlertController(title: "Attention", message: "You cannot enter a departure date that is earlier than the arrival date", preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-        alertController.addAction(dismissAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("You cannot enter a departure date that is earlier than the arrival date", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 4.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
     
     func presentNoNValidStayWithDate(date: NSDate){
         //If the date exists , show an alert controller
-        let alertController = UIAlertController(title: "", message: "You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-        alertController.addAction(dismissAction)
-        presentViewController(alertController, animated: true, completion: nil)
-        
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
 }
 

@@ -45,24 +45,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZND-cY-NhS">
-                    <rect key="frame" x="73" y="88" width="454" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert the dates you have stayed in the following country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZND-cY-NhS">
+                    <rect key="frame" x="76" y="88" width="449" height="23"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="18"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPL-sm-Rkl" userLabel="Top Separator View">
-                    <rect key="frame" x="0.0" y="125" width="600" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPL-sm-Rkl" userLabel="Top Separator View">
+                    <rect key="frame" x="0.0" y="127" width="600" height="1"/>
                     <color key="backgroundColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="HVN-tr-aQl"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RjR-1d-Ios" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="126" width="600" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjR-1d-Ios" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="128" width="600" height="51"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04B-0R-cz0">
-                            <rect key="frame" x="8" y="8" width="107" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04B-0R-cz0">
+                            <rect key="frame" x="8" y="8" width="102" height="33"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
                             <state key="normal" title="Select Country">
@@ -72,8 +72,8 @@
                                 <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="k4Z-KB-wj2"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-oz-3Vm">
-                            <rect key="frame" x="548" y="3" width="44" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-oz-3Vm">
+                            <rect key="frame" x="548" y="4" width="44" height="44"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
                             <state key="normal" backgroundImage="arrow">
                                 <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,8 +95,8 @@
                         <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="E6S-4h-jRy"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-Nr-IwZ" userLabel="Bottom Separator View">
-                    <rect key="frame" x="0.0" y="175" width="600" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-Nr-IwZ" userLabel="Bottom Separator View">
+                    <rect key="frame" x="0.0" y="179" width="600" height="1"/>
                     <color key="backgroundColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="pbF-fZ-31e"/>
@@ -107,8 +107,8 @@
                     <state key="normal" image="inactive-radio"/>
                     <state key="selected" image="active-radio"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-dn-76h">
-                    <rect key="frame" x="161" y="264" width="69" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-dn-76h">
+                    <rect key="frame" x="163" y="264" width="65" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -118,70 +118,70 @@
                     <state key="normal" image="inactive-radio"/>
                     <state key="selected" image="active-radio"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vacations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-Kk-tyK">
-                    <rect key="frame" x="368" y="264" width="74" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-Kk-tyK">
+                    <rect key="frame" x="370" y="264" width="71" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Arrival Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beZ-bs-3za">
-                    <rect key="frame" x="8" y="303" width="88" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beZ-bs-3za">
+                    <rect key="frame" x="8" y="305" width="86" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Arrival date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f12-5K-ikz">
-                    <rect key="frame" x="8" y="331" width="76" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f12-5K-ikz">
+                    <rect key="frame" x="8" y="335" width="72" height="19"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glc-1r-yZu">
-                    <rect key="frame" x="8" y="349" width="505" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glc-1r-yZu">
+                    <rect key="frame" x="8" y="354" width="505" height="1"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5qN-Kj-1bF"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-3t-DXt">
-                    <rect key="frame" x="548" y="305" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-3t-DXt">
+                    <rect key="frame" x="548" y="310" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" image="calendar"/>
                     <state key="disabled" backgroundImage="calendar-block"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPs-mm-D4y">
-                    <rect key="frame" x="8" y="366" width="114" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPs-mm-D4y">
+                    <rect key="frame" x="8" y="371" width="111" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Departure date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-Uk-apE">
-                    <rect key="frame" x="8" y="394" width="101" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-Uk-apE">
+                    <rect key="frame" x="8" y="401" width="95" height="19"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFD-wn-vKe">
-                    <rect key="frame" x="8" y="412" width="509" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFD-wn-vKe">
+                    <rect key="frame" x="8" y="420" width="509" height="1"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="sGo-NK-paK"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-IA-nRI">
-                    <rect key="frame" x="548" y="368" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-IA-nRI">
+                    <rect key="frame" x="548" y="376" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" backgroundImage="calendar"/>
                     <state key="disabled" backgroundImage="calendar-block"/>
                 </button>
-                <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cbW-OW-BqN">
-                    <rect key="frame" x="0.0" y="433" width="600" height="167"/>
+                <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cbW-OW-BqN">
+                    <rect key="frame" x="0.0" y="441" width="600" height="159"/>
                     <date key="date" timeIntervalSinceReferenceDate="496878147.13638598">
                         <!--2016-09-29 21:42:27 +0000-->
                     </date>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWJ-lb-G8D" customClass="RoundButton" customModule="VisitCalculator" customModuleProvider="target">
-                    <rect key="frame" x="210" y="485" width="180" height="33"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWJ-lb-G8D" customClass="RoundButton" customModule="VisitCalculator" customModuleProvider="target">
+                    <rect key="frame" x="210" y="493" width="180" height="35"/>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="Done">
@@ -195,6 +195,13 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="didTapAddStay:" destination="-1" eventType="touchUpInside" id="Eyg-Fp-18B"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNY-fM-ZIe">
+                    <rect key="frame" x="548" y="548" width="44" height="44"/>
+                    <state key="normal" backgroundImage="help"/>
+                    <connections>
+                        <action selector="didTapOnHelp:" destination="-1" eventType="touchUpInside" id="awM-9v-J30"/>
                     </connections>
                 </button>
             </subviews>
@@ -241,10 +248,12 @@
                 <constraint firstItem="VDj-Kk-tyK" firstAttribute="centerY" secondItem="eY6-dn-76h" secondAttribute="centerY" id="lV6-3i-tNY"/>
                 <constraint firstItem="QFD-wn-vKe" firstAttribute="leading" secondItem="EJM-Uk-apE" secondAttribute="leading" id="oHn-gz-mdk"/>
                 <constraint firstItem="lPs-mm-D4y" firstAttribute="top" secondItem="glc-1r-yZu" secondAttribute="bottom" constant="16" id="p6p-Ul-TSN"/>
+                <constraint firstAttribute="trailing" secondItem="WNY-fM-ZIe" secondAttribute="trailing" constant="8" id="piW-Ja-E7a"/>
                 <constraint firstItem="glc-1r-yZu" firstAttribute="top" secondItem="f12-5K-ikz" secondAttribute="bottom" id="qCS-qa-tZE"/>
                 <constraint firstItem="VDj-Kk-tyK" firstAttribute="centerX" secondItem="qox-sg-rbm" secondAttribute="centerX" id="rlN-iG-aha"/>
                 <constraint firstItem="QFD-wn-vKe" firstAttribute="top" secondItem="EJM-Uk-apE" secondAttribute="bottom" id="rwV-Ms-Xuz"/>
                 <constraint firstItem="EJM-Uk-apE" firstAttribute="leading" secondItem="lPs-mm-D4y" secondAttribute="leading" id="sTh-p7-SBt"/>
+                <constraint firstAttribute="bottom" secondItem="WNY-fM-ZIe" secondAttribute="bottom" constant="8" id="wUJ-4k-keY"/>
                 <constraint firstItem="lPs-mm-D4y" firstAttribute="leading" secondItem="glc-1r-yZu" secondAttribute="leading" id="xDc-7T-eEj"/>
                 <constraint firstAttribute="trailing" secondItem="xnb-Nr-IwZ" secondAttribute="trailing" id="yCj-yU-gap"/>
             </constraints>
@@ -258,6 +267,7 @@
         <image name="arrow" width="44" height="44"/>
         <image name="calendar" width="44" height="44"/>
         <image name="calendar-block" width="44" height="44"/>
+        <image name="help" width="44" height="44"/>
         <image name="inactive-radio" width="44" height="44"/>
     </resources>
 </document>
