@@ -23,6 +23,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var lblRangesTitle: UILabel!
     @IBOutlet weak var lblDateRanges: UILabel!
+    @IBOutlet weak var separator: UIView!
     
     
     override func viewDidLoad() {
@@ -50,6 +51,8 @@ class ResultsViewController: UIViewController {
             let dateRangesArray = dateCalculator!.dateRangesWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer!))
             
             if dateRangesArray.count > 0{
+                
+                separator.hidden = false
                 lblRangesTitle.text = "The following date ranges won't be counted."
                 lblRangesTitle.hidden = false
                 

@@ -16,9 +16,15 @@ class ChooseDynamicDateController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnContinue: UIButton!
     
+    @IBOutlet weak var lblResultSelectedDate: UILabel!
+    @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet weak var lblPlanOtherDates: UILabel!
+    
     var selectedDate = NSDate().endOf(.Day)
     
     var taxPayer:CDTaxPayer?
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +37,7 @@ class ChooseDynamicDateController: UIViewController {
     @IBAction func didTapScreen(sender: AnyObject) {
         
         datePicker.hidden = true
+        btnContinue.hidden = false
     }
     
     @IBAction func didChangeDate(sender: UIDatePicker) {
@@ -43,6 +50,11 @@ class ChooseDynamicDateController: UIViewController {
     @IBAction func didTapSelectDate(sender: AnyObject) {
         
         datePicker.hidden = false
+        btnContinue.hidden = true
+        
+        self.lblResult.hidden = true
+        self.lblResultSelectedDate.hidden = true
+        self.lblPlanOtherDates.hidden = true
     }
     
     @IBAction func didTapContinue(sender: AnyObject) {
@@ -79,11 +91,14 @@ class ChooseDynamicDateController: UIViewController {
                     
                 }
                 else{
-                    let alertController = UIAlertController(title: "Attention", message: "For \(selectedDateEndOfYear.year), you are a tax resident.", preferredStyle: .Alert)
                     
-                    let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alertController.addAction(OKAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    self.lblResult.hidden = false
+                    self.lblResultSelectedDate.hidden = false
+                    self.lblPlanOtherDates.hidden = false
+                    
+                    self.lblResultSelectedDate.text = "In " +  DateFormatHelper.stringFromDate(self.selectedDate)
+                    self.lblResult.text = NSLocalizedString("YOU ARE A TAX RESIDENT", comment: "")
+                    
                 }
             }
         }

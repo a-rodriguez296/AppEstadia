@@ -51,7 +51,7 @@
                     <rect key="frame" x="8" y="144" width="584" height="29"/>
                     <segments>
                         <segment title="Dates"/>
-                        <segment title="Panning" enabled="NO"/>
+                        <segment title="Planning" enabled="NO"/>
                         <segment title="Years" enabled="NO"/>
                     </segments>
                 </segmentedControl>

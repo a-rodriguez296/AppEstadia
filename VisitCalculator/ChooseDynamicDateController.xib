@@ -6,12 +6,29 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </mutableArray>
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+        <mutableArray key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+            <string>SourceSansPro-Semibold</string>
+            <string>SourceSansPro-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseDynamicDateController" customModule="VisitCalculator" customModuleProvider="target">
             <connections>
-                <outlet property="btnContinue" destination="sne-EF-8gs" id="nHW-Pq-vfD"/>
+                <outlet property="btnContinue" destination="0YA-Op-zZP" id="9Kw-6G-7OI"/>
                 <outlet property="datePicker" destination="ZjY-Rw-h3a" id="WdC-RL-tXi"/>
-                <outlet property="lblSelectedDate" destination="RBV-Zu-PH2" id="WOY-Lj-gxO"/>
+                <outlet property="lblPlanOtherDates" destination="3rU-Xv-zF9" id="YKn-gZ-YsK"/>
+                <outlet property="lblResult" destination="ljc-B8-5d2" id="jpA-0b-RWS"/>
+                <outlet property="lblResultSelectedDate" destination="wSs-cF-S1I" id="lXd-3D-CXK"/>
+                <outlet property="lblSelectedDate" destination="fkK-cP-LJm" id="pP3-77-QiW"/>
                 <outlet property="view" destination="dTZ-MS-yH5" id="RRu-hA-n8T"/>
             </connections>
         </placeholder>
@@ -21,26 +38,68 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the date on which you want to do the calculations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-zH-TuY">
-                    <rect key="frame" x="66" y="80" width="469" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="91" y="23" width="419" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-Zu-PH2">
-                    <rect key="frame" x="279" y="337" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkK-cP-LJm">
+                    <rect key="frame" x="8" y="109" width="81" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sne-EF-8gs">
-                    <rect key="frame" x="269" y="374" width="62" height="30"/>
-                    <state key="normal" title="Continue"/>
+                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="eqT-7C-X2z">
+                    <rect key="frame" x="8" y="134" width="524" height="1"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="uyL-4R-zpY"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-Zj-Pvf">
+                    <rect key="frame" x="548" y="91" width="44" height="44"/>
+                    <state key="normal" backgroundImage="calendar"/>
                     <connections>
-                        <action selector="didTapContinue:" destination="-1" eventType="touchUpInside" id="9in-z8-IpD"/>
+                        <action selector="didTapSelectDate:" destination="-1" eventType="touchUpInside" id="7Dg-v2-ynE"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSs-cF-S1I">
+                    <rect key="frame" x="259" y="315" width="81" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljc-B8-5d2">
+                    <rect key="frame" x="279" y="353" width="42" height="24"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="19"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan other dates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rU-Xv-zF9">
+                    <rect key="frame" x="240" y="385" width="120" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YA-Op-zZP" customClass="RoundButton" customModule="VisitCalculator" customModuleProvider="target">
+                    <rect key="frame" x="210" y="447" width="180" height="35"/>
+                    <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                    <state key="normal" title="Calculate">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapContinue:" destination="-1" eventType="touchUpInside" id="eG7-aJ-aZp"/>
                     </connections>
                 </button>
                 <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Rw-h3a">
-                    <rect key="frame" x="0.0" y="420" width="600" height="180"/>
+                    <rect key="frame" x="0.0" y="330" width="600" height="270"/>
                     <date key="date" timeIntervalSinceReferenceDate="495129065.04368502">
                         <!--2016-09-09 15:51:05 +0000-->
                     </date>
@@ -48,34 +107,40 @@
                         <action selector="didChangeDate:" destination="-1" eventType="valueChanged" id="trS-qv-O3H"/>
                     </connections>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-Zj-Pvf">
-                    <rect key="frame" x="260" y="117" width="80" height="30"/>
-                    <state key="normal" title="Select Date"/>
-                    <connections>
-                        <action selector="didTapSelectDate:" destination="-1" eventType="touchUpInside" id="7Dg-v2-ynE"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ZjY-Rw-h3a" firstAttribute="leading" secondItem="dTZ-MS-yH5" secondAttribute="leading" id="2lp-tQ-2xv"/>
+                <constraint firstItem="3rU-Xv-zF9" firstAttribute="top" secondItem="ljc-B8-5d2" secondAttribute="bottom" constant="8" id="7eC-Tv-njd"/>
                 <constraint firstItem="GdC-zH-TuY" firstAttribute="centerX" secondItem="dTZ-MS-yH5" secondAttribute="centerX" id="AyN-kE-o2a"/>
+                <constraint firstItem="0YA-Op-zZP" firstAttribute="top" secondItem="3rU-Xv-zF9" secondAttribute="bottom" constant="40" id="HgJ-aY-zec"/>
+                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="leading" secondItem="eqT-7C-X2z" secondAttribute="trailing" constant="16" id="MVo-xG-aY0"/>
+                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="bottom" secondItem="eqT-7C-X2z" secondAttribute="bottom" id="Nk5-Lm-MUZ"/>
+                <constraint firstItem="0YA-Op-zZP" firstAttribute="width" relation="greaterThanOrEqual" secondItem="dTZ-MS-yH5" secondAttribute="width" multiplier="0.3" id="OVw-O5-58u"/>
+                <constraint firstItem="0YA-Op-zZP" firstAttribute="centerX" secondItem="ZjY-Rw-h3a" secondAttribute="centerX" id="Owv-Bj-ZDd"/>
+                <constraint firstItem="ljc-B8-5d2" firstAttribute="top" secondItem="wSs-cF-S1I" secondAttribute="bottom" constant="16" id="RXp-lb-N6I"/>
+                <constraint firstItem="eqT-7C-X2z" firstAttribute="leading" secondItem="fkK-cP-LJm" secondAttribute="leading" id="Rx7-aK-2eZ"/>
+                <constraint firstItem="eqT-7C-X2z" firstAttribute="top" secondItem="fkK-cP-LJm" secondAttribute="bottom" constant="3" id="SvM-HZ-V8I"/>
+                <constraint firstItem="3rU-Xv-zF9" firstAttribute="centerX" secondItem="ljc-B8-5d2" secondAttribute="centerX" id="UHL-PS-gZt"/>
                 <constraint firstItem="GdC-zH-TuY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dTZ-MS-yH5" secondAttribute="leadingMargin" constant="8" id="WdP-qA-It0"/>
-                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="centerX" secondItem="GdC-zH-TuY" secondAttribute="centerX" id="XOP-CV-exm"/>
                 <constraint firstAttribute="bottom" secondItem="ZjY-Rw-h3a" secondAttribute="bottom" id="XpL-Vs-W3B"/>
-                <constraint firstItem="sne-EF-8gs" firstAttribute="top" secondItem="RBV-Zu-PH2" secondAttribute="bottom" constant="16" id="fUs-BR-dfU"/>
-                <constraint firstItem="sne-EF-8gs" firstAttribute="centerX" secondItem="GdC-zH-TuY" secondAttribute="centerX" id="iUP-du-nrD"/>
+                <constraint firstItem="fkK-cP-LJm" firstAttribute="top" secondItem="GdC-zH-TuY" secondAttribute="bottom" constant="64" id="Zhw-rS-TVG"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ew1-Zj-Pvf" secondAttribute="trailing" id="dV1-ZR-PtG"/>
+                <constraint firstItem="0YA-Op-zZP" firstAttribute="centerX" secondItem="ljc-B8-5d2" secondAttribute="centerX" id="gHI-bZ-Z3t"/>
+                <constraint firstItem="ljc-B8-5d2" firstAttribute="centerX" secondItem="wSs-cF-S1I" secondAttribute="centerX" id="jao-5q-w3s"/>
+                <constraint firstItem="fkK-cP-LJm" firstAttribute="leading" secondItem="dTZ-MS-yH5" secondAttribute="leadingMargin" id="juG-HY-UZ2"/>
                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GdC-zH-TuY" secondAttribute="trailing" constant="8" id="oaG-eO-RIk"/>
                 <constraint firstAttribute="trailing" secondItem="ZjY-Rw-h3a" secondAttribute="trailing" id="ohr-J4-reg"/>
-                <constraint firstItem="ew1-Zj-Pvf" firstAttribute="top" secondItem="GdC-zH-TuY" secondAttribute="bottom" constant="16" id="p1W-m9-UE1"/>
-                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="height" secondItem="dTZ-MS-yH5" secondAttribute="height" multiplier="0.3" id="pfu-UA-74j"/>
-                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="top" secondItem="sne-EF-8gs" secondAttribute="bottom" constant="16" id="qwU-Go-9bD"/>
-                <constraint firstItem="GdC-zH-TuY" firstAttribute="top" secondItem="dTZ-MS-yH5" secondAttribute="topMargin" constant="72" id="tuU-se-xcz"/>
-                <constraint firstItem="RBV-Zu-PH2" firstAttribute="centerX" secondItem="sne-EF-8gs" secondAttribute="centerX" id="xjE-nS-kjv"/>
+                <constraint firstItem="ZjY-Rw-h3a" firstAttribute="height" secondItem="dTZ-MS-yH5" secondAttribute="height" multiplier="0.45" id="pfu-UA-74j"/>
+                <constraint firstItem="0YA-Op-zZP" firstAttribute="centerY" secondItem="ZjY-Rw-h3a" secondAttribute="centerY" id="rQK-tt-qCy"/>
+                <constraint firstItem="GdC-zH-TuY" firstAttribute="top" secondItem="dTZ-MS-yH5" secondAttribute="topMargin" constant="15" id="tuU-se-xcz"/>
             </constraints>
             <connections>
-                <action selector="didTapScreen:" destination="-1" eventType="valueChanged" id="1YA-yw-izT"/>
+                <action selector="didTapScreen:" destination="-1" eventType="touchUpInside" id="SUH-XR-xbT"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="calendar" width="44" height="44"/>
+    </resources>
 </document>

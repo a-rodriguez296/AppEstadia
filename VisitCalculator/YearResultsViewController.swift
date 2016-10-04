@@ -73,7 +73,6 @@ class YearResultsViewController: UIViewController {
                      self.tableView.reloadData()
                     MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
                     
-                    //self.lblYearResults.text = responseText
                 }
             }
         }
