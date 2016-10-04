@@ -22,7 +22,7 @@ class ContainerViewController: UIViewController {
     
     
     var currentChildVC:UIViewController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,20 +34,46 @@ class ContainerViewController: UIViewController {
         
         segmentedControl.bnd_selectedSegmentIndex.observe {[unowned self] (index) in
             
+            print(index)
+            
             //Remove current view controller
             if let child = self.currentChildVC{
                 self.removeViewController(child)
             }
             
             let vcToAdd = self.initializeViewControllerWithIndex(index)
-
+            
             self.addChildViewController(vcToAdd)
             self.containerView.addSubview(vcToAdd.view)
             vcToAdd.didMoveToParentViewController(self)
             
             self.anchorViewControllerToContainerView(vcToAdd)
             self.currentChildVC = vcToAdd
-
+            
+        }
+        
+        segmentedControl.bnd_selectedSegmentIndex.observe {[unowned self] (index) in
+            if index != 0 {
+                self.navigationItem.setRightBarButtonItem(nil, animated: true)
+            }
+            else{
+                //Bar button
+                self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(self.didTapAddStay(_:))), animated: true)
+            }
+        }
+        
+        segmentedControl.bnd_selectedSegmentIndex.observe {[unowned self] (index) in
+            
+            if index == 0{
+               self.title = NSLocalizedString("Dates", comment: "")
+            }
+            else if index == 1{
+                self.title = NSLocalizedString("Planning", comment: "")
+            }
+            else{
+                self.title = NSLocalizedString("Years", comment: "")
+            }
+            
         }
         
         
@@ -56,10 +82,9 @@ class ContainerViewController: UIViewController {
         signUpToNotifications()
         updateToolBarItemsState()
         
-        //Bar button
-        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(didTapAddStay(_:))), animated: true)
         
-        title = NSLocalizedString("Dates", comment: "")
+        
+        
     }
     
     func didTapAddStay(sender: AnyObject) {
