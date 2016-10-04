@@ -31,7 +31,7 @@ extension TaxPayersViewController:UITableViewDataSource{
         cell.initializeWithCDTaxPayer(taxPayer)
         cell.selectionStyle = .None
         
-        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]
+        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
             self.deleteTaxPayerWithIndexPath(indexPath)
             return true

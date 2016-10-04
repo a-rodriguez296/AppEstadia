@@ -125,7 +125,7 @@ extension StaysListViewController:UITableViewDataSource{
         cell.initializeCellWithStay(stay)
         cell.selectionStyle = .None
         
-        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor(), callback: {[unowned self]
+        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
             self.deleteStayWithCell(sender)
             return true

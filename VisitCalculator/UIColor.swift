@@ -35,4 +35,8 @@ extension UIColor{
         return UIColor.generateColorWithRGB(130.0, green: 130.0, blue: 130.0, alpha: 1.0)
     }
     
+    class func deleteRedColor() -> UIColor{
+        return UIColor.generateColorWithRGB(237.0, green: 48.0, blue: 19.0, alpha: 1.0)
+    }
+    
 }
