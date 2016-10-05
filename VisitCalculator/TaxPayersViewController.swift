@@ -15,6 +15,9 @@ class TaxPayersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    //Fetched Results Controller
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let cdStaysFetchRequest = NSFetchRequest(entityName: CDTaxPayer.MR_entityName())
         let primarySortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -31,29 +34,16 @@ class TaxPayersViewController: UIViewController {
         return frc
     }()
     
-    
-    let searchController = UISearchController(searchResultsController: nil)
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        extendedLayoutIncludesOpaqueBars = false
         
+        //Style
+        extendedLayoutIncludesOpaqueBars = false
         navigationController?.navigationBar.translucent = true
         
         title = NSLocalizedString("Taxpayers", comment: "")
         
-        //Initialize FetchedResultsController
-        initializeFetchedResultsController()
-        
-        //Initialize searchController
-        initializeSearchController()
-        
-        //Setup TableView
-        setupTableView()
-        
-        //Bar button
-        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
+        generalSetup()
         
         showInitialAlert()
     }
@@ -100,7 +90,6 @@ class TaxPayersViewController: UIViewController {
             
             //Show initial alert
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-                
                 self.showAlert()
             })
         }
@@ -108,6 +97,21 @@ class TaxPayersViewController: UIViewController {
     
     func showAlert(){
         SCLAlertView().showInfo("", subTitle: NSLocalizedString("Tap on the button +, on the top right, to add taxpayers", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+    }
+    
+    func generalSetup(){
+     
+        //Initialize FetchedResultsController
+        initializeFetchedResultsController()
+        
+        //Initialize searchController
+        initializeSearchController()
+        
+        //Setup TableView
+        setupTableView()
+        
+        //Bar button
+        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
     }
     
 }

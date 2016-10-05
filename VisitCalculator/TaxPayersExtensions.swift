@@ -93,6 +93,7 @@ extension TaxPayersViewController: NSFetchedResultsControllerDelegate{
     }
 }
 
+//MARK: UISearchResultsUpdating
 extension TaxPayersViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
