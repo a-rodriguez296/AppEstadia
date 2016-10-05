@@ -38,6 +38,7 @@
 		359164381D9D86C5008499BB /* DatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359164361D9D86C5008499BB /* DatesCell.swift */; };
 		359164391D9D86C5008499BB /* DatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359164371D9D86C5008499BB /* DatesCell.xib */; };
 		359BB50D1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BB50C1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift */; };
+		359BB5101DA57E97003D0B69 /* StaysListViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BB50F1DA57E97003D0B69 /* StaysListViewControllerExtensions.swift */; };
 		35A15C3D1D942408007CCDD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C3C1D942408007CCDD0 /* Country.swift */; };
 		35A15C431D948DA0007CCDD0 /* AddTaxPayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */; };
 		35A33E7C1D75F6C1003D2BC6 /* StayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */; };
@@ -126,6 +127,7 @@
 		359164361D9D86C5008499BB /* DatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCell.swift; sourceTree = "<group>"; };
 		359164371D9D86C5008499BB /* DatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatesCell.xib; sourceTree = "<group>"; };
 		359BB50C1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerExtensions.swift; sourceTree = "<group>"; };
+		359BB50F1DA57E97003D0B69 /* StaysListViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaysListViewControllerExtensions.swift; sourceTree = "<group>"; };
 		35A15C3C1D942408007CCDD0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewController.swift; sourceTree = "<group>"; };
 		35A33E7B1D75F6C1003D2BC6 /* StayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayHandler.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */,
 				351CCF591D9C143E00F4E23F /* StaysListViewController.xib */,
+				359BB5111DA58086003D0B69 /* Exntension */,
 				35FED9851D83104500C83F98 /* Add Stay */,
 			);
 			name = Stays;
@@ -377,6 +380,14 @@
 				359BB50C1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		359BB5111DA58086003D0B69 /* Exntension */ = {
+			isa = PBXGroup;
+			children = (
+				359BB50F1DA57E97003D0B69 /* StaysListViewControllerExtensions.swift */,
+			);
+			name = Exntension;
 			sourceTree = "<group>";
 		};
 		35B588331D6B97B60097FBF1 /* Helpers */ = {
@@ -855,6 +866,7 @@
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */,
 				35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */,
+				359BB5101DA57E97003D0B69 /* StaysListViewControllerExtensions.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */,
 				359BB50D1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift in Sources */,
