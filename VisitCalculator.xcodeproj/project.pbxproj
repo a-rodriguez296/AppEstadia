@@ -63,7 +63,6 @@
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */; };
 		35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */; };
-		35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */; };
 		35E5C71A1D5B75BE0078B8C8 /* VisitCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7191D5B75BE0078B8C8 /* VisitCalculatorUITests.swift */; };
 		35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7241D5B7AB10078B8C8 /* Stay.swift */; };
 		35E5C7271D5B7C8B0078B8C8 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7261D5B7C8B0078B8C8 /* DateFormatHelper.swift */; };
@@ -152,7 +151,6 @@
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaysListViewController.swift; sourceTree = "<group>"; };
 		35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35E5C70E1D5B75BE0078B8C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35E5C7101D5B75BE0078B8C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E5C7151D5B75BE0078B8C8 /* VisitCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7191D5B75BE0078B8C8 /* VisitCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitCalculatorUITests.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 		35B67ECC1D7726EA0073CC58 /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
-				35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */,
 				35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */,
 				35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */,
 				35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */,
@@ -664,7 +661,6 @@
 			files = (
 				35D57EAB1D9C334E00433517 /* TaxPayersViewController.xib in Resources */,
 				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
-				35E5C70F1D5B75BE0078B8C8 /* LaunchScreen.storyboard in Resources */,
 				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
 				35D57EBA1D9C618800433517 /* TaxPayerCell.xib in Resources */,
 				351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */,
@@ -895,17 +891,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		35E5C70D1D5B75BE0078B8C8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35E5C70E1D5B75BE0078B8C8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3540D0641D6C8C58000AF728 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1021,6 +1006,7 @@
 			baseConfigurationReference = DB15D840B28E44A1B891CE01 /* Pods-VisitCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VisitCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ARF.VisitCalculator;
@@ -1035,6 +1021,7 @@
 			baseConfigurationReference = 1E4BDC95A0DA73798AA7CBDB /* Pods-VisitCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VisitCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ARF.VisitCalculator;

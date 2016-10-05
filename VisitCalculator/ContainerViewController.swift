@@ -34,8 +34,6 @@ class ContainerViewController: UIViewController {
         
         segmentedControl.bnd_selectedSegmentIndex.observe {[unowned self] (index) in
             
-            print(index)
-            
             //Remove current view controller
             if let child = self.currentChildVC{
                 self.removeViewController(child)

@@ -42,8 +42,10 @@ class Appearance {
         
         //UISegmentedControl
         UISegmentedControl.appearanceWhenContainedInInstancesOfClasses([ContainerViewController.self]).tintColor = UIColor.backgroundYellowColor()
-        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.backgroundYellowColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
-        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, forState: .Normal)
+        let enabledTitleTextAttributes = [NSForegroundColorAttributeName: UIColor.backgroundYellowColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
+        UISegmentedControl.appearance().setTitleTextAttributes(enabledTitleTextAttributes, forState: .Normal)
         
+        let disabledTitleTextAttributes = [NSForegroundColorAttributeName: UIColor.disabledSegmentControlColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
+        UISegmentedControl.appearance().setTitleTextAttributes(disabledTitleTextAttributes, forState: .Disabled) 
     }
 }

@@ -39,4 +39,8 @@ extension UIColor{
         return UIColor.generateColorWithRGB(237.0, green: 48.0, blue: 19.0, alpha: 1.0)
     }
     
+    class func disabledSegmentControlColor() -> UIColor{
+        return UIColor.generateColorWithRGB(230.0, green: 230.0, blue: 230.0, alpha: 1.0)
+    }
+    
 }
