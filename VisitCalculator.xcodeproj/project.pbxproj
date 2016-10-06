@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351686F01DA6B93100F21534 /* AddTaxPayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351686EF1DA6B93100F21534 /* AddTaxPayerViewModel.swift */; };
 		3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */; };
 		3517A9461D81F5BB00681E40 /* AddStayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9451D81F5BB00681E40 /* AddStayViewController.swift */; };
 		351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		0F98182FFB2A5482062B8C37 /* Pods-VisitCalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculatorTests/Pods-VisitCalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4BDC95A0DA73798AA7CBDB /* Pods-VisitCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculator/Pods-VisitCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		351686EF1DA6B93100F21534 /* AddTaxPayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewModel.swift; sourceTree = "<group>"; };
 		3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
 		3517A9451D81F5BB00681E40 /* AddStayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStayViewController.swift; sourceTree = "<group>"; };
 		351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesListViewController.xib; sourceTree = "<group>"; };
@@ -209,6 +211,30 @@
 				35D57EAF1D9C561D00433517 /* UIColor.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		351686F11DA6E34300F21534 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				351686F21DA6E35100F21534 /* TaxPayers */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		351686F21DA6E35100F21534 /* TaxPayers */ = {
+			isa = PBXGroup;
+			children = (
+				351686F31DA6E35B00F21534 /* Add Tax Payer */,
+			);
+			name = TaxPayers;
+			sourceTree = "<group>";
+		};
+		351686F31DA6E35B00F21534 /* Add Tax Payer */ = {
+			isa = PBXGroup;
+			children = (
+				351686EF1DA6B93100F21534 /* AddTaxPayerViewModel.swift */,
+			);
+			name = "Add Tax Payer";
 			sourceTree = "<group>";
 		};
 		351C22F71D9ACFF000C2F983 /* CountriesList VC */ = {
@@ -517,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				356DD6DE1D7F324D001DD360 /* CoreData */,
+				351686F11DA6E34300F21534 /* ViewModels */,
 				35B67EC91D7726A80073CC58 /* Controllers */,
 				35B588341D6BA2880097FBF1 /* Models */,
 				35B588331D6B97B60097FBF1 /* Helpers */,
@@ -896,6 +923,7 @@
 				35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */,
 				3517A9461D81F5BB00681E40 /* AddStayViewController.swift in Sources */,
 				35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */,
+				351686F01DA6B93100F21534 /* AddTaxPayerViewModel.swift in Sources */,
 				354AFB381D889D85009CF6D6 /* CDTaxPayer.swift in Sources */,
 				35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */,
 				358D60DB1D9F091000EB9ADC /* YearsConclusionCell.swift in Sources */,

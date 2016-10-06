@@ -19,33 +19,33 @@ class AddTaxPayerViewController: UIViewController {
     @IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
     
     
+    private let viewModel = AddTaxPayerViewModel()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        combineLatest(txtName.bnd_text, txtId.bnd_text)
-            .map { return !$0!.isEmpty && !$1!.isEmpty }
-            .observe { self.btnDone.enabled = $0 }
-        
-        
-        title = NSLocalizedString("Add Taxpayer", comment: "")
-        
+        bindViewModel()
     }
     
     
-    @IBAction func didTapAddTaxPayer(sender: AnyObject) {
+    //MARK: BOND
+    func bindViewModel(){
+       
+        viewModel.firstLastName.bidirectionalBindTo(txtName.bnd_text)
+        viewModel.id.bidirectionalBindTo(txtId.bnd_text)
+        viewModel.validData.bindTo(btnDone.bnd_hidden)
+        
+        btnDone.bnd_tap.bindTo(viewModel.btnDoneEvent)
         
         
-        let trimmedName = txtName.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let trimmedId = txtId.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let _ = CDTaxPayer(name: trimmedName, id: trimmedId, context:NSManagedObjectContext.MR_defaultContext())
+        viewModel.popViewController.observeNew {[unowned self] (flag) in
+            if flag{
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
         
-        
-        navigationController?.popViewControllerAnimated(true)
+        title = viewModel.title
     }
-    
-    
 }
