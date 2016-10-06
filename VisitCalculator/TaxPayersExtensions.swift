@@ -15,25 +15,20 @@ import MagicalRecord
 extension TaxPayersViewController:UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let sections = fetchedResultsController.sections else{
-            return 0
-        }
-        let currentSection = sections[section]
-        return currentSection.numberOfObjects
+        return viewModel.numberOfRowsInSection(section)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.TaxPayer.taxPayerCell) as! TaxPayerCell
         
-        let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
+        let taxPayer = viewModel.objectAtIndexPath(indexPath)
         
         cell.initializeWithCDTaxPayer(taxPayer)
         cell.selectionStyle = .None
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
-            self.deleteTaxPayerWithIndexPath(indexPath)
+            self.viewModel.deleteElement(taxPayer)
             return true
             })
         
@@ -51,7 +46,7 @@ extension TaxPayersViewController: UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
+        let taxPayer = viewModel.objectAtIndexPath(indexPath)
         
         let containerVC = ContainerViewController()
         containerVC.taxPayer = taxPayer
@@ -97,27 +92,7 @@ extension TaxPayersViewController: NSFetchedResultsControllerDelegate{
 extension TaxPayersViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
-        
-        NSFetchedResultsController.deleteCacheWithName("Root")
-        if !searchText.isEmpty {
-            let searchPredicate = NSPredicate(format: "(%K CONTAINS[cd] %@) OR (%K CONTAINS %@)","name", searchText, "id", searchText)
-            fetchedResultsController.fetchRequest.predicate = searchPredicate
-            
-        }
-        else{
-            fetchedResultsController.fetchRequest.predicate = nil
-        }
-        initializeFetchedResultsController()
+        viewModel.updateFetchedResultsPredicateWithText(searchText)
         tableView.reloadData()
-    }
-    
-    func initializeFetchedResultsController(){
-        do {
-            try fetchedResultsController.performFetch()
-        }
-        catch {
-            print("An error occurred")
-        }
-        
     }
 }

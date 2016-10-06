@@ -17,22 +17,11 @@ class TaxPayersViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    //Fetched Results Controller
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        let cdStaysFetchRequest = NSFetchRequest(entityName: CDTaxPayer.MR_entityName())
-        let primarySortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
-        
-        let frc = NSFetchedResultsController(
-            fetchRequest: cdStaysFetchRequest,
-            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-        
-        frc.delegate = self
-        
-        return frc
-    }()
+    
+    @IBOutlet weak var btnHelp: UIButton!
+    let viewModel = TaxPayersViewModel()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,18 +30,34 @@ class TaxPayersViewController: UIViewController {
         extendedLayoutIncludesOpaqueBars = false
         navigationController?.navigationBar.translucent = true
         
-        title = NSLocalizedString("Taxpayers", comment: "")
+        //Bar button configuration
+        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
+
         
-        generalSetup()
+        //Initialize Search Controller
+        initializeSearchController()
+        
+        //Setup TableView
+        setupTableView()
         
         showInitialAlert()
+        
+        //MVVM
+        title = viewModel.title
+        
+        btnHelp.bnd_tap
+            .observe { [unowned self] _ in
+                self.showAlert()
+            }
+            .disposeIn(bnd_bag)
+        
+        viewModel.fetchedResultsController.delegate = self
+        
     }
     
     
     //MARK: IBActions
-    @IBAction func didTapOnHelp(sender: AnyObject) {
-        showAlert()
-    }
+    
     
     func didTapAddTaxpayer(sender: AnyObject) {
         
@@ -62,11 +67,6 @@ class TaxPayersViewController: UIViewController {
     
     
     //MARK: Helper Methods
-    
-    func deleteTaxPayerWithIndexPath(indexPath: NSIndexPath){
-        let taxPayer = fetchedResultsController.objectAtIndexPath(indexPath)
-        taxPayer.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
-    }
     
     func initializeSearchController(){
         searchController.searchResultsUpdater = self
@@ -86,7 +86,7 @@ class TaxPayersViewController: UIViewController {
     
     func showInitialAlert(){
         
-        if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch){
+        if viewModel.showInitialAlertFlag{
             
             //Show initial alert
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
@@ -96,23 +96,12 @@ class TaxPayersViewController: UIViewController {
     }
     
     func showAlert(){
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Tap on the button +, on the top right, to add taxpayers", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: viewModel.alertMessage,
+                                closeButtonTitle: NSLocalizedString("Ok", comment: ""),
+                                duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow),
+                                colorTextButton: 1,
+                                circleIconImage: nil,
+                                animationStyle: .LeftToRight)
     }
-    
-    func generalSetup(){
-     
-        //Initialize FetchedResultsController
-        initializeFetchedResultsController()
-        
-        //Initialize searchController
-        initializeSearchController()
-        
-        //Setup TableView
-        setupTableView()
-        
-        //Bar button
-        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
-    }
-    
 }
 
