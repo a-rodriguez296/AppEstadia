@@ -10,6 +10,35 @@ import UIKit
 import CoreData
 import MGSwipeTableCell
 
+
+//MARK: UITableViewDataSource
+extension StaysListViewController:UITableViewDataSource{
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return viewModel!.numberOfRowsInSection(section)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.Dates.datesCell) as! DatesCell
+        let stay = viewModel!.objectAtIndexPath(indexPath)
+        
+        cell.initializeCellWithStay(stay)
+        cell.selectionStyle = .None
+        
+        let deleteButton = MGSwipeButton(title: viewModel!.deleteComment, backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.viewModel!.deleteElement(stay)
+            return true
+            })
+        
+        
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        return cell
+    }
+}
+
 //MARK: NSFetchedResultsControllerDelegate
 extension StaysListViewController: NSFetchedResultsControllerDelegate{
     
@@ -39,71 +68,5 @@ extension StaysListViewController: NSFetchedResultsControllerDelegate{
         case .Move:
             break;
         }
-    }
-}
-
-//MARK: NSFetchedResultsController
-extension StaysListViewController{
-    
-    func setupFetchedResultsController(){
-        initializeFetchedResultsController()
-        initialFetch()
-    }
-    
-    func initializeFetchedResultsController(){
-        
-        let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
-        cdStaysFetchRequest.predicate = NSPredicate(format: "%K.%K == %@", "taxPayer", "name",taxPayer!.name!)
-        let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: false)
-        cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
-        
-        
-        fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: cdStaysFetchRequest,
-            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-        fetchedResultsController!.delegate = self
-    }
-    
-    func initialFetch(){
-        do {
-            try fetchedResultsController?.performFetch()
-        }
-        catch {
-            print("An error occurred")
-        }
-    }
-}
-
-//MARK: UITableViewDataSource
-extension StaysListViewController:UITableViewDataSource{
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let sections = fetchedResultsController!.sections else{
-            return 0
-        }
-        let currentSection = sections[section]
-        return currentSection.numberOfObjects
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.Dates.datesCell) as! DatesCell
-        let stay = fetchedResultsController!.objectAtIndexPath(indexPath) as! CDStay
-        
-        cell.initializeCellWithStay(stay)
-        cell.selectionStyle = .None
-        
-        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
-            (sender: MGSwipeTableCell!) -> Bool in
-            self.deleteStayWithCell(sender)
-            return true
-            })
-        
-        
-        cell.rightButtons = [deleteButton]
-        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
-        return cell
     }
 }

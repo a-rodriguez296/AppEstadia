@@ -100,7 +100,7 @@ extension ContainerViewController{
     func initializeViewControllerWithIndex(index: Int) -> UIViewController{
         if index == 0{
             let vc = StaysListViewController()
-            vc.taxPayer = taxPayer!
+            vc.viewModel = StaysListViewModel(taxPayer: taxPayer!)
             return vc
             
         }

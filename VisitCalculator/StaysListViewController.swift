@@ -16,26 +16,20 @@ class StaysListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var taxPayer:CDTaxPayer?
-    
-    
-    
-    var fetchedResultsController: NSFetchedResultsController?
-    
+    var viewModel:StaysListViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Insert Dates"
+        title = viewModel!.title
         automaticallyAdjustsScrollViewInsets = false
         
-        //Setup FetchedResultsController
-        setupFetchedResultsController()
-        
-        //Show initial alert
+        viewModel!.performFetch()
+        viewModel!.fetchedResultsController.delegate = self
+
         showInitialAlert()
         
         setupTableView()
-        
     }
     
     //MARK: Actions
@@ -51,19 +45,10 @@ class StaysListViewController: UIViewController {
         tableView.estimatedRowHeight = 102
     }
     
-    
-    func deleteStayWithCell(cell: MGSwipeTableCell){
-        
-        let indexPath = tableView.indexPathForCell(cell)!
-        let stay = fetchedResultsController!.objectAtIndexPath(indexPath)
-        stay.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
-    }
-    
-    
     //MARK: Alert Methods
     func showInitialAlert(){
         
-        if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch){
+        if viewModel!.showInitialAlertFlag{
             
             //Show initial alert
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
@@ -72,9 +57,8 @@ class StaysListViewController: UIViewController {
         }
     }
     
-    
     func showAlert(){
         
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("In order for this app to work, you must add the dates you stayed in the country for the last and current year.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: viewModel!.alertMessage, closeButtonTitle:viewModel!.okComment, duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
 }
