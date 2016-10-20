@@ -11,6 +11,7 @@ import SwiftDate
 import MagicalRecord
 import Bond
 import SCLAlertView
+import MBProgressHUD
 
 
 
@@ -24,60 +25,131 @@ class AddStayViewController: UIViewController {
     
     @IBOutlet weak var lblArrivalDate: UILabel!
     @IBOutlet weak var lblDepartureDate: UILabel!
-    
     @IBOutlet weak var btnArrivalDate: UIButton!
     @IBOutlet weak var btnDepartureDate: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAddStay: UIButton!
-    @IBOutlet weak var btnSelectCountry: UIButton!
+    @IBOutlet weak var lblSelectedCountry: UILabel!
+    @IBOutlet weak var btnHelp: UIButton!
     //    @IBOutlet weak var datePickerHeightCst: NSLayoutConstraint!
     //    @IBOutlet weak var datePickerHeightIphone4SCst: NSLayoutConstraint!
     
-    //Business = true, vacations = false
+    
     @IBOutlet weak var btnBusiness: UIButton!
     @IBOutlet weak var btnVacations: UIButton!
     
     
     var taxPayer:CDTaxPayer?
     
+    var viewModel:AddStayViewModel?
     
-    //Observables
-    var arrivalDateObservable = Observable<NSDate?>(NSDate().endOf(.Day))
-    var departureDateObservable = Observable<NSDate?>(NSDate().endOf(.Day))
-    var selectedCountryObservable = Observable<Country?>(Country())
-    var stayTypeObservable = Observable<Bool?>(true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnSelectCountry.titleLabel?.textAlignment = .Center
-        showInitialAlert()
-        
-        title = NSLocalizedString("Add Dates", comment: "")
-        
-        bondSetup()
-        
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let countryCode = defaults.objectForKey("countryCode") as! String?, countryName = defaults.objectForKey("country") as! String?{
-            
-            var country = selectedCountryObservable.value
-            country?.countryCode = countryCode
-            country?.countryName = countryName
-            
-            selectedCountryObservable.value = country
-        }
+        let selectedCountryFlag = viewModel!.selectedCountry.map {[unowned self] country -> Bool in
+            self.btnAddStay.enabled = !country.countryName.isEmpty
+            return !country.countryName.isEmpty}
 
-        let countryName = selectedCountryObservable.value!.countryName
-        if !countryName.isEmpty{
-            btnSelectCountry.setTitle(countryName, forState: .Normal)
-        }
-        else{
-            btnSelectCountry.setTitle("Select a country", forState: .Normal)
+        selectedCountryFlag.observe {[unowned self] (flag) in
+            
+            self.btnAddStay.backgroundColor = flag ? UIColor.backgroundYellowColor() : UIColor.disabledGrayColor()
+            
         }
         
-        lblArrivalDate.text = DateFormatHelper.stringFromDate(NSDate())
-        lblDepartureDate.text = DateFormatHelper.stringFromDate(NSDate())
+        //Buttons
+        btnBusiness.bnd_tap.bindTo(viewModel!.btnBusinessEvent)
+        btnVacations.bnd_tap.bindTo(viewModel!.btnVacationsEvent)
+        
+        btnArrivalDate.bnd_tap.bindTo(viewModel!.btnArrivalDateEvent)
+        btnDepartureDate.bnd_tap.bindTo(viewModel!.btnDepartureDateEvent)
+        
+        //Labels
+        viewModel?.arrivalDate
+            .map({
+                return DateFormatHelper.stringFromDate($0)
+            })
+            .observe({[unowned self] (st) in
+                self.lblArrivalDate.text = st
+                })
+        
+        viewModel?.departureDate
+            .map({
+                return DateFormatHelper.stringFromDate($0)
+            })
+            .observe({[unowned self] (st) in
+                self.lblDepartureDate.text = st
+                })
+        
+        //Date picker visibility
+        viewModel?.datePickerVisibility
+            .observe({[unowned self] (flag) in
+                self.datePicker.hidden = flag
+                self.btnAddStay.hidden = !flag
+                self.btnHelp.hidden = !flag
+                
+                })
+        
+        datePicker.bnd_date.bindTo(viewModel!.genericDate)
+        
+        //Business vacations buttons
+        viewModel?.stayType
+            .observe({[unowned self] (flag) in
+                self.btnBusiness.selected = flag
+                self.btnVacations.selected = !flag
+                })
+        
+        //Calendar buttons
+        viewModel?.buttonsState
+            .observe({[unowned self] (state) in
+                switch state{
+                case .ArrivalDisabled:
+                    self.btnArrivalDate.enabled = false
+                case .DepartureDisabled:
+                    self.btnDepartureDate.enabled = false
+                case .BothEnabled:
+                    self.btnArrivalDate.enabled = true
+                    self.btnDepartureDate.enabled = true
+                }
+                })
+        
+        //Done Button
+        btnAddStay.bnd_tap.bindTo(viewModel!.btnAddStayEvent)
+        
+        //Activity Indicator
+        viewModel?.performingCalculationsEvent.observeNew({ (flag) in
+            if flag{
+                //Mostrarlo
+                let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
+                progressHud.mode = .Indeterminate
+                progressHud.label.text = "Performing Calculations"
+            }
+            else{
+                //Quitarlo
+                MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
+            }
+        })
+        
+        btnAddStay.bnd_enabled.bindTo(viewModel!.btnAddStayEnabled)
+        
+        viewModel?.dismissVC.observeNew({ [unowned self](flag) in
+            if flag{
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+            })
+        
+        
+        
+        //Country Button
+        viewModel?.lblCountryText.bindTo(lblSelectedCountry.bnd_text)
+        
+        viewModel?.nonAcceptedDateEvent.observeNew({[unowned self] (date) in
+            
+            self.presentNoNValidStayWithDate(date)
+            })
+        
+        showInitialAlert()
+        title = viewModel!.title
     }
     
     
@@ -96,57 +168,9 @@ class AddStayViewController: UIViewController {
     
     //MARK: IBActions
     @IBAction func didTapOnTheScreen(sender: AnyObject) {
-        
-        datePicker.hidden = true
-        btnDepartureDate.enabled = true
-        btnDepartureDate.selected = false
-        
-        btnArrivalDate.enabled = true
-        btnArrivalDate.selected = false
-        
-        btnAddStay.hidden = false
+        viewModel!.dismissDatePicker()
     }
     
-    @IBAction func didTapAddStay(sender: AnyObject) {
-        
-        var responseArray = Array<NSDate>()
-        
-        datePicker.hidden = true
-        
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            
-            //Create the dates array in background
-            var arrivalDate = self.arrivalDateObservable.value!
-            let departureDate = self.departureDateObservable.value!
-            
-            while arrivalDate <= departureDate {
-                
-                responseArray.append(arrivalDate.endOf(.Day))
-                arrivalDate = arrivalDate + 1.days
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                
-                //Verify if dates exist
-                let (_, date) = CDDateQueries.validateDates(responseArray, taxPayer: self.taxPayer!, countryCode: self.selectedCountryObservable.value!.countryCode)
-                
-                if let nonAcceptedDate = date{
-                    self.presentNoNValidStayWithDate(nonAcceptedDate)
-                }
-                else{
-                    //Create the stay
-                    let _ = CDStay(dates: responseArray,taxPayer: self.taxPayer!,countryCode: self.selectedCountryObservable.value!.countryCode, stayType: self.stayTypeObservable.value!, context: NSManagedObjectContext.MR_defaultContext())
-                    
-                    //Dismiss the view controller
-                    self.navigationController?.popViewControllerAnimated(true)
-                }
-            }
-        }
-        
-        
-    }
     @IBAction func didTapSelectCountry(sender: AnyObject) {
         
         let countriesVC = CountriesListViewController()
@@ -185,4 +209,3 @@ class AddStayViewController: UIViewController {
         SCLAlertView().showInfo("", subTitle: NSLocalizedString("You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
 }
-

@@ -31,15 +31,15 @@ class ContainerViewController: UIViewController {
         lblId.text = taxPayer?.id
         
         bondSetup()
-
+        
         //NSNotifications setup
         signUpToNotifications()
         
         //Enable/disable sections if there are stays
         updateToolBarItemsState()
- 
+        
     }
-
+    
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -50,6 +50,7 @@ class ContainerViewController: UIViewController {
         
         let addStayVC = AddStayViewController()
         addStayVC.taxPayer = taxPayer
+        addStayVC.viewModel = AddStayViewModel(taxPayer: taxPayer!)
         navigationController?.pushViewController(addStayVC, animated: true)
         
     }

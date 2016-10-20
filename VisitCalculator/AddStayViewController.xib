@@ -33,11 +33,12 @@
                 <outlet property="btnArrivalDate" destination="tEd-3t-DXt" id="PO1-cX-LRA"/>
                 <outlet property="btnBusiness" destination="1Z6-Rt-z2x" id="jK1-AT-CRe"/>
                 <outlet property="btnDepartureDate" destination="ZhI-IA-nRI" id="yha-dP-UhI"/>
-                <outlet property="btnSelectCountry" destination="04B-0R-cz0" id="OUH-PY-Tmt"/>
+                <outlet property="btnHelp" destination="WNY-fM-ZIe" id="DO1-lg-tP8"/>
                 <outlet property="btnVacations" destination="qox-sg-rbm" id="5Oz-01-JZ9"/>
                 <outlet property="datePicker" destination="cbW-OW-BqN" id="OCJ-34-3kK"/>
                 <outlet property="lblArrivalDate" destination="f12-5K-ikz" id="rg4-1j-cvC"/>
                 <outlet property="lblDepartureDate" destination="EJM-Uk-apE" id="VZA-Gt-Wzc"/>
+                <outlet property="lblSelectedCountry" destination="miM-xa-UcT" id="VIg-sR-jTe"/>
                 <outlet property="view" destination="uqR-f0-r7P" id="W29-GS-7Zi"/>
             </connections>
         </placeholder>
@@ -60,21 +61,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjR-1d-Ios" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="128" width="600" height="51"/>
+                    <rect key="frame" x="0.0" y="128" width="600" height="40"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04B-0R-cz0">
-                            <rect key="frame" x="8" y="8" width="102" height="33"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
-                            <state key="normal" title="Select Country">
-                                <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="k4Z-KB-wj2"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-oz-3Vm">
-                            <rect key="frame" x="548" y="4" width="44" height="44"/>
+                            <rect key="frame" x="548" y="-3" width="44" height="44"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
                             <state key="normal" backgroundImage="arrow">
                                 <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,21 +73,27 @@
                                 <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="Med-rM-Djf"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miM-xa-UcT">
+                            <rect key="frame" x="8" y="8" width="108" height="22"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="04B-0R-cz0" secondAttribute="bottom" constant="10" id="HwJ-jO-lvQ"/>
-                        <constraint firstItem="7iW-oz-3Vm" firstAttribute="centerY" secondItem="04B-0R-cz0" secondAttribute="centerY" constant="1" id="T4I-xy-FNf"/>
+                        <constraint firstItem="miM-xa-UcT" firstAttribute="leading" secondItem="RjR-1d-Ios" secondAttribute="leading" constant="8" id="1e4-I0-0th"/>
                         <constraint firstItem="7iW-oz-3Vm" firstAttribute="trailing" secondItem="RjR-1d-Ios" secondAttribute="trailingMargin" id="nJz-Q9-wuv"/>
-                        <constraint firstItem="04B-0R-cz0" firstAttribute="leading" secondItem="RjR-1d-Ios" secondAttribute="leading" constant="8" id="uFD-x4-l9y"/>
-                        <constraint firstItem="04B-0R-cz0" firstAttribute="top" secondItem="RjR-1d-Ios" secondAttribute="top" constant="8" id="usd-wB-ytO"/>
+                        <constraint firstAttribute="bottom" secondItem="miM-xa-UcT" secondAttribute="bottom" constant="10" id="naf-3u-QWe"/>
+                        <constraint firstItem="miM-xa-UcT" firstAttribute="top" secondItem="RjR-1d-Ios" secondAttribute="top" constant="8" id="tFx-LK-yIa"/>
+                        <constraint firstItem="7iW-oz-3Vm" firstAttribute="centerY" secondItem="miM-xa-UcT" secondAttribute="centerY" id="xct-hQ-mye"/>
                     </constraints>
                     <connections>
                         <action selector="didTapSelectCountry:" destination="-1" eventType="touchUpInside" id="E6S-4h-jRy"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-Nr-IwZ" userLabel="Bottom Separator View">
-                    <rect key="frame" x="0.0" y="179" width="600" height="1"/>
+                    <rect key="frame" x="0.0" y="168" width="600" height="1"/>
                     <color key="backgroundColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="pbF-fZ-31e"/>
@@ -194,9 +190,6 @@
                             <real key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didTapAddStay:" destination="-1" eventType="touchUpInside" id="Eyg-Fp-18B"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNY-fM-ZIe">
                     <rect key="frame" x="548" y="548" width="44" height="44"/>

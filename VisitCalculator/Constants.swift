@@ -27,6 +27,9 @@ struct Constants {
         
         //Case when the add single date is shown for the first time
         static let addDatesInitialLaunch = "addDates"
+        
+        static let countryCode = "countryCode"
+        static let countryName = "country"
     }
     
     struct FontNames {

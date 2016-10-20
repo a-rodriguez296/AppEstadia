@@ -27,6 +27,7 @@
 		354ECEA41D9EFD170017C11E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ECEA31D9EFD170017C11E /* RoundedButton.swift */; };
 		356992091D7A1E42007CD216 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356992081D7A1E42007CD216 /* Constants.swift */; };
 		356A77A31DABE7D1001C318C /* StaysListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A77A21DABE7D1001C318C /* StaysListViewModel.swift */; };
+		356A77A61DABF230001C318C /* AddStayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A77A51DABF230001C318C /* AddStayViewModel.swift */; };
 		358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */; };
 		358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EF1D9577F900D512C3 /* ContainerViewController.swift */; };
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
@@ -120,6 +121,7 @@
 		354ECEA31D9EFD170017C11E /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		356992081D7A1E42007CD216 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		356A77A21DABE7D1001C318C /* StaysListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaysListViewModel.swift; sourceTree = "<group>"; };
+		356A77A51DABF230001C318C /* AddStayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStayViewModel.swift; sourceTree = "<group>"; };
 		358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersExtensions.swift; sourceTree = "<group>"; };
 		358218EF1D9577F900D512C3 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				356A77A21DABE7D1001C318C /* StaysListViewModel.swift */,
+				356A77A51DABF230001C318C /* AddStayViewModel.swift */,
 			);
 			name = Stays;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				354AFB3B1D889DEF009CF6D6 /* CDDate.swift in Sources */,
 				35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */,
 				358D60D61D9F047600EB9ADC /* CountriesListExtensions.swift in Sources */,
+				356A77A61DABF230001C318C /* AddStayViewModel.swift in Sources */,
 				35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */,
 				3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */,
 				359164381D9D86C5008499BB /* DatesCell.swift in Sources */,
