@@ -51,6 +51,7 @@
 		35A4C37F1D786E0800488A2E /* YearResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */; };
 		35A4C3811D78C3A900488A2E /* YearResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4C3801D78C3A900488A2E /* YearResponse.swift */; };
 		35A77DE71DB9533300F04747 /* CountriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A77DE61DB9533300F04747 /* CountriesListViewModel.swift */; };
+		35A77DE91DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A77DE81DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift */; };
 		35B588321D6B979B0097FBF1 /* DatesCalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */; };
 		35B588361D6BA2990097FBF1 /* DatesRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B588351D6BA2990097FBF1 /* DatesRange.swift */; };
 		35B67EC81D77240E0073CC58 /* ChooseDynamicDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67EC71D77240E0073CC58 /* ChooseDynamicDateController.swift */; };
@@ -146,6 +147,7 @@
 		35A4C37E1D786E0800488A2E /* YearResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResultsViewController.swift; sourceTree = "<group>"; };
 		35A4C3801D78C3A900488A2E /* YearResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearResponse.swift; sourceTree = "<group>"; };
 		35A77DE61DB9533300F04747 /* CountriesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewModel.swift; sourceTree = "<group>"; };
+		35A77DE81DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDynamicDateViewModel.swift; sourceTree = "<group>"; };
 		35B588311D6B979B0097FBF1 /* DatesCalculatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCalculatorHelper.swift; sourceTree = "<group>"; };
 		35B588351D6BA2990097FBF1 /* DatesRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesRange.swift; sourceTree = "<group>"; };
 		35B67EC71D77240E0073CC58 /* ChooseDynamicDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDynamicDateController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				351686F21DA6E35100F21534 /* TaxPayers */,
 				356A77A41DABF0B8001C318C /* Stays */,
+				35C86E481DBE6728001602E4 /* Dynamic Date */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -505,6 +508,14 @@
 				35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */,
 			);
 			name = Queries;
+			sourceTree = "<group>";
+		};
+		35C86E481DBE6728001602E4 /* Dynamic Date */ = {
+			isa = PBXGroup;
+			children = (
+				35A77DE81DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift */,
+			);
+			name = "Dynamic Date";
 			sourceTree = "<group>";
 		};
 		35D57EAC1D9C524500433517 /* Container VC */ = {
@@ -926,6 +937,7 @@
 				358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */,
 				35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */,
 				359BB5101DA57E97003D0B69 /* StaysListViewControllerExtensions.swift in Sources */,
+				35A77DE91DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift in Sources */,
 				35A77DE71DB9533300F04747 /* CountriesListViewModel.swift in Sources */,
 				35E5C7251D5B7AB10078B8C8 /* Stay.swift in Sources */,
 				35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */,

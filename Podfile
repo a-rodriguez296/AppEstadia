@@ -6,13 +6,13 @@ target 'VisitCalculator' do
   use_frameworks!
 
   # Pods for VisitCalculator
-pod 'SwiftDate'
+pod 'SwiftDate', '3.0.8'
 pod 'MGSwipeTableCell'
 pod 'MagicalRecord'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'Bond', '~> 4.3.1'
 pod 'TPKeyboardAvoiding'
-pod 'SCLAlertView'
+pod 'SCLAlertView', '0.6.0'
 
   target 'VisitCalculatorUITests' do
     inherit! :search_paths

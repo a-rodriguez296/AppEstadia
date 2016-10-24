@@ -9,6 +9,8 @@
 import UIKit
 import SwiftDate
 import MBProgressHUD
+import Bond
+
 
 class ChooseDynamicDateController: UIViewController {
     
@@ -25,83 +27,73 @@ class ChooseDynamicDateController: UIViewController {
     var taxPayer:CDTaxPayer?
     
     
+    var viewModel:ChooseDynamicDateViewModel?
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        title = "Dynamic Date"
-        datePicker.date = selectedDate
+        title = viewModel?.title
         lblSelectedDate.text = DateFormatHelper.stringFromDate(selectedDate)
+        
+        viewModel!.selectedDate.map{DateFormatHelper.stringFromDate($0)}.bindTo(lblSelectedDate.bnd_text)
+        viewModel!.datePickerVisibility.bindTo(datePicker.bnd_hidden)
+        viewModel!.btnContinueVisibility.bindTo(btnContinue.bnd_hidden)
+        
+        //lbl selected date
+        viewModel!.lblResultSelectedDateVisibility.bindTo(lblResultSelectedDate.bnd_hidden)
+        viewModel!.lblResultSelectedDate.bindTo(lblResultSelectedDate.bnd_text)
+        
+        //lbl result i.e. You are a tax resident
+        viewModel!.lblResultVisibility.bindTo(lblResult.bnd_hidden)
+        viewModel!.lblResult.bindTo(lblResult.bnd_text)
+        
+        //lbl plan other dates
+        viewModel!.lblPlanOtherDatesVisibility.bindTo(lblPlanOtherDates.bnd_hidden)
+        
+        viewModel!.selectedDate.bidirectionalBindTo(datePicker.bnd_date)
+        
+        btnContinue.bnd_tap.bindTo(viewModel!.btnContinueEvent)
+        
+        viewModel!.shouldShowResultsVC = {[unowned self] _ in
+            let resultsVC = ResultsViewController()
+            resultsVC.selectedDate = self.viewModel!.selectedDate.value
+            resultsVC.taxPayer = self.viewModel!.taxPayer
+            self.navigationController?.pushViewController(resultsVC, animated: true)
+        }
+        
+        viewModel!.performingCalculationsEvent.observeNew {[unowned self] (flag) in
+            if flag{
+                //Mostrarlo
+                self.showProgressAlert()
+            }
+            else{
+                //Quitarlo
+                self.removeProgressAlert()
+            }
+        }
+        
     }
     
     @IBAction func didTapScreen(sender: AnyObject) {
         
-        datePicker.hidden = true
-        btnContinue.hidden = false
+        viewModel?.hideDatePicker()
     }
-    
-    @IBAction func didChangeDate(sender: UIDatePicker) {
-        
-        selectedDate = sender.date.endOf(.Day)
-        lblSelectedDate.text = DateFormatHelper.stringFromDate(sender.date)
-    }
-    
+
     
     @IBAction func didTapSelectDate(sender: AnyObject) {
         
-        datePicker.hidden = false
-        btnContinue.hidden = true
-        
-        self.lblResult.hidden = true
-        self.lblResultSelectedDate.hidden = true
-        self.lblPlanOtherDates.hidden = true
+        viewModel!.showDatePicker()
     }
     
-    @IBAction func didTapContinue(sender: AnyObject) {
-        
-        
+    func showProgressAlert(){
         let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
         progressHud.mode = .Indeterminate
-        progressHud.label.text = "Performing Calculations"
-        
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            
-            
-            //Get the year of the date selected
-            let selectedDateEndOfYear = self.selectedDate.endOf(.Year)
-            
-            let selectedDateBeginingOfTheYear = self.selectedDate.startOf(.Year)
-            
-            //Verify if for that year the user is resident
-            let dateCalculator = DatesCalculatorHelper(endDate: selectedDateBeginingOfTheYear)
-            let yearResponse = dateCalculator.consolidatedCalculations(selectedDateEndOfYear, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!)).first!
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
-                
-                if !yearResponse.flag{
-                    //The user is not a resident yet, therefore its usefull to perform calculations
-                    
-                    let resultsVC = ResultsViewController()
-                    resultsVC.selectedDate = self.selectedDate
-                    resultsVC.taxPayer = self.taxPayer
-                    self.navigationController?.pushViewController(resultsVC, animated: true)
-                    
-                    
-                }
-                else{
-                    
-                    self.lblResult.hidden = false
-                    self.lblResultSelectedDate.hidden = false
-                    self.lblPlanOtherDates.hidden = false
-                    
-                    self.lblResultSelectedDate.text = "In " +  DateFormatHelper.stringFromDate(self.selectedDate)
-                    self.lblResult.text = NSLocalizedString("YOU ARE A TAX RESIDENT", comment: "")
-                    
-                }
-            }
-        }
-    }
+        progressHud.label.text = NSLocalizedString("Performing Calculations", comment: "")
 
+    }
+    
+    func removeProgressAlert(){
+        MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
+    }
 }

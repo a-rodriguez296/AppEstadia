@@ -106,7 +106,7 @@ extension ContainerViewController{
         }
         else if index == 1 {
             let vc = ChooseDynamicDateController()
-            vc.taxPayer = taxPayer!
+            vc.viewModel = ChooseDynamicDateViewModel(taxPayer: taxPayer!)
             return vc
         }
         else{
