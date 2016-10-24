@@ -15,7 +15,7 @@ class YearResultsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var taxPayer:CDTaxPayer?
+    var viewModel:YearResultsViewModel?
     
     
     var responseArray:[YearResponse]?
@@ -25,6 +25,27 @@ class YearResultsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTable()
+        
+        //I dont understand why do I have to put this method inside a dispatch_async
+        dispatch_async(dispatch_get_main_queue()) {[unowned self] () in
+            self.viewModel!.performCalculations()
+        }
+        
+        
+        viewModel!.shouldReloadTable = {[unowned self] () in
+            self.tableView.reloadData()
+        }
+        
+        viewModel!.performingCalculationsEvent.observeNew { (flag) in
+            if flag{
+                //Mostrarlo
+                self.showProgressAlert()
+            }
+            else{
+                //Quitarlo
+                self.removeProgressAlert()
+            }
+        }
     }
     
     func setupTable(){
@@ -36,65 +57,30 @@ class YearResultsViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func showProgressAlert(){
+        let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
+        progressHud.mode = .Indeterminate
+        progressHud.label.text = NSLocalizedString("Performing Calculations", comment: "")
         
-        title = "Year Results"
-        
-        
-        
-        //Ensure that the user has entered at least one date
-        if CDDate.MR_countOfEntities() > 0 {
-            
-            
-            let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
-            progressHud.mode = .Indeterminate
-            progressHud.label.text = "Performing calculations"
-            
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                
-                // Get the oldestDate added by the user
-                let oldestDate =  CDDateQueries.oldestDateWithTaxPayer(self.taxPayer!)
-                
-                //Get this year's last day
-                let upperBound = NSDate().endOf(.Year).endOf(.Day)
-                
-                //Initialize DateCalculator with oldest date
-                let dateCalculator = DatesCalculatorHelper(endDate: oldestDate)
-                
-                
-                
-                self.responseArray = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer!)).reverse()
-                
-               
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                     self.tableView.reloadData()
-                    MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
-                    
-                }
-            }
-        }
+    }
+    
+    func removeProgressAlert(){
+        MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
     }
 }
-
 
 extension YearResultsViewController: UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = responseArray?.count else{
-            return 0
-        }
-        return count
+        return viewModel!.responseArray.value.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.YearConclusion.yearConclusionCell) as! YearsConclusionCell
         
-        cell.initializeWithYearResponse(responseArray![indexPath.row])
+        cell.initializeWithYearResponse(viewModel!.responseArray.value[indexPath.row])
         return cell
     }
 }

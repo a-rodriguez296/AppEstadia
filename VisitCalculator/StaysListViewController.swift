@@ -21,7 +21,6 @@ class StaysListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = viewModel!.title
         automaticallyAdjustsScrollViewInsets = false
         
         viewModel!.performFetch()

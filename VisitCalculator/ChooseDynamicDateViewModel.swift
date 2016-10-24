@@ -10,8 +10,6 @@ import Bond
 
 class ChooseDynamicDateViewModel {
     
-    let title = NSLocalizedString("Dynamic Date", comment: "")
-    
     let taxPayer:CDTaxPayer
     
     

@@ -111,7 +111,7 @@ extension ContainerViewController{
         }
         else{
             let vc = YearResultsViewController()
-            vc.taxPayer = taxPayer!
+            vc.viewModel = YearResultsViewModel(payer: taxPayer!)
             return vc
         }
     }

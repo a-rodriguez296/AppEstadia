@@ -32,7 +32,6 @@ class ChooseDynamicDateController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = viewModel?.title
         lblSelectedDate.text = DateFormatHelper.stringFromDate(selectedDate)
         
         viewModel!.selectedDate.map{DateFormatHelper.stringFromDate($0)}.bindTo(lblSelectedDate.bnd_text)

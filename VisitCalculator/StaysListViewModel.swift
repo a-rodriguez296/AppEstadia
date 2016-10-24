@@ -9,8 +9,7 @@
 import MagicalRecord
 
 class StaysListViewModel {
-    
-    let title = NSLocalizedString("Insert Dates", comment: "")
+
     let alertMessage = NSLocalizedString("In order for this app to work, you must add the dates you stayed in the country for the last and current year.", comment: "")
     let showInitialAlertFlag = NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch)
     let okComment = NSLocalizedString("Ok", comment: "")
