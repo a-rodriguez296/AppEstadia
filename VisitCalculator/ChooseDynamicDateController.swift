@@ -29,9 +29,8 @@ class ChooseDynamicDateController: UIViewController {
     
     var viewModel:ChooseDynamicDateViewModel?
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         title = viewModel?.title
         lblSelectedDate.text = DateFormatHelper.stringFromDate(selectedDate)
@@ -57,8 +56,7 @@ class ChooseDynamicDateController: UIViewController {
         
         viewModel!.shouldShowResultsVC = {[unowned self] _ in
             let resultsVC = ResultsViewController()
-            resultsVC.selectedDate = self.viewModel!.selectedDate.value
-            resultsVC.taxPayer = self.viewModel!.taxPayer
+            resultsVC.viewModel = ResultsViewModel(date: self.viewModel!.selectedDate.value, payer: self.viewModel!.taxPayer)
             self.navigationController?.pushViewController(resultsVC, animated: true)
         }
         
@@ -79,7 +77,7 @@ class ChooseDynamicDateController: UIViewController {
         
         viewModel?.hideDatePicker()
     }
-
+    
     
     @IBAction func didTapSelectDate(sender: AnyObject) {
         
@@ -90,7 +88,7 @@ class ChooseDynamicDateController: UIViewController {
         let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
         progressHud.mode = .Indeterminate
         progressHud.label.text = NSLocalizedString("Performing Calculations", comment: "")
-
+        
     }
     
     func removeProgressAlert(){

@@ -13,11 +13,8 @@ import MagicalRecord
 
 class ResultsViewController: UIViewController {
 
-    var taxPayer:CDTaxPayer?
     
-    
-    var selectedDate:NSDate?
-    var dateCalculator:DatesCalculatorHelper?
+    var viewModel:ResultsViewModel?
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubtitle: UILabel!
@@ -28,7 +25,7 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         title = "Results"
@@ -36,33 +33,30 @@ class ResultsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        lblTitle.text = "Given the date \(DateFormatHelper.stringFromDate(selectedDate!)), these are the results we calculated:"
-        dateCalculator = DatesCalculatorHelper(endDate: selectedDate!)
+        lblTitle.text = NSLocalizedString(String(format: "Given the date %@, these are the results we calculated:",DateFormatHelper.stringFromDate(viewModel!.selectedDate)), comment: "")
+       
         
         
-        let count = dateCalculator!.countDaysWithinTheLastYearWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer!))
+        //count = number of days the tax payer has stayed in the year of the selected date
+        let count = viewModel!.count()
         
-        if count >= 183{
-            lblSubtitle.text = "You have stayed more than one 183 days in the range you specified. Therefore you are considered a resident."
-        }
-        else{
-            lblSubtitle.text = "You have stayed \(count) days in the range you specified. Therefore you have \(182 - count) days remaining this year."
+        
+        lblSubtitle.text = NSLocalizedString(String(format: "You have stayed %i days in the range you specified. Therefore you have %i days remaining this year.", count, viewModel!.remainingDaysWithCount(count)), comment: "")
+        
+        let dateRangesArray = viewModel!.dateRangesArray()
+        
+        if dateRangesArray.count > 0{
             
-            let dateRangesArray = dateCalculator!.dateRangesWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer!))
+            separator.hidden = false
+            lblRangesTitle.text = NSLocalizedString("The following date ranges won't be counted.", comment: "")
+            lblRangesTitle.hidden = false
             
-            if dateRangesArray.count > 0{
-                
-                separator.hidden = false
-                lblRangesTitle.text = "The following date ranges won't be counted."
-                lblRangesTitle.hidden = false
-                
-                var responseString = ""
-                for range in dateRangesArray{
-                    responseString += range.description
-                }
-                lblDateRanges.text = responseString
-                lblDateRanges.hidden = false
+            var responseString = ""
+            for range in dateRangesArray{
+                responseString += range.description
             }
+            lblDateRanges.text = responseString
+            lblDateRanges.hidden = false
         }
     }
 }

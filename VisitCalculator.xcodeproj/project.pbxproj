@@ -58,6 +58,7 @@
 		35B67ED21D773A060073CC58 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B67ED11D773A060073CC58 /* ResultsViewController.swift */; };
 		35C0F1F61D8C884B00442AFE /* CDDateQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */; };
 		35C0F1F91D8CA9FD00442AFE /* CDStayQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */; };
+		35D0FBB11DBE68E700364FD5 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D0FBB01DBE68E600364FD5 /* ResultsViewModel.swift */; };
 		35D57EAA1D9C334E00433517 /* TaxPayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EA81D9C334E00433517 /* TaxPayersViewController.swift */; };
 		35D57EAB1D9C334E00433517 /* TaxPayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EA91D9C334E00433517 /* TaxPayersViewController.xib */; };
 		35D57EAE1D9C551F00433517 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EAD1D9C551F00433517 /* Appearance.swift */; };
@@ -154,6 +155,7 @@
 		35B67ED11D773A060073CC58 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		35C0F1F51D8C884B00442AFE /* CDDateQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDateQueries.swift; sourceTree = "<group>"; };
 		35C0F1F81D8CA9FD00442AFE /* CDStayQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStayQueries.swift; sourceTree = "<group>"; };
+		35D0FBB01DBE68E600364FD5 /* ResultsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		35D57EA81D9C334E00433517 /* TaxPayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewController.swift; sourceTree = "<group>"; };
 		35D57EA91D9C334E00433517 /* TaxPayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaxPayersViewController.xib; sourceTree = "<group>"; };
 		35D57EAD1D9C551F00433517 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				35A77DE81DB95C9F00F04747 /* ChooseDynamicDateViewModel.swift */,
+				35D0FBB01DBE68E600364FD5 /* ResultsViewModel.swift */,
 			);
 			name = "Dynamic Date";
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 				35D57EAE1D9C551F00433517 /* Appearance.swift in Sources */,
 				354ECEA41D9EFD170017C11E /* RoundedButton.swift in Sources */,
 				35D57EAA1D9C334E00433517 /* TaxPayersViewController.swift in Sources */,
+				35D0FBB11DBE68E700364FD5 /* ResultsViewModel.swift in Sources */,
 				356992091D7A1E42007CD216 /* Constants.swift in Sources */,
 				358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */,
 				35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */,
