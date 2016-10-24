@@ -141,7 +141,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-3t-DXt">
-                    <rect key="frame" x="548" y="311" width="44" height="44"/>
+                    <rect key="frame" x="548" y="319" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" image="calendar"/>
                     <state key="disabled" backgroundImage="calendar-block"/>
@@ -166,7 +166,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-IA-nRI">
-                    <rect key="frame" x="548" y="377" width="44" height="44"/>
+                    <rect key="frame" x="548" y="385" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" backgroundImage="calendar"/>
                     <state key="disabled" backgroundImage="calendar-block"/>
@@ -192,7 +192,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNY-fM-ZIe">
-                    <rect key="frame" x="548" y="548" width="44" height="44"/>
+                    <rect key="frame" x="532" y="532" width="60" height="60"/>
                     <state key="normal" backgroundImage="help"/>
                     <connections>
                         <action selector="didTapOnHelp:" destination="-1" eventType="touchUpInside" id="awM-9v-J30"/>
@@ -221,7 +221,7 @@
                 <constraint firstItem="OWJ-lb-G8D" firstAttribute="top" secondItem="QFD-wn-vKe" secondAttribute="bottom" constant="72" id="NVv-v4-gGZ"/>
                 <constraint firstAttribute="trailing" secondItem="cbW-OW-BqN" secondAttribute="trailing" id="PNC-aO-LlH"/>
                 <constraint firstItem="qox-sg-rbm" firstAttribute="centerX" secondItem="uqR-f0-r7P" secondAttribute="centerX" multiplier="1.35" id="ROh-td-eiU"/>
-                <constraint firstItem="tEd-3t-DXt" firstAttribute="bottom" secondItem="glc-1r-yZu" secondAttribute="baseline" id="RlK-ee-efN"/>
+                <constraint firstItem="tEd-3t-DXt" firstAttribute="bottomMargin" secondItem="glc-1r-yZu" secondAttribute="baseline" id="RlK-ee-efN"/>
                 <constraint firstItem="qox-sg-rbm" firstAttribute="centerY" secondItem="1Z6-Rt-z2x" secondAttribute="centerY" id="T0K-Qy-tTF"/>
                 <constraint firstItem="ZND-cY-NhS" firstAttribute="top" secondItem="uqR-f0-r7P" secondAttribute="topMargin" constant="80" id="W82-gI-53C"/>
                 <constraint firstItem="beZ-bs-3za" firstAttribute="top" secondItem="eY6-dn-76h" secondAttribute="bottom" constant="19" id="Y0e-Ux-ozU"/>
@@ -238,7 +238,7 @@
                 <constraint firstItem="cbW-OW-BqN" firstAttribute="top" secondItem="QFD-wn-vKe" secondAttribute="bottom" constant="20" id="fkr-37-LTk"/>
                 <constraint firstItem="glc-1r-yZu" firstAttribute="leading" secondItem="f12-5K-ikz" secondAttribute="leading" id="g7g-hK-40i"/>
                 <constraint firstItem="ZhI-IA-nRI" firstAttribute="leading" secondItem="QFD-wn-vKe" secondAttribute="trailing" constant="31" id="gDz-Sx-ilM"/>
-                <constraint firstItem="ZhI-IA-nRI" firstAttribute="bottom" secondItem="QFD-wn-vKe" secondAttribute="bottom" id="iYR-Hs-X9z"/>
+                <constraint firstItem="ZhI-IA-nRI" firstAttribute="bottomMargin" secondItem="QFD-wn-vKe" secondAttribute="bottom" id="iYR-Hs-X9z"/>
                 <constraint firstItem="VDj-Kk-tyK" firstAttribute="centerY" secondItem="eY6-dn-76h" secondAttribute="centerY" id="lV6-3i-tNY"/>
                 <constraint firstItem="QFD-wn-vKe" firstAttribute="leading" secondItem="EJM-Uk-apE" secondAttribute="leading" id="oHn-gz-mdk"/>
                 <constraint firstItem="lPs-mm-D4y" firstAttribute="top" secondItem="glc-1r-yZu" secondAttribute="bottom" constant="16" id="p6p-Ul-TSN"/>
@@ -261,7 +261,7 @@
         <image name="arrow" width="44" height="44"/>
         <image name="calendar" width="44" height="44"/>
         <image name="calendar-block" width="44" height="44"/>
-        <image name="help" width="44" height="44"/>
+        <image name="help" width="60" height="60"/>
         <image name="inactive-radio" width="44" height="44"/>
     </resources>
 </document>
