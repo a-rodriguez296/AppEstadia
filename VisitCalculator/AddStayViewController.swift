@@ -22,6 +22,7 @@ class AddStayViewController: UIViewController {
     
     var datesArray:[NSDate]?
     
+    var timer:NSTimer?
     
     @IBOutlet weak var lblArrivalDate: UILabel!
     @IBOutlet weak var lblDepartureDate: UILabel!
@@ -172,6 +173,7 @@ class AddStayViewController: UIViewController {
     }
     
     @IBAction func didTapSelectCountry(sender: AnyObject) {
+        stopTimer()
         
         let countriesVC = CountriesListViewController()
         countriesVC.delegate = self
@@ -179,23 +181,28 @@ class AddStayViewController: UIViewController {
     }
     
     @IBAction func didTapOnHelp(sender: AnyObject) {
-        presentInitialAlert()
+        stopTimer()
+        presentInitialAlert(nil)
     }
     
     //MARK: Helper Functions
     
     func showInitialAlert(){
         
-        if NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch){
+        if viewModel!.initialAlertFlag{
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-                self.presentInitialAlert()
-            })
+            //Show initial alert
+            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(presentInitialAlert(_:)), userInfo: nil, repeats: false)
         }
     }
     
-    func presentInitialAlert(){
-        
+    func stopTimer(){
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func presentInitialAlert(timer:NSTimer?){
+        viewModel!.updateAlertFlag()
         SCLAlertView().showInfo("", subTitle: NSLocalizedString("Remember to include the date you arrieved and the date you left the country.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
     

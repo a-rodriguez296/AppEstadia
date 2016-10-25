@@ -13,6 +13,7 @@ class AddStayViewModel {
     
     let title = NSLocalizedString("Add Dates", comment: "")
     
+    let initialAlertFlag = NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch)
     
     var arrivalDate = Observable<NSDate>(NSDate().endOf(.Day))
     var departureDate = Observable<NSDate>(NSDate().endOf(.Day))
@@ -182,6 +183,10 @@ class AddStayViewModel {
     func dismissDatePicker(){
         datePickerVisibility.value = true
         self.buttonsState.value = CalendarButtonsState.BothEnabled
+    }
+    
+    func updateAlertFlag(){
+        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.addDatesInitialLaunch, value: true)
     }
 }
 
