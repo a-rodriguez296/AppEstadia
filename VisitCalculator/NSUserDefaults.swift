@@ -17,10 +17,13 @@ extension NSUserDefaults{
             //Not initial launch
             return false
         }
-        else {
-            //Initial launch
-            setBool(true, forKey: key)
+        else{
             return true
         }
+    }
+    
+    func updateValueWithKey(key:String, value:Bool){
+        setBool(value, forKey: key)
+        synchronize()
     }
 }

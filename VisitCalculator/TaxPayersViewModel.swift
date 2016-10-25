@@ -73,6 +73,10 @@ class TaxPayersViewModel {
         initializeFetchedResultsController()
     }
     
+    func updateAlertFlag(){
+        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch, value: true)
+    }
+    
     
     //MARK: Helper Methods
     private func initializeFetchedResultsController(){

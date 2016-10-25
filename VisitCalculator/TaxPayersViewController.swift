@@ -14,13 +14,12 @@ import SCLAlertView
 class TaxPayersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnHelp: UIButton!
     
     let searchController = UISearchController(searchResultsController: nil)
-    
-    
-    @IBOutlet weak var btnHelp: UIButton!
     let viewModel = TaxPayersViewModel()
     
+    var timer:NSTimer?
     
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class TaxPayersViewController: UIViewController {
         
         //Bar button configuration
         navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
-
+        
         
         //Initialize Search Controller
         initializeSearchController()
@@ -60,6 +59,9 @@ class TaxPayersViewController: UIViewController {
     
     
     func didTapAddTaxpayer(sender: AnyObject) {
+        
+        //Stop timer
+        stopTimer()
         
         let addTaxPayerVC = AddTaxPayerViewController()
         navigationController?.pushViewController(addTaxPayerVC, animated: true)
@@ -89,10 +91,18 @@ class TaxPayersViewController: UIViewController {
         if viewModel.showInitialAlertFlag{
             
             //Show initial alert
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-                self.showAlert()
-            })
+            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(timerTrigger(_:)), userInfo: nil, repeats: false)
         }
+    }
+    
+    func timerTrigger(timer: NSTimer){
+        viewModel.updateAlertFlag()
+        showAlert()
+    }
+    
+    func stopTimer(){
+        timer?.invalidate()
+        timer = nil
     }
     
     func showAlert(){

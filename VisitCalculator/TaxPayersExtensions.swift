@@ -46,6 +46,9 @@ extension TaxPayersViewController: UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        //Stop timer
+        stopTimer()
+        
         let taxPayer = viewModel.objectAtIndexPath(indexPath)
         
         let containerVC = ContainerViewController()
