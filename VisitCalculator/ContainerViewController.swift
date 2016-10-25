@@ -48,6 +48,13 @@ class ContainerViewController: UIViewController {
     //MARK: Actions
     func didTapAddStay(sender: AnyObject) {
         
+        /*
+         In this case, since the add stay button is only visible when StaysListViewController,
+         I can be sure that currentChildVC is alwasy going to be StaysListViewController
+         */
+        let vc = currentChildVC as! StaysListViewController
+        vc.stopTimer()
+        
         let addStayVC = AddStayViewController()
         addStayVC.taxPayer = taxPayer
         addStayVC.viewModel = AddStayViewModel(taxPayer: taxPayer!)

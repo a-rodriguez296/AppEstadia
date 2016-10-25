@@ -46,7 +46,9 @@ class TaxPayersViewController: UIViewController {
         
         btnHelp.bnd_tap
             .observe { [unowned self] _ in
-                self.showAlert()
+                self.stopTimer()
+                self.showAlert(nil)
+                
             }
             .disposeIn(bnd_bag)
         
@@ -91,27 +93,23 @@ class TaxPayersViewController: UIViewController {
         if viewModel.showInitialAlertFlag{
             
             //Show initial alert
-            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(timerTrigger(_:)), userInfo: nil, repeats: false)
+            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(showAlert(_:)), userInfo: nil, repeats: false)
         }
     }
     
-    func timerTrigger(timer: NSTimer){
+    func showAlert(timer: NSTimer?){
         viewModel.updateAlertFlag()
-        showAlert()
-    }
-    
-    func stopTimer(){
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func showAlert(){
         SCLAlertView().showInfo("", subTitle: viewModel.alertMessage,
                                 closeButtonTitle: NSLocalizedString("Ok", comment: ""),
                                 duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow),
                                 colorTextButton: 1,
                                 circleIconImage: nil,
                                 animationStyle: .LeftToRight)
+    }
+    
+    func stopTimer(){
+        timer?.invalidate()
+        timer = nil
     }
 }
 

@@ -61,5 +61,7 @@ class StaysListViewModel {
         element.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
     }
     
-    
+    func updateAlertFlag(){
+        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch, value: true)
+    }
 }
