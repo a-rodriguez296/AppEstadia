@@ -156,7 +156,6 @@ class DatesCalculatorHelper{
         
         //upperBoundDate is the end of the current year
         
-        print(DateFormatHelper.stringFromDate(startDate))
         var responseArray = Array<YearResponse>()
         
         while endDate <= upperBoundDate{

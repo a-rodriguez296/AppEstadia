@@ -100,6 +100,12 @@ class CDDateQueries{
         return oldestCDDate.date!
     }
     
+    class func newestDateWithTaxPayer(taxPayer: CDTaxPayer) -> NSDate{
+        let predicate = NSPredicate(format: "%K = %@","taxPayer", taxPayer)
+        let newestDate = CDDate.MR_findFirstWithPredicate(predicate, sortedBy: "date", ascending: false)!
+        return newestDate.date!
+    }
+    
     
 }
 

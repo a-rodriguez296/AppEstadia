@@ -34,8 +34,8 @@ class YearResultsViewModel {
             // Get the oldestDate added by the user
             let oldestDate =  CDDateQueries.oldestDateWithTaxPayer(self.taxPayer)
             
-            //Get this year's last day
-            let upperBound = NSDate().endOf(.Year).endOf(.Day)
+            //Newest date last day of the year
+            let upperBound = CDDateQueries.newestDateWithTaxPayer(self.taxPayer).endOf(.Year).endOf(.Day)
             
             //Initialize DateCalculator with oldest date
             let dateCalculator = DatesCalculatorHelper(endDate: oldestDate)
