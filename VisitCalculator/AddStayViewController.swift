@@ -213,6 +213,6 @@ class AddStayViewController: UIViewController {
     
     func presentNoNValidStayWithDate(date: NSDate){
         //If the date exists , show an alert controller
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("You have already added a stay with date \(DateFormatHelper.stringFromDate(date)). You cannot add the same date twice", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle:String(format:NSLocalizedString("You have already added a stay with date %@. You cannot add the same date twice", comment: ""), DateFormatHelper.stringFromDate(date)) , closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
     }
 }

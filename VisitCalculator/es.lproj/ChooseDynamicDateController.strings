@@ -1,0 +1,18 @@
+/* Class = "UIButton"; normalTitle = "Calculate"; ObjectID = "0YA-Op-zZP"; */
+"0YA-Op-zZP.normalTitle" = "Calcular";
+
+/* Class = "UILabel"; text = "Plan other dates"; ObjectID = "3rU-Xv-zF9"; */
+"3rU-Xv-zF9.text" = "Planeé otras fechas de viaje";
+
+/* Class = "UILabel"; text = "Choose the date on which you want to do the calculations"; ObjectID = "GdC-zH-TuY"; */
+"GdC-zH-TuY.text" = "Seleccione la fecha sobre la cual quiere hacer los cálculos";
+
+/* Class = "UILabel"; text = "Arrival date"; ObjectID = "fkK-cP-LJm"; */
+"fkK-cP-LJm.text" = "Entrada";
+
+/* Class = "UILabel"; text = "label"; ObjectID = "ljc-B8-5d2"; */
+"ljc-B8-5d2.text" = "label";
+
+/* Class = "UILabel"; text = "Arrival date"; ObjectID = "wSs-cF-S1I"; */
+"wSs-cF-S1I.text" = "Salida";
+

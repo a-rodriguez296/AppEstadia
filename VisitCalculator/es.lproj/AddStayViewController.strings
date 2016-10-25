@@ -1,0 +1,27 @@
+/* Class = "UILabel"; text = "Departure date"; ObjectID = "EJM-Uk-apE"; */
+"EJM-Uk-apE.text" = "Salida";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "OWJ-lb-G8D"; */
+"OWJ-lb-G8D.normalTitle" = "Guardar";
+
+/* Class = "UILabel"; text = "Vacations"; ObjectID = "VDj-Kk-tyK"; */
+"VDj-Kk-tyK.text" = "Vacaciones";
+
+/* Class = "UILabel"; text = "Insert the dates you have stayed in the following country"; ObjectID = "ZND-cY-NhS"; */
+"ZND-cY-NhS.text" = "Agregue las fechas en las que se quedó en el siguiente país";
+
+/* Class = "UILabel"; text = "Arrival Date"; ObjectID = "beZ-bs-3za"; */
+"beZ-bs-3za.text" = "Entrada";
+
+/* Class = "UILabel"; text = "Business"; ObjectID = "eY6-dn-76h"; */
+"eY6-dn-76h.text" = "Trabajo";
+
+/* Class = "UILabel"; text = "Arrival date"; ObjectID = "f12-5K-ikz"; */
+"f12-5K-ikz.text" = "Entrada";
+
+/* Class = "UILabel"; text = "Departure date"; ObjectID = "lPs-mm-D4y"; */
+"lPs-mm-D4y.text" = "Salida";
+
+/* Class = "UILabel"; text = "Select Country"; ObjectID = "miM-xa-UcT"; */
+"miM-xa-UcT.text" = "Seleccione un país";
+

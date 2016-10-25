@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351535021DC006940089BD14 /* AddTaxPayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351535041DC006940089BD14 /* AddTaxPayerViewController.xib */; };
+		351535071DC007360089BD14 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351535091DC007360089BD14 /* ContainerViewController.xib */; };
+		3515350C1DC007620089BD14 /* AddStayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3515350E1DC007620089BD14 /* AddStayViewController.xib */; };
+		351535111DC007780089BD14 /* ChooseDynamicDateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351535131DC007780089BD14 /* ChooseDynamicDateController.xib */; };
+		351535161DC007900089BD14 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351535181DC007900089BD14 /* ResultsViewController.xib */; };
 		351686F01DA6B93100F21534 /* AddTaxPayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351686EF1DA6B93100F21534 /* AddTaxPayerViewModel.swift */; };
 		351686F51DA6E41600F21534 /* TaxPayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351686F41DA6E41600F21534 /* TaxPayersViewModel.swift */; };
 		3517A9441D81EB8F00681E40 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */; };
@@ -14,9 +19,6 @@
 		351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */; };
 		351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */; };
 		351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF591D9C143E00F4E23F /* StaysListViewController.xib */; };
-		351CCF5D1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF5C1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib */; };
-		351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */; };
-		351CCF611D9C298E00F4E23F /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351CCF601D9C298E00F4E23F /* ContainerViewController.xib */; };
 		35214DE51D7F357F009AD55C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35214DE31D7F357F009AD55C /* Model.xcdatamodeld */; };
 		35214DF51D7F5C39009AD55C /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214DF41D7F5C39009AD55C /* CoreDataTests.swift */; };
 		3540D0601D6C8C58000AF728 /* VisitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */; };
@@ -30,6 +32,10 @@
 		356A77A61DABF230001C318C /* AddStayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A77A51DABF230001C318C /* AddStayViewModel.swift */; };
 		358218EC1D9574CA00D512C3 /* TaxPayersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */; };
 		358218F01D9577F900D512C3 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358218EF1D9577F900D512C3 /* ContainerViewController.swift */; };
+		358721FD1DC004670039C678 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 358721FF1DC004670039C678 /* Localizable.strings */; };
+		358722021DC004680039C678 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 358722041DC004680039C678 /* InfoPlist.strings */; };
+		358722071DC004680039C678 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 358722091DC004680039C678 /* InfoPlist.strings */; };
+		3587220C1DC004690039C678 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3587220E1DC004690039C678 /* InfoPlist.strings */; };
 		3589733C1D89B11700ECC634 /* CDDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */; };
 		3589733E1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */; };
 		358C62051D9059BB00E9CAA8 /* ValidateStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */; };
@@ -38,7 +44,6 @@
 		358D60D61D9F047600EB9ADC /* CountriesListExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D60D51D9F047600EB9ADC /* CountriesListExtensions.swift */; };
 		358D60DB1D9F091000EB9ADC /* YearsConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D60D91D9F091000EB9ADC /* YearsConclusionCell.swift */; };
 		358D60DC1D9F091000EB9ADC /* YearsConclusionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358D60DA1D9F091000EB9ADC /* YearsConclusionCell.xib */; };
-		358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358DD1771D9C0C7C0049979E /* ResultsViewController.xib */; };
 		359164381D9D86C5008499BB /* DatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359164361D9D86C5008499BB /* DatesCell.swift */; };
 		359164391D9D86C5008499BB /* DatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359164371D9D86C5008499BB /* DatesCell.xib */; };
 		359BB50D1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BB50C1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift */; };
@@ -70,7 +75,6 @@
 		35D57EB91D9C618800433517 /* TaxPayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D57EB71D9C618800433517 /* TaxPayerCell.swift */; };
 		35D57EBA1D9C618800433517 /* TaxPayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D57EB81D9C618800433517 /* TaxPayerCell.xib */; };
 		35D62C1E1D8AEDF30071006E /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */; };
-		35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */; };
 		35E5C7051D5B75BD0078B8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */; };
 		35E5C7071D5B75BD0078B8C8 /* StaysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */; };
 		35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C70B1D5B75BE0078B8C8 /* Assets.xcassets */; };
@@ -103,6 +107,16 @@
 /* Begin PBXFileReference section */
 		0F98182FFB2A5482062B8C37 /* Pods-VisitCalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculatorTests/Pods-VisitCalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4BDC95A0DA73798AA7CBDB /* Pods-VisitCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitCalculator/Pods-VisitCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		351535031DC006940089BD14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddTaxPayerViewController.xib; sourceTree = "<group>"; };
+		351535061DC006990089BD14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/AddTaxPayerViewController.strings; sourceTree = "<group>"; };
+		351535081DC007360089BD14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ContainerViewController.xib; sourceTree = "<group>"; };
+		3515350B1DC0073C0089BD14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ContainerViewController.strings; sourceTree = "<group>"; };
+		3515350D1DC007620089BD14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddStayViewController.xib; sourceTree = "<group>"; };
+		351535101DC007670089BD14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/AddStayViewController.strings; sourceTree = "<group>"; };
+		351535121DC007780089BD14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChooseDynamicDateController.xib; sourceTree = "<group>"; };
+		351535151DC0077A0089BD14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ChooseDynamicDateController.strings; sourceTree = "<group>"; };
+		351535171DC007900089BD14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ResultsViewController.xib; sourceTree = "<group>"; };
+		3515351A1DC007920089BD14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ResultsViewController.strings; sourceTree = "<group>"; };
 		351686EF1DA6B93100F21534 /* AddTaxPayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaxPayerViewModel.swift; sourceTree = "<group>"; };
 		351686F41DA6E41600F21534 /* TaxPayersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersViewModel.swift; sourceTree = "<group>"; };
 		3517A9431D81EB8F00681E40 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
@@ -110,9 +124,6 @@
 		351C22F51D9ACD1600C2F983 /* CountriesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountriesListViewController.xib; sourceTree = "<group>"; };
 		351CCF571D9C12C300F4E23F /* YearResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearResultsViewController.xib; sourceTree = "<group>"; };
 		351CCF591D9C143E00F4E23F /* StaysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaysListViewController.xib; sourceTree = "<group>"; };
-		351CCF5C1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseDynamicDateController.xib; sourceTree = "<group>"; };
-		351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStayViewController.xib; sourceTree = "<group>"; };
-		351CCF601D9C298E00F4E23F /* ContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
 		35214DE41D7F357F009AD55C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		35214DF41D7F5C39009AD55C /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3540D05D1D6C8C58000AF728 /* VisitCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +139,10 @@
 		356A77A51DABF230001C318C /* AddStayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStayViewModel.swift; sourceTree = "<group>"; };
 		358218EB1D9574CA00D512C3 /* TaxPayersExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayersExtensions.swift; sourceTree = "<group>"; };
 		358218EF1D9577F900D512C3 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		358721FE1DC004670039C678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		358722031DC004680039C678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		358722081DC004680039C678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3587220D1DC004690039C678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3589733B1D89B11700ECC634 /* CDDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3589733D1D89B14800ECC634 /* CDTaxPayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTaxPayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358C62041D9059BB00E9CAA8 /* ValidateStayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateStayTests.swift; sourceTree = "<group>"; };
@@ -136,7 +151,6 @@
 		358D60D51D9F047600EB9ADC /* CountriesListExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListExtensions.swift; sourceTree = "<group>"; };
 		358D60D91D9F091000EB9ADC /* YearsConclusionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearsConclusionCell.swift; sourceTree = "<group>"; };
 		358D60DA1D9F091000EB9ADC /* YearsConclusionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearsConclusionCell.xib; sourceTree = "<group>"; };
-		358DD1771D9C0C7C0049979E /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		359164361D9D86C5008499BB /* DatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesCell.swift; sourceTree = "<group>"; };
 		359164371D9D86C5008499BB /* DatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatesCell.xib; sourceTree = "<group>"; };
 		359BB50C1DA56A40003D0B69 /* ContainerViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -168,7 +182,6 @@
 		35D57EB71D9C618800433517 /* TaxPayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPayerCell.swift; sourceTree = "<group>"; };
 		35D57EB81D9C618800433517 /* TaxPayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaxPayerCell.xib; sourceTree = "<group>"; };
 		35D62C1D1D8AEDF30071006E /* CountriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
-		35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaxPayerViewController.xib; sourceTree = "<group>"; };
 		35E5C7011D5B75BD0078B8C8 /* VisitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5C7041D5B75BD0078B8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5C7061D5B75BD0078B8C8 /* StaysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaysListViewController.swift; sourceTree = "<group>"; };
@@ -269,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				35B67ED11D773A060073CC58 /* ResultsViewController.swift */,
-				358DD1771D9C0C7C0049979E /* ResultsViewController.xib */,
+				351535181DC007900089BD14 /* ResultsViewController.xib */,
 			);
 			name = Results;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 		3540D05E1D6C8C58000AF728 /* VisitCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				3587220E1DC004690039C678 /* InfoPlist.strings */,
 				3540D05F1D6C8C58000AF728 /* VisitCalculatorTests.swift */,
 				35A33E7D1D75F9B4003D2BC6 /* StayHandlerTests.swift */,
 				35214DF41D7F5C39009AD55C /* CoreDataTests.swift */,
@@ -330,7 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				35B67EC71D77240E0073CC58 /* ChooseDynamicDateController.swift */,
-				351CCF5C1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib */,
+				351535131DC007780089BD14 /* ChooseDynamicDateController.xib */,
 				351CCF5B1D9C1A4700F4E23F /* Results */,
 			);
 			name = "Dynamic Date";
@@ -382,7 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				35A15C421D948DA0007CCDD0 /* AddTaxPayerViewController.swift */,
-				35D99C2C1D9AC680001D4AF9 /* AddTaxPayerViewController.xib */,
+				351535041DC006940089BD14 /* AddTaxPayerViewController.xib */,
 			);
 			name = "Add Tax Payer";
 			sourceTree = "<group>";
@@ -497,6 +511,8 @@
 		35B67ECC1D7726EA0073CC58 /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
+				358722041DC004680039C678 /* InfoPlist.strings */,
+				358721FF1DC004670039C678 /* Localizable.strings */,
 				35D57EB11D9C58D500433517 /* SourceSansPro-Bold.ttf */,
 				35D57EB21D9C58D500433517 /* SourceSansPro-Regular.ttf */,
 				35D57EB31D9C58D500433517 /* SourceSansPro-Semibold.ttf */,
@@ -536,7 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				358218EF1D9577F900D512C3 /* ContainerViewController.swift */,
-				351CCF601D9C298E00F4E23F /* ContainerViewController.xib */,
+				351535091DC007360089BD14 /* ContainerViewController.xib */,
 				359BB50E1DA56A66003D0B69 /* Extensions */,
 			);
 			name = "Container VC";
@@ -605,6 +621,7 @@
 		35E5C7181D5B75BE0078B8C8 /* VisitCalculatorUITests */ = {
 			isa = PBXGroup;
 			children = (
+				358722091DC004680039C678 /* InfoPlist.strings */,
 				35E5C7191D5B75BE0078B8C8 /* VisitCalculatorUITests.swift */,
 				35E5C71B1D5B75BE0078B8C8 /* Info.plist */,
 			);
@@ -615,7 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				3517A9451D81F5BB00681E40 /* AddStayViewController.swift */,
-				351CCF5E1D9C1F0C00F4E23F /* AddStayViewController.xib */,
+				3515350E1DC007620089BD14 /* AddStayViewController.xib */,
 				359BB5141DA58264003D0B69 /* Extensions */,
 				351C22F71D9ACFF000C2F983 /* CountriesList VC */,
 			);
@@ -739,6 +756,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 35E5C6F81D5B75BD0078B8C8;
 			productRefGroup = 35E5C7021D5B75BD0078B8C8 /* Products */;
@@ -757,6 +775,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3587220C1DC004690039C678 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,18 +784,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D57EAB1D9C334E00433517 /* TaxPayersViewController.xib in Resources */,
-				35D99C2D1D9AC680001D4AF9 /* AddTaxPayerViewController.xib in Resources */,
+				351535021DC006940089BD14 /* AddTaxPayerViewController.xib in Resources */,
 				351CCF581D9C12C300F4E23F /* YearResultsViewController.xib in Resources */,
 				35D57EBA1D9C618800433517 /* TaxPayerCell.xib in Resources */,
-				351CCF5F1D9C1F0C00F4E23F /* AddStayViewController.xib in Resources */,
-				351CCF611D9C298E00F4E23F /* ContainerViewController.xib in Resources */,
+				3515350C1DC007620089BD14 /* AddStayViewController.xib in Resources */,
+				351535071DC007360089BD14 /* ContainerViewController.xib in Resources */,
 				35E5C70C1D5B75BE0078B8C8 /* Assets.xcassets in Resources */,
-				351CCF5D1D9C1ACA00F4E23F /* ChooseDynamicDateController.xib in Resources */,
+				351535111DC007780089BD14 /* ChooseDynamicDateController.xib in Resources */,
 				35D57EB51D9C58EA00433517 /* SourceSansPro-Regular.ttf in Resources */,
 				35D57EB61D9C58ED00433517 /* SourceSansPro-Semibold.ttf in Resources */,
+				358722021DC004680039C678 /* InfoPlist.strings in Resources */,
 				351CCF5A1D9C143E00F4E23F /* StaysListViewController.xib in Resources */,
-				358DD1781D9C0C7C0049979E /* ResultsViewController.xib in Resources */,
+				351535161DC007900089BD14 /* ResultsViewController.xib in Resources */,
 				358D60DC1D9F091000EB9ADC /* YearsConclusionCell.xib in Resources */,
+				358721FD1DC004670039C678 /* Localizable.strings in Resources */,
 				351C22F61D9ACD1600C2F983 /* CountriesListViewController.xib in Resources */,
 				35D57EB41D9C58E600433517 /* SourceSansPro-Bold.ttf in Resources */,
 				359164391D9D86C5008499BB /* DatesCell.xib in Resources */,
@@ -788,6 +809,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358722071DC004680039C678 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1028,86 @@
 			targetProxy = 35E5C7161D5B75BE0078B8C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		351535041DC006940089BD14 /* AddTaxPayerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351535031DC006940089BD14 /* Base */,
+				351535061DC006990089BD14 /* es */,
+			);
+			name = AddTaxPayerViewController.xib;
+			sourceTree = "<group>";
+		};
+		351535091DC007360089BD14 /* ContainerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351535081DC007360089BD14 /* Base */,
+				3515350B1DC0073C0089BD14 /* es */,
+			);
+			name = ContainerViewController.xib;
+			sourceTree = "<group>";
+		};
+		3515350E1DC007620089BD14 /* AddStayViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3515350D1DC007620089BD14 /* Base */,
+				351535101DC007670089BD14 /* es */,
+			);
+			name = AddStayViewController.xib;
+			sourceTree = "<group>";
+		};
+		351535131DC007780089BD14 /* ChooseDynamicDateController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351535121DC007780089BD14 /* Base */,
+				351535151DC0077A0089BD14 /* es */,
+			);
+			name = ChooseDynamicDateController.xib;
+			sourceTree = "<group>";
+		};
+		351535181DC007900089BD14 /* ResultsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351535171DC007900089BD14 /* Base */,
+				3515351A1DC007920089BD14 /* es */,
+			);
+			name = ResultsViewController.xib;
+			sourceTree = "<group>";
+		};
+		358721FF1DC004670039C678 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				358721FE1DC004670039C678 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		358722041DC004680039C678 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				358722031DC004680039C678 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		358722091DC004680039C678 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				358722081DC004680039C678 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3587220E1DC004690039C678 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3587220D1DC004690039C678 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3540D0641D6C8C58000AF728 /* Debug */ = {

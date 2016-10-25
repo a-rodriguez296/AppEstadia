@@ -1,0 +1,15 @@
+/* Class = "UITextField"; placeholder = "First and Last name"; ObjectID = "76t-GR-s4F"; */
+"76t-GR-s4F.placeholder" = "Nombre y apellido";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "ICi-or-4VT"; */
+"ICi-or-4VT.normalTitle" = "Guardar";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "TS6-dE-YKb"; */
+"TS6-dE-YKb.text" = "Nombre";
+
+/* Class = "UITextField"; placeholder = "ID, Passport, Social Security, etc"; ObjectID = "Vzk-Qk-Ty1"; */
+"Vzk-Qk-Ty1.placeholder" = "Identificación, pasaporte, etc";
+
+/* Class = "UILabel"; text = "ID"; ObjectID = "uUd-XX-a84"; */
+"uUd-XX-a84.text" = "Identificación";
+

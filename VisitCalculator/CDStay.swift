@@ -48,7 +48,7 @@ class CDStay: NSManagedObject {
             return DateFormatHelper.mediumDate().stringFromDate(initialDate!)
         }
         else{
-            return "From " + DateFormatHelper.mediumDate().stringFromDate(initialDate!) + " to " + DateFormatHelper.mediumDate().stringFromDate(endDate!)
+            return String(format: NSLocalizedString("From %@ to %@", comment: ""), DateFormatHelper.mediumDate().stringFromDate(initialDate!), DateFormatHelper.mediumDate().stringFromDate(endDate!))
         }
     }
     

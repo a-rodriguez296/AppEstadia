@@ -1,0 +1,15 @@
+/* Class = "UILabel"; text = "Label"; ObjectID = "7DD-j5-zl7"; */
+"7DD-j5-zl7.text" = "Label";
+
+/* Class = "UISegmentedControl"; SiU-vg-Kle.segmentTitles[0] = "Dates"; ObjectID = "SiU-vg-Kle"; */
+"SiU-vg-Kle.segmentTitles[0]" = "Fechas";
+
+/* Class = "UISegmentedControl"; SiU-vg-Kle.segmentTitles[1] = "Planning"; ObjectID = "SiU-vg-Kle"; */
+"SiU-vg-Kle.segmentTitles[1]" = "Planeación";
+
+/* Class = "UISegmentedControl"; SiU-vg-Kle.segmentTitles[2] = "Years"; ObjectID = "SiU-vg-Kle"; */
+"SiU-vg-Kle.segmentTitles[2]" = "Conlcusión";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yWf-HD-Hx8"; */
+"yWf-HD-Hx8.text" = "Label";
+

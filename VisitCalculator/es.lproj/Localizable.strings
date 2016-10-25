@@ -1,0 +1,72 @@
+/* No comment provided by engineer. */
+"%i days in %@" = "%1$i días en %2$@";
+
+/* No comment provided by engineer. */
+"Add Dates" = "Agregar Fechas";
+
+/* No comment provided by engineer. */
+"Add Tax Payer" = "Agregar Cliente";
+
+/* No comment provided by engineer. */
+"Business" = "Trabajo";
+
+/* No comment provided by engineer. */
+"Countries" = "Países";
+
+/* No comment provided by engineer. */
+"Dates" = "Fechas";
+
+/* No comment provided by engineer. */
+"Delete" = "Borrar";
+
+/* No comment provided by engineer. */
+"From %@ to %@" = "De %1$@ a %2$@";
+
+/* No comment provided by engineer. */
+"In order for this app to work, you must add the dates you stayed in the country for the last and current year." = "Tenga en cuenta agregar las fechas del año actual y el año pasado.";
+
+/* No comment provided by engineer. */
+"Ok" = "Ok";
+
+/* No comment provided by engineer. */
+"Performing Calculations" = "Calculando";
+
+/* No comment provided by engineer. */
+"Planning" = "Planeación";
+
+/* No comment provided by engineer. */
+"Remember to include the date you arrieved and the date you left the country." = "Recuerde agregar tanto la fecha de llegada como la fecha de salida.";
+
+/* No comment provided by engineer. */
+"Select a country" = "Seleccione un país";
+
+/* No comment provided by engineer. */
+"Tap on the button +, on the top right, to add taxpayers" = "Hunda el botón +, arriba a la derecha, para agregar clientes";
+
+/* No comment provided by engineer. */
+"Taxpayers" = "Contribuyentes";
+
+/* No comment provided by engineer. */
+"The following date ranges won't be counted." = "Los siguientes rangos de fecha no le van a sumar este año";
+
+/* No comment provided by engineer. */
+"Vacations" = "Vacaciones";
+
+/* No comment provided by engineer. */
+"YOU ARE A TAX RESIDENT" = "USTED ES RESIDENTE";
+
+/* No comment provided by engineer. */
+"Years" = "Conclusión";
+
+/* No comment provided by engineer. */
+"You are a tax resident." = "Usted es residente";
+
+/* No comment provided by engineer. */
+"You are not a tax resident." = "Usted no es residente";
+
+/* No comment provided by engineer. */
+"You cannot enter a departure date that is earlier than the arrival date" = "";
+
+/* No comment provided by engineer. */
+"You have already added a stay with date %@. You cannot add the same date twice" = "Ya añadiste una estadía con fecha %@.";
+

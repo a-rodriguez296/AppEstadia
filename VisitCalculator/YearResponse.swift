@@ -30,10 +30,10 @@ extension YearResponse: CustomStringConvertible{
     var description: String{
         
         if flag {
-            return "You are a tax resident."
+            return NSLocalizedString("You are a tax resident.", comment: "")
         }
         else{
-            return "You are not a tax resident."
+            return NSLocalizedString("You are not a tax resident.", comment: "")
         }
     }
 }

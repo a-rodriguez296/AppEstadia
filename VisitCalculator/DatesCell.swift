@@ -21,7 +21,7 @@ class DatesCell: MGSwipeTableCell {
         
         lblStayTitle.text = stay.descriptionString()
         let locale = NSLocale.currentLocale()
-        lblStayDetail.text = String(stay.dates!.count) + " days in " + locale.displayNameForKey(NSLocaleCountryCode, value: stay.countryCode!)!
+        lblStayDetail.text = String(format: NSLocalizedString("%i days in %@", comment: ""),stay.dates!.count,locale.displayNameForKey(NSLocaleCountryCode, value: stay.countryCode!)!)
         lblStayType.text = stay.type()
     }
     
