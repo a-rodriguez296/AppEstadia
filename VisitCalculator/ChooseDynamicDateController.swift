@@ -22,7 +22,7 @@ class ChooseDynamicDateController: UIViewController {
     @IBOutlet weak var lblResult: UILabel!
     @IBOutlet weak var lblPlanOtherDates: UILabel!
     
-    var selectedDate = NSDate().endOf(.Day)
+    var selectedDate = Date().endOf(component: .day)
     
     var taxPayer:CDTaxPayer?
     
@@ -34,24 +34,23 @@ class ChooseDynamicDateController: UIViewController {
         
         lblSelectedDate.text = DateFormatHelper.stringFromDate(selectedDate)
         
-        viewModel!.selectedDate.map{DateFormatHelper.stringFromDate($0)}.bindTo(lblSelectedDate.bnd_text)
-        viewModel!.datePickerVisibility.bindTo(datePicker.bnd_hidden)
-        viewModel!.btnContinueVisibility.bindTo(btnContinue.bnd_hidden)
+        viewModel!.selectedDate.map{DateFormatHelper.stringFromDate($0)}.bind(to: lblSelectedDate.bnd_text)
+        
+        viewModel!.datePickerVisibility.bind(to:datePicker.bnd_isHidden)
         
         //lbl selected date
-        viewModel!.lblResultSelectedDateVisibility.bindTo(lblResultSelectedDate.bnd_hidden)
-        viewModel!.lblResultSelectedDate.bindTo(lblResultSelectedDate.bnd_text)
+        viewModel!.lblResultSelectedDateVisibility.bind(to:lblResultSelectedDate.bnd_isHidden)
+        viewModel!.lblResultSelectedDate.bind(to:lblResultSelectedDate.bnd_text)
         
         //lbl result i.e. You are a tax resident
-        viewModel!.lblResultVisibility.bindTo(lblResult.bnd_hidden)
-        viewModel!.lblResult.bindTo(lblResult.bnd_text)
+        viewModel!.lblResultVisibility.bind(to:lblResult.bnd_isHidden)
+        viewModel!.lblResult.bind(to:lblResult.bnd_text)
         
         //lbl plan other dates
-        viewModel!.lblPlanOtherDatesVisibility.bindTo(lblPlanOtherDates.bnd_hidden)
+        viewModel!.lblPlanOtherDatesVisibility.bind(to:lblPlanOtherDates.bnd_isHidden)
         
-        viewModel!.selectedDate.bidirectionalBindTo(datePicker.bnd_date)
-        
-        btnContinue.bnd_tap.bindTo(viewModel!.btnContinueEvent)
+        viewModel!.selectedDate.bidirectionalBind(to: datePicker.bnd_date)
+        btnContinue.bnd_tap.bind(to:viewModel!.btnContinueEvent)
         
         viewModel!.shouldShowResultsVC = {[unowned self] _ in
             let resultsVC = ResultsViewController()
@@ -59,7 +58,7 @@ class ChooseDynamicDateController: UIViewController {
             self.navigationController?.pushViewController(resultsVC, animated: true)
         }
         
-        viewModel!.performingCalculationsEvent.observeNew {[unowned self] (flag) in
+        viewModel!.performingCalculationsEvent.observeNext {[unowned self] (flag) in
             if flag{
                 //Mostrarlo
                 self.showProgressAlert()
@@ -68,29 +67,29 @@ class ChooseDynamicDateController: UIViewController {
                 //Quitarlo
                 self.removeProgressAlert()
             }
-        }
+        }.dispose()
         
     }
     
-    @IBAction func didTapScreen(sender: AnyObject) {
+    @IBAction func didTapScreen(_ sender: AnyObject) {
         
         viewModel?.hideDatePicker()
     }
     
     
-    @IBAction func didTapSelectDate(sender: AnyObject) {
+    @IBAction func didTapSelectDate(_ sender: AnyObject) {
         
         viewModel!.showDatePicker()
     }
     
     func showProgressAlert(){
-        let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
-        progressHud.mode = .Indeterminate
+        let progressHud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        progressHud.mode = .indeterminate
         progressHud.label.text = NSLocalizedString("Performing Calculations", comment: "")
         
     }
     
     func removeProgressAlert(){
-        MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
+        MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
     }
 }

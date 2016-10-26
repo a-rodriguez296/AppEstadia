@@ -6,13 +6,13 @@ target 'VisitCalculator' do
   use_frameworks!
 
   # Pods for VisitCalculator
-pod 'SwiftDate', '3.0.8'
+pod 'SwiftDate'
 pod 'MGSwipeTableCell'
 pod 'MagicalRecord'
-pod 'MBProgressHUD', '~> 1.0.0'
-pod 'Bond', '~> 4.3.1'
+pod 'MBProgressHUD'
+pod 'Bond'
 pod 'TPKeyboardAvoiding'
-pod 'SCLAlertView', '0.6.0'
+pod 'SCLAlertView'
 
   target 'VisitCalculatorUITests' do
     inherit! :search_paths
@@ -23,6 +23,12 @@ pod 'SCLAlertView', '0.6.0'
       inherit! :search_paths
       # Pods for testing
   end
-
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
+  end
 
 end

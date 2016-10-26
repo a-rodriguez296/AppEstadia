@@ -13,11 +13,11 @@ class AddStayViewModel {
     
     let title = NSLocalizedString("Add Dates", comment: "")
     
-    let initialAlertFlag = NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch)
+    let initialAlertFlag = UserDefaults.standard.determineFirstTimeWithKey(Constants.NSUserDefaults.addDatesInitialLaunch)
     
-    var arrivalDate = Observable<NSDate>(NSDate().endOf(.Day))
-    var departureDate = Observable<NSDate>(NSDate().endOf(.Day))
-    var genericDate = Observable<NSDate>(NSDate())
+    var arrivalDate = Observable<Date>(Date().endOf(component:.day))
+    var departureDate = Observable<Date>(Date().endOf(component:.day))
+    var genericDate = Observable<Date>(Date())
     
     //Business = true, vacations = false
     var stayType = Observable<Bool>(true)
@@ -37,7 +37,7 @@ class AddStayViewModel {
     
     
     //true = arrival is selected, false = departure is selected
-    var buttonsState = Observable<CalendarButtonsState>(CalendarButtonsState.BothEnabled)
+    var buttonsState = Observable<CalendarButtonsState>(CalendarButtonsState.bothEnabled)
     
     var datePickerVisibility = Observable<Bool>(true)
     
@@ -47,7 +47,7 @@ class AddStayViewModel {
     var selectedCountry = Observable<Country>(Country())
     var lblCountryText = Observable<String>("")
     
-    var nonAcceptedDateEvent = Observable<NSDate>(NSDate())
+    var nonAcceptedDateEvent = Observable<Date>(Date())
     var dismissVC = Observable<Bool>(false)
     
     
@@ -55,29 +55,30 @@ class AddStayViewModel {
     
     init(taxPayer: CDTaxPayer){
         
-        btnBusinessEvent.observeNew {[unowned self] () in
+
+        btnBusinessEvent.observeNext {[unowned self] () in
             self.stayType.value = true
-        }
+        }.dispose()
         
-        btnVacationsEvent.observeNew {[unowned self] () in
+        btnVacationsEvent.observeNext {[unowned self] () in
             self.stayType.value = false
-        }
+        }.dispose()
         
-        btnArrivalDateEvent.observeNew {[unowned self] () in
-            self.currentButton = CurrentButton.Arrival
-            self.buttonsState.value = CalendarButtonsState.DepartureDisabled
+        btnArrivalDateEvent.observeNext {[unowned self] () in
+            self.currentButton = CurrentButton.arrival
+            self.buttonsState.value = CalendarButtonsState.departureDisabled
             self.datePickerVisibility.value = false
             
-        }
+        }.dispose()
         
-        btnDepartureDateEvent.observeNew {[unowned self] () in
-            self.currentButton = CurrentButton.Departure
-            self.buttonsState.value = CalendarButtonsState.ArrivalDisabled
+        btnDepartureDateEvent.observeNext {[unowned self] () in
+            self.currentButton = CurrentButton.departure
+            self.buttonsState.value = CalendarButtonsState.arrivalDisabled
             self.datePickerVisibility.value = false
-        }
+        }.dispose()
         
         
-        genericDate.observeNew {[unowned self] (date) in
+        genericDate.observeNext {[unowned self] (date) in
             
             /*
              This conditional is used for the first time the view is loaded.
@@ -85,10 +86,10 @@ class AddStayViewModel {
              */
             if let currentButton = self.currentButton{
                 
-                let helperDate = date.endOf(.Day)
+                let helperDate = date.endOf(component:.day)
                 
                 switch currentButton{
-                case .Arrival:
+                case .arrival:
                     
                     self.arrivalDate.value = helperDate
                     
@@ -96,7 +97,7 @@ class AddStayViewModel {
                         self.departureDate.value = helperDate
                     }
                     
-                case .Departure:
+                case .departure:
                     self.departureDate.value = helperDate
                     
                     if helperDate < self.arrivalDate.value{
@@ -104,12 +105,12 @@ class AddStayViewModel {
                     }
                 }
             }
-        }
+        }.dispose()
         
         
         //Country Label
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let countryCode = defaults.objectForKey(Constants.NSUserDefaults.countryCode) as! String?, countryName = defaults.objectForKey(Constants.NSUserDefaults.countryName) as! String?{
+        let defaults = UserDefaults.standard
+        if let countryCode = defaults.object(forKey: Constants.NSUserDefaults.countryCode) as! String?, let countryName = defaults.object(forKey: Constants.NSUserDefaults.countryName) as! String?{
             
             //Asign to variable, what's saved on user defaults
             var helperCountry = Country()
@@ -122,29 +123,28 @@ class AddStayViewModel {
             lblCountryText.value = NSLocalizedString("Select a country", comment: "")
         }
         
-        selectedCountry.observeNew {[unowned self] (country) in
+        selectedCountry.observeNext {[unowned self] (country) in
             
             //Update label
             self.lblCountryText.value = country.countryName
             
             //Save NSuserDefaults
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(country.countryName, forKey: Constants.NSUserDefaults.countryName)
-            defaults.setObject(country.countryCode, forKey: Constants.NSUserDefaults.countryCode)
+            let defaults = UserDefaults.standard
+            defaults.set(country.countryName, forKey: Constants.NSUserDefaults.countryName)
+            defaults.set(country.countryCode, forKey: Constants.NSUserDefaults.countryCode)
             defaults.synchronize()
-        }
+        }.dispose()
         
         
-        btnAddStayEvent.observeNew {[unowned self] () in
+        btnAddStayEvent.observeNext {[unowned self] () in
             
             
-            var responseArray = Array<NSDate>()
+            var responseArray = Array<Date>()
             
             self.performingCalculationsEvent.value = true
             
             
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            DispatchQueue.global(qos: .background).async {
                 
                 //Create the dates array in background
                 var arrivalDate = self.arrivalDate.value
@@ -152,51 +152,51 @@ class AddStayViewModel {
                 
                 while arrivalDate <= departureDate {
                     
-                    responseArray.append(arrivalDate.endOf(.Day))
+                    responseArray.append(arrivalDate.endOf(component:.day))
                     arrivalDate = arrivalDate + 1.days
                 }
                 
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async{
                     
                     
                     self.performingCalculationsEvent.value = false
                     
                     //Verify if dates exist
-                    let (_, date) = CDDateQueries.validateDates(responseArray, taxPayer: taxPayer, countryCode: self.selectedCountry.value.countryCode)
+                    let (_, date) = CDDateQueries.validateDates(responseArray as Array<Date>, taxPayer: taxPayer, countryCode: self.selectedCountry.value.countryCode)
                     
                     if let nonAcceptedDate = date{
                        self.nonAcceptedDateEvent.value = nonAcceptedDate
                     }
                     else{
                         //Create the stay
-                        let _ = CDStay(dates: responseArray,taxPayer: taxPayer,countryCode: self.selectedCountry.value.countryCode, stayType: self.stayType.value, context: NSManagedObjectContext.MR_defaultContext())
+                        let _ = CDStay(dates: responseArray,taxPayer: taxPayer,countryCode: self.selectedCountry.value.countryCode, stayType: self.stayType.value, context: NSManagedObjectContext.mr_default())
                         
                         //Dismiss the view controller
                         self.dismissVC.value = true
                     }
                 }
             }
-        }
+        }.dispose()
     }
     
     
     func dismissDatePicker(){
         datePickerVisibility.value = true
-        self.buttonsState.value = CalendarButtonsState.BothEnabled
+        self.buttonsState.value = CalendarButtonsState.bothEnabled
     }
     
     func updateAlertFlag(){
-        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.addDatesInitialLaunch, value: true)
+        UserDefaults.standard.updateValueWithKey(Constants.NSUserDefaults.addDatesInitialLaunch, value: true)
     }
 }
 
 enum CalendarButtonsState:Int {
-    case ArrivalDisabled
-    case DepartureDisabled
-    case BothEnabled
+    case arrivalDisabled
+    case departureDisabled
+    case bothEnabled
 }
 
 enum CurrentButton {
-    case Arrival
-    case Departure
+    case arrival
+    case departure
 }

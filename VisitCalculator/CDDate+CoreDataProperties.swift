@@ -14,7 +14,7 @@ import CoreData
 
 extension CDDate {
 
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Date?
     @NSManaged var stay: CDStay?
     @NSManaged var taxPayer: CDTaxPayer?
 

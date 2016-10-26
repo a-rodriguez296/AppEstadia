@@ -9,10 +9,10 @@
 import Foundation
 
 
-extension NSUserDefaults{
+extension UserDefaults{
     
-    func determineFirstTimeWithKey(key:String) -> Bool {
-        let allreadyLaunched = boolForKey(key)
+    func determineFirstTimeWithKey(_ key:String) -> Bool {
+        let allreadyLaunched = bool(forKey: key)
         if allreadyLaunched  {
             //Not initial launch
             return false
@@ -22,8 +22,8 @@ extension NSUserDefaults{
         }
     }
     
-    func updateValueWithKey(key:String, value:Bool){
-        setBool(value, forKey: key)
+    func updateValueWithKey(_ key:String, value:Bool){
+        set(value, forKey: key)
         synchronize()
     }
 }

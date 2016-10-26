@@ -29,14 +29,14 @@ class CountriesListViewController: UIViewController {
         
         extendedLayoutIncludesOpaqueBars = false
         
-        navigationController?.navigationBar.translucent = true
+        navigationController?.navigationBar.isTranslucent = true
         
         setupTable()
         
     }
     
     func setupTable(){
-        tableView.registerNib(UINib(nibName: Constants.Cells.Countries.countriesCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.Countries.countriesCell)
+        tableView.register(UINib(nibName: Constants.Cells.Countries.countriesCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.Countries.countriesCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 43
     }
@@ -45,7 +45,7 @@ class CountriesListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = nil
-        searchController.searchBar.barTintColor = .whiteColor()
+        searchController.searchBar.barTintColor = .white
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
@@ -58,5 +58,5 @@ class CountriesListViewController: UIViewController {
 
 //MARK: Protocol CountriesListProtocol
 protocol CountriesListProtocol {
-    func didSelectCountry(countryName: String, countryCode: String)
+    func didSelectCountry(_ countryName: String, countryCode: String)
 }

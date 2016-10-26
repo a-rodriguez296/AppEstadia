@@ -16,7 +16,7 @@ class TaxPayerCell: MGSwipeTableCell {
     
     
     
-    func initializeWithCDTaxPayer(taxPayer: CDTaxPayer){
+    func initializeWithCDTaxPayer(_ taxPayer: CDTaxPayer){
         
         lblName.text = taxPayer.name
         lblID.text = taxPayer.id

@@ -15,10 +15,10 @@ class CountriesCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .None
+        selectionStyle = .none
     }
     
-    func initializeWithCountryName(name: String){
+    func initializeWithCountryName(_ name: String){
         
         lblCountryName.text = name
         

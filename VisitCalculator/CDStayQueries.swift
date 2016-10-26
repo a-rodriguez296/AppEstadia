@@ -11,20 +11,20 @@ import MagicalRecord
 
 class CDStayQueries {
     
-    class func verifyDateIsInitialDate(date:NSDate) -> Bool{
+    class func verifyDateIsInitialDate(_ date:Date) -> Bool{
     
-        let predicate = NSPredicate(format: "%K = %@", "initialDate", date)
-        guard let _ = CDStay.MR_findFirstWithPredicate(predicate, sortedBy: "initialDate", ascending: true) else{
+        let predicate = NSPredicate(format: "%K = %@", "initialDate", date as CVarArg)
+        guard let _ = CDStay.mr_findFirst(with: predicate, sortedBy: "initialDate", ascending: true) else{
             return false
         }
         return true
     }
     
     
-    class func verifyDateIsFinalDate(date:NSDate) -> Bool{
+    class func verifyDateIsFinalDate(_ date:Date) -> Bool{
         
-        let predicate = NSPredicate(format: "%K = %@", "endDate", date)
-        guard let _ = CDStay.MR_findFirstWithPredicate(predicate, sortedBy: "endDate", ascending: true) else{
+        let predicate = NSPredicate(format: "%K = %@", "endDate", date as CVarArg)
+        guard let _ = CDStay.mr_findFirst(with: predicate, sortedBy: "endDate", ascending: true) else{
             return false
         }
         return true

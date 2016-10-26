@@ -31,7 +31,7 @@ class ResultsViewController: UIViewController {
         title = "Results"
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         lblTitle.text = NSLocalizedString(String(format: "Given the date %@, these are the results we calculated:",DateFormatHelper.stringFromDate(viewModel!.selectedDate)), comment: "")
        
@@ -47,16 +47,16 @@ class ResultsViewController: UIViewController {
         
         if dateRangesArray.count > 0{
             
-            separator.hidden = false
+            separator.isHidden = false
             lblRangesTitle.text = NSLocalizedString("The following date ranges won't be counted.", comment: "")
-            lblRangesTitle.hidden = false
+            lblRangesTitle.isHidden = false
             
             var responseString = ""
             for range in dateRangesArray{
                 responseString += range.description
             }
             lblDateRanges.text = responseString
-            lblDateRanges.hidden = false
+            lblDateRanges.isHidden = false
         }
     }
 }

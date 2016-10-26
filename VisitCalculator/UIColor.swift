@@ -15,7 +15,7 @@ import UIKit
 
 extension UIColor{
     
-    class func generateColorWithRGB(red: Double,green:Double, blue:Double,alpha:Double) -> UIColor{
+    class func generateColorWithRGB(_ red: Double,green:Double, blue:Double,alpha:Double) -> UIColor{
         return UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255) , blue: CGFloat (blue/255), alpha: CGFloat(alpha))
     }
     

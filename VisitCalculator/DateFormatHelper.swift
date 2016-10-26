@@ -10,28 +10,28 @@ import Foundation
 
 class DateFormatHelper{
     
-    class func mediumDate() -> NSDateFormatter{
+    class func mediumDate() -> DateFormatter{
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
         return formatter
     }
     
-    class func rangeDate() -> NSDateFormatter{
-        let formatter = NSDateFormatter()
+    class func rangeDate() -> DateFormatter{
+        let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM"
         return formatter
     }
     
-    class func yearResponseFormat() -> NSDateFormatter{
-        let formatter = NSDateFormatter()
+    class func yearResponseFormat() -> DateFormatter{
+        let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM"
         return formatter
     }
 
     
-    class func stringFromDate(date: NSDate) ->String{
-        return mediumDate().stringFromDate(date)
+    class func stringFromDate(_ date: Date) ->String{
+        return mediumDate().string(from: date)
         
     }
 }

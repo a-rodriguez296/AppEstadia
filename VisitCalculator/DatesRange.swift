@@ -10,24 +10,24 @@ import Foundation
 
 struct DatesRange:CustomStringConvertible {
     
-    var dates:Array<NSDate>
+    var dates:Array<Date>
     
     var description: String{
         if dates.count == 0{
             return ""
         }
         else if dates.count == 1 {
-            return "\n" + DateFormatHelper.rangeDate().stringFromDate(dates.first!)
+            return "\n" + DateFormatHelper.rangeDate().string(from: dates.first!)
         }
         else{
-            return "\n" + DateFormatHelper.rangeDate().stringFromDate(dates.first!) + " - " + DateFormatHelper.rangeDate().stringFromDate(dates.last!)
+            return "\n" + DateFormatHelper.rangeDate().string(from: dates.first!) + " - " + DateFormatHelper.rangeDate().string(from: dates.last!)
         }
         
     }
 
     
     
-    init(dates: Array<NSDate>){
+    init(dates: Array<Date>){
         
         self.dates = dates
     }

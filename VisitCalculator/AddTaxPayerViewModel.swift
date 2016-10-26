@@ -9,6 +9,7 @@
 import Foundation
 import Bond
 import MagicalRecord
+import ReactiveKit
 
 class AddTaxPayerViewModel{
     
@@ -24,19 +25,31 @@ class AddTaxPayerViewModel{
     let btnDoneEvent = Observable<Void>()
     
     
+    
+    
     init(){
         
         //Make sure the name and id have at least one character
-        combineLatest(firstLastName, id).map {
-            return !($0!.characters.count > 0 && $1!.characters.count > 0)
-            }.bindTo(validData)
+        combineLatest(firstLastName, id)
+            .map {
+                return !($0!.characters.count > 0 && $1!.characters.count > 0)
+            }
+            .bind(to: validData)
         
-        btnDoneEvent.observeNew {[unowned self] () in
-            
-            let trimmedName = self.firstLastName.value!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            let trimmedId = self.id.value!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            let _ = CDTaxPayer(name: trimmedName, id: trimmedId, context:NSManagedObjectContext.MR_defaultContext())
-            self.popViewController.value = true
+        
+        
+        
+        
+        _ = btnDoneEvent
+            .observeNext { [unowned self] () in
+                
+                if !self.validData.value{
+                    let trimmedName = self.firstLastName.value!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+                    let trimmedId = self.id.value!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+                    _ = CDTaxPayer(name: trimmedName, id: trimmedId, context:NSManagedObjectContext.mr_default())
+                    self.popViewController.value = true
+                    
+                }
         }
     }
 }

@@ -14,17 +14,17 @@ import MagicalRecord
 //MARK: UITableViewDataSource
 extension TaxPayersViewController:UITableViewDataSource{
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.TaxPayer.taxPayerCell) as! TaxPayerCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.TaxPayer.taxPayerCell) as! TaxPayerCell
         
         let taxPayer = viewModel.objectAtIndexPath(indexPath)
         
         cell.initializeWithCDTaxPayer(taxPayer)
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: UIColor.deleteRedColor(), callback: {[unowned self]
             (sender: MGSwipeTableCell!) -> Bool in
@@ -34,7 +34,7 @@ extension TaxPayersViewController:UITableViewDataSource{
         
         
         cell.rightButtons = [deleteButton]
-        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        cell.rightSwipeSettings.transition = MGSwipeTransition.drag
         
         return cell
     }
@@ -44,7 +44,7 @@ extension TaxPayersViewController:UITableViewDataSource{
 extension TaxPayersViewController: UITableViewDelegate{
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //Stop timer
         stopTimer()
@@ -63,29 +63,29 @@ extension TaxPayersViewController: UITableViewDelegate{
 extension TaxPayersViewController: NSFetchedResultsControllerDelegate{
     
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
-        case .Insert:
+        case .insert:
             if let indexPath = newIndexPath {
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                tableView.insertRows(at: [indexPath], with: .automatic)
             }
             break;
-        case .Delete:
+        case .delete:
             if let indexPath = indexPath {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             break;
-        case .Update:
+        case .update:
             break;
-        case .Move:
+        case .move:
             break;
         }
     }
@@ -93,7 +93,7 @@ extension TaxPayersViewController: NSFetchedResultsControllerDelegate{
 
 //MARK: UISearchResultsUpdating
 extension TaxPayersViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         viewModel.updateFetchedResultsPredicateWithText(searchText)
         tableView.reloadData()

@@ -13,29 +13,29 @@ import SwiftDate
 class DatesCalculatorHelper{
     
     enum Operation {
-        case Sum
-        case Substract
+        case sum
+        case substract
     }
     
     
     
-    var startDate:NSDate
-    var endDate:NSDate
+    var startDate:Date
+    var endDate:Date
     
     
-    init(endDate: NSDate){
+    init(endDate: Date){
         self.endDate = endDate
         self.startDate = endDate - 364.days
     }
     
     
-    func changeDatesWithOperation(operation: Operation){
+    func changeDatesWithOperation(_ operation: Operation){
         
         switch operation {
-        case .Sum:
+        case .sum:
             self.endDate = (self.endDate + 1.days)
             self.startDate = (self.startDate + 1.days)
-        case .Substract:
+        case .substract:
             self.endDate = (self.endDate - 1.days)
             self.startDate = (self.startDate - 1.days)
         }
@@ -50,13 +50,13 @@ class DatesCalculatorHelper{
     
     //MARK: Core Data
     
-    func countDaysWithinTheLastYearWithArray(datesArray: Array<CDStay>) -> Int{
+    func countDaysWithinTheLastYearWithArray(_ datesArray: Array<CDStay>) -> Int{
         
         var count = 0
         
         for stay in datesArray {
             for stayDay in stay.dates! {
-                if stayDay.date!.isBetweenDates(startDate, endDate: endDate){
+                if (stayDay as AnyObject).date!.isBetweenDates(startDate, endDate: endDate){
                     count = count + 1
                 }
             }
@@ -64,7 +64,7 @@ class DatesCalculatorHelper{
         return count
     }
     
-    func dateRangesWithArray(staysArray: Array<CDStay>) -> Array<DatesRange>{
+    func dateRangesWithArray(_ staysArray: Array<CDStay>) -> Array<DatesRange>{
         
         var datesRanges = Array<DatesRange>()
         
@@ -78,7 +78,7 @@ class DatesCalculatorHelper{
         return datesRanges
     }
     
-    private func createRangeWithStay(stay: CDStay, beginingDate: NSDate, endDate:NSDate) -> DatesRange?{
+    fileprivate func createRangeWithStay(_ stay: CDStay, beginingDate: Date, endDate:Date) -> DatesRange?{
         
         
         let inferiorDate = stay.initialDate!
@@ -91,18 +91,18 @@ class DatesCalculatorHelper{
         }
             //Case when the stay dates fall in between the range
         else if inferiorDate >= beginingDate && superiorDate <= endDate{
-            let projectedInferiorDate = (inferiorDate + 1.years).endOf(.Day)
-            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                var projectedSuperiorDate:NSDate?
+            let projectedInferiorDate = (inferiorDate + 1.years).endOf(component: .day)
+            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(component: .year){
+                var projectedSuperiorDate:Date?
                 
                 //To understand this if please check test testSemiInsideDatesRange1 in VisitCalculatorTests
-                if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day) {
-                    projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                if superiorDate > (endDate - 1.years).endOf(component: .year).endOf(component: .day) {
+                    projectedSuperiorDate = (endDate - 1.years).endOf(component: .year).endOf(component: .day)
                 }
                 else{
-                    projectedSuperiorDate = superiorDate
+                    projectedSuperiorDate = superiorDate as Date
                 }
-                if inferiorDate != projectedSuperiorDate {
+                if inferiorDate as Date != projectedSuperiorDate {
                     return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
                 }
                 else{
@@ -119,13 +119,13 @@ class DatesCalculatorHelper{
             
             //Case when superior date falls in between the range but the inferior date falls outside
             if superiorDate >= beginingDate && superiorDate <= endDate {
-                let projectedInferiorDate = (beginingDate + 1.years).endOf(.Day)
-                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                    var projectedSuperiorDate:NSDate?
+                let projectedInferiorDate = (beginingDate + 1.years).endOf(component: .day)
+                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(component: .year){
+                    var projectedSuperiorDate:Date?
                     
                     
-                    if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day){
-                        projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                    if superiorDate > (endDate - 1.years).endOf(component: .year).endOf(component: .day){
+                        projectedSuperiorDate = (endDate - 1.years).endOf(component: .year).endOf(component: .day)
                     }
                     else{
                         projectedSuperiorDate = superiorDate
@@ -145,14 +145,14 @@ class DatesCalculatorHelper{
                 //Case when the inferior date falls in between the range but the superior date falls outside.
             else{
                 let dateRange  = DatesRange(dates: [inferiorDate, endDate])
-                let projectedDate = (inferiorDate + 1.years).endOf(.Day)
-                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(.Year)
+                let projectedDate = (inferiorDate + 1.years).endOf(component: .day)
+                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(component: .year)
                 return flag ? dateRange : nil
             }
         }
     }
     
-    func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<CDStay>) -> [YearResponse]{
+    func consolidatedCalculations(_ upperBoundDate:Date, staysArray: Array<CDStay>) -> [YearResponse]{
         
         //upperBoundDate is the end of the current year
         
@@ -166,9 +166,9 @@ class DatesCalculatorHelper{
                 //Resident
                 responseArray.append(YearResponse(year: currentYear, flag: true, date: endDate))
                 
-                if (endDate.endOf(.Year)).endOf(.Day) < upperBoundDate{
+                if (endDate.endOf(component: .year)).endOf(component: .day) < upperBoundDate{
                     //Fast forward untill the beggining of the next year
-                    endDate = (endDate.endOf(.Year)).endOf(.Day)
+                    endDate = (endDate.endOf(component: .year)).endOf(component: .day)
                     startDate = endDate - 364.days
                 }
                 else{
@@ -180,7 +180,7 @@ class DatesCalculatorHelper{
             }
             
             //Increase endDate by one day
-            changeDatesWithOperation(.Sum)
+            changeDatesWithOperation(.sum)
             
         }
         return responseArray
@@ -192,7 +192,7 @@ class DatesCalculatorHelper{
     //MARK: Testing purposes code. This is only used in the testing project
 
     
-    func countDaysWithinTheLastYearWithArray(datesArray: Array<Stay>) -> Int{
+    func countDaysWithinTheLastYearWithArray(_ datesArray: Array<Stay>) -> Int{
         
         var count = 0
         
@@ -207,7 +207,7 @@ class DatesCalculatorHelper{
     }
     //MARK: Create date ranges
     
-    func dateRangesWithArray(staysArray: Array<Stay>) -> Array<DatesRange>{
+    func dateRangesWithArray(_ staysArray: Array<Stay>) -> Array<DatesRange>{
         
         var datesRanges = Array<DatesRange>()
         
@@ -223,7 +223,7 @@ class DatesCalculatorHelper{
     
     
     
-    private func createRangeWithStay(stay: Stay, beginingDate: NSDate, endDate:NSDate) -> DatesRange?{
+    fileprivate func createRangeWithStay(_ stay: Stay, beginingDate: Date, endDate:Date) -> DatesRange?{
         
         
         let inferiorDate = stay.dates.first!
@@ -231,23 +231,23 @@ class DatesCalculatorHelper{
         
         
         //Case when the stay dates fall outside of the range
-        if superiorDate < beginingDate || inferiorDate > endDate {
+        if superiorDate  < beginingDate || inferiorDate  > endDate {
             return nil
         }
             //Case when the stay dates fall in between the range
-        else if inferiorDate >= beginingDate && superiorDate <= endDate{
-            let projectedInferiorDate = (inferiorDate + 1.years).endOf(.Day)
-            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                var projectedSuperiorDate:NSDate?
+        else if inferiorDate  >= beginingDate && superiorDate <= endDate{
+            let projectedInferiorDate = (inferiorDate + 1.years).endOf(component: .day)
+            if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(component: .year){
+                var projectedSuperiorDate:Date?
                 
                 //To understand this if please check test testSemiInsideDatesRange1 in VisitCalculatorTests
-                if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day) {
-                    projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                if superiorDate > (endDate - 1.years).endOf(component: .year).endOf(component: .day) {
+                    projectedSuperiorDate = (endDate - 1.years).endOf(component: .year).endOf(component: .day)
                 }
                 else{
-                    projectedSuperiorDate = superiorDate
+                    projectedSuperiorDate = superiorDate as Date
                 }
-                if inferiorDate != projectedSuperiorDate {
+                if inferiorDate as Date != projectedSuperiorDate {
                     return DatesRange(dates: [inferiorDate, projectedSuperiorDate!])
                 }
                 else{
@@ -264,16 +264,16 @@ class DatesCalculatorHelper{
             
             //Case when superior date falls in between the range but the inferior date falls outside
             if superiorDate >= beginingDate && superiorDate <= endDate {
-                let projectedInferiorDate = (beginingDate + 1.years).endOf(.Day)
-                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(.Year){
-                    var projectedSuperiorDate:NSDate?
+                let projectedInferiorDate = (beginingDate + 1.years).endOf(component: .day)
+                if projectedInferiorDate >= endDate &&  projectedInferiorDate <= endDate.endOf(component: .year){
+                    var projectedSuperiorDate:Date?
                     
                     
-                    if superiorDate > (endDate - 1.years).endOf(.Year).endOf(.Day){
-                        projectedSuperiorDate = (endDate - 1.years).endOf(.Year).endOf(.Day)
+                    if superiorDate > (endDate - 1.years).endOf(component: .year).endOf(component: .day){
+                        projectedSuperiorDate = (endDate - 1.years).endOf(component: .year).endOf(component: .day)
                     }
                     else{
-                        projectedSuperiorDate = superiorDate
+                        projectedSuperiorDate = superiorDate as Date
                     }
                     if beginingDate != projectedSuperiorDate {
                         return DatesRange(dates: [beginingDate, projectedSuperiorDate!])
@@ -290,8 +290,8 @@ class DatesCalculatorHelper{
                 //Case when the inferior date falls in between the range but the superior date falls outside.
             else{
                 let dateRange  = DatesRange(dates: [inferiorDate, endDate])
-                let projectedDate = (inferiorDate + 1.years).endOf(.Day)
-                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(.Year)
+                let projectedDate = (inferiorDate + 1.years).endOf(component: .day)
+                let flag = projectedDate >= endDate && projectedDate <= endDate.endOf(component: .year)
                 return flag ? dateRange : nil
             }
         }
@@ -302,7 +302,7 @@ class DatesCalculatorHelper{
      The result of this function is an array of the years and a flag indicating if the user in such date is resident of not. If the user is resident,
      the result also includes the date in which he became resident.
      */
-    func consolidatedCalculations(upperBoundDate:NSDate, staysArray: Array<Stay>) -> [YearResponse]{
+    func consolidatedCalculations(_ upperBoundDate:Date, staysArray: Array<Stay>) -> [YearResponse]{
         
         //For this function to work, this class has to be initialized with the oldest date added by the user. That is, oldest stay, first date (which is the oldest date)
         
@@ -319,9 +319,9 @@ class DatesCalculatorHelper{
                 //Resident
                 responseArray.append(YearResponse(year: currentYear, flag: true, date: endDate))
                 
-                if (endDate.endOf(.Year)).endOf(.Day) < upperBoundDate{
+                if (endDate.endOf(component: .year)).endOf(component: .day) < upperBoundDate{
                     //Fast forward untill the beggining of the next year
-                    endDate = (endDate.endOf(.Year)).endOf(.Day)
+                    endDate = (endDate.endOf(component: .year)).endOf(component: .day)
                     startDate = endDate - 364.days
                 }
                 else{
@@ -333,7 +333,7 @@ class DatesCalculatorHelper{
             }
             
             //Increase endDate by one day
-            changeDatesWithOperation(.Sum)
+            changeDatesWithOperation(.sum)
             
         }
         return responseArray

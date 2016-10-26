@@ -15,8 +15,8 @@ class CDTaxPayer: NSManagedObject {
     convenience init(name: String, id: String, context: NSManagedObjectContext){
 
         
-        let entity = NSEntityDescription.entityForName(CDTaxPayer.MR_entityName(), inManagedObjectContext: context)
-        self.init(entity: entity!, insertIntoManagedObjectContext: context)
+        let entity = NSEntityDescription.entity(forEntityName: CDTaxPayer.mr_entityName(), in: context)
+        self.init(entity: entity!, insertInto: context)
         
         self.name = name
         self.id = id

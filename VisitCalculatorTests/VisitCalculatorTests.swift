@@ -23,7 +23,7 @@ class VisitCalculatorTests: XCTestCase {
         super.setUp()
         
         print("============== Initial Dates =================")
-        let now = NSDate().endOf(.Day).endOf(.Day)//NSDate(year: 2012, month: 12, day: 31).endOf(.Day)
+        let now = Date().endOf(.Day).endOf(.Day)//NSDate(year: 2012, month: 12, day: 31).endOf(.Day)
         let oneFiscalYearAgo = (now - 364.days)
         datesCalculator = DatesCalculatorHelper(endDate:now)
         //        datesCalculator = DatesCalculatorHelper(startDate: NSDate(year: 2014, month: 12, day:31).startOf(.Day), endDate:NSDate(year: 2015, month: 12, day: 30).startOf(.Day))
@@ -41,7 +41,7 @@ class VisitCalculatorTests: XCTestCase {
         datesCalculator = nil
     }
     
-    func initializeDates(count: Int){
+    func initializeDates(_ count: Int){
         datesCalculator!.changeDatesWithOperation(.Substract)
     }
     
@@ -599,7 +599,7 @@ class VisitCalculatorTests: XCTestCase {
         let staysArray = createStayInDifferentYears()
         
         let oldestDate = (datesCalculator!.endDate - 300.days).endOf(.Day)
-        let upperBoundDate = NSDate().endOf(.Year).endOf(.Day)
+        let upperBoundDate = Date().endOf(.Year).endOf(.Day)
         
         //Initialize datesCalculator with the oldest date entered by the user
         print(DateFormatHelper.stringFromDate(oldestDate))
@@ -634,7 +634,7 @@ class VisitCalculatorTests: XCTestCase {
         
         //Create dates from today - 364
         
-        var datesArray = Array<NSDate>()
+        var datesArray = Array<Date>()
         var counter = 0
         while counter < 366 {
             let date = datesCalculator!.startDate + counter.days
@@ -761,14 +761,14 @@ class VisitCalculatorTests: XCTestCase {
     
     func createStayInDifferentYears() -> [Stay]{
         
-        var datesArray1 = Array<NSDate>()
+        var datesArray1 = Array<Date>()
         //This would add elements from 0-99
         for i in 0..<100{
             let date = (datesCalculator!.endDate - 300.days + i.days).endOf(.Day)
             datesArray1.append(date)
         }
         
-        var datesArray2 = Array<NSDate>()
+        var datesArray2 = Array<Date>()
         for i in 0..<100{
             let date = (datesCalculator!.endDate - 150.days + i.days).endOf(.Day)
             datesArray2.append(date)

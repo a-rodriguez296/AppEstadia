@@ -41,12 +41,12 @@ class ContainerViewController: UIViewController {
     }
     
     deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     
     //MARK: Actions
-    func didTapAddStay(sender: AnyObject) {
+    func didTapAddStay(_ sender: AnyObject) {
         
         /*
          In this case, since the add stay button is only visible when StaysListViewController,

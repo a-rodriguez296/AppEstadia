@@ -11,25 +11,25 @@ import Bond
 import MagicalRecord
 
 class TaxPayersViewModel {
-
+    
     let title = NSLocalizedString("Taxpayers", comment: "")
     let alertMessage = NSLocalizedString("Tap on the button +, on the top right, to add taxpayers", comment: "")
-    let showInitialAlertFlag = NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch)
+    let showInitialAlertFlag = UserDefaults.standard.determineFirstTimeWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch)
     
-    var fetchedResultsController:NSFetchedResultsController
+    var fetchedResultsController:NSFetchedResultsController<CDTaxPayer>
     
     
     init(){
         
         
         //fetchedResultsController initialization
-        let cdStaysFetchRequest = NSFetchRequest(entityName: CDTaxPayer.MR_entityName())
+        let cdStaysFetchRequest = NSFetchRequest<CDTaxPayer>(entityName: CDTaxPayer.mr_entityName())
         let primarySortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: cdStaysFetchRequest,
-            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
+            managedObjectContext: NSManagedObjectContext.mr_default(),
             sectionNameKeyPath: nil,
             cacheName: nil)
         
@@ -43,7 +43,7 @@ class TaxPayersViewModel {
     
     
     
-    func numberOfRowsInSection(section: Int) -> Int{
+    func numberOfRowsInSection(_ section: Int) -> Int{
         
         guard let sections = fetchedResultsController.sections else{
             return 0
@@ -52,17 +52,16 @@ class TaxPayersViewModel {
         return currentSection.numberOfObjects
     }
     
-    func objectAtIndexPath(indexPath: NSIndexPath) -> CDTaxPayer{
-        return fetchedResultsController.objectAtIndexPath(indexPath) as! CDTaxPayer
+    func objectAtIndexPath(_ indexPath: IndexPath) -> CDTaxPayer{
+        return fetchedResultsController.object(at: indexPath)
     }
     
-    func deleteElement(element: CDTaxPayer){
-        element.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
+    func deleteElement(_ element: CDTaxPayer){
+        element.mr_deleteEntity(in: NSManagedObjectContext.mr_default())
     }
     
-    func updateFetchedResultsPredicateWithText(query: String){
+    func updateFetchedResultsPredicateWithText(_ query: String){
         
-         NSFetchedResultsController.deleteCacheWithName("Root")
         if !query.isEmpty{
             let searchPredicate = NSPredicate(format: "(%K CONTAINS[cd] %@) OR (%K CONTAINS %@)","name", query, "id", query)
             fetchedResultsController.fetchRequest.predicate = searchPredicate
@@ -74,12 +73,12 @@ class TaxPayersViewModel {
     }
     
     func updateAlertFlag(){
-        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch, value: true)
+        UserDefaults.standard.updateValueWithKey(Constants.NSUserDefaults.addTaxPayersInitialLaunch, value: true)
     }
     
     
     //MARK: Helper Methods
-    private func initializeFetchedResultsController(){
+    fileprivate func initializeFetchedResultsController(){
         do {
             try fetchedResultsController.performFetch()
         }

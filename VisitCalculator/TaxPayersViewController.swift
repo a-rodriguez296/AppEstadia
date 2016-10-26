@@ -19,7 +19,7 @@ class TaxPayersViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let viewModel = TaxPayersViewModel()
     
-    var timer:NSTimer?
+    var timer:Timer?
     
     
     override func viewDidLoad() {
@@ -27,10 +27,10 @@ class TaxPayersViewController: UIViewController {
         
         //Style
         extendedLayoutIncludesOpaqueBars = false
-        navigationController?.navigationBar.translucent = true
+        navigationController?.navigationBar.isTranslucent = true
         
         //Bar button configuration
-        navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(TaxPayersViewController.didTapAddTaxpayer(_:))), animated: true)
         
         
         //Initialize Search Controller
@@ -60,7 +60,7 @@ class TaxPayersViewController: UIViewController {
     //MARK: IBActions
     
     
-    func didTapAddTaxpayer(sender: AnyObject) {
+    func didTapAddTaxpayer(_ sender: AnyObject) {
         
         //Stop timer
         stopTimer()
@@ -78,12 +78,12 @@ class TaxPayersViewController: UIViewController {
         searchController.searchBar.scopeButtonTitles = nil
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.barTintColor = .whiteColor()
+        searchController.searchBar.barTintColor = .white
     }
     
     func setupTableView(){
         tableView.tableFooterView = UIView()
-        tableView.registerNib(UINib(nibName: "TaxPayerCell",  bundle: nil), forCellReuseIdentifier: Constants.Cells.TaxPayer.taxPayerCell)
+        tableView.register(UINib(nibName: "TaxPayerCell",  bundle: nil), forCellReuseIdentifier: Constants.Cells.TaxPayer.taxPayerCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 73
     }
@@ -93,18 +93,18 @@ class TaxPayersViewController: UIViewController {
         if viewModel.showInitialAlertFlag{
             
             //Show initial alert
-            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(showAlert(_:)), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(showAlert(_:)), userInfo: nil, repeats: false)
         }
     }
     
-    func showAlert(timer: NSTimer?){
+    func showAlert(_ timer: Timer?){
         viewModel.updateAlertFlag()
         SCLAlertView().showInfo("", subTitle: viewModel.alertMessage,
                                 closeButtonTitle: NSLocalizedString("Ok", comment: ""),
                                 duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow),
                                 colorTextButton: 1,
                                 circleIconImage: nil,
-                                animationStyle: .LeftToRight)
+                                animationStyle: .leftToRight)
     }
     
     func stopTimer(){

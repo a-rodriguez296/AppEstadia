@@ -13,7 +13,7 @@ import Bond
 //MARK: CountriesListProtocol
 extension AddStayViewController: CountriesListProtocol{
     
-    func didSelectCountry(countryName: String, countryCode: String) {
+    func didSelectCountry(_ countryName: String, countryCode: String) {
         viewModel?.selectedCountry.value = Country(countryName: countryName, countryCode: countryCode)
     }
 }

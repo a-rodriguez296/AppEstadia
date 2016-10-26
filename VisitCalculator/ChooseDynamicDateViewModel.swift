@@ -13,7 +13,7 @@ class ChooseDynamicDateViewModel {
     let taxPayer:CDTaxPayer
     
     
-    var selectedDate = Observable<NSDate>(NSDate().endOf(.Day))
+    var selectedDate = Observable<Date>(Date().endOf(component: .day))
     
     
     //Visual elements
@@ -48,22 +48,21 @@ class ChooseDynamicDateViewModel {
 
         
         
-        btnContinueEvent.observeNew {[unowned self] () in
+        btnContinueEvent.observeNext {[unowned self] () in
             self.performingCalculationsEvent.value = true
             
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            DispatchQueue.global(qos: .background).async{
                 
                 //Get the year of the date selected
-                let selectedDateEndOfYear = self.selectedDate.value.endOf(.Year)
+                let selectedDateEndOfYear = self.selectedDate.value.endOf(component: .year)
                 
-                let selectedDateBeginingOfTheYear = self.selectedDate.value.startOf(.Year)
+                let selectedDateBeginingOfTheYear = self.selectedDate.value.startOf(component: .year)
                 
                 //Verify if for that year the user is resident
                 let dateCalculator = DatesCalculatorHelper(endDate: selectedDateBeginingOfTheYear)
                 let yearResponse = dateCalculator.consolidatedCalculations(selectedDateEndOfYear, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer)).first!
                 
-                dispatch_async(dispatch_get_main_queue()) {
+               DispatchQueue.main.async{
                     self.performingCalculationsEvent.value = false
                     
                     if !yearResponse.flag{
@@ -82,7 +81,7 @@ class ChooseDynamicDateViewModel {
                     
                 }
             }
-        }
+        }.dispose()
     }
     
     func hideDatePicker(){

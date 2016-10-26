@@ -12,28 +12,28 @@ class StayHandler {
     
     static let sharedInstance = StayHandler()
     
-    private var dates:Set<NSDate>
-    private var stays:Array<Stay>
+    fileprivate var dates:Set<Date>
+    fileprivate var stays:Array<Stay>
     
     init() {
         
-        dates = Set<NSDate>()
+        dates = Set<Date>()
         stays = Array<Stay>()
     }
     
-    func addStay(stay:Stay) -> NSDate? {
+    func addStay(_ stay:Stay) -> Date? {
         
-        let isSuperSet = dates.isDisjointWith(stay.dates)
+        let isSuperSet = dates.isDisjoint(with: stay.dates)
         if isSuperSet {
-            dates.unionInPlace(stay.dates)
+            dates.formUnion(stay.dates)
             addStayToDates(stay)
             postNotification()
             return nil
         }
         else{
             for date in stay.dates {
-                if dates.contains(date) {
-                    return date
+                if dates.contains(date as Date) {
+                    return date as Date
                 }
             }
             //This line is never going to be executed
@@ -53,7 +53,7 @@ class StayHandler {
         return stays
     }
     
-    func stayAtIndex(index:Int) -> Stay{
+    func stayAtIndex(_ index:Int) -> Stay{
         return stays[index]
     }
     
@@ -63,21 +63,21 @@ class StayHandler {
         stays.removeAll()
     }
     
-    func deleteStayWithIndex(index: Int){
+    func deleteStayWithIndex(_ index: Int){
         
         let stay = stays[index]
         
         for date in stay.dates {
-            dates.remove(date)
+            dates.remove(date as Date)
         }
         
-        stays.removeAtIndex(index)
+        stays.remove(at: index)
         postNotification()
     }
     
-    func oldestDate() -> NSDate{
+    func oldestDate() -> Date{
         //Identify the oldest date and return the begining of the next year of such date.
-        return stays.first!.dates.first!
+        return stays.first!.dates.first! as Date
     }
     
     
@@ -87,16 +87,16 @@ class StayHandler {
     // HELPER FUNCTIONS
     //////////////////////////////////////////////
     
-    private func addStayToDates(stay:Stay){
+    fileprivate func addStayToDates(_ stay:Stay){
         stays.append(stay)
         
         //Order the array
-        stays = stays.sort()
+        stays = stays.sorted()
     }
     
     //NSNotification staysChanged. This notification is used to notify the tab bar either to enable or disable the tabs
-    private func postNotification(){
-        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NSNotifications.staysChanged, object: nil)
+    fileprivate func postNotification(){
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NSNotifications.staysChanged), object: nil)
 
     }
 }

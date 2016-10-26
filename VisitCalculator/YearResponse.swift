@@ -14,9 +14,9 @@ struct YearResponse {
     
     let flag:Bool
     
-    let date:NSDate?
+    let date:Date?
     
-    init(year: Int, flag: Bool, date: NSDate?){
+    init(year: Int, flag: Bool, date: Date?){
         
         self.year = year
         self.flag = flag

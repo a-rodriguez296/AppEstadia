@@ -27,7 +27,7 @@ class YearResultsViewController: UIViewController {
         setupTable()
         
         //I dont understand why do I have to put this method inside a dispatch_async
-        dispatch_async(dispatch_get_main_queue()) {[unowned self] () in
+        DispatchQueue.main.async {[unowned self] () in
             self.viewModel!.performCalculations()
         }
         
@@ -36,7 +36,7 @@ class YearResultsViewController: UIViewController {
             self.tableView.reloadData()
         }
         
-        viewModel!.performingCalculationsEvent.observeNew { (flag) in
+        viewModel!.performingCalculationsEvent.observeNext { (flag) in
             if flag{
                 //Mostrarlo
                 self.showProgressAlert()
@@ -45,12 +45,12 @@ class YearResultsViewController: UIViewController {
                 //Quitarlo
                 self.removeProgressAlert()
             }
-        }
+        }.dispose()
     }
     
     func setupTable(){
         
-        tableView.registerNib(UINib(nibName: Constants.Cells.YearConclusion.yearConclusionCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.YearConclusion.yearConclusionCell)
+        tableView.register(UINib(nibName: Constants.Cells.YearConclusion.yearConclusionCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.YearConclusion.yearConclusionCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 86
         tableView.tableFooterView = UIView()
@@ -58,27 +58,27 @@ class YearResultsViewController: UIViewController {
     
     
     func showProgressAlert(){
-        let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
-        progressHud.mode = .Indeterminate
+        let progressHud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        progressHud.mode = .indeterminate
         progressHud.label.text = NSLocalizedString("Performing Calculations", comment: "")
         
     }
     
     func removeProgressAlert(){
-        MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
+        MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
     }
 }
 
 extension YearResultsViewController: UITableViewDataSource{
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel!.responseArray.value.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cells.YearConclusion.yearConclusionCell) as! YearsConclusionCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.YearConclusion.yearConclusionCell) as! YearsConclusionCell
         
         cell.initializeWithYearResponse(viewModel!.responseArray.value[indexPath.row])
         return cell

@@ -10,11 +10,11 @@ import Foundation
 
 struct Stay {
     
-    var dates:Array<NSDate>
+    var dates:Array<Date>
     
     
     
-    init(dates: Array<NSDate>){
+    init(dates: Array<Date>){
         
         self.dates = dates
     }
@@ -29,10 +29,10 @@ extension Stay: CustomStringConvertible{
             return ""
         }
         else if dates.count == 1 {
-            return DateFormatHelper.mediumDate().stringFromDate(dates.first!)
+            return DateFormatHelper.mediumDate().string(from: dates.first!)
         }
         else{
-            return "From " + DateFormatHelper.mediumDate().stringFromDate(dates.first!) + " to " + DateFormatHelper.mediumDate().stringFromDate(dates.last!)
+            return "From " + DateFormatHelper.mediumDate().string(from: dates.first!) + " to " + DateFormatHelper.mediumDate().string(from: dates.last!)
         }
     }
 }

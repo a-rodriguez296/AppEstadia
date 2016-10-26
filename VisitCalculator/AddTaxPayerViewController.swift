@@ -19,7 +19,7 @@ class AddTaxPayerViewController: UIViewController {
     @IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
     
     
-    private let viewModel = AddTaxPayerViewModel()
+    fileprivate let viewModel = AddTaxPayerViewModel()
     
     
     
@@ -32,17 +32,16 @@ class AddTaxPayerViewController: UIViewController {
     
     //MARK: BOND
     func bindViewModel(){
-       
-        viewModel.firstLastName.bidirectionalBindTo(txtName.bnd_text)
-        viewModel.id.bidirectionalBindTo(txtId.bnd_text)
-        viewModel.validData.bindTo(btnDone.bnd_hidden)
         
-        btnDone.bnd_tap.bindTo(viewModel.btnDoneEvent)
+        viewModel.firstLastName.bidirectionalBind(to: txtName.bnd_text)
+        viewModel.id.bidirectionalBind(to: txtId.bnd_text)
+        viewModel.validData.bind(to: btnDone.bnd_isHidden)
+        btnDone.bnd_tap.bind(to: viewModel.btnDoneEvent)
         
         
-        viewModel.popViewController.observeNew {[unowned self] (flag) in
+        _ = viewModel.popViewController.observeNext {[unowned self] (flag) in
             if flag{
-                self.navigationController?.popViewControllerAnimated(true)
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
         

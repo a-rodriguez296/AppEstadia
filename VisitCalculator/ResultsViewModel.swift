@@ -11,13 +11,13 @@ import Bond
 class ResultsViewModel {
     
     
-    let selectedDate:NSDate
+    let selectedDate:Date
     let taxPayer:CDTaxPayer
     
     let datesCalculator:DatesCalculatorHelper
     
     
-    init(date:NSDate, payer: CDTaxPayer){
+    init(date:Date, payer: CDTaxPayer){
         selectedDate = date
         taxPayer = payer
         datesCalculator = DatesCalculatorHelper(endDate: selectedDate)
@@ -28,7 +28,7 @@ class ResultsViewModel {
         return datesCalculator.countDaysWithinTheLastYearWithArray(CDStay.staysOrderedByInitialDateWithTaxPayer(taxPayer))
     }
     
-    func remainingDaysWithCount(count: Int) -> Int{
+    func remainingDaysWithCount(_ count: Int) -> Int{
         return 182 - count
     }
     

@@ -20,9 +20,9 @@ class AddStayViewController: UIViewController {
     var currentButton:Int?
     
     
-    var datesArray:[NSDate]?
+    var datesArray:[Date]?
     
-    var timer:NSTimer?
+    var timer:Timer?
     
     @IBOutlet weak var lblArrivalDate: UILabel!
     @IBOutlet weak var lblDepartureDate: UILabel!
@@ -49,105 +49,110 @@ class AddStayViewController: UIViewController {
         super.viewDidLoad()
         
         let selectedCountryFlag = viewModel!.selectedCountry.map {[unowned self] country -> Bool in
-            self.btnAddStay.enabled = !country.countryName.isEmpty
+            self.btnAddStay.isEnabled = !country.countryName.isEmpty
             return !country.countryName.isEmpty}
-
-        selectedCountryFlag.observe {[unowned self] (flag) in
+        
+        selectedCountryFlag.observeNext {[unowned self] (flag) in
             
             self.btnAddStay.backgroundColor = flag ? UIColor.backgroundYellowColor() : UIColor.disabledGrayColor()
             
-        }
+            }.disposeIn(bnd_bag)
         
         //Buttons
-        btnBusiness.bnd_tap.bindTo(viewModel!.btnBusinessEvent)
-        btnVacations.bnd_tap.bindTo(viewModel!.btnVacationsEvent)
+        btnBusiness.bnd_tap.bind(to: viewModel!.btnBusinessEvent)
+        btnVacations.bnd_tap.bind(to: viewModel!.btnVacationsEvent)
         
-        btnArrivalDate.bnd_tap.bindTo(viewModel!.btnArrivalDateEvent)
-        btnDepartureDate.bnd_tap.bindTo(viewModel!.btnDepartureDateEvent)
+        btnArrivalDate.bnd_tap.bind(to: viewModel!.btnArrivalDateEvent)
+        btnDepartureDate.bnd_tap.bind(to: viewModel!.btnDepartureDateEvent)
         
         //Labels
         viewModel?.arrivalDate
             .map({
                 return DateFormatHelper.stringFromDate($0)
             })
-            .observe({[unowned self] (st) in
+            .observeNext(with: {[unowned self] (st) in
                 self.lblArrivalDate.text = st
                 })
+            .disposeIn(bnd_bag)
         
         viewModel?.departureDate
             .map({
                 return DateFormatHelper.stringFromDate($0)
             })
-            .observe({[unowned self] (st) in
+            .observeNext(with: {[unowned self] (st) in
                 self.lblDepartureDate.text = st
                 })
+            .disposeIn(bnd_bag)
         
         //Date picker visibility
         viewModel?.datePickerVisibility
-            .observe({[unowned self] (flag) in
-                self.datePicker.hidden = flag
-                self.btnAddStay.hidden = !flag
-                self.btnHelp.hidden = !flag
+            .observeNext(with: {[unowned self] (flag) in
+                self.datePicker.isHidden = flag
+                self.btnAddStay.isHidden = !flag
+                self.btnHelp.isHidden = !flag
                 
                 })
+            .disposeIn(bnd_bag)
         
-        datePicker.bnd_date.bindTo(viewModel!.genericDate)
+        datePicker.bnd_date.bind(to: viewModel!.genericDate)
         
         //Business vacations buttons
         viewModel?.stayType
-            .observe({[unowned self] (flag) in
-                self.btnBusiness.selected = flag
-                self.btnVacations.selected = !flag
+            .observeNext(with: {[unowned self] (flag) in
+                self.btnBusiness.isSelected = flag
+                self.btnVacations.isSelected = !flag
                 })
+        .disposeIn(bnd_bag)
         
         //Calendar buttons
         viewModel?.buttonsState
-            .observe({[unowned self] (state) in
+            .observeNext(with: {[unowned self] (state) in
                 switch state{
-                case .ArrivalDisabled:
-                    self.btnArrivalDate.enabled = false
-                case .DepartureDisabled:
-                    self.btnDepartureDate.enabled = false
-                case .BothEnabled:
-                    self.btnArrivalDate.enabled = true
-                    self.btnDepartureDate.enabled = true
+                case .arrivalDisabled:
+                    self.btnArrivalDate.isEnabled = false
+                case .departureDisabled:
+                    self.btnDepartureDate.isEnabled = false
+                case .bothEnabled:
+                    self.btnArrivalDate.isEnabled = true
+                    self.btnDepartureDate.isEnabled = true
                 }
                 })
+        .disposeIn(bnd_bag)
         
         //Done Button
-        btnAddStay.bnd_tap.bindTo(viewModel!.btnAddStayEvent)
+        btnAddStay.bnd_tap.bind(to: viewModel!.btnAddStayEvent)
         
         //Activity Indicator
-        viewModel?.performingCalculationsEvent.observeNew({ (flag) in
+        viewModel?.performingCalculationsEvent.observeNext(with: { (flag) in
             if flag{
                 //Mostrarlo
-                let progressHud = MBProgressHUD.showHUDAddedTo(UIApplication.sharedApplication().keyWindow!, animated: true)
-                progressHud.mode = .Indeterminate
+                let progressHud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+                progressHud.mode = .indeterminate
                 progressHud.label.text = "Performing Calculations"
             }
             else{
                 //Quitarlo
-                MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyWindow!, animated: true)
+                MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
             }
-        })
+        }).disposeIn(bnd_bag)
         
-        btnAddStay.bnd_enabled.bindTo(viewModel!.btnAddStayEnabled)
+        //btnAddStay.bnd_isEnabled.bind(signal: viewModel!.btnAddStayEnabled)
         
-        viewModel?.dismissVC.observeNew({ [unowned self](flag) in
+        viewModel?.dismissVC.observeNext(with: { [unowned self](flag) in
             if flag{
-                self.navigationController?.popViewControllerAnimated(true)
+                _ = self.navigationController?.popViewController(animated: true)
             }
-            })
+            }).disposeIn(bnd_bag)
         
         
         
         //Country Button
-        viewModel?.lblCountryText.bindTo(lblSelectedCountry.bnd_text)
-        
-        viewModel?.nonAcceptedDateEvent.observeNew({[unowned self] (date) in
+        viewModel?.lblCountryText.bind(to: lblSelectedCountry.bnd_text)
+        viewModel?.nonAcceptedDateEvent.observeNext(with: {[unowned self] (date) in
             
             self.presentNoNValidStayWithDate(date)
             })
+        .disposeIn(bnd_bag)
         
         showInitialAlert()
         title = viewModel!.title
@@ -168,11 +173,11 @@ class AddStayViewController: UIViewController {
     
     
     //MARK: IBActions
-    @IBAction func didTapOnTheScreen(sender: AnyObject) {
+    @IBAction func didTapOnTheScreen(_ sender: AnyObject) {
         viewModel!.dismissDatePicker()
     }
     
-    @IBAction func didTapSelectCountry(sender: AnyObject) {
+    @IBAction func didTapSelectCountry(_ sender: AnyObject) {
         stopTimer()
         
         let countriesVC = CountriesListViewController()
@@ -180,7 +185,7 @@ class AddStayViewController: UIViewController {
         navigationController?.pushViewController(countriesVC, animated: true)
     }
     
-    @IBAction func didTapOnHelp(sender: AnyObject) {
+    @IBAction func didTapOnHelp(_ sender: AnyObject) {
         stopTimer()
         presentInitialAlert(nil)
     }
@@ -192,7 +197,7 @@ class AddStayViewController: UIViewController {
         if viewModel!.initialAlertFlag{
             
             //Show initial alert
-            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(presentInitialAlert(_:)), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(presentInitialAlert(_:)), userInfo: nil, repeats: false)
         }
     }
     
@@ -201,18 +206,18 @@ class AddStayViewController: UIViewController {
         timer = nil
     }
     
-    func presentInitialAlert(timer:NSTimer?){
+    func presentInitialAlert(_ timer:Timer?){
         viewModel!.updateAlertFlag()
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Remember to include the date you arrieved and the date you left the country.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("Remember to include the date you arrieved and the date you left the country.", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .leftToRight)
     }
     
     func presentAlertNonValidDate(){
         //The user cannot enter a departure date smaller than the arrival date
-        SCLAlertView().showInfo("", subTitle: NSLocalizedString("You cannot enter a departure date that is earlier than the arrival date", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 4.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: NSLocalizedString("You cannot enter a departure date that is earlier than the arrival date", comment: ""), closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 4.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .leftToRight)
     }
     
-    func presentNoNValidStayWithDate(date: NSDate){
+    func presentNoNValidStayWithDate(_ date: Date){
         //If the date exists , show an alert controller
-        SCLAlertView().showInfo("", subTitle:String(format:NSLocalizedString("You have already added a stay with date %@. You cannot add the same date twice", comment: ""), DateFormatHelper.stringFromDate(date)) , closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle:String(format:NSLocalizedString("You have already added a stay with date %@. You cannot add the same date twice", comment: ""), DateFormatHelper.stringFromDate(date)) , closeButtonTitle: NSLocalizedString("Ok", comment: ""), duration: 5.0, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .leftToRight)
     }
 }

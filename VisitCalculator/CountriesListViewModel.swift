@@ -13,17 +13,17 @@ class CountriesListViewModel {
     let title = NSLocalizedString("Countries", comment: "")
     
     lazy var countriesArray:Array<(String,String)> = {
-        let locale = NSLocale.currentLocale()
-        let countryArray = NSLocale.ISOCountryCodes()
+        let locale = NSLocale.current
+        let countryArray = NSLocale.isoCountryCodes
         var unsortedCountryArray = Array<(String, String)>()
         for countryCode in countryArray {
-            let displayNameString = locale.displayNameForKey(NSLocaleCountryCode, value: countryCode)
+            let displayNameString = locale.localizedString(forCurrencyCode: countryCode)
             if displayNameString != nil {
                 let tuple = (displayNameString!, countryCode)
                 unsortedCountryArray.append(tuple)
             }
         }
-        return unsortedCountryArray.sort({ (tuple1, tuple2) -> Bool in
+        return unsortedCountryArray.sorted(by: { (tuple1, tuple2) -> Bool in
             return tuple1.0 < tuple2.0
         })
     }()
@@ -34,15 +34,15 @@ class CountriesListViewModel {
     init(){}
     
     
-    func filterCountriesWithText(text: String){
+    func filterCountriesWithText(_ text: String){
         
         filteredCountriesArray = countriesArray.filter({ (countryName, _) -> Bool in
-            return countryName.containsString(text) || countryName.lowercaseString.containsString(text)
+            return countryName.contains(text) || countryName.lowercased().contains(text)
         })
     }
     
     //This flag represents if the search controller is active
-    func countryTupleWithFlag(flag: Bool, indexPath: NSIndexPath) -> (String, String){
+    func countryTupleWithFlag(_ flag: Bool, indexPath: IndexPath) -> (String, String){
         if flag{
             let tuple = filteredCountriesArray[indexPath.row]
             return tuple

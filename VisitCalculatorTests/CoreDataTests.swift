@@ -35,9 +35,9 @@ class CoreDataTests: XCTestCase {
     
     func testAddDate (){
         
-        let _ = CDDate(date: NSDate().endOf(.Day),taxPayer: taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
-        let _ = CDDate(date: (NSDate() - 1.days).endOf(.Day),taxPayer: taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveOnlySelfAndWait()
+        let _ = CDDate(date: Date().endOf(.Day),taxPayer: taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDDate(date: (Date() - 1.days).endOf(.Day),taxPayer: taxPayer!, context: NSManagedObjectContext.MR_defaultContext())
+        NSManagedObjectContext.mr_default().mr_saveOnlySelfAndWait()
         
         XCTAssertTrue(2 == CDDate.MR_findAll()!.count)
         
@@ -46,9 +46,9 @@ class CoreDataTests: XCTestCase {
     
     func testAddStay(){
         
-        let _ = CDStay(dates: [NSDate().endOf(.Day)],taxPayer: taxPayer!,countryCode: colombiaCountryCode, stayType: true, context: NSManagedObjectContext.MR_defaultContext())
-        let _ = CDStay(dates: [(NSDate() - 1.days).endOf(.Day)],taxPayer: taxPayer! ,countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveOnlySelfAndWait()
+        let _ = CDStay(dates: [Date().endOf(.Day)],taxPayer: taxPayer!,countryCode: colombiaCountryCode, stayType: true, context: NSManagedObjectContext.MR_defaultContext())
+        let _ = CDStay(dates: [(Date() - 1.days).endOf(.Day)],taxPayer: taxPayer! ,countryCode: colombiaCountryCode,stayType: true, context: NSManagedObjectContext.MR_defaultContext())
+        NSManagedObjectContext.mr_default().mr_saveOnlySelfAndWait()
         
         XCTAssertTrue(2 == CDStay.MR_findAll()!.count)
     }
@@ -60,27 +60,27 @@ class CoreDataTests: XCTestCase {
 // HELPER FUNCTIONS
 //////////////////////////////////////////////
 
-private func generateDates0() -> Array<NSDate>{
+private func generateDates0() -> Array<Date>{
     
-    var datesArray = Array<NSDate>()
+    var datesArray = Array<Date>()
     for i in 0...10 {
         
-        let date = (NSDate() - i.days).endOf(.Day)
+        let date = (Date() - i.days).endOf(.Day)
         datesArray.append(date)
     }
-    return datesArray.reverse()
+    return datesArray.reversed()
 }
 
-private func generateDates1() -> Array<NSDate>{
-    var datesArray = Array<NSDate>()
+private func generateDates1() -> Array<Date>{
+    var datesArray = Array<Date>()
     
     
     for i in 11...20 {
         
-        let date = (NSDate() - i.days).endOf(.Day)
+        let date = (Date() - i.days).endOf(.Day)
         datesArray.append(date)
     }
-    return datesArray.reverse()
+    return datesArray.reversed()
 }
 
 

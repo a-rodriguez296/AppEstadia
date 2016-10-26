@@ -14,10 +14,10 @@ class CDDate: NSManagedObject {
     
     // Insert code here to add functionality to your managed object subclass
     
-    convenience init(date: NSDate, taxPayer: CDTaxPayer, context: NSManagedObjectContext){
+    convenience init(date: Date, taxPayer: CDTaxPayer, context: NSManagedObjectContext){
         
-        let entity = NSEntityDescription.entityForName(CDDate.MR_entityName(), inManagedObjectContext: context)
-        self.init(entity: entity!, insertIntoManagedObjectContext: context)
+        let entity = NSEntityDescription.entity(forEntityName: CDDate.mr_entityName(), in: context)
+        self.init(entity: entity!, insertInto: context)
         
         self.date = date
         self.taxPayer = taxPayer

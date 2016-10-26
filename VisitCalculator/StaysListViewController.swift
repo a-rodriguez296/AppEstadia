@@ -18,7 +18,7 @@ class StaysListViewController: UIViewController {
     
     var viewModel:StaysListViewModel?
     
-    var timer:NSTimer?
+    var timer:Timer?
     
 
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class StaysListViewController: UIViewController {
     }
     
     //MARK: Actions
-    @IBAction func didTapOnHelp(sender: AnyObject) {
+    @IBAction func didTapOnHelp(_ sender: AnyObject) {
         stopTimer()
         showAlert(nil)
     }
@@ -43,14 +43,14 @@ class StaysListViewController: UIViewController {
     
     //MARK: Helper functions
     func setupTableView(){
-        tableView.registerNib(UINib(nibName: Constants.Cells.Dates.datesCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.Dates.datesCell)
+        tableView.register(UINib(nibName: Constants.Cells.Dates.datesCell,  bundle: nil), forCellReuseIdentifier: Constants.Cells.Dates.datesCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 102
     }
     
-    func showAlert(timer: NSTimer?){
+    func showAlert(_ timer: Timer?){
         viewModel!.updateAlertFlag()
-        SCLAlertView().showInfo("", subTitle: viewModel!.alertMessage, closeButtonTitle:viewModel!.okComment, duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .LeftToRight)
+        SCLAlertView().showInfo("", subTitle: viewModel!.alertMessage, closeButtonTitle:viewModel!.okComment, duration: 9.5, colorStyle:  UInt(Constants.ColorsHex.yellow), colorTextButton: 1, circleIconImage: nil, animationStyle: .leftToRight)
 
     }
     
@@ -65,7 +65,7 @@ class StaysListViewController: UIViewController {
         if viewModel!.showInitialAlertFlag{
             
             //Show initial alert
-            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(showAlert(_:)), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(showAlert(_:)), userInfo: nil, repeats: false)
         }
     }
 }

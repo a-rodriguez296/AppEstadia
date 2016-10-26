@@ -23,11 +23,11 @@ class YearsConclusionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .None
+        selectionStyle = .none
     }
     
     
-    func initializeWithYearResponse(response: YearResponse){
+    func initializeWithYearResponse(_ response: YearResponse){
         
         yearResponse = response
         
@@ -36,7 +36,7 @@ class YearsConclusionCell: UITableViewCell {
         lblConclusion.text = response.description
         
         if let dateText = response.date{
-            lblDate.text = DateFormatHelper.yearResponseFormat().stringFromDate(dateText)
+            lblDate.text = DateFormatHelper.yearResponseFormat().string(from: dateText)
         }
     }
     
@@ -46,13 +46,13 @@ class YearsConclusionCell: UITableViewCell {
         if let response = yearResponse{
             
             if let _ = response.date{
-                NSLayoutConstraint.deactivateConstraints([lblYearCenterCst])
-                NSLayoutConstraint.activateConstraints([lblYearTopCst])
+                NSLayoutConstraint.deactivate([lblYearCenterCst])
+                NSLayoutConstraint.activate([lblYearTopCst])
             }
             else{
-                lblDate.hidden = true
-                NSLayoutConstraint.deactivateConstraints([lblYearTopCst])
-                NSLayoutConstraint.activateConstraints([lblYearCenterCst])
+                lblDate.isHidden = true
+                NSLayoutConstraint.deactivate([lblYearTopCst])
+                NSLayoutConstraint.activate([lblYearCenterCst])
             }
         }
     }

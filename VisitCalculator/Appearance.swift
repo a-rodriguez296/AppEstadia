@@ -17,18 +17,18 @@ class Appearance {
         //Color de la barra
         UINavigationBar.appearance().barTintColor = UIColor.backgroundYellowColor()
         
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().isTranslucent = false
         
         
         //Color de los botones
-        UINavigationBar.appearance().tintColor = .whiteColor()
+        UINavigationBar.appearance().tintColor = .white
         
         let navBarFont = UIFont(name: Constants.FontNames.SourceSansBold, size: 20)
         
         
         let navBarTitleTextAttributes:NSDictionary = NSDictionary(
-            objects: [UIColor.whiteColor(), navBarFont!],
-            forKeys: [NSForegroundColorAttributeName, NSFontAttributeName])
+            objects: [UIColor.white, navBarFont!],
+            forKeys: [NSForegroundColorAttributeName as NSCopying, NSFontAttributeName as NSCopying])
         
         
         
@@ -36,16 +36,16 @@ class Appearance {
         
         
         //Search Bar
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor.lightTextColor()
-        UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.detailTextColor()
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.lightText
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.detailTextColor()
         
         
         //UISegmentedControl
-        UISegmentedControl.appearanceWhenContainedInInstancesOfClasses([ContainerViewController.self]).tintColor = UIColor.backgroundYellowColor()
+        UISegmentedControl.appearance(whenContainedInInstancesOf: [ContainerViewController.self]).tintColor = UIColor.backgroundYellowColor()
         let enabledTitleTextAttributes = [NSForegroundColorAttributeName: UIColor.backgroundYellowColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
-        UISegmentedControl.appearance().setTitleTextAttributes(enabledTitleTextAttributes, forState: .Normal)
+        UISegmentedControl.appearance().setTitleTextAttributes(enabledTitleTextAttributes, for: UIControlState())
         
         let disabledTitleTextAttributes = [NSForegroundColorAttributeName: UIColor.disabledSegmentControlColor(), NSFontAttributeName:  UIFont(name: Constants.FontNames.SourceSansSemiBold, size: 16)!]
-        UISegmentedControl.appearance().setTitleTextAttributes(disabledTitleTextAttributes, forState: .Disabled) 
+        UISegmentedControl.appearance().setTitleTextAttributes(disabledTitleTextAttributes, for: .disabled) 
     }
 }

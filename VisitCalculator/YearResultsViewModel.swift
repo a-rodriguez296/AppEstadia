@@ -28,23 +28,23 @@ class YearResultsViewModel {
         
         self.performingCalculationsEvent.value = true
         
-        let priority = DISPATCH_QUEUE_PRIORITY_HIGH
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {[unowned self] () in
+        
+        DispatchQueue.global(qos: .background).async {[unowned self] () in
             
             // Get the oldestDate added by the user
             let oldestDate =  CDDateQueries.oldestDateWithTaxPayer(self.taxPayer)
             
             //Newest date last day of the year
-            let upperBound = CDDateQueries.newestDateWithTaxPayer(self.taxPayer).endOf(.Year).endOf(.Day)
+            let upperBound = CDDateQueries.newestDateWithTaxPayer(self.taxPayer).endOf(component: .year).endOf(component: .day)
             
             //Initialize DateCalculator with oldest date
             let dateCalculator = DatesCalculatorHelper(endDate: oldestDate)
             
             
             
-            self.responseArray.value = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer)).reverse()
+            self.responseArray.value = dateCalculator.consolidatedCalculations(upperBound, staysArray: CDStay.staysOrderedByInitialDateWithTaxPayer(self.taxPayer)).reversed()
             
-            dispatch_async(dispatch_get_main_queue()) {[unowned self] () in
+            DispatchQueue.main.async {[unowned self] () in
                 self.shouldReloadTable!()
                 self.performingCalculationsEvent.value = false
                 

@@ -11,18 +11,18 @@ import MagicalRecord
 class StaysListViewModel {
 
     let alertMessage = NSLocalizedString("In order for this app to work, you must add the dates you stayed in the country for the last and current year.", comment: "")
-    let showInitialAlertFlag = NSUserDefaults.standardUserDefaults().determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch)
+    let showInitialAlertFlag = UserDefaults.standard.determineFirstTimeWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch)
     let okComment = NSLocalizedString("Ok", comment: "")
     let deleteComment = NSLocalizedString("Delete", comment: "")
     
-    var fetchedResultsController:NSFetchedResultsController
+    var fetchedResultsController:NSFetchedResultsController<CDStay>
     
     
     
     init(taxPayer: CDTaxPayer){
         
         //fetchedResultsController initialization
-        let cdStaysFetchRequest = NSFetchRequest(entityName: CDStay.MR_entityName())
+        let cdStaysFetchRequest = NSFetchRequest<CDStay>(entityName: CDStay.mr_entityName())
         cdStaysFetchRequest.predicate = NSPredicate(format: "%K.%K == %@", "taxPayer", "name",taxPayer.name!)
         let primarySortDescriptor = NSSortDescriptor(key: "initialDate", ascending: false)
         cdStaysFetchRequest.sortDescriptors = [primarySortDescriptor]
@@ -30,7 +30,7 @@ class StaysListViewModel {
         
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: cdStaysFetchRequest,
-            managedObjectContext: NSManagedObjectContext.MR_defaultContext(),
+            managedObjectContext: NSManagedObjectContext.mr_default(),
             sectionNameKeyPath: nil,
             cacheName: nil)
     }
@@ -44,7 +44,7 @@ class StaysListViewModel {
         }
     }
     
-    func numberOfRowsInSection(section: Int) -> Int{
+    func numberOfRowsInSection(_ section: Int) -> Int{
         
         guard let sections = fetchedResultsController.sections else{
             return 0
@@ -53,15 +53,15 @@ class StaysListViewModel {
         return currentSection.numberOfObjects
     }
     
-    func objectAtIndexPath(indexPath: NSIndexPath) -> CDStay{
-        return fetchedResultsController.objectAtIndexPath(indexPath) as! CDStay
+    func objectAtIndexPath(_ indexPath: IndexPath) -> CDStay{
+        return fetchedResultsController.object(at: indexPath) 
     }
     
-    func deleteElement(element: CDStay){
-        element.MR_deleteEntityInContext(NSManagedObjectContext.MR_defaultContext())
+    func deleteElement(_ element: CDStay){
+        element.mr_deleteEntity(in: NSManagedObjectContext.mr_default())
     }
     
     func updateAlertFlag(){
-        NSUserDefaults.standardUserDefaults().updateValueWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch, value: true)
+        UserDefaults.standard.updateValueWithKey(Constants.NSUserDefaults.insertDatesVCInitialLaunch, value: true)
     }
 }

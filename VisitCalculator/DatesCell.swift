@@ -17,11 +17,11 @@ class DatesCell: MGSwipeTableCell {
     
 
     
-    func initializeCellWithStay(stay:CDStay){
+    func initializeCellWithStay(_ stay:CDStay){
         
         lblStayTitle.text = stay.descriptionString()
-        let locale = NSLocale.currentLocale()
-        lblStayDetail.text = String(format: NSLocalizedString("%i days in %@", comment: ""),stay.dates!.count,locale.displayNameForKey(NSLocaleCountryCode, value: stay.countryCode!)!)
+        let locale = Locale.current
+        lblStayDetail.text = String(format: NSLocalizedString("%i days in %@", comment: ""),stay.dates!.count,(locale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: stay.countryCode!)!)
         lblStayType.text = stay.type()
     }
     
